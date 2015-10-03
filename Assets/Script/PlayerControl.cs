@@ -1,16 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerControl : Character 
 {
-    [HideInInspector]
-    public bool facingRight = true;
     [HideInInspector]
     public bool jump = false;
 
-    public float moveForce = 300f;
-    public float maxSpeed = 2f;
-    public float jumpForce = 1000f;
+    public float jumpForce = 500;
 
     private Transform groundCheck;
     private bool grounded = false;
@@ -63,14 +59,5 @@ public class PlayerControl : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
             jump = false;
         }
-    }
-
-    void Flip()
-    {
-        facingRight = !facingRight;
-
-        Vector3 scale = transform.localScale;
-        scale.x = scale.x * -1;
-        transform.localScale = scale;
     }
 }
