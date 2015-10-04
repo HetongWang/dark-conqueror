@@ -5,13 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - ground
-  - Crate
   - Enemy
-  - Wall
-  - Obstacle
-  - Bullet
-  - BombPickup
-  - ExplosionFX
   - HealthBar
   layers:
   - Default
@@ -22,10 +16,10 @@ TagManager:
   - UI
   - 
   - 
-  - Bombs
+  - Static
   - Player
   - Enemies
-  - Pickups
+  - 
   - Ground
   - 
   - 

@@ -5,8 +5,7 @@ public class Character : MonoBehaviour {
     [HideInInspector]
     public bool facingRight = true;
 
-    public float moveForce = 300f;
-    public float maxSpeed = 2f;
+    public float maxSpeed = 4f;
 
     public int hp = 10;
 

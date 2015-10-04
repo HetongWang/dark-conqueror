@@ -6,11 +6,11 @@ public class Player : Character
     [HideInInspector]
     public bool jump = false;
 
-    public float jumpForce = 500;
+    public float jumpForce = 600;
 
     private Transform groundCheck;
     private bool grounded = false;
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D body;
 
     // Use this for initialization
     void Start()
@@ -21,7 +21,7 @@ public class Player : Character
     void Awake()
     {
         groundCheck = transform.Find("groundCheck");
-        rigidbody = GetComponent<Rigidbody2D>();
+        body = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -41,10 +41,10 @@ public class Player : Character
 
         // Control horizontal speed
         if (horInput != 0)
-            rigidbody.velocity = new Vector2(Mathf.Sign(horInput) * maxSpeed, rigidbody.velocity.y);
+            body.velocity = new Vector2(Mathf.Sign(horInput) * maxSpeed, body.velocity.y);
         else
         {
-            rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
+            body.velocity = new Vector2(0, body.velocity.y);
         }
 
         // Change facing direct
@@ -56,7 +56,7 @@ public class Player : Character
         // Jump
         if (jump)
         {
-            rigidbody.AddForce(new Vector2(0, jumpForce));
+            body.AddForce(new Vector2(0, jumpForce));
             jump = false;
         }
     }
