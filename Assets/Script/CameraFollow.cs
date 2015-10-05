@@ -28,7 +28,7 @@ public class CameraFollow : MonoBehaviour
         return Mathf.Abs(transform.position.y - player.position.y) > yMargin;
     }
 
-    void LateUpdate()
+    void Update()
     {
         float targetX = transform.position.x;
         float targetY = transform.position.y;
