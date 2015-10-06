@@ -7,6 +7,7 @@ public class Player : Character
     public bool jump = false;
 
     public float jumpForce = 600;
+    public GameObject basicAttack;
 
     private Transform groundCheck;
     private bool grounded = false;
@@ -59,5 +60,15 @@ public class Player : Character
             body.AddForce(new Vector2(0, jumpForce));
             jump = false;
         }
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            BasicAttack();
+        }
+    }
+
+    void BasicAttack()
+    {
+        Instantiate(basicAttack, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
     }
 }
