@@ -26,4 +26,11 @@ public class Character : MonoBehaviour {
     {
         hp -= amount;
     }
+
+    public void AliveOrDie()
+    {
+        if (hp <= 0)
+            Destroy(gameObject);
+    }
+
 }
