@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class Attack : MonoBehaviour {
+public class BasicAttack : MonoBehaviour {
 
     private List<GameObject> hurted;
+    public string targetTag = "Enemy";
 
     void Awake()
     {
@@ -13,8 +14,7 @@ public class Attack : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("attack");
-        if (col.tag == "Enemy")
+        if (col.tag == targetTag)
         {
             foreach (GameObject i in hurted)
             {
@@ -24,7 +24,7 @@ public class Attack : MonoBehaviour {
                 }
             }
 
-            col.gameObject.GetComponent<MooControl>().Hurt();
+            col.gameObject.GetComponent<Character>().Hurt();
             hurted.Add(col.gameObject);
         }
     } 

@@ -3,15 +3,8 @@ using System.Collections;
 
 public class Player : Character 
 {
-    [HideInInspector]
-    public bool jump = false;
-
-    public float jumpForce = 600;
+    protected bool jumped = false;
     public GameObject basicAttack;
-
-    private Transform groundCheck;
-    private bool grounded = false;
-    private Rigidbody2D body;
 
     // Use this for initialization
     void Start()
@@ -19,46 +12,29 @@ public class Player : Character
 
     }
 
-    void Awake()
+    public override void Awake()
     {
-        groundCheck = transform.Find("groundCheck");
-        body = GetComponent<Rigidbody2D>();
+        base.Awake();
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
-        // Check if grounded
-        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-        if (Input.GetButtonDown("Jump") && grounded)
-        {
-            jump = true;
-        }
+        base.Update();
+        if (Input.GetButtonDown("Jump"))
+            jumped = true;
     }
 
     void FixedUpdate()
     {
         float horInput = Input.GetAxisRaw("Horizontal");
-
-        // Control horizontal speed
-        if (horInput != 0)
-            body.velocity = new Vector2(Mathf.Sign(horInput) * maxSpeed, body.velocity.y);
-        else
-        {
-            body.velocity = new Vector2(0, body.velocity.y);
-        }
-
-        // Change facing direct
-        if ((horInput > 0 && !facingRight) || (horInput < 0 && facingRight))
-        {
-            Flip();
-        }
+        move(horInput);
 
         // Jump
-        if (jump)
+        if (jumped)
         {
-            body.AddForce(new Vector2(0, jumpForce));
-            jump = false;
+            jump();
+            jumped = false;
         }
 
         if (Input.GetButtonDown("Fire1"))
