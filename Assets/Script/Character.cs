@@ -4,7 +4,7 @@ using System.Collections;
 public class Character : MonoBehaviour {
     [HideInInspector]
     public bool facingRight = true;
-    public float moveSpeed = 4f;
+    public float moveSpeed = 3f;
 
     public float jumpForce = 600;
     protected Transform groundCheck;
@@ -53,7 +53,7 @@ public class Character : MonoBehaviour {
     {
         // Control horizontal speed
         if (horInput != 0)
-            body.velocity = new Vector2(Mathf.Sign(horInput) * moveSpeed, body.velocity.y);
+            body.velocity = new Vector2(horInput * moveSpeed, body.velocity.y);
         else
         {
             body.velocity = new Vector2(0, body.velocity.y);
