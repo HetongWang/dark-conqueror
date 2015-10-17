@@ -16,6 +16,7 @@ public class Character : MonoBehaviour {
     public virtual void Awake()
     {
         body = GetComponent<Rigidbody2D>();
+        body.freezeRotation = true;
         groundCheck = transform.Find("groundCheck");
     }
 

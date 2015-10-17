@@ -1,30 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum moveMode { attack, guard };
 
 public class BasicAI {
+    protected enum moveMode { attack, guard };
 
-    protected GameObject[] players = GameObject.FindGameObjectsWithTag("player");
+    protected GameObject[] players;
     protected moveMode mode;
-    public bool moveToRight = true;
+    protected bool moveToRight = true;
     protected Vector3 initPosition;
     protected Vector3 position;
 
-    public float viewRange = 2;
-    public float guardRange = 1;
-    public float distantToPlayer = 0.3f;
+    public float viewRange = 3;
+    public float guardRange = 3;
+    public float distantToPlayer = 2f;
 
-    public float normalAttackRange = 0.3f;
+    public float normalAttackRange = 3f;
 
     public BasicAI(Vector3 t)
     {
         position = t;
+        players = GameObject.FindGameObjectsWithTag("Player");
         initPosition = position;
         mode = moveMode.guard;
     }
 
-    public GameObject seekPlayer()
+    protected GameObject seekPlayer()
     {
         GameObject res = players[0];
         float minDis = Vector3.Distance(players[0].transform.position, position);
@@ -41,19 +42,26 @@ public class BasicAI {
 
         if (minDis <= viewRange)
             mode = moveMode.attack;
+        else
+        {
+            mode = moveMode.guard;
+        }
 
         return res;
     }
 
     protected float guardMovement()
     {
-        float res = -1;
-        if (moveToRight)
-            res = 1;
-
+        float res;
         if (Mathf.Abs(position.x - initPosition.x) > guardRange)
             moveToRight = !moveToRight;
 
+        if (moveToRight)
+            res = 1;
+        else
+            res = -1;
+
+        Debug.Log(Mathf.Abs(position.x - initPosition.x));
         return res;
     }
 
@@ -73,7 +81,7 @@ public class BasicAI {
     }
 	
 	// Update is called once per frame
-	public virtual float horMove (Vector3 pos) {
+	public float horMove (Vector3 pos) {
         position = pos;
         GameObject player = seekPlayer();
         float movement = 0;
