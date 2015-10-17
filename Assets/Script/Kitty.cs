@@ -8,17 +8,20 @@ public class Kitty: Character
     public override void Awake()
     {
         base.Awake();
-        hp = 3;
+        facingRight = false;
+        hp = 30;
         ai = new BasicAI(transform.position);
     }
 
     public override void Update()
     {
         base.Update();
+        AliveOrDie();
     }
 
     void FixedUpdate()
     {
-
+        float horMove = ai.horMove(transform.position);
+        move(horMove);
     }
 }

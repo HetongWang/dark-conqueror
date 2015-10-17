@@ -38,7 +38,6 @@ public class Player : Character
 
     void FixedUpdate()
     {
-        Debug.Log(dashed);
         float horInput = Input.GetAxisRaw("Horizontal");
         // Detect if dash
         if (dashed)
