@@ -98,8 +98,9 @@ public class Player : Character
             buttonCooler.Add(key, 0);
             buttonCount.Add(key, 0);
         }
-         List<string> keys = new List<string> (buttonCooler.Keys);
-        foreach( string s in keys)
+
+        List<string> keys = new List<string> (buttonCooler.Keys);
+        foreach (string s in keys)
         {
             if (buttonCooler[s] > 0)
                 buttonCooler[s] -= Time.deltaTime;

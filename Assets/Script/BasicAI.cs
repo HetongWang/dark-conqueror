@@ -17,11 +17,10 @@ public class BasicAI {
 
     public float normalAttackRange = 3f;
 
-    public BasicAI(Vector3 t)
+    public BasicAI(Vector3 position)
     {
-        position = t;
+        this.position = initPosition = position;
         players = GameObject.FindGameObjectsWithTag("Player");
-        initPosition = position;
         mode = moveMode.guard;
     }
 
@@ -61,7 +60,6 @@ public class BasicAI {
         else
             res = -1;
 
-        Debug.Log(Mathf.Abs(position.x - initPosition.x));
         return res;
     }
 
@@ -76,6 +74,13 @@ public class BasicAI {
                 res = -1;
             else if (dis < 0)
                 res = 1;
+        }
+        else
+        {
+            if (dis > 0.2)
+                res = -0.01f;
+            else if (dis < 0.2)
+                res = 0.01f;
         }
         return res;
     }
