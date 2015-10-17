@@ -1,0 +1,217 @@
+fileFormatVersion: 2
+guid: 1291d384087ce37489370bb4463c2b97
+timeCreated: 1445074760
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: kitty_0
+    21300002: kitty_1
+    21300004: kitty_2
+    21300006: kitty_3
+    21300008: kitty_4
+    21300010: kitty_5
+    21300012: kitty_6
+    21300014: kitty_7
+    21300016: kitty_8
+    21300018: kitty_9
+    21300020: kitty_10
+    21300022: kitty_11
+    21300024: kitty_12
+    21300026: kitty_13
+    21300028: kitty_14
+    21300030: kitty_15
+    21300032: kitty_16
+    21300034: kitty_17
+    21300036: kitty_18
+    21300038: kitty_19
+    21300040: kitty_20
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: kitty_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1550
+        width: 364
+        height: 498
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_1
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1550
+        width: 364
+        height: 498
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_2
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 1551
+        width: 364
+        height: 497
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_3
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 1550
+        width: 364
+        height: 498
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_4
+      rect:
+        serializedVersion: 2
+        x: 1684
+        y: 1551
+        width: 361
+        height: 497
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1031
+        width: 360
+        height: 497
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_6
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 1031
+        width: 362
+        height: 497
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_7
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 1031
+        width: 361
+        height: 497
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_8
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 1029
+        width: 362
+        height: 498
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_9
+      rect:
+        serializedVersion: 2
+        x: 1684
+        y: 1029
+        width: 361
+        height: 498
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 504
+        width: 360
+        height: 497
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_11
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 502
+        width: 362
+        height: 498
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_12
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 504
+        width: 363
+        height: 498
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_13
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 502
+        width: 364
+        height: 498
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
