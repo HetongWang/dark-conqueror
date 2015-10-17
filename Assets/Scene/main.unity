@@ -381,11 +381,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6124164, guid: db9eabb83530ff2489cdb6ef03d92364, type: 2}
       propertyPath: m_Size.y
-      value: 5.01603794
+      value: 4.68838358
       objectReference: {fileID: 0}
     - target: {fileID: 6124164, guid: db9eabb83530ff2489cdb6ef03d92364, type: 2}
       propertyPath: m_Size.x
-      value: 3.69695187
+      value: 3.55652928
       objectReference: {fileID: 0}
     - target: {fileID: 170326, guid: db9eabb83530ff2489cdb6ef03d92364, type: 2}
       propertyPath: m_Name
@@ -402,7 +402,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6124164, guid: db9eabb83530ff2489cdb6ef03d92364, type: 2}
       propertyPath: m_Offset.y
-      value: .0691970512
+      value: .233024254
       objectReference: {fileID: 0}
     - target: {fileID: 414376, guid: db9eabb83530ff2489cdb6ef03d92364, type: 2}
       propertyPath: m_LocalPosition.x
@@ -411,6 +411,14 @@ Prefab:
     - target: {fileID: 414376, guid: db9eabb83530ff2489cdb6ef03d92364, type: 2}
       propertyPath: m_LocalPosition.y
       value: -2.6500001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124164, guid: db9eabb83530ff2489cdb6ef03d92364, type: 2}
+      propertyPath: m_Offset.x
+      value: -.0234036818
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045064, guid: db9eabb83530ff2489cdb6ef03d92364, type: 2}
+      propertyPath: m_Constraints
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db9eabb83530ff2489cdb6ef03d92364, type: 2}
@@ -436,6 +444,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &901141390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 901141384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efebd41c7cbbcef469464f38c27008c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facingRight: 1
+  moveSpeed: 3
+  jumpForce: 600
+  hp: 10
 --- !u!1001 &1449263204
 Prefab:
   m_ObjectHideFlags: 0

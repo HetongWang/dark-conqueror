@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class Character : MonoBehaviour {
     [HideInInspector]
@@ -13,6 +13,8 @@ public class Character : MonoBehaviour {
     public int hp = 10;
     protected Rigidbody2D body;
 
+    protected Dictionary<string, float> skillCooler = new Dictionary<string, float>();
+
     public virtual void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -24,7 +26,20 @@ public class Character : MonoBehaviour {
     {
         // Check if grounded
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        updateSkillCD();
     }
+
+    private void updateSkillCD()
+    {
+        List<string> keys = new List<string> (skillCooler.Keys);
+        foreach (string s in keys)
+        {
+            if (skillCooler[s] > 0)
+                skillCooler[s] -= Time.deltaTime;
+        }
+    }
+
+
 
     protected void Flip()
     {
