@@ -13,7 +13,8 @@ public class Character : MonoBehaviour {
     public int hp = 10;
     protected Rigidbody2D body;
 
-    protected Dictionary<string, float> skillCooler = new Dictionary<string, float>();
+    public Dictionary<string, float> skillCooler = new Dictionary<string, float>();
+    public Dictionary<string, float> skillRange= new Dictionary<string, float>();
 
     public virtual void Awake()
     {
@@ -26,6 +27,7 @@ public class Character : MonoBehaviour {
     {
         // Check if grounded
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        AliveOrDie();
         updateSkillCD();
     }
 
