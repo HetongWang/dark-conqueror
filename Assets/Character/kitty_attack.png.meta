@@ -1,23 +1,24 @@
 fileFormatVersion: 2
 guid: 642b595562485924cb6c756b2b6be171
-timeCreated: 1445149983
+timeCreated: 1445156987
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: meowstab3
     21300002: meowstab6
     21300004: meowstab7
-    21300006: kitty_attack_6
+    21300006: kitty_attack_3
     21300008: kitty_attack_1
-    21300010: kitty_attack_5
-    21300012: kitty_attack_2
-    21300014: kitty_attack_4
-    21300016: kitty_attack_3
-    21300018: kitty_attack_0
+    21300010: kitty_attack_1
+    21300012: kitty_attack_5
+    21300014: kitty_attack_2
+    21300016: kitty_attack_4
+    21300018: kitty_attack_7
+    21300020: kitty_attack_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -60,23 +61,13 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: kitty_attack_6
+    - name: kitty_attack_7
       rect:
         serializedVersion: 2
         x: 0
-        y: 3166
-        width: 1267
-        height: 928
-      alignment: 7
-      pivot: {x: .5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: kitty_attack_1
-      rect:
-        serializedVersion: 2
-        x: 2104
-        y: 1142
-        width: 819
-        height: 1027
+        y: 1580
+        width: 633
+        height: 467
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -84,29 +75,29 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2224
-        width: 1265
-        height: 930
+        y: 1109
+        width: 632
+        height: 468
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_attack_2
       rect:
         serializedVersion: 2
-        x: 1268
-        y: 2181
-        width: 841
-        height: 973
+        x: 634
+        y: 1087
+        width: 420
+        height: 492
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: kitty_attack_4
+    - name: kitty_attack_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1270
-        width: 1241
-        height: 944
+        x: 1052
+        y: 574
+        width: 409
+        height: 511
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,19 +105,29 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 308
-        width: 1193
-        height: 952
+        y: 631
+        width: 621
+        height: 476
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_attack_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 148
+        width: 601
+        height: 480
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_attack_0
       rect:
         serializedVersion: 2
-        x: 1198
-        y: 222
-        width: 901
-        height: 1035
+        x: 604
+        y: 107
+        width: 447
+        height: 521
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
