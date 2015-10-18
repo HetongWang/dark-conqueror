@@ -3,23 +3,23 @@ using System.Collections;
 
 
 public class BasicAI {
+    protected Character person;
     protected enum moveMode { attack, guard };
 
     protected GameObject[] players;
     protected moveMode mode;
     protected bool moveToRight = true;
     protected Vector3 initPosition;
-    protected Vector3 position;
 
     public float viewRange = 3;
     public float guardRange = 3;
     public float distantToPlayer = 2f;
+    public GameObject targetPlayer;
 
-    public float normalAttackRange = 3f;
-
-    public BasicAI(Vector3 position)
+    public BasicAI(Character person)
     {
-        this.position = initPosition = position;
+        this.person = person;
+        initPosition = person.transform.position;
         players = GameObject.FindGameObjectsWithTag("Player");
         mode = moveMode.guard;
     }
@@ -27,15 +27,16 @@ public class BasicAI {
     protected GameObject seekPlayer()
     {
         GameObject res = players[0];
-        float minDis = Vector3.Distance(players[0].transform.position, position);
+        targetPlayer = players[0];
+        float minDis = Vector3.Distance(players[0].transform.position, person.transform.position);
 
         for (int i = 1; i < players.Length; i++)
         {
-            float dis = Vector3.Distance(players[i].transform.position, position);
+            float dis = Vector3.Distance(players[i].transform.position, person.transform.position);
             if (dis < minDis)
             {
                 minDis = dis;
-                res = players[i];
+                res = targetPlayer = players[i];
             }
         }
 
@@ -52,7 +53,7 @@ public class BasicAI {
     protected float guardMovement()
     {
         float res;
-        if (Mathf.Abs(position.x - initPosition.x) > guardRange)
+        if (Mathf.Abs(person.transform.position.x - initPosition.x) > guardRange)
             moveToRight = !moveToRight;
 
         if (moveToRight)
@@ -67,7 +68,7 @@ public class BasicAI {
     {
         float res = 0;
 
-        float dis = position.x - player.transform.position.x;
+        float dis = person.transform.position.x - player.transform.position.x;
         if (Mathf.Abs(dis) > distantToPlayer)
         {
             if (dis > 0)
@@ -87,7 +88,6 @@ public class BasicAI {
 	
 	// Update is called once per frame
 	public float horMove (Vector3 pos) {
-        position = pos;
         GameObject player = seekPlayer();
         float movement = 0;
 
