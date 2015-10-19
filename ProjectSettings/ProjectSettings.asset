@@ -9,7 +9,7 @@ PlayerSettings:
   targetDevice: 2
   targetResolution: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Team3+1
   productName: _2D v3
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
