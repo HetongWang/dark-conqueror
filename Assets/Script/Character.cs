@@ -13,8 +13,10 @@ public class Character : MonoBehaviour {
     public int hp = 10;
     protected Rigidbody2D body;
 
+    protected bool acting = false;
     public Dictionary<string, float> skillCooler = new Dictionary<string, float>();
     public Dictionary<string, float> skillRange= new Dictionary<string, float>();
+    public Dictionary<string, float> skillDuration = new Dictionary<string, float>();
 
     public virtual void Awake()
     {
@@ -65,6 +67,14 @@ public class Character : MonoBehaviour {
     {
         if (hp <= 0)
             Destroy(gameObject);
+    }
+
+    public void run(float horInput)
+    {
+        if (!acting)
+        {
+            move(horInput);
+        }
     }
 
     public void move(float horInput)
