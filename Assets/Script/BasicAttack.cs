@@ -5,14 +5,17 @@ public class BasicAttack : MonoBehaviour {
 
     private List<GameObject> hurted;
     public string targetTag = "Enemy";
+    public float demage = 1;
+    static public float duration = 0.6f;
+    static public float cd = 2;
 
-    void Awake()
+    public virtual void Awake()
     {
         hurted = new List<GameObject>();
-        Destroy(gameObject, 0.2f);
+        Destroy(gameObject, duration);
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    public virtual void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == targetTag)
         {

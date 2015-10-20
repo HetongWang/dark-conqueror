@@ -7,7 +7,8 @@ public class BasicAI {
     protected enum moveMode { attack, guard };
 
     protected GameObject[] players;
-    protected moveMode mode;
+    protected moveMode movementMode;
+    protected bool acting;
     protected bool moveToRight = true;
     protected Vector3 initPosition;
 
@@ -21,7 +22,7 @@ public class BasicAI {
         this.person = person;
         initPosition = person.transform.position;
         players = GameObject.FindGameObjectsWithTag("Player");
-        mode = moveMode.guard;
+        movementMode = moveMode.guard;
     }
 
     protected GameObject seekPlayer()
@@ -41,10 +42,10 @@ public class BasicAI {
         }
 
         if (minDis <= viewRange)
-            mode = moveMode.attack;
+            movementMode = moveMode.attack;
         else
         {
-            mode = moveMode.guard;
+            movementMode = moveMode.guard;
         }
 
         return res;
@@ -64,7 +65,7 @@ public class BasicAI {
         return res;
     }
 
-    protected float attactMovement(GameObject player)
+    protected float attackMovement(GameObject player)
     {
         float res = 0;
 
@@ -91,10 +92,10 @@ public class BasicAI {
         GameObject player = seekPlayer();
         float movement = 0;
 
-        switch (mode)
+        switch (movementMode)
         {
             case moveMode.attack:
-                movement = attactMovement(player);
+                movement = attackMovement(player);
                 break;
             case moveMode.guard:
                 movement = guardMovement();

@@ -42,7 +42,7 @@ public class Player : Character
         // Detect if dash
         if (dashed)
             horInput *= dashSpeed;
-        move(horInput);
+        run(horInput);
 
         // Jump
         if (jumped)
