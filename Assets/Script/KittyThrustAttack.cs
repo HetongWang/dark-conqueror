@@ -3,15 +3,18 @@ using System.Collections;
 
 public class KittyThrustAttack : BasicAttack {
 
-    static public float range = 3f;
+    static public float Range = 3f;
+    static public float Demage = 1;
+    static public float Duration = 0.6f;
+    static public float CD = 2;
 
     public override void Awake()
     {
+        _duration = Duration;
+        _demage = Demage;
+        _cd = CD;
         base.Awake();
         targetTag = "Player";
-        demage = 2;
-        duration = 0.6f;
-        cd = 2f;
     }
 
     public override void OnTriggerEnter2D(Collider2D col)
