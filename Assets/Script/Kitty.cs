@@ -5,36 +5,23 @@ public class Kitty: Character
 {
     private KittyAI ai;
 
-    public GameObject thrustAttackScript;
-    protected int animAttack;
+    public GameObject thrustAttackPrefab;
     protected Animator anim;
 
     public override void Awake()
     {
         base.Awake();
-        addSkills();
+        addSkill("thrust", thrustAttack, KittyThrustAttack.CD);
         facingRight = false;
         hp = 30;
         ai = new KittyAI(this);
         anim = GetComponent<Animator>();
     }
 
-    void addSkills()
-    {
-        string name = "thrust";
-        skillCooler.Add(name, 2);
-    }
-
     public override void Update()
     {
         base.Update();
-        string attack = ai.attack();
-        switch (attack)
-        {
-            case "thrust":
-                thrustAttack();
-                break;
-        }
+        useSkill(ai.attack(), KittyThrustAttack.CD);
     }
 
     void FixedUpdate()
@@ -52,9 +39,10 @@ public class Kitty: Character
             position.x += KittyThrustAttack.Range;
         else
             position.x -= KittyThrustAttack.Range;
-        Instantiate(thrustAttackScript, position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        Instantiate(thrustAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
 
         yield return new WaitForSeconds(KittyThrustAttack.Duration);
         anim.SetInteger("attack", 0);
+        yield break;
     }
 }

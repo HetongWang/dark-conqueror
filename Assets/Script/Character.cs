@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class Character : MonoBehaviour {
@@ -13,7 +14,9 @@ public class Character : MonoBehaviour {
     public float hp = 10;
     protected Rigidbody2D body;
 
+    public delegate IEnumerator skillFunction();
     protected bool acting = false;
+    protected Dictionary<string, skillFunction> skills = new Dictionary<string, skillFunction>();
     public Dictionary<string, float> skillCooler = new Dictionary<string, float>();
 
     public virtual void Awake()
@@ -103,5 +106,20 @@ public class Character : MonoBehaviour {
     {
         if (grounded)
             body.AddForce(new Vector2(0, jumpForce));
+    }
+
+    protected void addSkill(string name, skillFunction f, float cd)
+    {
+        skills.Add(name, f);
+        skillCooler.Add(name, cd);
+    }
+
+    public void useSkill(string name, float cd)
+    {
+        if (name != null && skillCooler[name] <= 0)
+        {
+            StartCoroutine(skills[name]());
+            skillCooler[name] = cd; 
+        }
     }
 }
