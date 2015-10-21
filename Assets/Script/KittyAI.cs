@@ -14,7 +14,7 @@ public class KittyAI : BasicAI {
         if (targetPlayer)
         {
             float dis = Mathf.Abs(targetPlayer.transform.position.x - person.transform.position.x);
-            if (dis < person.skillRange["thrust"] && person.skillCooler["thrust"] <= 0)
+            if (dis < KittyThrustAttack.Range && person.skillCooler["thrust"] <= 0)
             {
                 skillName = "thrust";
             }

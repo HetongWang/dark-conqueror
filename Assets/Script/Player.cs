@@ -8,7 +8,7 @@ public class Player : Character
 
     public float dashSpeed = 2f;
 
-    public GameObject basicAttack;
+    public GameObject normalAttack;
 
     protected Dictionary<string, int> buttonCount;
     protected Dictionary<string, float> buttonCooler;
@@ -53,13 +53,13 @@ public class Player : Character
 
         if (Input.GetButtonDown("Fire1"))
         {
-            BasicAttack();
+            doNormalAttack();
         }
     }
 
-    void BasicAttack()
+    void doNormalAttack()
     {
-        Instantiate(basicAttack, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        Instantiate(normalAttack, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
     }
 
     void Dash()

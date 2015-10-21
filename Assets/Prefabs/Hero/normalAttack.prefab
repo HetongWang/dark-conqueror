@@ -50,7 +50,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 183768}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3296abb5c352d01448d2d72729db853b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0796d2ec6dfac6a41b6d37db387c3bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Enemy

@@ -10,13 +10,11 @@ public class Character : MonoBehaviour {
     protected Transform groundCheck;
     protected bool grounded = false;
 
-    public int hp = 10;
+    public float hp = 10;
     protected Rigidbody2D body;
 
     protected bool acting = false;
     public Dictionary<string, float> skillCooler = new Dictionary<string, float>();
-    public Dictionary<string, float> skillRange= new Dictionary<string, float>();
-    public Dictionary<string, float> skillDuration = new Dictionary<string, float>();
 
     public virtual void Awake()
     {
@@ -54,11 +52,7 @@ public class Character : MonoBehaviour {
         transform.localScale = scale;
     }
 
-    public void Hurt()
-    {
-        hp--;
-    }
-    public void Hurt(int amount)
+    public void Hurt(float amount = 0)
     {
         hp -= amount;
     }

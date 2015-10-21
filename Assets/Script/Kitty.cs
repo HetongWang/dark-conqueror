@@ -23,8 +23,6 @@ public class Kitty: Character
     {
         string name = "thrust";
         skillCooler.Add(name, 2);
-        skillRange.Add(name, 3);
-        skillDuration.Add(name, 0.083f);
     }
 
     public override void Update()
@@ -51,12 +49,12 @@ public class Kitty: Character
         anim.SetInteger("attack", 1);
 
         if (facingRight)
-            position.x += skillRange["thrust"];
+            position.x += KittyThrustAttack.Range;
         else
-            position.x -= skillRange["thrust"];
+            position.x -= KittyThrustAttack.Range;
         Instantiate(thrustAttackScript, position, Quaternion.Euler(new Vector3(0, 0, 0)));
 
-        yield return new WaitForSeconds(KittyThrustAttack.duration);
+        yield return new WaitForSeconds(KittyThrustAttack.Duration);
         anim.SetInteger("attack", 0);
     }
 }

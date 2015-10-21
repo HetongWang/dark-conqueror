@@ -132,6 +132,10 @@ Prefab:
       propertyPath: m_Size.y
       value: 4.78178167
       objectReference: {fileID: 0}
+    - target: {fileID: 11405504, guid: 93ad8b7ccd0b27148acbb7ca8ce2731c, type: 2}
+      propertyPath: thrustAttackScript
+      value: 
+      objectReference: {fileID: 121260, guid: 860e18ce3931a8345b0861247c6ff518, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 93ad8b7ccd0b27148acbb7ca8ce2731c, type: 2}
   m_IsPrefabParent: 0
@@ -492,6 +496,10 @@ Prefab:
       propertyPath: moveSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11407896, guid: da274f40a2729d643a34e7c9d5fe3aaa, type: 2}
+      propertyPath: normalAttack
+      value: 
+      objectReference: {fileID: 183768, guid: 284fc0c03170d8f478951f32c2dc30ee, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da274f40a2729d643a34e7c9d5fe3aaa, type: 2}
   m_IsPrefabParent: 0
