@@ -45,6 +45,8 @@ public class BasicAI {
             movementMode = moveMode.attack;
         else
         {
+            if (movementMode == moveMode.attack)
+                initPosition = person.transform.position;
             movementMode = moveMode.guard;
         }
 
