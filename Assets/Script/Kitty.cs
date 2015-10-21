@@ -36,12 +36,12 @@ public class Kitty: Character
         anim.SetInteger("attack", 1);
 
         if (facingRight)
-            position.x += KittyThrustAttack.Range;
+            position.x += KittyThrustAttack.Range / 2;
         else
-            position.x -= KittyThrustAttack.Range;
+            position.x -= KittyThrustAttack.Range / 2;
         Instantiate(thrustAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
-
         yield return new WaitForSeconds(KittyThrustAttack.Duration);
+
         anim.SetInteger("attack", 0);
         yield break;
     }
