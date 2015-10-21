@@ -118,6 +118,7 @@ public class Character : MonoBehaviour {
     {
         if (name != null && skillCooler[name] <= 0)
         {
+            acting = true;
             StartCoroutine(skills[name]());
             skillCooler[name] = cd; 
         }
