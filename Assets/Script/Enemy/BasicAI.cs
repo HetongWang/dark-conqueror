@@ -14,7 +14,7 @@ public class BasicAI {
 
     public float viewRange = 3;
     public float guardRange = 3;
-    public float distantToPlayer = 2f;
+    public float distantToPlayer = 1f;
     public GameObject targetPlayer;
 
     public BasicAI(Character person)
