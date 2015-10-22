@@ -9,10 +9,12 @@ public class Player : Character
     public float dashSpeed = 2f;
 
     public GameObject normalAttack;
+    public GameObject hpSlider;
 
     protected Dictionary<string, int> buttonCount;
     protected Dictionary<string, float> buttonCooler;
     protected float buttonCoolerTime = 0.5f;
+
 
     // Use this for initialization
     void Start()

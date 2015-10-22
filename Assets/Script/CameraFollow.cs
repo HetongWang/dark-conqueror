@@ -7,6 +7,7 @@ public class CameraFollow : MonoBehaviour
     public float yMargin = 0.3f;
     public Vector3 velocity = Vector3.zero;
     public float delay = 0.2f;
+    public float xOffset = 3f;
 
     public Vector2 minXAndY = new Vector2(-2, 0);
     public Vector2 maxXAndY = new Vector2(5, 5);
@@ -16,6 +17,8 @@ public class CameraFollow : MonoBehaviour
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        Vector3 initPosition = new Vector3(player.position.x + xOffset, player.position.y, transform.position.z);
+        transform.position = initPosition;
     }
 
     bool CheckXMargin()
