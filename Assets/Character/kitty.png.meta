@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1291d384087ce37489370bb4463c2b97
-timeCreated: 1445156242
+timeCreated: 1445502122
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -78,8 +78,8 @@ TextureImporter:
         y: 1550
         width: 364
         height: 498
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_1
       rect:
@@ -88,8 +88,8 @@ TextureImporter:
         y: 1550
         width: 364
         height: 498
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_2
       rect:
@@ -98,8 +98,8 @@ TextureImporter:
         y: 1551
         width: 364
         height: 497
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_3
       rect:
@@ -108,8 +108,8 @@ TextureImporter:
         y: 1550
         width: 364
         height: 498
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_4
       rect:
@@ -118,8 +118,8 @@ TextureImporter:
         y: 1551
         width: 361
         height: 497
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_5
       rect:
@@ -128,8 +128,8 @@ TextureImporter:
         y: 1031
         width: 360
         height: 497
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_6
       rect:
@@ -138,8 +138,8 @@ TextureImporter:
         y: 1031
         width: 362
         height: 497
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_7
       rect:
@@ -148,8 +148,8 @@ TextureImporter:
         y: 1031
         width: 361
         height: 497
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_8
       rect:
@@ -158,8 +158,8 @@ TextureImporter:
         y: 1029
         width: 362
         height: 498
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_9
       rect:
@@ -168,8 +168,8 @@ TextureImporter:
         y: 1029
         width: 361
         height: 498
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_10
       rect:
@@ -178,8 +178,8 @@ TextureImporter:
         y: 518
         width: 360
         height: 484
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_11
       rect:
@@ -188,8 +188,8 @@ TextureImporter:
         y: 518
         width: 362
         height: 482
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_12
       rect:
@@ -198,8 +198,8 @@ TextureImporter:
         y: 518
         width: 363
         height: 484
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_13
       rect:
@@ -208,8 +208,8 @@ TextureImporter:
         y: 518
         width: 364
         height: 482
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

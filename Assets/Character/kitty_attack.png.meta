@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 642b595562485924cb6c756b2b6be171
-timeCreated: 1445156987
+timeCreated: 1445502205
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -68,8 +68,8 @@ TextureImporter:
         y: 1580
         width: 633
         height: 467
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_attack_5
       rect:
@@ -78,8 +78,8 @@ TextureImporter:
         y: 1109
         width: 632
         height: 468
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_attack_2
       rect:
@@ -88,8 +88,8 @@ TextureImporter:
         y: 1087
         width: 420
         height: 492
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_attack_1
       rect:
@@ -98,8 +98,8 @@ TextureImporter:
         y: 574
         width: 409
         height: 511
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_attack_3
       rect:
@@ -108,8 +108,8 @@ TextureImporter:
         y: 631
         width: 621
         height: 476
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_attack_4
       rect:
@@ -118,8 +118,8 @@ TextureImporter:
         y: 148
         width: 601
         height: 480
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: kitty_attack_0
       rect:
@@ -128,8 +128,8 @@ TextureImporter:
         y: 107
         width: 447
         height: 521
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
