@@ -526,42 +526,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 444766, guid: 6d8ef413a481f3449b6594e9f78a021f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 444766, guid: 6d8ef413a481f3449b6594e9f78a021f, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 405106, guid: 6d8ef413a481f3449b6594e9f78a021f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 6.44999981
-      objectReference: {fileID: 0}
-    - target: {fileID: 405106, guid: 6d8ef413a481f3449b6594e9f78a021f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -2.3599999
-      objectReference: {fileID: 0}
-    - target: {fileID: 407948, guid: 6d8ef413a481f3449b6594e9f78a021f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -9.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 407948, guid: 6d8ef413a481f3449b6594e9f78a021f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -2.54999995
-      objectReference: {fileID: 0}
-    - target: {fileID: 6161848, guid: 6d8ef413a481f3449b6594e9f78a021f, type: 2}
-      propertyPath: m_Offset.y
-      value: -2.34454489
-      objectReference: {fileID: 0}
-    - target: {fileID: 6161848, guid: 6d8ef413a481f3449b6594e9f78a021f, type: 2}
-      propertyPath: m_Size.x
-      value: 12.8000011
-      objectReference: {fileID: 0}
-    - target: {fileID: 6161848, guid: 6d8ef413a481f3449b6594e9f78a021f, type: 2}
-      propertyPath: m_Size.y
-      value: 1.67225337
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d8ef413a481f3449b6594e9f78a021f, type: 2}
   m_IsPrefabParent: 0
@@ -676,14 +640,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 11407896, guid: da274f40a2729d643a34e7c9d5fe3aaa, type: 2}
-      propertyPath: moveSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11407896, guid: da274f40a2729d643a34e7c9d5fe3aaa, type: 2}
-      propertyPath: normalAttack
-      value: 
-      objectReference: {fileID: 183768, guid: 284fc0c03170d8f478951f32c2dc30ee, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da274f40a2729d643a34e7c9d5fe3aaa, type: 2}
   m_IsPrefabParent: 0

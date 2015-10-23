@@ -17,7 +17,7 @@ public class BasicAttack : MonoBehaviour {
         Destroy(gameObject, _duration);
     }
 
-    public virtual void OnTriggerEnter2D(Collider2D col)
+    protected void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == targetTag)
         {
@@ -29,10 +29,15 @@ public class BasicAttack : MonoBehaviour {
                 }
             }
 
-            col.gameObject.GetComponent<Character>().Hurt(_demage);
-            hurted.Add(col.gameObject);
+            getDemage(col);
         }
     } 
+
+    public virtual void getDemage(Collider2D col)
+    {
+        col.gameObject.GetComponent<Character>().Hurt(_demage);
+        hurted.Add(col.gameObject);
+    }
 
     protected void setAnimator(Animator anim)
     {
