@@ -33,6 +33,7 @@ public class Kitty: Character
     public IEnumerator thrustAttack()
     {
         Vector3 position = transform.position;
+        position.y += 0.2f;
         anim.SetInteger("attack", 1);
 
         if (facingRight) { 
@@ -45,7 +46,7 @@ public class Kitty: Character
 
         GameObject gameo = (GameObject)Instantiate(thrustAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         KittyThrustAttack thrust = gameo.GetComponent<KittyThrustAttack>();
-        thrust.setForceDriction(facingRight ? Vector2.right : Vector2.left);
+        thrust.setDriction(facingRight ? Vector2.right : Vector2.left);
         yield return new WaitForSeconds(KittyThrustAttack.Duration);
 
         anim.SetInteger("attack", 0);

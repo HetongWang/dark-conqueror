@@ -33,7 +33,7 @@ public class KittyThrustAttack : BasicAttack {
         yield break;
     }
 
-    public void setForceDriction(Vector2 dirction)
+    public void setDriction(Vector2 dirction)
     {
         force = dirction * forceIntensity;
     }
