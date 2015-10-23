@@ -18,6 +18,7 @@ public class KittyThrustAttack : BasicAttack {
         _cd = CD;
         base.Awake();
         targetTag = "Player";
+        setAnimator();
     }
 
     public override void getDemage(Collider2D col)
@@ -36,5 +37,9 @@ public class KittyThrustAttack : BasicAttack {
     public void setDriction(Vector2 dirction)
     {
         force = dirction * forceIntensity;
+        if (dirction.x > 0)
+            anim.SetBool("faceRight", true);
+        else
+            anim.SetBool("faceRight", false);
     }
 }

@@ -39,8 +39,8 @@ public class BasicAttack : MonoBehaviour {
         hurted.Add(col.gameObject);
     }
 
-    protected void setAnimator(Animator anim)
+    protected void setAnimator()
     {
-        this.anim = anim;
+        anim = GetComponent<Animator>();
     }
 }
