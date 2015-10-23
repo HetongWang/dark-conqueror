@@ -35,11 +35,17 @@ public class Kitty: Character
         Vector3 position = transform.position;
         anim.SetInteger("attack", 1);
 
-        if (facingRight)
+        if (facingRight) { 
             position.x += KittyThrustAttack.Range / 2;
+        }
         else
+        {
             position.x -= KittyThrustAttack.Range / 2;
-        Instantiate(thrustAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        }
+
+        GameObject gameo = (GameObject)Instantiate(thrustAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        KittyThrustAttack thrust = gameo.GetComponent<KittyThrustAttack>();
+        thrust.setForceDriction(facingRight ? Vector2.right : Vector2.left);
         yield return new WaitForSeconds(KittyThrustAttack.Duration);
 
         anim.SetInteger("attack", 0);

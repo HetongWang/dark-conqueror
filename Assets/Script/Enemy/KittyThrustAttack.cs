@@ -8,6 +8,9 @@ public class KittyThrustAttack : BasicAttack {
     static public float Duration = 0.6f;
     static public float CD = 2;
 
+    public float forceIntensity = 50f;
+    protected Vector2 force;
+
     public override void Awake()
     {
         _duration = Duration;
@@ -17,8 +20,21 @@ public class KittyThrustAttack : BasicAttack {
         targetTag = "Player";
     }
 
-    public override void OnTriggerEnter2D(Collider2D col)
+    public override void getDemage(Collider2D col)
     {
-        base.OnTriggerEnter2D(col);
+        base.getDemage(col);
+        StartCoroutine(attackPhase(col));
+    }
+
+    protected IEnumerator attackPhase(Collider2D col)
+    {
+        yield return new WaitForSeconds(_duration / 2);
+        col.gameObject.GetComponent<Rigidbody2D>().AddForce(force);
+        yield break;
+    }
+
+    public void setForceDriction(Vector2 dirction)
+    {
+        force = dirction * forceIntensity;
     }
 }
