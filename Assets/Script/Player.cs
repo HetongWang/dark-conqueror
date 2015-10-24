@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class Player : Character 
 {
+    public enum animAttack { normalAttack1, normalAttack2, normalAttack3 };
+
     protected bool jumped = false;
     protected bool dashed = false;
 
@@ -10,11 +13,12 @@ public class Player : Character
 
     public GameObject normalAttack;
     public GameObject hpSlider;
+    public Animator anim;
 
     protected Dictionary<string, int> buttonCount;
     protected Dictionary<string, float> buttonCooler;
     protected float buttonCoolerTime = 0.5f;
-
+    protected int normalAttackPhase = 0;
 
     // Use this for initialization
     void Start()
@@ -25,8 +29,10 @@ public class Player : Character
     public override void Awake()
     {
         base.Awake();
+        //anim = GetComponent<Animator>();
         buttonCooler = new Dictionary<string, float>();
         buttonCount = new Dictionary<string, int>();
+        addSkill("normalAttack", doNormalAttack, NormalAttack.CD);
     }
 
     // Update is called once per frame
@@ -55,13 +61,33 @@ public class Player : Character
 
         if (Input.GetButtonDown("Fire1"))
         {
-            doNormalAttack();
+            useSkill("normalAttack", NormalAttack.CD);
         }
     }
 
-    void doNormalAttack()
+    public IEnumerator doNormalAttack()
     {
-        Instantiate(normalAttack, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        GameObject go =  (GameObject)Instantiate(normalAttack, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        NormalAttack na = go.GetComponent<NormalAttack>();
+        na.setPhase(normalAttackPhase);
+        //switch (normalAttackPhase)
+        //{
+        //    case 0:
+        //        anim.SetInteger("attack", (int)animattack.normalattack1);
+        //        break;
+        //    case 1:
+        //        anim.SetInteger("attack", (int)animattack.normalattack2);
+        //        break;
+        //    case 2:
+        //        anim.SetInteger("attack", (int)animattack.normalattack3);
+        //        break;
+
+        //}
+        yield return new WaitForSeconds(NormalAttack.Duration);
+
+        //anim.SetInteger("attack", 0);
+        movement = true;
+        yield break;
     }
 
     void Dash()
