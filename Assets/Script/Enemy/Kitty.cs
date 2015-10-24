@@ -50,7 +50,7 @@ public class Kitty: Character
         yield return new WaitForSeconds(KittyThrustAttack.Duration);
 
         anim.SetInteger("attack", 0);
-        movement = false;
+        movement = true;
         yield break;
     }
 }
