@@ -28,6 +28,7 @@ GameObject:
   - 50: {fileID: 5095078}
   - 61: {fileID: 6183346}
   - 114: {fileID: 11407896}
+  - 58: {fileID: 5847178}
   m_Layer: 9
   m_Name: hero
   m_TagString: Player
@@ -42,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.84000015, y: -.699999988, z: 0}
+  m_LocalPosition: {x: -4.9158721, y: -.501759529, z: 0}
   m_LocalScale: {x: .238240853, y: .238240868, z: .238240868}
   m_Children:
   - {fileID: 482600}
@@ -76,6 +77,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &5847178
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185750}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.239999995, y: -2.28999996}
+  serializedVersion: 2
+  m_Radius: 1.11000001
 --- !u!61 &6183346
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -83,12 +97,12 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185750}
   m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: 00a0bf6b822cc7d4f8c638fbbdd939b7, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -.298712671, y: .699999988}
   serializedVersion: 2
-  m_Size: {x: 2.94000006, y: 6.67999983}
+  m_Size: {x: 2.34257054, y: 5.40999985}
 --- !u!114 &11407896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,7 +120,7 @@ MonoBehaviour:
   hp: 10
   dashSpeed: 2
   normalAttack: {fileID: 183768, guid: 284fc0c03170d8f478951f32c2dc30ee, type: 2}
-  hpSlider: {fileID: 0}
+  hpSlider: {fileID: 192788, guid: 9c9f64d02859b8b4ba024fef37387afa, type: 2}
 --- !u!212 &21251660
 SpriteRenderer:
   m_ObjectHideFlags: 1
