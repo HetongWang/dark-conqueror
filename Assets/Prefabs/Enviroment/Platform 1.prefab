@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &134064
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,7 +31,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &175654
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120106}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .920000017, y: -.310000002, z: 0}
+  m_LocalPosition: {x: .361999989, y: .00999999978, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 495754}
@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.819999993, y: -.289999992, z: 0}
+  m_LocalPosition: {x: -.382999986, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 495754}
@@ -80,7 +80,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.19000006, y: .419999987, z: 0}
+  m_LocalPosition: {x: -3.19000006, y: .25999999, z: 0}
   m_LocalScale: {x: 1.87, y: .709999979, z: 1}
   m_Children:
   - {fileID: 476810}
@@ -97,9 +97,9 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: e9a816b6e85b1c8478573ed14b52fc32, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: .00972115993, y: -.00182885525}
   serializedVersion: 2
-  m_Size: {x: 1, y: .5}
+  m_Size: {x: .290557534, y: .452450812}
 --- !u!61 &6153848
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -110,9 +110,9 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: e9a816b6e85b1c8478573ed14b52fc32, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -.00555491447, y: -.00914408546}
   serializedVersion: 2
-  m_Size: {x: 1, y: .5}
+  m_Size: {x: .328890145, y: .467081398}
 --- !u!61 &6186244
 BoxCollider2D:
   m_ObjectHideFlags: 1

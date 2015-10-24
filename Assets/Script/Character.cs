@@ -15,7 +15,7 @@ public class Character : MonoBehaviour {
     protected Rigidbody2D body;
 
     public delegate IEnumerator skillFunction();
-    protected bool acting = false;
+    protected bool movement = false;
     protected Dictionary<string, skillFunction> skills = new Dictionary<string, skillFunction>();
     public Dictionary<string, float> skillCooler = new Dictionary<string, float>();
 
@@ -68,7 +68,7 @@ public class Character : MonoBehaviour {
 
     public void run(float horInput)
     {
-        if (!acting)
+        if (!movement)
         {
             move(horInput);
         }
@@ -78,10 +78,14 @@ public class Character : MonoBehaviour {
     {
         // Control horizontal speed
         if (horInput != 0)
-            body.velocity = new Vector2(horInput * moveSpeed, body.velocity.y);
-        else
         {
-            body.velocity = new Vector2(0, body.velocity.y);
+            Vector2 v = body.velocity;
+            if (Mathf.Abs(v.x) < moveSpeed * Mathf.Abs(horInput))
+                v.x = moveSpeed * horInput;
+            else if (Mathf.Sign(horInput) != Mathf.Sign(v.x))
+                v.x += moveSpeed * horInput;
+            body.velocity = v;
+            //body.velocity = new Vector2(horInput * moveSpeed, body.velocity.y);
         }
 
         // Change facing direct
@@ -118,7 +122,7 @@ public class Character : MonoBehaviour {
     {
         if (name != null && skillCooler[name] <= 0)
         {
-            acting = true;
+            movement = true;
             StartCoroutine(skills[name]());
             skillCooler[name] = cd; 
         }
