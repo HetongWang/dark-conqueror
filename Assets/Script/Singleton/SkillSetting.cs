@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 
 public class SkillSetting : Singleton<SkillSetting> {
-    public Dictionary<string, float> kitty = new Dictionary<string, float>();
 
-    void Awake()
+    public struct skill
     {
-        kitty.Add("duration", 0.6f);
-        kitty.Add("cd", 2f);
-        kitty.Add("demage", 2f);
+        public float cd, duration, demage, range;
+
+        public skill(float duration, float cd, float demage, float range)
+        {
+            this.duration = duration;
+            this.cd = cd;
+            this.demage = demage;
+            this.range = range;
+        }
     }
+
+    public skill KittyThrust = new skill(0.6f, 2f, 2f, 2f);
+    public skill SiegeBowShoot = new skill(0, 2f, 1.5f, 2f);
 }

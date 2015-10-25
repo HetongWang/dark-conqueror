@@ -3,20 +3,13 @@ using System.Collections;
 
 public class KittyThrustAttack : BasicAttack {
 
-    static public float Range = 1.5f;
-    static public float Demage = 1;
-    static public float Duration = 0.6f;
-    static public float CD = 2;
-
     public float forceIntensity = 50f;
     protected Vector2 force;
 
     public override void Awake()
     {
-        _duration = Duration;
-        _demage = Demage;
-        _cd = CD;
         base.Awake();
+        setAttr(SkillSetting.Instance.KittyThrust);
         targetTag = "Player";
         setAnimator();
     }
@@ -29,7 +22,7 @@ public class KittyThrustAttack : BasicAttack {
 
     protected IEnumerator attackPhase(Collider2D col)
     {
-        yield return new WaitForSeconds(_duration / 3);
+        yield return new WaitForSeconds(duration / 3);
         col.gameObject.GetComponent<Rigidbody2D>().AddForce(force);
         yield break;
     }
