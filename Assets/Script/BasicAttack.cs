@@ -5,16 +5,16 @@ public class BasicAttack : MonoBehaviour {
 
     private List<GameObject> hurted;
     public string targetTag = "Enemy";
-    protected float _demage = 1;
-    protected float _duration = 0.5f;
-    protected float _cd = 2;
+    protected float demage;
+    protected float duration;
+    protected float cd;
 
     protected Animator anim;
 
     public virtual void Awake()
     {
         hurted = new List<GameObject>();
-        Destroy(gameObject, _duration);
+        Destroy(gameObject, duration);
     }
 
     protected void OnTriggerEnter2D(Collider2D col)
@@ -35,12 +35,19 @@ public class BasicAttack : MonoBehaviour {
 
     public virtual void getDemage(Collider2D col)
     {
-        col.gameObject.GetComponent<Character>().Hurt(_demage);
+        col.gameObject.GetComponent<Character>().Hurt(demage);
         hurted.Add(col.gameObject);
     }
 
     protected void setAnimator()
     {
         anim = GetComponent<Animator>();
+    }
+    
+    public void setAttr(SkillSetting.skill skill)
+    {
+        duration = skill.duration;
+        cd = skill. cd;
+        demage = skill.demage;
     }
 }

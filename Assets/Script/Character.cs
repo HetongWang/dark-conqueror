@@ -19,6 +19,9 @@ public class Character : MonoBehaviour {
     protected Dictionary<string, skillFunction> skills = new Dictionary<string, skillFunction>();
     public Dictionary<string, float> skillCooler = new Dictionary<string, float>();
 
+    /// <summary>
+    /// Initialize method setting HP, AI, adding skills and other component
+    /// </summary>
     public virtual void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -26,6 +29,9 @@ public class Character : MonoBehaviour {
         groundCheck = transform.Find("groundCheck");
     }
 
+    /// <summary>
+    /// Automatically check hp and skill cd
+    /// </summary>
     public virtual void Update()
     {
         // Check if grounded
@@ -72,7 +78,7 @@ public class Character : MonoBehaviour {
         }
     }
 
-    public void move(float horInput)
+    protected void move(float horInput)
     {
         // Control horizontal speed
         if (horInput != 0)
@@ -93,7 +99,7 @@ public class Character : MonoBehaviour {
         }
     }
 
-    public void move(float horInput, float verInput)
+    protected void move(float horInput, float verInput)
     {
         move(horInput);
         if (verInput != 0)
@@ -110,6 +116,12 @@ public class Character : MonoBehaviour {
             body.AddForce(new Vector2(0, jumpForce));
     }
 
+    /// <summary>
+    /// Add skills. Use useSkill function to release skill
+    /// </summary>
+    /// <param name="name">skill name</param>
+    /// <param name="f">skill IEnumerator function</param>
+    /// <param name="cd"></param>
     protected void addSkill(string name, skillFunction f, float cd)
     {
         skills.Add(name, f);

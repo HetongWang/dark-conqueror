@@ -27,6 +27,13 @@ public class BasicAI {
 
     protected GameObject seekPlayer()
     {
+        if (players[0] == null)
+        {
+            players = GameObject.FindGameObjectsWithTag("Player");
+            if (players.Length == 0)
+                return null;
+        }
+
         GameObject res = players[0];
         targetPlayer = players[0];
         float minDis = Vector3.Distance(players[0].transform.position, person.transform.position);
@@ -89,8 +96,12 @@ public class BasicAI {
         return res;
     }
 	
-	// Update is called once per frame
-	public float horMove (Vector3 pos) {
+    /// <summary>
+    /// Calculate next movement
+    /// </summary>
+    /// <returns>Movement direction and speed</returns>
+	public float horMove ()
+    {
         GameObject player = seekPlayer();
         float movement = 0;
 
