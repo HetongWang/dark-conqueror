@@ -21,7 +21,7 @@ public class Kitty: Character
     public override void Update()
     {
         base.Update();
-        useSkill(ai.attack(),SkillSetting.Instance.KittyThrust.cd);
+        useSkill(ai.attack(), SkillSetting.Instance.KittyThrust);
     }
 
     void FixedUpdate()
@@ -50,7 +50,6 @@ public class Kitty: Character
         yield return new WaitForSeconds(SkillSetting.Instance.KittyThrust.duration);
 
         anim.SetInteger("attack", 0);
-        movement = true;
         yield break;
     }
 }

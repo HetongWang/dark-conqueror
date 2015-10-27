@@ -10,12 +10,13 @@ public class Character : MonoBehaviour {
     public float jumpForce = 600;
     protected Transform groundCheck;
     protected bool grounded = false;
+    protected bool movement = true;
+    protected bool acting = false;
 
     public float hp = 10;
     protected Rigidbody2D body;
 
     public delegate IEnumerator skillFunction();
-    protected bool movement = true;
     protected Dictionary<string, skillFunction> skills = new Dictionary<string, skillFunction>();
     public Dictionary<string, float> skillCooler = new Dictionary<string, float>();
 
@@ -128,13 +129,22 @@ public class Character : MonoBehaviour {
         skillCooler.Add(name, cd);
     }
 
-    public void useSkill(string name, float cd)
+    public void useSkill(string name, SkillSetting.skill setting, bool canMove = false)
     {
-        if (name != null && skillCooler[name] <= 0)
+        if (name != null && skillCooler[name] <= 0 && !acting)
         {
-            movement = false;
+            movement = canMove;
+            acting = true;
             StartCoroutine(skills[name]());
-            skillCooler[name] = cd; 
+            skillCooler[name] = setting.cd;
+            StartCoroutine(skillEnd(setting.duration));
         }
+    }
+
+    protected IEnumerator skillEnd(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        movement = true;
+        acting = false;
     }
 }

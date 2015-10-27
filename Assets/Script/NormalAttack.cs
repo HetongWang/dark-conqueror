@@ -2,14 +2,12 @@
 using System.Collections;
 
 public class NormalAttack : BasicAttack {
-    static public float Duration = 0.2f;
-    static public float CD = 0.5f;
+
     protected int phase = 0;
 
     public override void Awake()
     {
-        _duration = Duration;
-        _cd = CD;
+        setAttr(SkillSetting.Instance.NormalAttack);
         base.Awake();
     }
 
