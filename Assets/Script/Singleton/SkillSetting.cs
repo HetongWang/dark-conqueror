@@ -16,7 +16,7 @@ public class SkillSetting : Singleton<SkillSetting> {
         }
     }
 
-    public skill KittyThrust = new skill(0.6f, 2f, 2f, 2f);
+    public skill KittyThrust = new skill(0.6f, 2f, 2f, 1.2f);
     public skill SiegeBowShoot = new skill(0, 2f, 1.5f, 10f);
-    public skill NormalAttack = new skill(0.5f, 0.5f, 1, 2f);
+    public skill NormalAttack = new skill(0.40f, 0.45f, 1, 1f);
 }

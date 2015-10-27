@@ -11,33 +11,40 @@ public class Player : Character
 
     public GameObject normalAttack;
     public GameObject hpSlider;
-    public Animator anim;
+    private Animator anim;
 
-    protected Dictionary<string, int> buttonCount;
-    protected Dictionary<string, float> buttonCooler;
-    protected float buttonCoolerTime = 0.5f;
+    protected Dictionary<string, int> buttonCount = new Dictionary<string, int>();
+    protected Dictionary<string, float> buttonCooler = new Dictionary<string, float>();
+    protected Dictionary<string, float> buttonCoolerTime = new Dictionary<string, float>();
     protected int normalAttackPhase = 0;
-    protected float normalAttackCooler;
-    public float normalAttackTime = 1.5f;
 
     public override void Awake()
     {
         base.Awake();
         //anim = GetComponent<Animator>();
-        buttonCooler = new Dictionary<string, float>();
-        buttonCount = new Dictionary<string, int>();
         addSkill("normalAttack", doNormalAttack, SkillSetting.Instance.NormalAttack.cd);
         anim = GetComponent<Animator>();
+
+        addButtonDetect("left");
+        addButtonDetect("right");
+        addButtonDetect("normalAttack", 0.6f);
     }
 
     // Update is called once per frame
     public override void Update()
     {
         base.Update();
+        updateButtonCooler();
+
         if (Input.GetButtonDown("Jump"))
             jumped = true;
-        Dash();
-        updateNormalAttackCounter();
+
+        dash();
+
+        if (Input.GetButtonDown("NormalAttack"))
+        {
+            useSkill("normalAttack", SkillSetting.Instance.NormalAttack);
+        }
     }
 
     void FixedUpdate()
@@ -54,19 +61,15 @@ public class Player : Character
             jump();
             jumped = false;
         }
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-            useSkill("normalAttack", SkillSetting.Instance.NormalAttack);
-        }
     }
 
     public IEnumerator doNormalAttack()
     {
         GameObject go =  (GameObject)Instantiate(normalAttack, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
         NormalAttack na = go.GetComponent<NormalAttack>();
+
+        detectNormalAttackPhase();
         na.setPhase(normalAttackPhase);
-        normalAttackCooler = normalAttackTime;
         switch (normalAttackPhase)
         {
             case 0:
@@ -81,16 +84,28 @@ public class Player : Character
 
         }
 
-        normalAttackPhase += 1;
         yield return new WaitForSeconds(SkillSetting.Instance.NormalAttack.duration);
 
         anim.SetInteger("attack", 0);
         yield break;
     }
 
-    void Dash()
+    void dash()
     {
-        if (DoubleTapDetect("left") || DoubleTapDetect("right"))
+        string direction = null;
+
+        if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
+        {
+            buttonCount["right"] += 1;
+            direction = "right";
+        }
+        if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
+        {
+            buttonCount["left"] += 1;
+            direction = "left";
+        }
+
+        if (multiTapDetect(direction, 2) || multiTapDetect(direction, 2))
             dashed = true;
 
         if (facingRight && Input.GetButtonUp("Horizontal"))
@@ -99,32 +114,24 @@ public class Player : Character
             dashed = false;
     }
 
-    bool DoubleTapDetect(string key)
+    bool multiTapDetect(string key, int times)
     {
-        bool isKeyPress = false;
+        if (key == null)
+            return false;
+
         bool res = false;
-
-        if (key == "right")
-        { 
-            if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
-                isKeyPress = true;
-        }
-        else if (key == "left")
+        if (buttonCount[key] == times && buttonCooler[key] > 0)
         {
-            if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
-                isKeyPress = true;
-        }  
-        else if (Input.GetButtonDown(key))
-        {
-            isKeyPress = true;
+            res = true;
         }
 
-        if (!buttonCooler.ContainsKey(key))
-        {
-            buttonCooler.Add(key, 0);
-            buttonCount.Add(key, 0);
-        }
+        buttonCooler[key] = buttonCoolerTime[key];
 
+        return res;
+    }
+
+    void updateButtonCooler()
+    {
         List<string> keys = new List<string> (buttonCooler.Keys);
         foreach (string s in keys)
         {
@@ -133,29 +140,32 @@ public class Player : Character
             if (buttonCooler[s] <= 0)
                 buttonCount[s] = 0;
         }
-
-        if (isKeyPress)
-        {
-            buttonCount[key] += 1;
-            if (buttonCount[key] == 1)
-            {
-                buttonCooler[key] = buttonCoolerTime;
-            }
-
-            if (buttonCount[key] == 2 && buttonCooler[key] > 0)
-            {
-                buttonCount[key] = 0;
-                res = true;
-            }
-        }
-
-        return res;
     }
 
-    protected void updateNormalAttackCounter()
+    void addButtonDetect(string key, float coolertime = 0.5f)
     {
-        normalAttackCooler -= Time.deltaTime;
-        if (normalAttackCooler <= 0)
+        if (!buttonCooler.ContainsKey(key))
+        {
+            buttonCooler.Add(key, 0);
+            buttonCount.Add(key, 0);
+            buttonCoolerTime.Add(key, coolertime);
+        }
+    }
+
+    protected void detectNormalAttackPhase()
+    {
+        string name = "normalAttack";
+        buttonCount[name] += 1;
+
+        if (multiTapDetect(name, 1))
             normalAttackPhase = 0;
+        else if (multiTapDetect(name, 2))
+            normalAttackPhase = 1;
+        else if (multiTapDetect(name, 3))
+            normalAttackPhase = 2;
+        else
+            normalAttackPhase = buttonCount[name] % 3;
+
+        Debug.Log(buttonCount[name]);
     }
 }

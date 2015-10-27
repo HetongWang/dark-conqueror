@@ -3,7 +3,7 @@ using System.Collections;
 
 public class HPSlider : MonoBehaviour {
 
-    public Player player;
+    private Player player;
     public float value;
     public float initValue;
 
