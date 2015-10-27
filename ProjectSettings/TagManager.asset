@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - ground
+  - Ground
   - Enemy
-  - HealthBar
+  - UI
   - Attack
   layers:
   - Default
@@ -20,9 +20,9 @@ TagManager:
   - Static
   - Player
   - Enemies
-  - Attack
+  - PlayerAttack
   - Ground
-  - 
+  - EnemyAttack
   - 
   - 
   - 
@@ -56,6 +56,9 @@ TagManager:
     locked: 0
   - name: Character
     uniqueID: 2511236001
+    locked: 0
+  - name: Attack
+    uniqueID: 971721333
     locked: 0
   - name: Foreground
     uniqueID: 1024582385

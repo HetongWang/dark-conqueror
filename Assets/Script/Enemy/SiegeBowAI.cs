@@ -18,11 +18,9 @@ public class SiegeBowAI : BasicAI
 
         d = Random.Range(1 - error, 1 + error) * d;
 
-        float vx = d * Mathf.Sqrt(g / (2 * (h - Mathf.Tan(angle) * d)));
-        float vy = Mathf.Tan(angle) * vx;
+        float vx = -d * Mathf.Sqrt(g / (2 * (h - Mathf.Tan(angle) * d)));
+        float vy = Mathf.Abs(Mathf.Tan(angle) * vx);
         Vector2 v = new Vector2(vx, vy);
-
-        Debug.Log(h - Mathf.Tan(angle) * d);
 
         return v;
     }

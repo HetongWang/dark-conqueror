@@ -5,13 +5,15 @@ public class Javelin : BasicAttack
 {
     protected float angle;
     protected Rigidbody2D body;
+    protected bool onGround = false;
 
     public override void Awake()
     {
         setAttr(SkillSetting.Instance.SiegeBowShoot);
         base.Awake();
         body = GetComponent<Rigidbody2D>();
-        targetTag = "Player";
+        targetTag.Add("Player");
+        targetTag.Add("Ground");
     }
 
     void Update()
@@ -22,7 +24,18 @@ public class Javelin : BasicAttack
     public override void getDemage(Collider2D col)
     {
         base.getDemage(col);
-        Destroy(gameObject);
+        if (col.tag == "Ground")
+        {
+            body.velocity = Vector2.zero;
+            body.gravityScale = 0;
+            GetComponent<Collider2D>().enabled = false;
+            onGround = true;
+            Destroy(gameObject, 5f);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void setInitVelocity(Vector2 v)
@@ -32,7 +45,11 @@ public class Javelin : BasicAttack
 
     public void rotate()
     {
-        angle = Mathf.Atan(body.velocity.y / body.velocity.x);
-        transform.localRotation = Quaternion.Euler(0, 0, angle);
+        if (!onGround)
+        {
+            angle = Mathf.Atan(body.velocity.y / body.velocity.x);
+            angle = angle * Mathf.Rad2Deg;
+            transform.localRotation = Quaternion.Euler(0, 0, angle);
+        }
     }
 }

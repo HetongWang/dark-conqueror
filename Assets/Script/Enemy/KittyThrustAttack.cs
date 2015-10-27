@@ -10,7 +10,7 @@ public class KittyThrustAttack : BasicAttack {
     {
         setAttr(SkillSetting.Instance.KittyThrust);
         base.Awake();
-        targetTag = "Player";
+        targetTag.Add("Player");
         setAnimator();
     }
 

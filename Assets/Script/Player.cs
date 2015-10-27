@@ -67,6 +67,7 @@ public class Player : Character
     {
         GameObject go =  (GameObject)Instantiate(normalAttack, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
         NormalAttack na = go.GetComponent<NormalAttack>();
+        na.transform.parent = transform;
 
         detectNormalAttackPhase();
         na.setPhase(normalAttackPhase);
