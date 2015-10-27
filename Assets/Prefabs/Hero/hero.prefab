@@ -139,7 +139,6 @@ MonoBehaviour:
   dashSpeed: 2
   normalAttack: {fileID: 183768, guid: 284fc0c03170d8f478951f32c2dc30ee, type: 2}
   hpSlider: {fileID: 192788, guid: 9c9f64d02859b8b4ba024fef37387afa, type: 2}
-  anim: {fileID: 0}
   normalAttackTime: 1.5
 --- !u!212 &21251660
 SpriteRenderer:
