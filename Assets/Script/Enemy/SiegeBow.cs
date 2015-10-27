@@ -7,6 +7,7 @@ public class SiegeBow : Character
     protected Vector2 javelinVelocity;
     protected SiegeBowAI ai;
 
+    public float minShootRange = 1f;
     public GameObject javelinPrefab;
 
     public override void Awake()
@@ -22,7 +23,7 @@ public class SiegeBow : Character
     public override void Update()
     {
         base.Update();
-        if (skillCooler["shoot"] <= 0)
+        if (couldShoot())
         {
             javelinVelocity = ai.shootVelocity();
             useSkill("shoot", SkillSetting.Instance.SiegeBowShoot);
@@ -36,5 +37,16 @@ public class SiegeBow : Character
         Javelin jl = go.GetComponent<Javelin>();
         jl.setInitVelocity(javelinVelocity);
         yield break;
+    }
+
+    bool couldShoot()
+    {
+        bool res = true;
+        if (skillCooler["shoot"] > 0)
+            res = false;
+        if (Mathf.Abs(ai.targetPlayer.transform.position.x - transform.position.x) < minShootRange)
+            res = false;
+
+        return res;
     }
 }

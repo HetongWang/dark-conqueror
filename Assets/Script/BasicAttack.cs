@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class BasicAttack : MonoBehaviour {
 
     private List<GameObject> hurted;
-    public string targetTag = "Enemy";
+    public List<string> targetTag = new List<string>();
     protected float demage;
     protected float duration;
     protected float cd;
@@ -17,12 +17,13 @@ public class BasicAttack : MonoBehaviour {
     public virtual void Awake()
     {
         hurted = new List<GameObject>();
-        Destroy(gameObject, duration);
+        if (duration != 0)
+            Destroy(gameObject, duration);
     }
 
     protected void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == targetTag)
+        if (targetTag.Contains(col.tag))
         {
             foreach (GameObject i in hurted)
             {
@@ -38,8 +39,13 @@ public class BasicAttack : MonoBehaviour {
 
     public virtual void getDemage(Collider2D col)
     {
-        col.gameObject.GetComponent<Character>().Hurt(demage);
-        hurted.Add(col.gameObject);
+        Character person = col.gameObject.GetComponent<Character>();
+        if (person)
+        {
+            person.Hurt(demage);
+            hurted.Add(col.gameObject);
+
+        }
     }
 
     protected void setAnimator()

@@ -9,6 +9,7 @@ public class NormalAttack : BasicAttack {
     {
         setAttr(SkillSetting.Instance.NormalAttack);
         base.Awake();
+        targetTag.Add("Enemy");
     }
 
     public override void getDemage(Collider2D col)

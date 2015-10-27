@@ -46,6 +46,7 @@ public class Kitty: Character
 
         GameObject gameo = (GameObject)Instantiate(thrustAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         KittyThrustAttack thrust = gameo.GetComponent<KittyThrustAttack>();
+        thrust.transform.parent = transform;
         thrust.setDriction(facingRight ? Vector2.right : Vector2.left);
         yield return new WaitForSeconds(SkillSetting.Instance.KittyThrust.duration);
 
