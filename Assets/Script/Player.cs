@@ -165,7 +165,5 @@ public class Player : Character
             normalAttackPhase = 2;
         else
             normalAttackPhase = buttonCount[name] % 3;
-
-        Debug.Log(buttonCount[name]);
     }
 }
