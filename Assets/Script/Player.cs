@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class Player : Character 
 {
-    public enum animAttack { normalAttack1, normalAttack2, normalAttack3 };
-
     protected bool jumped = false;
     protected bool dashed = false;
 
@@ -19,12 +17,8 @@ public class Player : Character
     protected Dictionary<string, float> buttonCooler;
     protected float buttonCoolerTime = 0.5f;
     protected int normalAttackPhase = 0;
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
+    protected float normalAttackCooler;
+    public float normalAttackTime = 1.5f;
 
     public override void Awake()
     {
@@ -32,7 +26,8 @@ public class Player : Character
         //anim = GetComponent<Animator>();
         buttonCooler = new Dictionary<string, float>();
         buttonCount = new Dictionary<string, int>();
-        addSkill("normalAttack", doNormalAttack, NormalAttack.CD);
+        addSkill("normalAttack", doNormalAttack, SkillSetting.Instance.NormalAttack.cd);
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -42,6 +37,7 @@ public class Player : Character
         if (Input.GetButtonDown("Jump"))
             jumped = true;
         Dash();
+        updateNormalAttackCounter();
     }
 
     void FixedUpdate()
@@ -61,7 +57,7 @@ public class Player : Character
 
         if (Input.GetButtonDown("Fire1"))
         {
-            useSkill("normalAttack", NormalAttack.CD);
+            useSkill("normalAttack", SkillSetting.Instance.NormalAttack);
         }
     }
 
@@ -70,23 +66,25 @@ public class Player : Character
         GameObject go =  (GameObject)Instantiate(normalAttack, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
         NormalAttack na = go.GetComponent<NormalAttack>();
         na.setPhase(normalAttackPhase);
-        //switch (normalAttackPhase)
-        //{
-        //    case 0:
-        //        anim.SetInteger("attack", (int)animattack.normalattack1);
-        //        break;
-        //    case 1:
-        //        anim.SetInteger("attack", (int)animattack.normalattack2);
-        //        break;
-        //    case 2:
-        //        anim.SetInteger("attack", (int)animattack.normalattack3);
-        //        break;
+        normalAttackCooler = normalAttackTime;
+        switch (normalAttackPhase)
+        {
+            case 0:
+                anim.SetInteger("attack", 1);
+                break;
+            case 1:
+                anim.SetInteger("attack", 1);
+                break;
+            case 2:
+                anim.SetInteger("attack", 1);
+                break;
 
-        //}
-        yield return new WaitForSeconds(NormalAttack.Duration);
+        }
 
-        //anim.SetInteger("attack", 0);
-        movement = true;
+        normalAttackPhase += 1;
+        yield return new WaitForSeconds(SkillSetting.Instance.NormalAttack.duration);
+
+        anim.SetInteger("attack", 0);
         yield break;
     }
 
@@ -152,5 +150,12 @@ public class Player : Character
         }
 
         return res;
+    }
+
+    protected void updateNormalAttackCounter()
+    {
+        normalAttackCooler -= Time.deltaTime;
+        if (normalAttackCooler <= 0)
+            normalAttackPhase = 0;
     }
 }

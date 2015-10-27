@@ -25,9 +25,9 @@ public class BasicAI {
         movementMode = moveMode.guard;
     }
 
-    protected GameObject seekPlayer()
+    public GameObject seekPlayer()
     {
-        if (players[0] == null)
+        if (players.Length == 0 || players[0] == null)
         {
             players = GameObject.FindGameObjectsWithTag("Player");
             if (players.Length == 0)
