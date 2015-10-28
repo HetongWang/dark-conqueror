@@ -24,6 +24,8 @@ public class Player : Character
         addSkill("normalAttack", doNormalAttack, PlayerSet.Instance.NormalAttack.cd);
         anim = GetComponent<Animator>();
 
+        hp = PlayerSet.Instance.hp;
+
         addButtonDetect("left");
         addButtonDetect("right");
         addButtonDetect("normalAttack", 0.6f);

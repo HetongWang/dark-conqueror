@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class KittyAI : BasicAI {
 
+    private bool enraged = false;
+
     public KittyAI(Character kitty): base(kitty)
     {
 
@@ -28,9 +30,12 @@ public class KittyAI : BasicAI {
 
     bool isEnrage()
     {
-        if (person.hp < 10)
-            return true;
-        else
-            return false;
+        bool res = false;
+        if (!enraged && person.hp < KittySet.Instance.enrageTrigger)
+        {
+            res = true;
+            enraged = true;
+        }
+        return res;
     }
 }
