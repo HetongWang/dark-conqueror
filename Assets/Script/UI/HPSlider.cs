@@ -14,7 +14,7 @@ public class HPSlider : MonoBehaviour {
     {
         player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
         bar = GetComponent<UnityEngine.UI.Image>();
-        initValue = player.hp;
+        initValue = PlayerSet.Instance.hp;
         barScale = transform.localScale;
     }
 

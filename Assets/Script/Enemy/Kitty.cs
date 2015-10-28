@@ -13,8 +13,10 @@ public class Kitty: Character
         base.Awake();
         addSkill("thrust", thrustAttack, KittySet.Instance.KittyThrust.cd);
         addSkill("enrage", enrage, KittySet.Instance.KittyEnrage.cd);
+
         facingRight = false;
-        hp = 30;
+        hp = KittySet.Instance.hp;
+
         ai = new KittyAI(this);
         anim = GetComponent<Animator>();
     }

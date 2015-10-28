@@ -13,11 +13,12 @@ public class SiegeBow : Character
     public override void Awake()
     {
         base.Awake();
+        addSkill("shoot", shoot, SiegeBowSet.Instance.SiegeBowShoot.cd);
         movement = false;
-        hp = 20;
+        hp = SiegeBowSet.Instance.hp;
+
         ai = new SiegeBowAI(this);
         ai.seekPlayer();
-        addSkill("shoot", shoot, SiegeBowSet.Instance.SiegeBowShoot.cd);
     }
 
     public override void Update()
