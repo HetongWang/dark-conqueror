@@ -9,7 +9,7 @@ public class Javelin : BasicAttack
 
     public override void Awake()
     {
-        setAttr(SkillSetting.Instance.SiegeBowShoot);
+        setAttr(SiegeBowSet.Instance.SiegeBowShoot);
         base.Awake();
         body = GetComponent<Rigidbody2D>();
         targetTag.Add("Player");

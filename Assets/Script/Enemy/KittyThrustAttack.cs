@@ -8,7 +8,7 @@ public class KittyThrustAttack : BasicAttack {
 
     public override void Awake()
     {
-        setAttr(SkillSetting.Instance.KittyThrust);
+        setAttr(KittySet.Instance.KittyThrust);
         base.Awake();
         targetTag.Add("Player");
         setAnimator();

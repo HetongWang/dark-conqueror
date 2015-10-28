@@ -35,8 +35,7 @@ public class Character : MonoBehaviour {
     /// </summary>
     public virtual void Update()
     {
-        // Check if grounded
-        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        detectGround();
         AliveOrDie();
         updateSkillCD();
     }
@@ -111,6 +110,11 @@ public class Character : MonoBehaviour {
         }
     }
 
+    protected void detectGround()
+    {
+        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+    }
+
     public void jump()
     {
         if (grounded)
@@ -129,9 +133,9 @@ public class Character : MonoBehaviour {
         skillCooler.Add(name, cd);
     }
 
-    public void useSkill(string name, SkillSetting.skill setting, bool canMove = false)
+    public void useSkill(string name, SkillSetting.skill setting, bool canMove = false, bool canBreak = false)
     {
-        if (name != null && skillCooler[name] <= 0 && !acting)
+        if (name != null && skillCooler[name] <= 0 && (!acting || canBreak))
         {
             movement = canMove;
             acting = true;
