@@ -10,7 +10,6 @@ public class Player : Character
     public float dashSpeed = 2f;
 
     public GameObject normalAttack;
-    public GameObject hpSlider;
     private Animator anim;
 
     protected Dictionary<string, int> buttonCount = new Dictionary<string, int>();
@@ -22,7 +21,7 @@ public class Player : Character
     {
         base.Awake();
         //anim = GetComponent<Animator>();
-        addSkill("normalAttack", doNormalAttack, SkillSetting.Instance.NormalAttack.cd);
+        addSkill("normalAttack", doNormalAttack, PlayerSet.Instance.NormalAttack.cd);
         anim = GetComponent<Animator>();
 
         addButtonDetect("left");
@@ -43,7 +42,7 @@ public class Player : Character
 
         if (Input.GetButtonDown("NormalAttack"))
         {
-            useSkill("normalAttack", SkillSetting.Instance.NormalAttack);
+            useSkill("normalAttack", PlayerSet.Instance.NormalAttack);
         }
     }
 
@@ -85,7 +84,7 @@ public class Player : Character
 
         }
 
-        yield return new WaitForSeconds(SkillSetting.Instance.NormalAttack.duration);
+        yield return new WaitForSeconds(PlayerSet.Instance.NormalAttack.duration);
 
         anim.SetInteger("attack", 0);
         yield break;

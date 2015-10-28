@@ -11,14 +11,26 @@ public class KittyAI : BasicAI {
     public string attack()
     {
         string skillName = null;
+
+        if (isEnrage())
+            return "enrage";
+
         if (targetPlayer)
         {
             float dis = Mathf.Abs(targetPlayer.transform.position.x - person.transform.position.x);
-            if (dis < SkillSetting.Instance.KittyThrust.range && person.skillCooler["thrust"] <= 0)
+            if (dis < KittySet.Instance.KittyThrust.range && person.skillCooler["thrust"] <= 0)
             {
                 skillName = "thrust";
             }
         }
         return skillName;
+    }
+
+    bool isEnrage()
+    {
+        if (person.hp < 10)
+            return true;
+        else
+            return false;
     }
 }

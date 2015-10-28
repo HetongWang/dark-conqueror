@@ -17,7 +17,7 @@ public class SiegeBow : Character
         hp = 20;
         ai = new SiegeBowAI(this);
         ai.seekPlayer();
-        addSkill("shoot", shoot, SkillSetting.Instance.SiegeBowShoot.cd);
+        addSkill("shoot", shoot, SiegeBowSet.Instance.SiegeBowShoot.cd);
     }
 
     public override void Update()
@@ -26,7 +26,7 @@ public class SiegeBow : Character
         if (couldShoot())
         {
             javelinVelocity = ai.shootVelocity();
-            useSkill("shoot", SkillSetting.Instance.SiegeBowShoot);
+            useSkill("shoot", SiegeBowSet.Instance.SiegeBowShoot);
         }
     }
 

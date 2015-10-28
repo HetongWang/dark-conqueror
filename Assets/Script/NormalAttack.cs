@@ -7,7 +7,7 @@ public class NormalAttack : BasicAttack {
 
     public override void Awake()
     {
-        setAttr(SkillSetting.Instance.NormalAttack);
+        setAttr(PlayerSet.Instance.NormalAttack);
         base.Awake();
         targetTag.Add("Enemy");
     }

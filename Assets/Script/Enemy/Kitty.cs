@@ -11,7 +11,8 @@ public class Kitty: Character
     public override void Awake()
     {
         base.Awake();
-        addSkill("thrust", thrustAttack,SkillSetting.Instance.KittyThrust.cd);
+        addSkill("thrust", thrustAttack, KittySet.Instance.KittyThrust.cd);
+        addSkill("enrage", enrage, KittySet.Instance.KittyEnrage.cd);
         facingRight = false;
         hp = 30;
         ai = new KittyAI(this);
@@ -21,7 +22,7 @@ public class Kitty: Character
     public override void Update()
     {
         base.Update();
-        useSkill(ai.attack(), SkillSetting.Instance.KittyThrust);
+        useSkill(ai.attack(), KittySet.Instance.KittyThrust);
     }
 
     void FixedUpdate()
@@ -37,20 +38,29 @@ public class Kitty: Character
         anim.SetInteger("attack", 1);
 
         if (facingRight) { 
-            position.x +=SkillSetting.Instance.KittyThrust.range / 2;
+            position.x += KittySet.Instance.KittyThrust.range / 2;
         }
         else
         {
-            position.x -=SkillSetting.Instance.KittyThrust.range / 2;
+            position.x -= KittySet.Instance.KittyThrust.range / 2;
         }
 
         GameObject gameo = (GameObject)Instantiate(thrustAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         KittyThrustAttack thrust = gameo.GetComponent<KittyThrustAttack>();
         thrust.transform.parent = transform;
         thrust.setDriction(facingRight ? Vector2.right : Vector2.left);
-        yield return new WaitForSeconds(SkillSetting.Instance.KittyThrust.duration);
+        yield return new WaitForSeconds(KittySet.Instance.KittyThrust.duration);
 
         anim.SetInteger("attack", 0);
+        yield break;
+    }
+
+    public IEnumerator enrage()
+    {
+        anim.SetBool("enrage", true);
+        yield return new WaitForSeconds(KittySet.Instance.KittyEnrage.duration);
+
+        anim.SetBool("enrage", false);
         yield break;
     }
 }
