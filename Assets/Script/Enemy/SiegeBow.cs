@@ -44,7 +44,7 @@ public class SiegeBow : Character
         bool res = true;
         if (skillCooler["shoot"] > 0)
             res = false;
-        if (Mathf.Abs(ai.targetPlayer.transform.position.x - transform.position.x) < minShootRange)
+        if (ai.targetPlayer.transform.position.x - transform.position.x > -minShootRange)
             res = false;
 
         return res;
