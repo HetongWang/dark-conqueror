@@ -21,7 +21,7 @@ public class Player : Character
     {
         base.Awake();
         //anim = GetComponent<Animator>();
-        addSkill("normalAttack", doNormalAttack, PlayerSet.Instance.NormalAttack.cd);
+        addSkill("normalAttack", doNormalAttack);
         anim = GetComponent<Animator>();
 
         hp = PlayerSet.Instance.hp;

@@ -6,13 +6,14 @@ public class Kitty: Character
     private KittyAI ai;
 
     public GameObject thrustAttackPrefab;
+    public GameObject enragePrefab;
     protected Animator anim;
 
     public override void Awake()
     {
         base.Awake();
-        addSkill("thrust", thrustAttack, KittySet.Instance.KittyThrust.cd);
-        addSkill("enrage", enrage, KittySet.Instance.KittyEnrage.cd);
+        addSkill("thrust", thrustAttack);
+        addSkill("enrage", enrage);
 
         facingRight = false;
         hp = KittySet.Instance.hp;
@@ -24,7 +25,16 @@ public class Kitty: Character
     public override void Update()
     {
         base.Update();
-        useSkill(ai.attack(), KittySet.Instance.KittyThrust);
+        string attackName = ai.attack();
+        switch (attackName)
+        {
+            case "enrage":
+                useSkill(attackName, KittySet.Instance.KittyThrust, false, true);
+                break;
+            default:
+                useSkill(attackName, KittySet.Instance.KittyThrust);
+                break;
+        }
     }
 
     void FixedUpdate()
@@ -59,6 +69,7 @@ public class Kitty: Character
 
     public IEnumerator enrage()
     {
+        GameObject a = (GameObject)Instantiate(enragePrefab, transform.position, Quaternion.Euler(Vector3.zero));
         anim.SetBool("enrage", true);
         yield return new WaitForSeconds(KittySet.Instance.KittyEnrage.duration);
 
