@@ -127,10 +127,10 @@ public class Character : MonoBehaviour {
     /// <param name="name">skill name</param>
     /// <param name="f">skill IEnumerator function</param>
     /// <param name="cd"></param>
-    protected void addSkill(string name, skillFunction f, float cd)
+    protected void addSkill(string name, skillFunction f, float initCD = 0)
     {
         skills.Add(name, f);
-        skillCooler.Add(name, cd);
+        skillCooler.Add(name, initCD);
     }
 
     public void useSkill(string name, SkillSetting.skill setting, bool canMove = false, bool canBreak = false)
