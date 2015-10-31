@@ -12,7 +12,7 @@ public class Character : MonoBehaviour {
     protected bool grounded = false;
     protected bool movement = true;
     protected bool acting = false;
-    protected bool brokenTime = false; // use some skill enforce
+    protected bool enforcement = false; // use some skill enforce
 
     public float hp = 10;
     protected Rigidbody2D body;
@@ -134,31 +134,31 @@ public class Character : MonoBehaviour {
         skillCooler.Add(name, initCD);
     }
 
-    public void useSkill(string name, SkillSetting.skill setting, bool canMove = false, bool canBreak = false)
+    public void useSkill(string name, SkillSetting.skill setting, bool canMove = false, bool enforce = false)
     {
-        if (canBreak)
-            brokenTime = true;
+        if (enforce)
+            enforcement = true;
 
-        if (name != null && skillCooler[name] <= 0 && (!acting || canBreak))
+        if (name != null && skillCooler[name] <= 0 && (!acting || enforce))
         {
             movement = canMove;
             acting = true;
             StartCoroutine(skills[name]());
             skillCooler[name] = setting.cd;
-            StartCoroutine(skillEnd(setting.duration, canBreak));
+            StartCoroutine(skillEnd(setting.duration, enforce));
         }
     }
 
-    protected IEnumerator skillEnd(float duration, bool canBreak)
+    protected IEnumerator skillEnd(float duration, bool enforce)
     {
         yield return new WaitForSeconds(duration);
-        if (!brokenTime || canBreak)
+        if (!enforcement || enforce)
         {
             movement = true;
             acting = false;
         }
-        if (canBreak)
-            brokenTime = false;
+        if (enforce)
+            enforcement = false;
         yield break;
     }
 }
