@@ -29,7 +29,7 @@ public class Kitty: Character
         switch (attackName)
         {
             case "enrage":
-                useSkill(attackName, KittySet.Instance.KittyThrust, false, true);
+                useSkill(attackName, KittySet.Instance.KittyEnrage, false, true);
                 break;
             default:
                 useSkill(attackName, KittySet.Instance.KittyThrust);
@@ -69,7 +69,7 @@ public class Kitty: Character
 
     public IEnumerator enrage()
     {
-        GameObject a = (GameObject)Instantiate(enragePrefab, transform.position, Quaternion.Euler(Vector3.zero));
+        Instantiate(enragePrefab, transform.position, Quaternion.Euler(Vector3.zero));
         anim.SetBool("enrage", true);
         yield return new WaitForSeconds(KittySet.Instance.KittyEnrage.duration);
 
