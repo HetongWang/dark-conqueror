@@ -9,6 +9,8 @@ public class Kitty: Character
     public GameObject enragePrefab;
     protected Animator anim;
 
+    public bool enraged = false;
+
     public override void Awake()
     {
         base.Awake();
@@ -60,7 +62,8 @@ public class Kitty: Character
         GameObject gameo = (GameObject)Instantiate(thrustAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         KittyThrustAttack thrust = gameo.GetComponent<KittyThrustAttack>();
         thrust.transform.parent = transform;
-        thrust.setDriction(facingRight ? Vector2.right : Vector2.left);
+        thrust.init(facingRight ? Vector2.right : Vector2.left, enraged);
+
         yield return new WaitForSeconds(KittySet.Instance.KittyThrust.duration);
 
         anim.SetInteger("attack", 0);
@@ -69,6 +72,7 @@ public class Kitty: Character
 
     public IEnumerator enrage()
     {
+        enraged = true;
         Instantiate(enragePrefab, transform.position, Quaternion.Euler(Vector3.zero));
         anim.SetBool("enrage", true);
         yield return new WaitForSeconds(KittySet.Instance.KittyEnrage.duration);
