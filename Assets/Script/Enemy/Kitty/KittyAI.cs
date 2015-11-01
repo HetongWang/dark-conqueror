@@ -7,7 +7,7 @@ public class KittyAI : BasicAI {
 
     public KittyAI(Character kitty): base(kitty)
     {
-
+        viewRange = 15f;
     }
 
     public string attack()

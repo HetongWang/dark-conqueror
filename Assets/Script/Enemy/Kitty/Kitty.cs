@@ -74,11 +74,15 @@ public class Kitty: Character
     public IEnumerator enrage()
     {
         enraged = true;
+        moveSpeed *= KittySet.Instance.enrageEnhancement;
         Instantiate(enragePrefab, transform.position, Quaternion.Euler(Vector3.zero));
         anim.SetBool("enrage", true);
         yield return new WaitForSeconds(KittySet.Instance.KittyEnrage.actDuration);
 
         anim.SetBool("enrage", false);
+        Vector3 scale = transform.localScale;
+        scale *= 1.1f;
+        transform.localScale = scale;
         yield break;
     }
 
@@ -88,10 +92,19 @@ public class Kitty: Character
 
         // First wolf
         Vector3 position = transform.position;
-        position.y += 20;
+        position.y += 10;
         Instantiate(kittyWolfPrefab, position, Quaternion.Euler(0, 0, 0));
+        // Second wolf
+        position.x = ai.targetPlayer.transform.position.x;
+        if (facingRight)
+            position.x += 5f;
+        else
+            position.x -= 5f;
+        Instantiate(kittyWolfPrefab, position, Quaternion.Euler(0, 0, 0));
+
         yield return new WaitForSeconds(KittySet.Instance.SummonWolf.actDuration);
 
         anim.SetInteger("attack", 0);
+        yield break;
     }
 }
