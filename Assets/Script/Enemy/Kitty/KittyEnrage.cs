@@ -5,6 +5,6 @@ public class KittyEnrage : MonoBehaviour
 {
     void Awake()
     {
-        Destroy(gameObject, 0.1f);
+        Destroy(gameObject, KittySet.Instance.KittyEnrage.attackDuration);
     }
 }

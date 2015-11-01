@@ -7,6 +7,7 @@ public class Kitty: Character
 
     public GameObject thrustAttackPrefab;
     public GameObject enragePrefab;
+    public GameObject kittyWolfPrefab;
     protected Animator anim;
 
     public bool enraged = false;
@@ -16,6 +17,7 @@ public class Kitty: Character
         base.Awake();
         addSkill("thrust", thrustAttack);
         addSkill("enrage", enrage);
+        addSkill("summonWolf", summonWolf);
 
         facingRight = false;
         hp = KittySet.Instance.hp;
@@ -61,10 +63,9 @@ public class Kitty: Character
 
         GameObject gameo = (GameObject)Instantiate(thrustAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         KittyThrustAttack thrust = gameo.GetComponent<KittyThrustAttack>();
-        thrust.transform.parent = transform;
         thrust.init(facingRight ? Vector2.right : Vector2.left, enraged);
 
-        yield return new WaitForSeconds(KittySet.Instance.KittyThrust.duration);
+        yield return new WaitForSeconds(KittySet.Instance.KittyThrust.actDuration);
 
         anim.SetInteger("attack", 0);
         yield break;
@@ -75,9 +76,22 @@ public class Kitty: Character
         enraged = true;
         Instantiate(enragePrefab, transform.position, Quaternion.Euler(Vector3.zero));
         anim.SetBool("enrage", true);
-        yield return new WaitForSeconds(KittySet.Instance.KittyEnrage.duration);
+        yield return new WaitForSeconds(KittySet.Instance.KittyEnrage.actDuration);
 
         anim.SetBool("enrage", false);
         yield break;
+    }
+
+    public IEnumerator summonWolf()
+    {
+        anim.SetInteger("attack", 2);
+
+        // First wolf
+        Vector3 position = transform.position;
+        position.y += 20;
+        Instantiate(kittyWolfPrefab, position, Quaternion.Euler(0, 0, 0));
+        yield return new WaitForSeconds(KittySet.Instance.SummonWolf.actDuration);
+
+        anim.SetInteger("attack", 0);
     }
 }

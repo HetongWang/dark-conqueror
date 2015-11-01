@@ -66,12 +66,7 @@ public class Player : Character
 
     public IEnumerator doNormalAttack()
     {
-        GameObject go =  (GameObject)Instantiate(normalAttack, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
-        NormalAttack na = go.GetComponent<NormalAttack>();
-        na.transform.parent = transform;
-
         detectNormalAttackPhase();
-        na.setPhase(normalAttackPhase);
         switch (normalAttackPhase)
         {
             case 0:
@@ -85,8 +80,14 @@ public class Player : Character
                 break;
 
         }
+        yield return new WaitForSeconds(0.2f);
 
-        yield return new WaitForSeconds(PlayerSet.Instance.NormalAttack.duration);
+        GameObject go =  (GameObject)Instantiate(normalAttack, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        NormalAttack na = go.GetComponent<NormalAttack>();
+        na.transform.parent = transform;
+        na.setPhase(normalAttackPhase);
+
+        yield return new WaitForSeconds(PlayerSet.Instance.NormalAttack.actDuration - 0.2f);
 
         anim.SetInteger("attack", 0);
         yield break;

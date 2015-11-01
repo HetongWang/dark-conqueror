@@ -5,14 +5,20 @@ public class SkillSetting : Singleton<SkillSetting> {
 
     public struct skill
     {
-        public float cd, duration, demage, range;
+        public float cd, actDuration, demage, range, attackDuration;
 
-        public skill(float duration, float cd, float demage, float range)
+        /// <summary>
+        /// set basic skill attr
+        /// </summary>
+        /// <param name="actDuration">animation time</param>
+        /// <param name="attackDuration">attack survive time. 0 means not destory auto. default 0.1</param>
+        public skill(float actDuration, float cd, float demage, float range, float attackDuration = 0.1f)
         {
-            this.duration = duration;
+            this.actDuration = actDuration;
             this.cd = cd;
             this.demage = demage;
             this.range = range;
+            this.attackDuration = attackDuration;
         }
     }
 
