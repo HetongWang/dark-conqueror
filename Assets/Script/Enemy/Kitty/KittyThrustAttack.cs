@@ -27,8 +27,14 @@ public class KittyThrustAttack : BasicAttack {
         yield break;
     }
 
-    public void setDriction(Vector2 dirction)
+    public void init(Vector2 dirction, bool enraged)
     {
+        if (enraged)
+        {
+            forceIntensity *= KittySet.Instance.enrageEnhancement;
+            demage *= KittySet.Instance.enrageEnhancement;
+        }
+ 
         force = dirction * forceIntensity;
         if (dirction.x > 0)
             anim.SetBool("faceRight", true);
