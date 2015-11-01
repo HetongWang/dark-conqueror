@@ -55,7 +55,7 @@ public class BasicAttack : MonoBehaviour {
     
     public void setAttr(SkillSetting.skill skill)
     {
-        duration = skill.duration;
+        duration = skill.attackDuration;
         cd = skill. cd;
         demage = skill.demage;
     }

@@ -145,7 +145,7 @@ public class Character : MonoBehaviour {
             acting = true;
             StartCoroutine(skills[name]());
             skillCooler[name] = setting.cd;
-            StartCoroutine(skillEnd(setting.duration, enforce));
+            StartCoroutine(skillEnd(setting.actDuration, enforce));
         }
     }
 

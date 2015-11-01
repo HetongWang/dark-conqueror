@@ -7,6 +7,8 @@ public class Javelin : BasicAttack
     protected Rigidbody2D body;
     protected bool onGround = false;
 
+    public float surviveTime = 4f;
+
     public override void Awake()
     {
         setAttr(SiegeBowSet.Instance.SiegeBowShoot);
@@ -30,7 +32,7 @@ public class Javelin : BasicAttack
             body.gravityScale = 0;
             GetComponent<Collider2D>().enabled = false;
             onGround = true;
-            Destroy(gameObject, 5f);
+            Destroy(gameObject, surviveTime);
         }
         else
         {
