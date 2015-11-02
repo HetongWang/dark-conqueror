@@ -8,10 +8,11 @@ public class KittyThrustAttack : BasicAttack {
 
     public override void Awake()
     {
-        setAttr(KittySet.Instance.KittyThrust);
         base.Awake();
+        setAttr(KittySet.Instance.KittyThrust);
         targetTag.Add("Player");
         setAnimator();
+        Destroy(gameObject, duration);
     }
 
     public override void getDemage(Collider2D col)

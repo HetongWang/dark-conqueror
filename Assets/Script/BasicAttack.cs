@@ -12,13 +12,11 @@ public class BasicAttack : MonoBehaviour {
     protected Animator anim;
 
     /// <summary>
-    /// Awake function. involke setAttr before base.Awake()
+    /// Awake function.
     /// </summary>
     public virtual void Awake()
     {
         hurted = new List<GameObject>();
-        if (duration != 0)
-            Destroy(gameObject, duration);
     }
 
     protected void OnTriggerEnter2D(Collider2D col)
