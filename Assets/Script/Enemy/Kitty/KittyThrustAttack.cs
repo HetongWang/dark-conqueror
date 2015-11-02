@@ -23,7 +23,7 @@ public class KittyThrustAttack : BasicAttack {
 
     protected IEnumerator attackPhase(Collider2D col)
     {
-        yield return new WaitForSeconds(duration / 3);
+        yield return new WaitForSeconds(duration / 4);
         col.gameObject.GetComponent<Rigidbody2D>().AddForce(force);
         yield break;
     }

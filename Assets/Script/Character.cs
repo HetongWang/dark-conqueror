@@ -12,7 +12,8 @@ public class Character : MonoBehaviour {
     protected bool grounded = false;
     protected bool movement = true;
     protected bool acting = false;
-    protected bool enforcement = false; // use some skill enforce
+    protected bool enforcementStatus = false; // use some skill enforce
+    public bool invincible = false;
 
     public float hp = 10;
     protected Rigidbody2D body;
@@ -60,9 +61,10 @@ public class Character : MonoBehaviour {
         transform.localScale = scale;
     }
 
-    public void Hurt(float amount = 0)
+    public virtual void Hurt(float amount = 0)
     {
-        hp -= amount;
+        if (!invincible)
+            hp -= amount;
     }
 
     public void AliveOrDie()
@@ -137,7 +139,7 @@ public class Character : MonoBehaviour {
     public void useSkill(string name, SkillSetting.skill setting, bool canMove = false, bool enforce = false)
     {
         if (enforce)
-            enforcement = true;
+            enforcementStatus = true;
 
         if (name != null && skillCooler[name] <= 0 && (!acting || enforce))
         {
@@ -152,13 +154,13 @@ public class Character : MonoBehaviour {
     protected IEnumerator skillEnd(float duration, bool enforce)
     {
         yield return new WaitForSeconds(duration);
-        if (!enforcement || enforce)
+        if (!enforcementStatus || enforce)
         {
             movement = true;
             acting = false;
         }
         if (enforce)
-            enforcement = false;
+            enforcementStatus = false;
         yield break;
     }
 }

@@ -35,6 +35,9 @@ public class Kitty: Character
             case "enrage":
                 useSkill(attackName, KittySet.Instance.KittyEnrage, false, true);
                 break;
+            case "summonWolf":
+                useSkill(attackName, KittySet.Instance.SummonWolf);
+                break;
             default:
                 useSkill(attackName, KittySet.Instance.KittyThrust);
                 break;
@@ -95,7 +98,7 @@ public class Kitty: Character
         position.y += 10;
         GameObject g1 = (GameObject)Instantiate(kittyWolfPrefab, position, Quaternion.Euler(0, 0, 0));
         KittyWolf w1 = g1.GetComponent<KittyWolf>();
-        w1.setDirection(facingRight);
+        w1.setDirection(facingRight ? 1 : -1);
 
         // Second wolf
         position.x = ai.targetPlayer.transform.position.x;
@@ -105,7 +108,7 @@ public class Kitty: Character
             position.x -= 5f;
         GameObject g2 = (GameObject)Instantiate(kittyWolfPrefab, position, Quaternion.Euler(0, 0, 0));
         KittyWolf w2 = g2.GetComponent<KittyWolf>();
-        w2.setDirection(!facingRight);
+        w2.setDirection(!facingRight ? 1 : -1);
 
         yield return new WaitForSeconds(KittySet.Instance.SummonWolf.actDuration);
 
