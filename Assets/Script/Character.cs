@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Character : MonoBehaviour {
-    [HideInInspector]
-    public bool facingRight = true;
+
+    protected bool facingRight = true;
     public float moveSpeed = 3f;
 
     public float jumpForce = 600;

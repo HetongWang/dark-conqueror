@@ -16,6 +16,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &146706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 435578}
+  - 58: {fileID: 5836216}
+  - 114: {fileID: 11416468}
+  m_Layer: 11
+  m_Name: normalAttack
+  m_TagString: Attack
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &185750
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,6 +54,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &435578
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.88884401, y: -.461717635, z: 0}
+  m_LocalScale: {x: 4.19743299, y: 4.19743252, z: 4.19743252}
+  m_Children: []
+  m_Father: {fileID: 447080}
+  m_RootOrder: 0
 --- !u!4 &447080
 Transform:
   m_ObjectHideFlags: 1
@@ -47,6 +76,7 @@ Transform:
   m_LocalPosition: {x: -6.98999977, y: -.649999976, z: 0}
   m_LocalScale: {x: .238240853, y: .238240868, z: .238240868}
   m_Children:
+  - {fileID: 435578}
   - {fileID: 482600}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -61,7 +91,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 447080}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!50 &5095078
 Rigidbody2D:
   serializedVersion: 2
@@ -78,6 +108,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &5836216
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146706}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: .620000005
 --- !u!58 &5847178
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -132,12 +175,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5ea2010fa716d40ac0f1c2cfa1dd8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facingRight: 1
   moveSpeed: 3
   jumpForce: 600
   hp: 100
   dashSpeed: 2
-  normalAttack: {fileID: 183768, guid: 284fc0c03170d8f478951f32c2dc30ee, type: 2}
+  normalAttackPrefab: {fileID: 183768, guid: 284fc0c03170d8f478951f32c2dc30ee, type: 2}
+--- !u!114 &11416468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0796d2ec6dfac6a41b6d37db387c3bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: []
 --- !u!212 &21251660
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -188,7 +242,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1783731295
   m_SortingOrder: -9
-  m_Sprite: {fileID: 21300000, guid: 4ebe6e3b11c244b4a8373e4a6ba1d626, type: 3}
+  m_Sprite: {fileID: 21300006, guid: 5bc7cb9171c5d2549a88d59cb6636647, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

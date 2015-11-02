@@ -93,14 +93,19 @@ public class Kitty: Character
         // First wolf
         Vector3 position = transform.position;
         position.y += 10;
-        Instantiate(kittyWolfPrefab, position, Quaternion.Euler(0, 0, 0));
+        GameObject g1 = (GameObject)Instantiate(kittyWolfPrefab, position, Quaternion.Euler(0, 0, 0));
+        KittyWolf w1 = g1.GetComponent<KittyWolf>();
+        w1.setDirection(facingRight);
+
         // Second wolf
         position.x = ai.targetPlayer.transform.position.x;
         if (facingRight)
             position.x += 5f;
         else
             position.x -= 5f;
-        Instantiate(kittyWolfPrefab, position, Quaternion.Euler(0, 0, 0));
+        GameObject g2 = (GameObject)Instantiate(kittyWolfPrefab, position, Quaternion.Euler(0, 0, 0));
+        KittyWolf w2 = g2.GetComponent<KittyWolf>();
+        w2.setDirection(!facingRight);
 
         yield return new WaitForSeconds(KittySet.Instance.SummonWolf.actDuration);
 
