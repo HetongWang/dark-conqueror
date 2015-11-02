@@ -16,23 +16,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &146706
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 435578}
-  - 58: {fileID: 5836216}
-  - 114: {fileID: 11416468}
-  m_Layer: 11
-  m_Name: normalAttack
-  m_TagString: Attack
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &185750
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,18 +37,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &435578
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 146706}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.88884401, y: -.461717635, z: 0}
-  m_LocalScale: {x: 4.19743299, y: 4.19743252, z: 4.19743252}
-  m_Children: []
-  m_Father: {fileID: 447080}
-  m_RootOrder: 0
 --- !u!4 &447080
 Transform:
   m_ObjectHideFlags: 1
@@ -76,7 +47,6 @@ Transform:
   m_LocalPosition: {x: -6.98999977, y: -.649999976, z: 0}
   m_LocalScale: {x: .238240853, y: .238240868, z: .238240868}
   m_Children:
-  - {fileID: 435578}
   - {fileID: 482600}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -87,11 +57,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127168}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.43000007, z: 0}
+  m_LocalPosition: {x: 0, y: -3.86999989, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 447080}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!50 &5095078
 Rigidbody2D:
   serializedVersion: 2
@@ -108,19 +78,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &5836216
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 146706}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: .620000005
 --- !u!58 &5847178
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -177,21 +134,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   jumpForce: 600
+  invincible: 0
   hp: 100
   dashSpeed: 2
+  dodgingForce: 120
   normalAttackPrefab: {fileID: 183768, guid: 284fc0c03170d8f478951f32c2dc30ee, type: 2}
---- !u!114 &11416468
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 146706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0796d2ec6dfac6a41b6d37db387c3bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTag: []
 --- !u!212 &21251660
 SpriteRenderer:
   m_ObjectHideFlags: 1

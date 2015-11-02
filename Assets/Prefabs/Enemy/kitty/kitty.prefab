@@ -118,12 +118,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efebd41c7cbbcef469464f38c27008c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facingRight: 1
   moveSpeed: 3
   jumpForce: 600
   hp: 10
   thrustAttackPrefab: {fileID: 121260, guid: 860e18ce3931a8345b0861247c6ff518, type: 2}
   enragePrefab: {fileID: 121772, guid: d9ca749fc951d1149ae98c019e116fa1, type: 2}
+  kittyWolfPrefab: {fileID: 187170, guid: 2172c701cf2896349ab688787682ba55, type: 2}
+  enraged: 0
 --- !u!212 &21206382
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -187,6 +188,10 @@ Prefab:
       propertyPath: thrustAttackPrefab
       value: 
       objectReference: {fileID: 121260, guid: 860e18ce3931a8345b0861247c6ff518, type: 2}
+    - target: {fileID: 0}
+      propertyPath: kittyWolfPrefab
+      value: 
+      objectReference: {fileID: 187170, guid: 2172c701cf2896349ab688787682ba55, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 106010}

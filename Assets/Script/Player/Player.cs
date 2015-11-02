@@ -6,8 +6,7 @@ public class Player : Character
 {
     protected bool jumped = false;
     protected bool dashed = false;
-
-    public float dashSpeed = 2f;
+    protected bool blocked = false;
 
     public GameObject normalAttackPrefab;
     private Animator anim;
@@ -22,6 +21,7 @@ public class Player : Character
         base.Awake();
         //anim = GetComponent<Animator>();
         addSkill("normalAttack", normalAttack);
+        addSkill("dodge", dodge);
         anim = GetComponent<Animator>();
 
         hp = PlayerSet.Instance.hp;
@@ -37,7 +37,10 @@ public class Player : Character
         base.Update();
         updateButtonCooler();
 
-        if (Input.GetButtonDown("Jump"))
+        block();
+        isDodging(Input.GetAxisRaw("Horizontal"));
+
+        if (Input.GetButtonDown("Jump") && !blocked)
             jumped = true;
 
         dash();
@@ -51,10 +54,12 @@ public class Player : Character
     void FixedUpdate()
     {
         float horInput = Input.GetAxisRaw("Horizontal");
+
         // Detect if dash
         if (dashed)
-            horInput *= dashSpeed;
-        run(horInput);
+            horInput *= PlayerSet.Instance.dashSpeed;
+        if (!blocked)
+            run(horInput);
 
         // Jump
         if (jumped)
@@ -123,6 +128,56 @@ public class Player : Character
             dashed = false;
         if (!facingRight && Input.GetButtonUp("Horizontal"))
             dashed = false;
+    }
+
+    public void block()
+    {
+        if (Input.GetButtonDown("Block"))
+        {
+            blocked = true;
+        }
+        
+        if (Input.GetButtonUp("Block"))
+        {
+            blocked = false;
+        }
+    }
+
+    public void isDodging(float horInput)
+    {
+        if (!blocked || horInput == 0)
+            return;
+
+        if (horInput > 0)
+        {
+            if (!facingRight)
+                Flip();
+        }
+        else if (horInput < 0)
+        {
+            if (facingRight)
+                Flip();
+        }
+        useSkill("dodge", PlayerSet.Instance.Dodge, true);
+    }
+
+    public IEnumerator dodge()
+    {
+        invincible = true;
+        if (facingRight)
+            body.AddForce(Vector2.right * PlayerSet.Instance.dodgingForce);
+        else
+            body.AddForce(Vector2.left * PlayerSet.Instance.dodgingForce);
+        Debug.Log("dodge");
+        yield return new WaitForSeconds(PlayerSet.Instance.Dodge.actDuration);
+
+        invincible = false;
+    }
+
+    public override void Hurt(float amount = 0)
+    {
+        if (!invincible && !blocked)
+            hp -= amount;
     }
 
     bool multiTapDetect(string key, int times)

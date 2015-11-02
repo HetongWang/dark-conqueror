@@ -14,6 +14,9 @@ public class KittyAI : BasicAI {
     {
         string skillName = null;
 
+        if (person.skillCooler["summonWolf"] <= 0)
+            return "summonWolf";
+
         if (isEnrage())
             return "enrage";
 
