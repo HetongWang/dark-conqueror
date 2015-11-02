@@ -9,7 +9,7 @@ public class Player : Character
 
     public float dashSpeed = 2f;
 
-    public GameObject normalAttack;
+    public GameObject normalAttackPrefab;
     private Animator anim;
 
     protected Dictionary<string, int> buttonCount = new Dictionary<string, int>();
@@ -21,7 +21,7 @@ public class Player : Character
     {
         base.Awake();
         //anim = GetComponent<Animator>();
-        addSkill("normalAttack", doNormalAttack);
+        addSkill("normalAttack", normalAttack);
         anim = GetComponent<Animator>();
 
         hp = PlayerSet.Instance.hp;
@@ -64,7 +64,7 @@ public class Player : Character
         }
     }
 
-    public IEnumerator doNormalAttack()
+    public IEnumerator normalAttack()
     {
         detectNormalAttackPhase();
         switch (normalAttackPhase)
@@ -82,7 +82,7 @@ public class Player : Character
         }
         yield return new WaitForSeconds(0.2f);
 
-        GameObject go =  (GameObject)Instantiate(normalAttack, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        GameObject go =  (GameObject)Instantiate(normalAttackPrefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
         NormalAttack na = go.GetComponent<NormalAttack>();
         na.transform.parent = transform;
         na.setPhase(normalAttackPhase);

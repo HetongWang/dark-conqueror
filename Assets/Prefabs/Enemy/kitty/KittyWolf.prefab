@@ -12,7 +12,7 @@ GameObject:
   - 61: {fileID: 6124724}
   - 50: {fileID: 5078818}
   m_Layer: 10
-  m_Name: catwolf
+  m_Name: KittyWolf
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
