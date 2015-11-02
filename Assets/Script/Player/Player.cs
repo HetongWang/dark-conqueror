@@ -82,7 +82,15 @@ public class Player : Character
         }
         yield return new WaitForSeconds(0.2f);
 
-        GameObject go =  (GameObject)Instantiate(normalAttackPrefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        Vector3 position = transform.position;
+        if (facingRight) { 
+            position.x += KittySet.Instance.KittyThrust.range / 2;
+        }
+        else
+        {
+            position.x -= KittySet.Instance.KittyThrust.range / 2;
+        }
+        GameObject go =  (GameObject)Instantiate(normalAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         NormalAttack na = go.GetComponent<NormalAttack>();
         na.transform.parent = transform;
         na.setPhase(normalAttackPhase);
