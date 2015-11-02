@@ -14,4 +14,4 @@ Arrow key control movement.
 
 `Space` -- Block
 
-`Space` + `¡û` or `¡ú` -- Dodge
+`Space` + `â†` or `â†’` -- Dodge
