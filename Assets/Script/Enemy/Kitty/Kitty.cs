@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Kitty: Character
+public class Kitty: Enemy
 {
     private KittyAI ai;
 
@@ -24,6 +24,7 @@ public class Kitty: Character
 
         ai = new KittyAI(this);
         anim = GetComponent<Animator>();
+        setHPBar(KittySet.Instance.hpBarOffset, KittySet.Instance.hp);
     }
 
     public override void Update()
