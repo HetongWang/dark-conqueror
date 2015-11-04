@@ -1,4 +1,6 @@
-﻿public class BurnStatusSet : Singleton<BurnStatusSet>
+﻿using UnityEngine;
+
+public class BurnStatusSet : Singleton<BurnStatusSet>
 {
     public float duration = 3f;
     public float demage = 0.5f;
@@ -9,11 +11,11 @@ public class BurnStatus : StatusEffect
 {
     public BurnStatus(Character person) : base(person)
     {
-        this.duration = BurnStatusSet.Instance.duration;
+        duration = BurnStatusSet.Instance.duration;
     }
 
     public override void effect()
     {
-        person.Hurt(BurnStatusSet.Instance.demage);
+        person.Hurt(BurnStatusSet.Instance.demage * Time.deltaTime);
     }
 }
