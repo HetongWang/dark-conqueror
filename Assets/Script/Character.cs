@@ -17,7 +17,7 @@ public class Character : MonoBehaviour {
 
     public float hp = 10;
     protected Rigidbody2D body;
-    protected StatusEffectController statusController;
+    public StatusEffectController statusController;
 
     public delegate IEnumerator skillFunction();
     protected Dictionary<string, skillFunction> skills = new Dictionary<string, skillFunction>();

@@ -16,7 +16,8 @@ public class NormalAttack : BasicAttack {
     public override void getDemage(Collider2D col)
     {
         base.getDemage(col);
-
+        Character c = col.gameObject.GetComponent<Character>();
+        c.statusController.addStatus("burn");
     }
 
     public void setPhase(int n)

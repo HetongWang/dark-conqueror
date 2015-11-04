@@ -4,11 +4,9 @@ using System.Collections.Generic;
 
 public class StatusEffect
 {
-    public GameObject prefab;
-
     protected Character person;
     public float duration;
-    public int maxOverlay;
+    public int maxOverlay = 1;
     public int overlayCount = 0;
     protected List<float> timer = new List<float>();
 
@@ -39,7 +37,7 @@ public class StatusEffect
         addNew();
     }
 
-    public void addNew()
+    public virtual void addNew()
     {
         if (overlayCount < maxOverlay)
         {
@@ -54,6 +52,5 @@ public class StatusEffect
 
     ~StatusEffect()
     {
-        Object.Destroy(prefab);
     }
 }

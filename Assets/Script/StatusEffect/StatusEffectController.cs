@@ -19,7 +19,10 @@ public class StatusEffectController
         {
             StatusEffect instance = newStatusInstance(name);
             if (instance != null)
+            {
                 status.Add(name, instance);
+                status[name].addNew();
+            }
             else
                 Debug.Log("No status effect named " + name);
         }
