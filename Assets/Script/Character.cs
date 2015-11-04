@@ -17,6 +17,7 @@ public class Character : MonoBehaviour {
 
     public float hp = 10;
     protected Rigidbody2D body;
+    protected StatusEffectController statusController;
 
     public delegate IEnumerator skillFunction();
     protected Dictionary<string, skillFunction> skills = new Dictionary<string, skillFunction>();
@@ -30,6 +31,7 @@ public class Character : MonoBehaviour {
         body = GetComponent<Rigidbody2D>();
         body.freezeRotation = true;
         groundCheck = transform.Find("groundCheck");
+        statusController = new StatusEffectController(this);
     }
 
     /// <summary>
@@ -40,6 +42,7 @@ public class Character : MonoBehaviour {
         detectGround();
         AliveOrDie();
         updateSkillCD();
+        statusController.updateStatus();
     }
 
     private void updateSkillCD()
