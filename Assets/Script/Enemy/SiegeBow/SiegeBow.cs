@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class SiegeBow : Character 
+public class SiegeBow : Enemy
 {
     protected Vector2 javelinVelocity;
     protected SiegeBowAI ai;
@@ -19,6 +19,7 @@ public class SiegeBow : Character
 
         ai = new SiegeBowAI(this);
         ai.seekPlayer();
+        setHPBar(SiegeBowSet.Instance.hpBarOffset, SiegeBowSet.Instance.hp);
     }
 
     public override void Update()

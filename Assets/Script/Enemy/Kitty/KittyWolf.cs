@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class KittyWolf : Character
+public class KittyWolf : Enemy
 {
     protected float direction = -1;
     protected float initPosition;
