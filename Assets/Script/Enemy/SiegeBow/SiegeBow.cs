@@ -27,7 +27,8 @@ public class SiegeBow : Character
         if (couldShoot())
         {
             javelinVelocity = ai.shootVelocity();
-            useSkill("shoot", SiegeBowSet.Instance.SiegeBowShoot);
+            if (!float.IsNaN(javelinVelocity.x))
+                useSkill("shoot", SiegeBowSet.Instance.SiegeBowShoot);
         }
     }
 
