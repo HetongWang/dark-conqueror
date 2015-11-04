@@ -240,18 +240,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5059150, guid: 93ad8b7ccd0b27148acbb7ca8ce2731c, type: 2}
-      propertyPath: m_Mass
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 496750, guid: 93ad8b7ccd0b27148acbb7ca8ce2731c, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11405504, guid: 93ad8b7ccd0b27148acbb7ca8ce2731c, type: 2}
-      propertyPath: hpslider
-      value: 
-      objectReference: {fileID: 189274, guid: eaa717e95e5b13145ba51f93ca3a2290, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 93ad8b7ccd0b27148acbb7ca8ce2731c, type: 2}
   m_IsPrefabParent: 0

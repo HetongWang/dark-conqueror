@@ -157,7 +157,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   jumpForce: 600
+  invincible: 0
   hp: 10
+  hpslider: {fileID: 189274, guid: eaa717e95e5b13145ba51f93ca3a2290, type: 2}
 --- !u!212 &21277410
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -216,7 +218,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: hpslider
+      value: 
+      objectReference: {fileID: 189274, guid: eaa717e95e5b13145ba51f93ca3a2290, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 187170}
