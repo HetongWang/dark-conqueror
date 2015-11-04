@@ -1,0 +1,19 @@
+﻿public class BurnStatusSet : Singleton<BurnStatusSet>
+{
+    public float duration = 3f;
+    public float demage = 0.5f;
+    public bool canOverlay = false;
+}
+
+public class BurnStatus : StatusEffect
+{
+    public BurnStatus(Character person) : base(person)
+    {
+        this.duration = BurnStatusSet.Instance.duration;
+    }
+
+    public override void effect()
+    {
+        person.Hurt(BurnStatusSet.Instance.demage);
+    }
+}
