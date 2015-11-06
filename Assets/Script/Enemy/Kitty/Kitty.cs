@@ -48,6 +48,7 @@ public class Kitty: Enemy
     void FixedUpdate()
     {
         float horMove = ai.horMove();
+        Debug.Log(movementFreezenTime);
         run(horMove);
     }
 

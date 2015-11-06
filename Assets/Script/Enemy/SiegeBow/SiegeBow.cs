@@ -14,7 +14,6 @@ public class SiegeBow : Enemy
     {
         base.Awake();
         addSkill("shoot", shoot, SiegeBowSet.Instance.SiegeBowShoot.cd);
-        movement = false;
         hp = SiegeBowSet.Instance.hp;
 
         ai = new SiegeBowAI(this);

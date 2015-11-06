@@ -10,9 +10,9 @@ public class Character : MonoBehaviour {
     public float jumpForce = 600;
     protected Transform groundCheck;
     protected bool grounded = false;
-    protected bool movement = true;
-    protected bool acting = false;
-    protected bool enforcementStatus = false; // use some skill enforce
+    protected float movementFreezenTime = 0;
+    protected float actingTime = 0;
+    protected float freezeTime = 0;
     public bool invincible = false;
 
     public float hp = 10;
@@ -41,8 +41,25 @@ public class Character : MonoBehaviour {
     {
         detectGround();
         AliveOrDie();
+        updateStatus();
         updateSkillCD();
         statusController.updateStatus();
+    }
+
+    public void updateStatus()
+    {
+        if (freezeTime > 0)
+        {
+            freezeTime -= Time.deltaTime;
+        }
+        if (actingTime > 0)
+        {
+            actingTime -= Time.deltaTime;
+        }
+        if (movementFreezenTime > 0)
+        {
+            movementFreezenTime -= Time.deltaTime;
+        }
     }
 
     private void updateSkillCD()
@@ -64,6 +81,14 @@ public class Character : MonoBehaviour {
         transform.localScale = scale;
     }
 
+    protected bool canActing()
+    {
+        if (actingTime <= 0 && freezeTime <= 0)
+            return true;
+        else
+            return false;
+    }
+
     public virtual void Hurt(float amount = 0)
     {
         if (!invincible)
@@ -78,7 +103,7 @@ public class Character : MonoBehaviour {
 
     public void run(float horInput)
     {
-        if (movement)
+        if (movementFreezenTime <= 0)
         {
             move(horInput);
         }
@@ -139,31 +164,18 @@ public class Character : MonoBehaviour {
         skillCooler.Add(name, initCD);
     }
 
-    public void useSkill(string name, SkillSetting.skill setting, bool canMove = false, bool enforce = false)
+    public void useSkill(string name, SkillSetting setting, bool canMove = false, bool enforce = false)
     {
-        if (enforce)
-            enforcementStatus = true;
-
-        if (name != null && skillCooler[name] <= 0 && (!acting || enforce))
+        if (name != null && skillCooler[name] <= 0 && (canActing() || enforce))
         {
-            movement = canMove;
-            acting = true;
+            actingTime = setting.actDuration;
             StartCoroutine(skills[name]());
             skillCooler[name] = setting.cd;
-            StartCoroutine(skillEnd(setting.actDuration, enforce));
-        }
-    }
 
-    protected IEnumerator skillEnd(float duration, bool enforce)
-    {
-        yield return new WaitForSeconds(duration);
-        if (!enforcementStatus || enforce)
-        {
-            movement = true;
-            acting = false;
+            if (!canMove)
+            {
+                movementFreezenTime = setting.actDuration;
+            }
         }
-        if (enforce)
-            enforcementStatus = false;
-        yield break;
     }
 }

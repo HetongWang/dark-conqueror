@@ -7,11 +7,31 @@ public class KittySet: Singleton<KittySet> {
     public float hp = 50;
     public float enrageTrigger = 47f;
     public float enrageEnhancement = 1.5f;
-    public SkillSetting.skill KittyThrust = new SkillSetting.skill(0.6f, 2f, 2f, 1.4f, 0.6f);
-    public SkillSetting.skill KittyEnrage = new SkillSetting.skill(1f, 200f, 0f, 5f);
-    public SkillSetting.skill SummonWolf = new SkillSetting.skill(0.6f, 8f, 3f, 10f, 0);
+    public SkillSetting KittyThrust = new SkillSetting();
+    public SkillSetting KittyEnrage = new SkillSetting();
+    public SkillSetting SummonWolf = new SkillSetting();
 
     public float KittyWolfMoveSpeed = 11f;
     public float KittyWolfDistance = 30f;
     public float KittyWolfHP = 2f;
+
+    protected KittySet()
+    {
+        KittyThrust.actDuration = 0.6f;
+        KittyThrust.cd = 2f;
+        KittyThrust.demage = 2f;
+        KittyThrust.range = 1.4f;
+        KittyThrust.attackDuration = 0.6f;
+
+        KittyEnrage.actDuration = 1f;
+        KittyEnrage.cd = 2000f;
+        KittyEnrage.demage = 0f;
+        KittyEnrage.range = 5f;
+
+        SummonWolf.actDuration = 0.6f;
+        SummonWolf.cd = 8f;
+        SummonWolf.demage = 3f;
+        SummonWolf.range = 10f;
+        SummonWolf.attackDuration = 0f;
+    }
 }

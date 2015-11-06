@@ -5,6 +5,19 @@ public class PlayerSet : Singleton<PlayerSet> {
     public float hp = 50;
     public float dashSpeed = 2f;
     public float dodgingForce = 520f;
-    public SkillSetting.skill NormalAttack = new SkillSetting.skill(0.40f, 0.45f, 1f, 1f);
-    public SkillSetting.skill Dodge = new SkillSetting.skill(0.8f, 1f, 0f, 2f);
+    public SkillSetting NormalAttack = new SkillSetting();
+    public SkillSetting Dodge = new SkillSetting();
+
+    protected PlayerSet()
+    {
+        NormalAttack.actDuration = 0.4f;
+        NormalAttack.cd = 0.45f;
+        NormalAttack.demage = 1f;
+        NormalAttack.range = 1f;
+
+        Dodge.actDuration = 0.8f;
+        Dodge.cd = 1f;
+        Dodge.demage = 0f;
+        Dodge.range = 2f;
+    }
 }
