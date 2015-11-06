@@ -42,7 +42,6 @@ public class BasicAttack : MonoBehaviour {
         {
             person.Hurt(demage);
             hurted.Add(col.gameObject);
-
         }
     }
 
@@ -51,7 +50,7 @@ public class BasicAttack : MonoBehaviour {
         anim = GetComponent<Animator>();
     }
     
-    public void setAttr(SkillSetting.skill skill)
+    public void setAttr(SkillSetting skill)
     {
         duration = skill.attackDuration;
         cd = skill.cd;
