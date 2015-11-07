@@ -12,7 +12,7 @@ public class KittyThrustAttack : BasicAttack {
         setAttr(KittySet.Instance.KittyThrust);
         targetTag.Add("Player");
         setAnimator();
-        Destroy(gameObject, duration);
+        Destroy(gameObject, setting.actDuration);
     }
 
     public override void getDemage(Collider2D col)
@@ -23,7 +23,7 @@ public class KittyThrustAttack : BasicAttack {
 
     protected IEnumerator attackPhase(Collider2D col)
     {
-        yield return new WaitForSeconds(duration / 4);
+        yield return new WaitForSeconds(setting.actDuration / 4);
         col.gameObject.GetComponent<Rigidbody2D>().AddForce(force);
         yield break;
     }
@@ -33,7 +33,7 @@ public class KittyThrustAttack : BasicAttack {
         if (enraged)
         {
             forceIntensity *= KittySet.Instance.enrageEnhancement;
-            demage *= KittySet.Instance.enrageEnhancement;
+            setting.demage *= KittySet.Instance.enrageEnhancement;
         }
  
         force = dirction * forceIntensity;

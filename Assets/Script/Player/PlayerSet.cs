@@ -14,6 +14,7 @@ public class PlayerSet : Singleton<PlayerSet> {
         NormalAttack.cd = 0.45f;
         NormalAttack.demage = 1f;
         NormalAttack.range = 1f;
+        NormalAttack.freezenTime = 0.5f;
 
         Dodge.actDuration = 0.8f;
         Dodge.cd = 1f;

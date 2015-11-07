@@ -5,7 +5,7 @@ public class KittyWolfAttack : BasicAttack
     public override void Awake()
     {
         base.Awake();
-        demage = KittySet.Instance.SummonWolf.demage;
+        setting = KittySet.Instance.SummonWolf;
         targetTag.Add("Player");
     }
 }
