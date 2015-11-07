@@ -12,11 +12,12 @@ public class Character : MonoBehaviour {
     protected bool grounded = false;
     protected float movementFreezenTime = 0;
     protected float actingTime = 0;
-    protected float freezeTime = 0;
+    protected float freezenTime = 0;
     public bool invincible = false;
 
     public float hp = 10;
     protected Rigidbody2D body;
+    protected Animator anim;
     public StatusEffectController statusController;
 
     public delegate IEnumerator skillFunction();
@@ -48,10 +49,16 @@ public class Character : MonoBehaviour {
 
     public void updateStatus()
     {
-        if (freezeTime > 0)
+        if (freezenTime > 0)
         {
-            freezeTime -= Time.deltaTime;
+            freezenTime -= Time.deltaTime;
         }
+        else
+        {
+            if (anim)
+                anim.SetBool("hurt", false);
+        }
+
         if (actingTime > 0)
         {
             actingTime -= Time.deltaTime;
@@ -83,13 +90,27 @@ public class Character : MonoBehaviour {
 
     protected bool canActing()
     {
-        if (actingTime <= 0 && freezeTime <= 0)
+        if (actingTime <= 0 && freezenTime <= 0)
             return true;
         else
             return false;
     }
 
-    public virtual void Hurt(float amount = 0)
+    public virtual void Hurt(SkillSetting setting)
+    {
+        if (!invincible)
+        {
+            hp -= setting.demage;
+            freezenTime = setting.freezenTime;
+
+            if (anim)
+            {
+                anim.SetBool("hurt", true);
+            }
+        }
+    }
+
+    public void getDemage(float amount)
     {
         if (!invincible)
             hp -= amount;

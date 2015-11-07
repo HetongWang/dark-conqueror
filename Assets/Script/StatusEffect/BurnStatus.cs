@@ -16,6 +16,6 @@ public class BurnStatus : StatusEffect
 
     public override void effect()
     {
-        person.Hurt(BurnStatusSet.Instance.demage * Time.deltaTime);
+        person.getDemage(BurnStatusSet.Instance.demage * Time.deltaTime);
     }
 }

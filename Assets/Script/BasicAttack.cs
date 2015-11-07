@@ -5,9 +5,7 @@ public class BasicAttack : MonoBehaviour {
 
     private List<GameObject> hurted;
     public List<string> targetTag = new List<string>();
-    protected float demage;
-    protected float duration;
-    protected float cd;
+    protected SkillSetting setting;
 
     protected Animator anim;
 
@@ -40,7 +38,7 @@ public class BasicAttack : MonoBehaviour {
         Character person = col.gameObject.GetComponent<Character>();
         if (person)
         {
-            person.Hurt(demage);
+            person.Hurt(setting);
             hurted.Add(col.gameObject);
         }
     }
@@ -52,8 +50,6 @@ public class BasicAttack : MonoBehaviour {
     
     public void setAttr(SkillSetting skill)
     {
-        duration = skill.attackDuration;
-        cd = skill.cd;
-        demage = skill.demage;
+        setting = skill;
     }
 }

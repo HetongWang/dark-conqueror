@@ -8,7 +8,6 @@ public class Kitty: Enemy
     public GameObject thrustAttackPrefab;
     public GameObject enragePrefab;
     public GameObject kittyWolfPrefab;
-    protected Animator anim;
 
     public bool enraged = false;
 
@@ -48,7 +47,6 @@ public class Kitty: Enemy
     void FixedUpdate()
     {
         float horMove = ai.horMove();
-        Debug.Log(movementFreezenTime);
         run(horMove);
     }
 
@@ -58,7 +56,8 @@ public class Kitty: Enemy
         position.y += 0.2f;
         anim.SetInteger("attack", 1);
 
-        if (facingRight) { 
+        if (facingRight)
+        { 
             position.x += KittySet.Instance.KittyThrust.range / 2;
         }
         else

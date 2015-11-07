@@ -8,7 +8,7 @@ public class SkillSetting {
         demage, 
         range, 
         attackDuration = 0.1f, 
-        freezenTime = 1f;
+        freezenTime = 0.5f;
 
     public SkillSetting()
     {

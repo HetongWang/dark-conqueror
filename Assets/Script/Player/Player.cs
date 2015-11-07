@@ -9,7 +9,6 @@ public class Player : Character
     protected bool blocked = false;
 
     public GameObject normalAttackPrefab;
-    private Animator anim;
 
     protected Dictionary<string, int> buttonCount = new Dictionary<string, int>();
     protected Dictionary<string, float> buttonCooler = new Dictionary<string, float>();
@@ -174,10 +173,13 @@ public class Player : Character
         invincible = false;
     }
 
-    public override void Hurt(float amount = 0)
+    public override void Hurt(SkillSetting setting)
     {
         if (!invincible && !blocked)
-            hp -= amount;
+        {
+            hp -= setting.demage;
+            freezenTime = setting.freezenTime;
+        }
     }
 
     bool multiTapDetect(string key, int times)
