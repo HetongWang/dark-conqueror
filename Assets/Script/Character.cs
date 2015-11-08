@@ -67,6 +67,8 @@ public class Character : MonoBehaviour {
         {
             movementFreezenTime -= Time.deltaTime;
         }
+
+        anim.SetFloat("moveSpeed", Mathf.Abs(body.velocity.x));
     }
 
     private void updateSkillCD()
