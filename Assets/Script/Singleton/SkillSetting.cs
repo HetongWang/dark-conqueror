@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 public class SkillSetting {
     public float 
-        cd, 
-        actDuration, 
-        demage, 
-        range, 
-        attackDuration = 0.1f, 
-        freezenTime = 0.5f;
+        cd = 0, 
+        actDuration = 0.5f,     // animation time or attackspeed
+        demage = 0, 
+        range = 0, 
+        attackDuration = 0.1f,  // attack instance survive time. 
+        freezenTime = 0f;       // target stagger time
 
     public SkillSetting()
     {

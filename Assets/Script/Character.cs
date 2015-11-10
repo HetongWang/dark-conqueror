@@ -6,16 +6,16 @@ public class Character : MonoBehaviour {
 
     protected bool facingRight = true;
     public float moveSpeed = 3f;
-
     public float jumpForce = 600;
+    public bool invincible = false;
+
     protected Transform groundCheck;
     protected bool grounded = false;
     protected float movementFreezenTime = 0;
     protected float actingTime = 0;
     protected float freezenTime = 0;
-    public bool invincible = false;
-
     public float hp = 10;
+
     protected Rigidbody2D body;
     protected Animator anim;
     public StatusEffectController statusController;
@@ -68,7 +68,8 @@ public class Character : MonoBehaviour {
             movementFreezenTime -= Time.deltaTime;
         }
 
-        anim.SetFloat("moveSpeed", Mathf.Abs(body.velocity.x));
+        if (anim)
+            anim.SetFloat("moveSpeed", Mathf.Abs(body.velocity.x));
     }
 
     private void updateSkillCD()

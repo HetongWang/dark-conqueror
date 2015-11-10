@@ -3,7 +3,7 @@ using System.Collections;
 
 public class KittyThrustAttack : BasicAttack {
 
-    public float forceIntensity = 50f;
+    public float forceIntensity = KittySet.Instance.KittyThrustForceIntensity;
     protected Vector2 force;
 
     public override void Awake()

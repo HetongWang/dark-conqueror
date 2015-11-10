@@ -10,7 +10,7 @@ public class NormalAttack : BasicAttack {
         base.Awake();
         setAttr(PlayerSet.Instance.NormalAttack);
         targetTag.Add("Enemy");
-        Destroy(gameObject, setting.actDuration);
+        Destroy(gameObject, setting.attackDuration);
     }
 
     public override void getDemage(Collider2D col)
