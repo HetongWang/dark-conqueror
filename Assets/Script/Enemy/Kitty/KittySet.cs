@@ -7,7 +7,10 @@ public class KittySet: Singleton<KittySet> {
     public float hp = 50;
     public float enrageTrigger = 47f;
     public float enrageEnhancement = 1.5f;
+
     public SkillSetting KittyThrust = new SkillSetting();
+    public float KittyThrustForceIntensity = 50f;
+
     public SkillSetting KittyEnrage = new SkillSetting();
     public SkillSetting SummonWolf = new SkillSetting();
 
@@ -22,6 +25,7 @@ public class KittySet: Singleton<KittySet> {
         KittyThrust.demage = 2f;
         KittyThrust.range = 1.4f;
         KittyThrust.attackDuration = 0.6f;
+        KittyThrust.freezenTime = 0.5f;
 
         KittyEnrage.actDuration = 1f;
         KittyEnrage.cd = 2000f;

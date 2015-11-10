@@ -88,11 +88,11 @@ public class Player : Character
 
         Vector3 position = transform.position;
         if (facingRight) { 
-            position.x += KittySet.Instance.KittyThrust.range / 2;
+            position.x += PlayerSet.Instance.NormalAttack.range / 2;
         }
         else
         {
-            position.x -= KittySet.Instance.KittyThrust.range / 2;
+            position.x -= PlayerSet.Instance.NormalAttack.range / 2;
         }
         GameObject go =  (GameObject)Instantiate(normalAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         NormalAttack na = go.GetComponent<NormalAttack>();

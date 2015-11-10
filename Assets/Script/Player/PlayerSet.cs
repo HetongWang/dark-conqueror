@@ -13,7 +13,8 @@ public class PlayerSet : Singleton<PlayerSet> {
         NormalAttack.actDuration = 0.4f;
         NormalAttack.cd = 0.45f;
         NormalAttack.demage = 1f;
-        NormalAttack.range = 1f;
+        NormalAttack.range = 1.4f;
+        NormalAttack.attackDuration = 0.5f;
         NormalAttack.freezenTime = 0.5f;
 
         Dodge.actDuration = 0.8f;

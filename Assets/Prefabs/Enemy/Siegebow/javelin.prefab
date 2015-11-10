@@ -71,7 +71,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8664a7657939c48a63c410d2089f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTag: Player
+  targetTag: []
+  surviveTime: 4
 --- !u!212 &21246644
 SpriteRenderer:
   m_ObjectHideFlags: 1
