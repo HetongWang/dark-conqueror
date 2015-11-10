@@ -8,11 +8,10 @@ public class BasicAI {
 
     protected GameObject[] players;
     protected moveMode movementMode;
-    protected bool acting;
     protected bool moveToRight = true;
     protected Vector3 initPosition;
 
-    public float viewRange = 3;
+    public float viewRange = 13;
     public float guardRange = 3;
     public float distantToPlayer = 1f;
     public GameObject targetPlayer;
@@ -23,6 +22,7 @@ public class BasicAI {
         initPosition = person.transform.position;
         players = GameObject.FindGameObjectsWithTag("Player");
         movementMode = moveMode.guard;
+        seekPlayer();
     }
 
     public GameObject seekPlayer()
@@ -76,8 +76,10 @@ public class BasicAI {
 
     protected float attackMovement(GameObject player)
     {
-        float res = 0;
+        if (player == null)
+            return 0;
 
+        float res = 0;
         float dis = person.transform.position.x - player.transform.position.x;
         if (Mathf.Abs(dis) > distantToPlayer)
         {
@@ -100,7 +102,7 @@ public class BasicAI {
     /// Calculate next movement
     /// </summary>
     /// <returns>Movement direction and speed</returns>
-	public float horMove ()
+    public float horMove ()
     {
         GameObject player = seekPlayer();
         float movement = 0;
@@ -117,4 +119,10 @@ public class BasicAI {
 
         return movement;
 	}
+
+    public virtual string update()
+    {
+        seekPlayer();
+        return "move";
+    }
 }

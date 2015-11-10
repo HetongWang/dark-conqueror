@@ -41,4 +41,14 @@ public class KittyAI : BasicAI {
         }
         return res;
     }
+
+    public override string update()
+    {
+        seekPlayer();
+        string skill = attack();
+        if (skill != null)
+            return skill;
+        else
+            return "move";
+    }
 }

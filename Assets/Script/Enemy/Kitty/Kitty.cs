@@ -3,8 +3,6 @@ using System.Collections;
 
 public class Kitty: Enemy
 {
-    private KittyAI ai;
-
     public GameObject thrustAttackPrefab;
     public GameObject enragePrefab;
     public GameObject kittyWolfPrefab;
@@ -29,25 +27,24 @@ public class Kitty: Enemy
     public override void Update()
     {
         base.Update();
-        string attackName = ai.attack();
-        switch (attackName)
+        switch (behavior)
         {
             case "enrage":
-                useSkill(attackName, KittySet.Instance.KittyEnrage, false, true);
+                useSkill(behavior, KittySet.Instance.KittyEnrage, false, true);
                 break;
             case "summonWolf":
-                useSkill(attackName, KittySet.Instance.SummonWolf);
+                useSkill(behavior, KittySet.Instance.SummonWolf);
                 break;
             default:
-                useSkill(attackName, KittySet.Instance.KittyThrust);
+                useSkill(behavior, KittySet.Instance.KittyThrust);
                 break;
         }
     }
 
     void FixedUpdate()
     {
-        float horMove = ai.horMove();
-        run(horMove);
+        if (behavior == "move")
+            run(ai.horMove());
     }
 
     public IEnumerator thrustAttack()

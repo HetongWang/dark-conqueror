@@ -58,6 +58,25 @@ public class CatWolf : Enemy
     public IEnumerator pounce()
     {
         anim.SetInteger("attack", 2);
+
+        Vector3 position = transform.position;
+        position.y = 1f;
+        if (facingRight)
+        {
+            position.x += CatWolfSet.Instance.maul.range / 2;
+            body.AddForce(CatWolfSet.Instance.pounceForce);
+        }
+        else
+        {
+            position.x -= CatWolfSet.Instance.maul.range / 2;
+            Vector2 force = new Vector2(-CatWolfSet.Instance.pounceForce.x, CatWolfSet.Instance.pounceForce.y);
+            body.AddForce(force);
+        }
+
+        GameObject go = (GameObject)Instantiate(CatWolfAttack, position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        EnemyCommonAttack attack = go.GetComponent<EnemyCommonAttack>();
+        attack.setAttr(CatWolfSet.Instance.pounce);
+
         yield return new WaitForSeconds(CatWolfSet.Instance.pounce.actDuration);
 
         anim.SetInteger("attack", 0);
@@ -67,6 +86,19 @@ public class CatWolf : Enemy
     public IEnumerator summonFriends()
     {
         anim.SetInteger("attack", 3);
+        float cameraBorder;
+        if (Random.value > 0.5f)
+        {
+            cameraBorder = Camera.main.transform.position.x - Camera.main.orthographicSize * Screen.width / Screen.height;
+            cameraBorder -= 2f;
+        }
+        else
+        {
+            cameraBorder = Camera.main.transform.position.x + Camera.main.orthographicSize * Screen.width / Screen.height;
+            cameraBorder += 2f;
+        }
+        Vector3 position = new Vector3(cameraBorder, transform.position.y, transform.position.z);
+        Instantiate(gameObject, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         yield return new WaitForSeconds(CatWolfSet.Instance.pounce.actDuration);
 
         anim.SetInteger("attack", 0);
