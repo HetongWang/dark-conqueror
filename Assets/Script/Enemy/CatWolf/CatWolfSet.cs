@@ -10,6 +10,7 @@ public class CatWolfSet : Singleton<CatWolfSet>
     public SkillSetting alert = new SkillSetting();
     public SkillSetting maul = new SkillSetting();
     public SkillSetting pounce = new SkillSetting();
+    public Vector2 pounceForce;
     public SkillSetting summonFirends = new SkillSetting();
 
     public float huddleRatio = 0.5f;
@@ -27,6 +28,7 @@ public class CatWolfSet : Singleton<CatWolfSet>
         pounce.demage = 2f;
         pounce.range = 4f;
         pounce.freezenTime = 0.5f;
+        pounceForce = new Vector2(150, 50);
         
         summonFirends.actDuration = 0.6f;
         summonFirends.cd = 8f;

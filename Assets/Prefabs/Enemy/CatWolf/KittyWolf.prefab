@@ -105,7 +105,7 @@ MonoBehaviour:
   invincible: 0
   hp: 10
   hpslider: {fileID: 189274, guid: eaa717e95e5b13145ba51f93ca3a2290, type: 2}
-  CatWolfAttack: {fileID: 0}
+  CatWolfAttack: {fileID: 163778, guid: fd8cc489fe43903479e24bf35d95a109, type: 2}
 --- !u!212 &21264608
 SpriteRenderer:
   m_ObjectHideFlags: 1

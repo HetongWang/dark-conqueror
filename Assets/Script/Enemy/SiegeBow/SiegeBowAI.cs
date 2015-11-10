@@ -2,8 +2,9 @@
 
 public class SiegeBowAI : BasicAI
 {
-    public float angle = Mathf.Deg2Rad * 30;
     public float error = 0.2f;
+    public float minShootRange = SiegeBowSet.Instance.minShootRange;
+    public Vector2 velocity;
 
     public SiegeBowAI(Character siegebow) : base(siegebow)
     {
@@ -18,10 +19,35 @@ public class SiegeBowAI : BasicAI
 
         d = Random.Range(1 - error, 1 + error) * d;
 
-        float vx = -d * Mathf.Sqrt(g / (2 * (h - Mathf.Tan(angle) * d)));
-        float vy = Mathf.Abs(Mathf.Tan(angle) * vx);
+        SiegeBow bow = (SiegeBow)person;
+        float vx = -d * Mathf.Sqrt(g / (2 * (h - Mathf.Tan(bow.angle) * d)));
+        float vy = Mathf.Abs(Mathf.Tan(bow.angle) * vx);
         Vector2 v = new Vector2(vx, vy);
 
         return v;
     }
+
+    public override string update()
+    {
+        seekPlayer();
+        if (couldShoot())
+        {
+            velocity = shootVelocity();
+            if (!float.IsNaN(velocity.x))
+                return "shoot";
+        }
+
+        return null;
+    }
+    bool couldShoot()
+    {
+        bool res = true;
+        if (person.skillCooler["shoot"] > 0)
+            res = false;
+        if (targetPlayer.transform.position.x - person.transform.position.x > -minShootRange)
+            res = false;
+
+        return res;
+    }
+
 }
