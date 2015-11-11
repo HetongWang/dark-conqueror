@@ -43,6 +43,10 @@ public class Player : Character
             jumped = true;
 
         dash();
+        if (dashed)
+            anim.SetBool("dash", true);
+        else
+            anim.SetBool("dash", false);
 
         if (Input.GetButtonDown("NormalAttack"))
         {

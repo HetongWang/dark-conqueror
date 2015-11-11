@@ -136,8 +136,6 @@ MonoBehaviour:
   jumpForce: 600
   invincible: 0
   hp: 100
-  dashSpeed: 2
-  dodgingForce: 120
   normalAttackPrefab: {fileID: 183768, guid: 284fc0c03170d8f478951f32c2dc30ee, type: 2}
 --- !u!212 &21251660
 SpriteRenderer:

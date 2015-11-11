@@ -33,6 +33,9 @@ public class CameraFollow : MonoBehaviour
 
     void Update()
     {
+        if (player == null)
+            return;
+
         float targetX = transform.position.x;
         float targetY = transform.position.y;
 
