@@ -35,7 +35,7 @@ public class Kitty: Enemy
             case "summonWolf":
                 useSkill(behavior, KittySet.Instance.SummonWolf);
                 break;
-            default:
+            case "thrust":
                 useSkill(behavior, KittySet.Instance.KittyThrust);
                 break;
         }

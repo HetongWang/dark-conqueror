@@ -5,7 +5,7 @@ public class Enemy : Character
     public GameObject hpslider;
     public string behavior = null;
 
-    protected BasicAI ai;
+    protected BasicAI ai = null;
 
     public void setHPBar(Vector2 position, float initHP)
     {
@@ -17,12 +17,16 @@ public class Enemy : Character
     public override void Update()
     {
         base.Update();
-        behavior = ai.update();
+        if (ai != null)
+            behavior = ai.update();
     }
 
     public virtual void FixedUpdate()
     {
         if (behavior == "move")
+        {
+            Debug.Log("move");
             run(ai.horMove());
+        }
     }
 }

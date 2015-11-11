@@ -15,7 +15,7 @@ public class BasicAI {
     public float guardRange = 3;
     public float distantToPlayer = 1f;
     public GameObject targetPlayer;
-    public float targetPlayerDistance;
+    public float targetPlayerDistance = float.PositiveInfinity;
 
     public string behaviour;
 
@@ -41,20 +41,19 @@ public class BasicAI {
         }
 
         targetPlayer = players[0];
-        float minDis = Vector3.Distance(players[0].transform.position, person.transform.position);
+        targetPlayerDistance = Vector3.Distance(players[0].transform.position, person.transform.position);
 
         for (int i = 1; i < players.Length; i++)
         {
             float dis = Vector3.Distance(players[i].transform.position, person.transform.position);
-            if (dis < minDis)
+            if (dis < targetPlayerDistance)
             {
-                minDis = dis;
                 targetPlayer = players[i];
-                targetPlayerDistance = minDis;
+                targetPlayerDistance = dis;
             }
         }
 
-        if (minDis <= viewRange)
+        if (targetPlayerDistance <= viewRange)
             movementMode = moveMode.attack;
         else
         {
