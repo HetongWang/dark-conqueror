@@ -52,7 +52,6 @@ public class KittyAI : BasicAI {
         {
             if (targetPlayerDistance <= KittySet.Instance.KittyThrust.range)
             {
-                Debug.Log(targetPlayerDistance);
                 return "idle";
             }
             else
