@@ -15,6 +15,9 @@ public class BasicAI {
     public float guardRange = 3;
     public float distantToPlayer = 1f;
     public GameObject targetPlayer;
+    public float targetPlayerDistance;
+
+    public string behaviour;
 
     public BasicAI(Character person)
     {
@@ -25,16 +28,18 @@ public class BasicAI {
         seekPlayer();
     }
 
-    public GameObject seekPlayer()
+    public void seekPlayer()
     {
         if (players.Length == 0 || players[0] == null)
         {
             players = GameObject.FindGameObjectsWithTag("Player");
             if (players.Length == 0)
-                return null;
+            {
+                targetPlayer = null;
+                targetPlayerDistance = float.PositiveInfinity;
+            }
         }
 
-        GameObject res = players[0];
         targetPlayer = players[0];
         float minDis = Vector3.Distance(players[0].transform.position, person.transform.position);
 
@@ -44,7 +49,8 @@ public class BasicAI {
             if (dis < minDis)
             {
                 minDis = dis;
-                res = targetPlayer = players[i];
+                targetPlayer = players[i];
+                targetPlayerDistance = minDis;
             }
         }
 
@@ -56,8 +62,6 @@ public class BasicAI {
                 initPosition = person.transform.position;
             movementMode = moveMode.guard;
         }
-
-        return res;
     }
 
     protected float guardMovement()
@@ -104,13 +108,12 @@ public class BasicAI {
     /// <returns>Movement direction and speed</returns>
     public float horMove ()
     {
-        GameObject player = seekPlayer();
         float movement = 0;
 
         switch (movementMode)
         {
             case moveMode.attack:
-                movement = attackMovement(player);
+                movement = attackMovement(targetPlayer);
                 break;
             case moveMode.guard:
                 movement = guardMovement();

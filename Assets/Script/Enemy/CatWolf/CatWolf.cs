@@ -17,9 +17,7 @@ public class CatWolf : Enemy
         addSkill("alert", alert);
         addSkill("maul", maul);
         addSkill("pounce", pounce);
-        addSkill("summonFriends", summonFriends);
-
-        Destroy(gameObject, 3f);
+        addSkill("summonFriends", summonFriends, CatWolfSet.Instance.summonFriendsInitCD);
     }
 
     public override void Update()
@@ -37,7 +35,7 @@ public class CatWolf : Enemy
                 useSkill(behavior, CatWolfSet.Instance.pounce);
                 break;
             case "summonFriends":
-                useSkill(behavior, CatWolfSet.Instance.summonFirends);
+                useSkill(behavior, CatWolfSet.Instance.summonFriends);
                 break;
         }
  
@@ -46,6 +44,8 @@ public class CatWolf : Enemy
     public IEnumerator alert()
     {
         anim.SetBool("alert", true);
+        CatWolfAI _ai = (CatWolfAI)ai;
+        _ai.alerted = true;
         yield return new WaitForSeconds(CatWolfSet.Instance.alert.actDuration);
 
         anim.SetBool("alert", false);
@@ -73,6 +73,8 @@ public class CatWolf : Enemy
         yield return new WaitForSeconds(CatWolfSet.Instance.maul.actDuration);
 
         anim.SetInteger("attack", 0);
+        CatWolfAI _ai = (CatWolfAI)ai;
+        _ai.alerted = false;
         yield break;
     }
 
@@ -101,6 +103,8 @@ public class CatWolf : Enemy
         yield return new WaitForSeconds(CatWolfSet.Instance.pounce.actDuration);
 
         anim.SetInteger("attack", 0);
+        CatWolfAI _ai = (CatWolfAI)ai;
+        _ai.alerted = false;
         yield break;
     }
 
