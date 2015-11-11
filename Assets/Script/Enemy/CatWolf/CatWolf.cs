@@ -14,12 +14,33 @@ public class CatWolf : Enemy
         anim = GetComponent<Animator>();
         setHPBar(CatWolfSet.Instance.hpBarOffset, CatWolfSet.Instance.hp);
 
+        addSkill("alert", alert);
+        addSkill("maul", maul);
+        addSkill("pounce", pounce);
+        addSkill("summonFriends", summonFriends);
+
         Destroy(gameObject, 3f);
     }
 
     public override void Update()
     {
         base.Update();
+        switch (behavior)
+        {
+            case "alert":
+                useSkill(behavior, CatWolfSet.Instance.alert);
+                break;
+            case "maul":
+                useSkill(behavior, CatWolfSet.Instance.maul);
+                break;
+            case "pounce":
+                useSkill(behavior, CatWolfSet.Instance.pounce);
+                break;
+            case "summonFriends":
+                useSkill(behavior, CatWolfSet.Instance.summonFirends);
+                break;
+        }
+ 
     }
 
     public IEnumerator alert()

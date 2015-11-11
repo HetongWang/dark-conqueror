@@ -19,4 +19,10 @@ public class Enemy : Character
         base.Update();
         behavior = ai.update();
     }
+
+    public virtual void FixedUpdate()
+    {
+        if (behavior == "move")
+            run(ai.horMove());
+    }
 }
