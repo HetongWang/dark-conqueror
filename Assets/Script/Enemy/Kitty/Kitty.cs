@@ -41,10 +41,9 @@ public class Kitty: Enemy
         }
     }
 
-    void FixedUpdate()
+    public override void FixedUpdate()
     {
-        if (behavior == "move")
-            run(ai.horMove());
+        base.FixedUpdate();
     }
 
     public IEnumerator thrustAttack()

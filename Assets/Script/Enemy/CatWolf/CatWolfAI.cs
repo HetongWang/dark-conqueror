@@ -7,4 +7,9 @@ public class CatWolfAI : BasicAI
     {
         viewRange = 15f;
     }
+
+    public override string update()
+    {
+
+    }
 }
