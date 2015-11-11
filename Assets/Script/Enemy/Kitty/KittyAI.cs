@@ -49,6 +49,14 @@ public class KittyAI : BasicAI {
         if (skill != null)
             return skill;
         else
-            return "move";
+        {
+            if (targetPlayerDistance <= KittySet.Instance.KittyThrust.range)
+            {
+                Debug.Log(targetPlayerDistance);
+                return "idle";
+            }
+            else
+                return "move";
+        }
     }
 }

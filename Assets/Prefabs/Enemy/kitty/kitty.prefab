@@ -123,6 +123,7 @@ MonoBehaviour:
   invincible: 0
   hp: 10
   hpslider: {fileID: 189274, guid: eaa717e95e5b13145ba51f93ca3a2290, type: 2}
+  behavior: 
   thrustAttackPrefab: {fileID: 121260, guid: 860e18ce3931a8345b0861247c6ff518, type: 2}
   enragePrefab: {fileID: 121772, guid: d9ca749fc951d1149ae98c019e116fa1, type: 2}
   kittyWolfPrefab: {fileID: 187170, guid: 2172c701cf2896349ab688787682ba55, type: 2}
