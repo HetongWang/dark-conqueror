@@ -2,7 +2,7 @@
 
 public class PlayerSet : Singleton<PlayerSet> {
 
-    public float hp = 50;
+    public float hp = 500;
     public float dashSpeed = 2f;
     public float dodgingForce = 520f;
     public SkillSetting NormalAttack = new SkillSetting();
@@ -10,7 +10,7 @@ public class PlayerSet : Singleton<PlayerSet> {
 
     protected PlayerSet()
     {
-        NormalAttack.actDuration = 0.4f;
+        NormalAttack.actDuration = 0.3f;
         NormalAttack.cd = 0.45f;
         NormalAttack.demage = 1f;
         NormalAttack.range = 1.4f;

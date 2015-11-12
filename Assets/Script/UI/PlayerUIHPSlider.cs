@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UIHPSlider : MonoBehaviour
+public class PlayerUIHPSlider : MonoBehaviour
 {
     protected Character person;
     public float value;
@@ -12,6 +12,8 @@ public class UIHPSlider : MonoBehaviour
 
     public virtual void Awake()
     {
+        person = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+        initValue = PlayerSet.Instance.hp;
         bar = GetComponent<UnityEngine.UI.Image>();
         barScale = transform.localScale;
     }

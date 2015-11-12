@@ -25,7 +25,7 @@ public class KittySet: Singleton<KittySet> {
         KittyThrust.demage = 2f;
         KittyThrust.range = 1.4f;
         KittyThrust.attackDuration = 0.6f;
-        KittyThrust.freezenTime = 0.5f;
+        KittyThrust.freezenTime = 0.8f;
 
         KittyEnrage.actDuration = 1f;
         KittyEnrage.cd = 2000f;
