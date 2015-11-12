@@ -27,7 +27,7 @@ public class Player : Character
 
         addButtonDetect("left");
         addButtonDetect("right");
-        addButtonDetect("normalAttack", 0.6f);
+        addButtonDetect("normalAttack", 0.8f);
     }
 
     // Update is called once per frame
@@ -48,10 +48,17 @@ public class Player : Character
         else
             anim.SetBool("dash", false);
 
+        attack();
+    }
+
+    void attack()
+    {
         if (Input.GetButtonDown("NormalAttack"))
         {
+            buttonCount["normalAttack"] += 1;
             useSkill("normalAttack", PlayerSet.Instance.NormalAttack);
         }
+
     }
 
     void FixedUpdate()
@@ -81,7 +88,7 @@ public class Player : Character
                 anim.SetInteger("attack", 1);
                 break;
             case 1:
-                anim.SetInteger("attack", 1);
+                anim.SetInteger("attack", 2);
                 break;
             case 2:
                 anim.SetInteger("attack", 1);
@@ -107,6 +114,21 @@ public class Player : Character
 
         anim.SetInteger("attack", 0);
         yield break;
+    }
+
+    protected void detectNormalAttackPhase()
+    {
+        string name = "normalAttack";
+
+        if (multiTapDetect(name, 1))
+            normalAttackPhase = 0;
+        else if (multiTapDetect(name, 2))
+            normalAttackPhase = 1;
+        else if (multiTapDetect(name, 3))
+            normalAttackPhase = 2;
+        else
+            normalAttackPhase = buttonCount[name] % 3;
+        Debug.Log(normalAttackPhase);
     }
 
     void dash()
@@ -171,7 +193,6 @@ public class Player : Character
             body.AddForce(Vector2.right * PlayerSet.Instance.dodgingForce);
         else
             body.AddForce(Vector2.left * PlayerSet.Instance.dodgingForce);
-        Debug.Log("dodge");
         yield return new WaitForSeconds(PlayerSet.Instance.Dodge.actDuration);
 
         invincible = false;
@@ -181,8 +202,13 @@ public class Player : Character
     {
         if (!invincible && !blocked)
         {
-            hp -= setting.demage;
+            getDemage(setting.demage);
             freezenTime = setting.freezenTime;
+
+            if (anim)
+            {
+                anim.SetBool("hurt", true);
+            }
         }
     }
 
@@ -192,6 +218,9 @@ public class Player : Character
             return false;
 
         bool res = false;
+        if (buttonCount[key] == times && times == 1)
+            res = true;
+
         if (buttonCount[key] == times && buttonCooler[key] > 0)
         {
             res = true;
@@ -224,18 +253,4 @@ public class Player : Character
         }
     }
 
-    protected void detectNormalAttackPhase()
-    {
-        string name = "normalAttack";
-        buttonCount[name] += 1;
-
-        if (multiTapDetect(name, 1))
-            normalAttackPhase = 0;
-        else if (multiTapDetect(name, 2))
-            normalAttackPhase = 1;
-        else if (multiTapDetect(name, 3))
-            normalAttackPhase = 2;
-        else
-            normalAttackPhase = buttonCount[name] % 3;
-    }
 }

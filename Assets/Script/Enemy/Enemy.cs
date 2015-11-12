@@ -25,7 +25,6 @@ public class Enemy : Character
     {
         if (behavior == "move")
         {
-            Debug.Log("move");
             run(ai.horMove());
         }
     }

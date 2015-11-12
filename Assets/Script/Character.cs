@@ -103,7 +103,7 @@ public class Character : MonoBehaviour {
     {
         if (!invincible)
         {
-            hp -= setting.demage;
+            getDemage(setting.demage);
             freezenTime = setting.freezenTime;
 
             if (anim)
@@ -116,7 +116,9 @@ public class Character : MonoBehaviour {
     public void getDemage(float amount)
     {
         if (!invincible)
+        {
             hp -= amount;
+        }
     }
 
     public void AliveOrDie()
