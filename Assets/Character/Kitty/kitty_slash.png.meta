@@ -1,0 +1,243 @@
+fileFormatVersion: 2
+guid: d37997a25a33d4a4690ea3a69773a317
+timeCreated: 1447406809
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: meowslash01
+    21300002: meowslash02
+    21300004: meowslash03
+    21300006: meowslash04
+    21300008: meowslash05
+    21300010: meowslash06
+    21300012: meowslash07
+    21300014: meowslash08
+    21300016: meowslash09
+    21300018: meowslash10
+    21300020: meowslash11
+    21300022: meowslash12
+    21300024: meowslash13
+    21300026: meowslash14
+    21300028: meowslash15
+    21300030: meowslash16
+    21300032: meowslash17
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: meowslash01
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3063
+        width: 798
+        height: 1031
+      alignment: 9
+      pivot: {x: .377192974, y: .490785658}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowslash02
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 3066
+        width: 942
+        height: 1028
+      alignment: 9
+      pivot: {x: .430997878, y: .4873541}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowslash03
+      rect:
+        serializedVersion: 2
+        x: 1746
+        y: 3108
+        width: 992
+        height: 986
+      alignment: 9
+      pivot: {x: .39213711, y: .496957392}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowslash04
+      rect:
+        serializedVersion: 2
+        x: 2740
+        y: 3116
+        width: 964
+        height: 978
+      alignment: 9
+      pivot: {x: .37551868, y: .497955024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowslash05
+      rect:
+        serializedVersion: 2
+        x: 3706
+        y: 3144
+        width: 909
+        height: 950
+      alignment: 9
+      pivot: {x: .370737076, y: .495789468}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowslash06
+      rect:
+        serializedVersion: 2
+        x: 4617
+        y: 3176
+        width: 1085
+        height: 918
+      alignment: 9
+      pivot: {x: .577880204, y: .522875845}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowslash07
+      rect:
+        serializedVersion: 2
+        x: 5704
+        y: 3233
+        width: 1168
+        height: 861
+      alignment: 9
+      pivot: {x: .536815047, y: .516840875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowslash08
+      rect:
+        serializedVersion: 2
+        x: 6874
+        y: 3228
+        width: 1203
+        height: 866
+      alignment: 9
+      pivot: {x: .521197021, y: .53348732}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowslash09
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2195
+        width: 1208
+        height: 866
+      alignment: 9
+      pivot: {x: .51903975, y: .538106263}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowslash10
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 2187
+        width: 891
+        height: 874
+      alignment: 9
+      pivot: {x: .338945001, y: .536613286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowslash11
+      rect:
+        serializedVersion: 2
+        x: 2105
+        y: 2171
+        width: 887
+        height: 890
+      alignment: 9
+      pivot: {x: .382187158, y: .535955071}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowslash12
+      rect:
+        serializedVersion: 2
+        x: 2994
+        y: 2017
+        width: 970
+        height: 1044
+      alignment: 9
+      pivot: {x: .513402045, y: .493295014}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowslash13
+      rect:
+        serializedVersion: 2
+        x: 3966
+        y: 2014
+        width: 983
+        height: 1047
+      alignment: 9
+      pivot: {x: .507629693, y: .494746894}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowslash14
+      rect:
+        serializedVersion: 2
+        x: 4951
+        y: 2022
+        width: 1008
+        height: 1039
+      alignment: 9
+      pivot: {x: .495039672, y: .490856588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowslash15
+      rect:
+        serializedVersion: 2
+        x: 5961
+        y: 2018
+        width: 1007
+        height: 1043
+      alignment: 9
+      pivot: {x: .494538218, y: .492809206}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowslash16
+      rect:
+        serializedVersion: 2
+        x: 6970
+        y: 2104
+        width: 727
+        height: 957
+      alignment: 9
+      pivot: {x: .299862444, y: .53709507}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowslash17
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1032
+        width: 696
+        height: 980
+      alignment: 9
+      pivot: {x: .268678159, y: .522448957}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

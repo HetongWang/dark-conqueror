@@ -1,0 +1,188 @@
+fileFormatVersion: 2
+guid: 4209a9c58e48e8d439c34baefba341e5
+timeCreated: 1447406783
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: meowleap01
+    21300002: meowleap02
+    21300004: meowleap03
+    21300006: meowleap04
+    21300008: meowleap05
+    21300010: meowleap06
+    21300012: meowleap07
+    21300014: meowleap08
+    21300016: meowleap09
+    21300018: meowleap10
+    21300020: meowleap11
+    21300022: meowleap12
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: meowleap01
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3058
+        width: 754
+        height: 1036
+      alignment: 9
+      pivot: {x: .778514564, y: .527992249}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowleap02
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 3108
+        width: 812
+        height: 986
+      alignment: 9
+      pivot: {x: .795566499, y: .558823526}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowleap03
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 3148
+        width: 831
+        height: 946
+      alignment: 9
+      pivot: {x: .773766518, y: .58668077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowleap04
+      rect:
+        serializedVersion: 2
+        x: 2405
+        y: 3026
+        width: 725
+        height: 1068
+      alignment: 9
+      pivot: {x: .601379335, y: .507490635}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowleap05
+      rect:
+        serializedVersion: 2
+        x: 3132
+        y: 3012
+        width: 812
+        height: 1082
+      alignment: 9
+      pivot: {x: .609605908, y: .512014806}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowleap06
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1923
+        width: 852
+        height: 1087
+      alignment: 9
+      pivot: {x: .620892048, y: .511499524}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowleap07
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 1953
+        width: 796
+        height: 1057
+      alignment: 9
+      pivot: {x: .586683393, y: .493850529}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowleap08
+      rect:
+        serializedVersion: 2
+        x: 1654
+        y: 1963
+        width: 791
+        height: 1047
+      alignment: 9
+      pivot: {x: .551200986, y: .483285576}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowleap09
+      rect:
+        serializedVersion: 2
+        x: 2447
+        y: 2033
+        width: 812
+        height: 977
+      alignment: 9
+      pivot: {x: .519704461, y: .44831115}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowleap10
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 969
+        width: 976
+        height: 952
+      alignment: 9
+      pivot: {x: .343237698, y: .529411793}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowleap11
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 989
+        width: 956
+        height: 932
+      alignment: 9
+      pivot: {x: .352510452, y: .539699554}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowleap12
+      rect:
+        serializedVersion: 2
+        x: 1938
+        y: 988
+        width: 876
+        height: 933
+      alignment: 9
+      pivot: {x: .373287678, y: .540192902}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
