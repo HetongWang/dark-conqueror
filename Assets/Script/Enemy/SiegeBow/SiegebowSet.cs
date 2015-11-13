@@ -12,7 +12,7 @@ public class SiegeBowSet : Singleton<SiegeBowSet> {
     {
         SiegeBowShoot.actDuration = 0.5f;
         SiegeBowShoot.cd = 2f;
-        SiegeBowShoot.demage = 1.5f;
+        SiegeBowShoot.damage = 1.5f;
         SiegeBowShoot.range = 10f;
     }
 }

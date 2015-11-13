@@ -21,12 +21,12 @@ public class CatWolfSet : Singleton<CatWolfSet>
         alert.actDuration = 0.8f;
 
         maul.cd = 1f;
-        maul.demage = 1f;
+        maul.damage = 1f;
         maul.range = 1f;
         maul.freezenTime = 0.2f;
 
         pounce.cd = 3f;
-        pounce.demage = 2f;
+        pounce.damage = 2f;
         pounce.range = 4f;
         pounce.freezenTime = 0.5f;
         pounceForce = new Vector2(150, 50);
