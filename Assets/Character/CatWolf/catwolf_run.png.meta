@@ -1,0 +1,144 @@
+fileFormatVersion: 2
+guid: 7281c01d8de58e64ca66a74b9b52f6ac
+timeCreated: 1447394816
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: catwolfRun01
+    21300002: catwolfRun02
+    21300004: catwolfRun03
+    21300006: catwolfRun04
+    21300008: catwolfRun05
+    21300010: catwolfRun06
+    21300012: catwolfRun07
+    21300014: catwolfRun08
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: catwolfRun01
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3552
+        width: 997
+        height: 542
+      alignment: 9
+      pivot: {x: .301905721, y: .595940948}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfRun02
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 3440
+        width: 976
+        height: 654
+      alignment: 9
+      pivot: {x: .350409836, y: .54281348}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfRun03
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2828
+        width: 998
+        height: 610
+      alignment: 9
+      pivot: {x: .455911815, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfRun04
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 2955
+        width: 1043
+        height: 483
+      alignment: 9
+      pivot: {x: .455417067, y: .534161508}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfRun05
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2164
+        width: 1038
+        height: 662
+      alignment: 9
+      pivot: {x: .421001941, y: .549848914}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfRun06
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 2158
+        width: 954
+        height: 668
+      alignment: 9
+      pivot: {x: .382599592, y: .543413162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfRun07
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1512
+        width: 972
+        height: 644
+      alignment: 9
+      pivot: {x: .32407406, y: .574534178}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfRun08
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 1602
+        width: 989
+        height: 554
+      alignment: 9
+      pivot: {x: .302325577, y: .604693115}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
