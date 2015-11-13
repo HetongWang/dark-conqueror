@@ -5,7 +5,7 @@ public class SkillSetting {
     public float 
         cd = 0, 
         actDuration = 0.5f,     // animation time or attackspeed
-        demage = 0, 
+        damage = 0, 
         range = 0, 
         attackDuration = 0.1f,  // attack instance survive time. 
         freezenTime = 0f;       // target stagger time
@@ -24,7 +24,7 @@ public class SkillSetting {
     {
         this.actDuration = actDuration;
         this.cd = cd;
-        this.demage = demage;
+        this.damage = demage;
         this.range = range;
         this.attackDuration = attackDuration;
     }

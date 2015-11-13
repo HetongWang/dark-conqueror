@@ -103,8 +103,8 @@ public class Character : MonoBehaviour {
     {
         if (!invincible)
         {
-            getDemage(setting.demage);
-            freezenTime = setting.freezenTime;
+            getDemage(setting.damage);
+            freezenTime = Mathf.Max(setting.freezenTime, freezenTime);
 
             if (anim)
             {

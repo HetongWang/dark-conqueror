@@ -33,7 +33,7 @@ public class KittyThrustAttack : BasicAttack {
         if (enraged)
         {
             forceIntensity *= KittySet.Instance.enrageEnhancement;
-            setting.demage *= KittySet.Instance.enrageEnhancement;
+            setting.damage *= KittySet.Instance.enrageEnhancement;
         }
  
         force = dirction * forceIntensity;

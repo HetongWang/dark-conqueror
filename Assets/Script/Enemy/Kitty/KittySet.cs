@@ -22,19 +22,19 @@ public class KittySet: Singleton<KittySet> {
     {
         KittyThrust.actDuration = 0.6f;
         KittyThrust.cd = 2f;
-        KittyThrust.demage = 2f;
+        KittyThrust.damage = 2f;
         KittyThrust.range = 1.4f;
         KittyThrust.attackDuration = 0.6f;
         KittyThrust.freezenTime = 0.8f;
 
         KittyEnrage.actDuration = 1f;
         KittyEnrage.cd = 2000f;
-        KittyEnrage.demage = 0f;
+        KittyEnrage.damage = 0f;
         KittyEnrage.range = 5f;
 
         SummonWolf.actDuration = 0.6f;
         SummonWolf.cd = 8f;
-        SummonWolf.demage = 3f;
+        SummonWolf.damage = 3f;
         SummonWolf.range = 10f;
         SummonWolf.attackDuration = 0f;
     }

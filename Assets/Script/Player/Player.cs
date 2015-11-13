@@ -15,6 +15,9 @@ public class Player : Character
     protected Dictionary<string, float> buttonCoolerTime = new Dictionary<string, float>();
     protected int normalAttackPhase = 0;
 
+    private bool normalAttacking = false;
+    private bool nextNormalAttack = false;
+
     public override void Awake()
     {
         base.Awake();
@@ -27,7 +30,6 @@ public class Player : Character
 
         addButtonDetect("left");
         addButtonDetect("right");
-        addButtonDetect("normalAttack", 0.8f);
     }
 
     // Update is called once per frame
@@ -55,8 +57,10 @@ public class Player : Character
     {
         if (Input.GetButtonDown("NormalAttack"))
         {
-            buttonCount["normalAttack"] += 1;
-            useSkill("normalAttack", PlayerSet.Instance.NormalAttack);
+            if (normalAttacking)
+                nextNormalAttack = true;
+            if (normalAttackPhase == 0)
+                useSkill("normalAttack", PlayerSet.Instance.NormalAttack[0]);
         }
 
     }
@@ -81,54 +85,41 @@ public class Player : Character
 
     public IEnumerator normalAttack()
     {
-        detectNormalAttackPhase();
-        switch (normalAttackPhase)
-        {
-            case 0:
-                anim.SetInteger("attack", 1);
-                break;
-            case 1:
-                anim.SetInteger("attack", 2);
-                break;
-            case 2:
-                anim.SetInteger("attack", 1);
-                break;
-
-        }
+        Debug.Log(normalAttackPhase + 1);
+        anim.SetInteger("attack", normalAttackPhase + 1);
+        normalAttacking = true;
+        // Wait sword wave forward
         yield return new WaitForSeconds(0.2f);
 
         Vector3 position = transform.position;
         if (facingRight) { 
-            position.x += PlayerSet.Instance.NormalAttack.range / 2;
+            position.x += PlayerSet.Instance.NormalAttack[normalAttackPhase].range / 2;
         }
         else
         {
-            position.x -= PlayerSet.Instance.NormalAttack.range / 2;
+            position.x -= PlayerSet.Instance.NormalAttack[normalAttackPhase].range / 2;
         }
         GameObject go =  (GameObject)Instantiate(normalAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         NormalAttack na = go.GetComponent<NormalAttack>();
+        na.setAttr(PlayerSet.Instance.NormalAttack[normalAttackPhase]);
         na.transform.parent = transform;
-        na.setPhase(normalAttackPhase);
 
-        yield return new WaitForSeconds(PlayerSet.Instance.NormalAttack.actDuration - 0.2f);
+        yield return new WaitForSeconds(PlayerSet.Instance.NormalAttack[normalAttackPhase].actDuration - 0.2f);
+        normalAttacking = false;
 
-        anim.SetInteger("attack", 0);
-        yield break;
-    }
-
-    protected void detectNormalAttackPhase()
-    {
-        string name = "normalAttack";
-
-        if (multiTapDetect(name, 1))
+        if (!nextNormalAttack || normalAttackPhase == 2)
+        {
+            anim.SetInteger("attack", 0);
             normalAttackPhase = 0;
-        else if (multiTapDetect(name, 2))
-            normalAttackPhase = 1;
-        else if (multiTapDetect(name, 3))
-            normalAttackPhase = 2;
+        }
         else
-            normalAttackPhase = buttonCount[name] % 3;
-        Debug.Log(normalAttackPhase);
+        {
+            nextNormalAttack = false;
+            normalAttackPhase += 1;
+            actingTime = 0;
+            useSkill("normalAttack", PlayerSet.Instance.NormalAttack[normalAttackPhase]);
+        }
+        yield break;
     }
 
     void dash()
@@ -202,7 +193,7 @@ public class Player : Character
     {
         if (!invincible && !blocked)
         {
-            getDemage(setting.demage);
+            getDemage(setting.damage);
             freezenTime = setting.freezenTime;
 
             if (anim)
