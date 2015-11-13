@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: b8083a7fb2fc2da46bd846d2eff3b36e
+timeCreated: 1447404807
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: crouch01
+    21300002: crouch02
+    21300004: crouch03
+    21300006: crouch04
+    21300008: crouch05
+    21300010: crouch06
+    21300012: crouch07
+    21300014: crouch08
+    21300016: crouch09
+    21300018: crouch10
+    21300020: crouch11
+    21300022: crouch12
+    21300024: crouch13
+    21300026: crouch14
+    21300028: crouch15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: crouch01
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3586
+        width: 989
+        height: 508
+      alignment: 9
+      pivot: {x: .344792724, y: .755905509}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouch02
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 3588
+        width: 997
+        height: 506
+      alignment: 9
+      pivot: {x: .342026085, y: .758893251}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouch03
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3070
+        width: 998
+        height: 514
+      alignment: 9
+      pivot: {x: .341683358, y: .747081697}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouch04
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 3061
+        width: 997
+        height: 523
+      alignment: 9
+      pivot: {x: .343029082, y: .736137688}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouch05
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2523
+        width: 1000
+        height: 536
+      alignment: 9
+      pivot: {x: .347000003, y: .718283594}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouch06
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 2514
+        width: 1002
+        height: 545
+      alignment: 9
+      pivot: {x: .351297408, y: .706422031}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouch07
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1958
+        width: 1006
+        height: 554
+      alignment: 9
+      pivot: {x: .355864823, y: .694945872}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouch08
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 1936
+        width: 1002
+        height: 576
+      alignment: 9
+      pivot: {x: .363273442, y: .668402791}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouch09
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1360
+        width: 1002
+        height: 574
+      alignment: 9
+      pivot: {x: .362275451, y: .670731723}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouch10
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 1369
+        width: 1007
+        height: 565
+      alignment: 9
+      pivot: {x: .360476673, y: .681415915}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouch11
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 819
+        width: 1017
+        height: 539
+      alignment: 9
+      pivot: {x: .356932163, y: .714285731}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouch12
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 872
+        width: 1016
+        height: 486
+      alignment: 9
+      pivot: {x: .357283473, y: .792181075}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouch13
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 361
+        width: 996
+        height: 456
+      alignment: 9
+      pivot: {x: .364457846, y: .844298244}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouch14
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 819
+        width: 1017
+        height: 539
+      alignment: 9
+      pivot: {x: .356932163, y: .714285731}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouch15
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 252
+        width: 1007
+        height: 565
+      alignment: 9
+      pivot: {x: .360476673, y: .681415915}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
