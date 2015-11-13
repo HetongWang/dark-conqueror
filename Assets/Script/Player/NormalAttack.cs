@@ -8,8 +8,11 @@ public class NormalAttack : BasicAttack {
     public override void Awake()
     {
         base.Awake();
-        setAttr(PlayerSet.Instance.NormalAttack);
         targetTag.Add("Enemy");
+    }
+
+    void Start()
+    {
         Destroy(gameObject, setting.attackDuration);
     }
 
@@ -18,10 +21,5 @@ public class NormalAttack : BasicAttack {
         base.getDemage(col);
         Character c = col.gameObject.GetComponent<Character>();
         c.statusController.addStatus("burn");
-    }
-
-    public void setPhase(int n)
-    {
-        phase = n;
     }
 }
