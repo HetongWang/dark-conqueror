@@ -59,7 +59,7 @@ public class Player : Character
         {
             if (normalAttacking)
                 nextNormalAttack = true;
-            if (normalAttackPhase == 0)
+            if (normalAttackPhase == 0 && !nextNormalAttack)
                 useSkill("normalAttack", PlayerSet.Instance.NormalAttack[0]);
         }
 
@@ -85,7 +85,6 @@ public class Player : Character
 
     public IEnumerator normalAttack()
     {
-        Debug.Log(normalAttackPhase + 1);
         anim.SetInteger("attack", normalAttackPhase + 1);
         normalAttacking = true;
         // Wait sword wave forward
@@ -103,11 +102,12 @@ public class Player : Character
         NormalAttack na = go.GetComponent<NormalAttack>();
         na.setAttr(PlayerSet.Instance.NormalAttack[normalAttackPhase]);
         na.transform.parent = transform;
+        Debug.Log("normalAttackPhase" + normalAttackPhase);
 
         yield return new WaitForSeconds(PlayerSet.Instance.NormalAttack[normalAttackPhase].actDuration - 0.2f);
         normalAttacking = false;
 
-        if (!nextNormalAttack || normalAttackPhase == 2)
+        if (!nextNormalAttack)
         {
             anim.SetInteger("attack", 0);
             normalAttackPhase = 0;
@@ -116,6 +116,7 @@ public class Player : Character
         {
             nextNormalAttack = false;
             normalAttackPhase += 1;
+            normalAttackPhase %= 3;
             actingTime = 0;
             useSkill("normalAttack", PlayerSet.Instance.NormalAttack[normalAttackPhase]);
         }

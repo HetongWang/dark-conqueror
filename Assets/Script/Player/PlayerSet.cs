@@ -12,7 +12,7 @@ public class PlayerSet : Singleton<PlayerSet> {
     protected PlayerSet()
     {
         SkillSetting normalAttack1 = new SkillSetting();
-        normalAttack1.actDuration = 0.3f;
+        normalAttack1.actDuration = SkillSetting.frameToSeconds(13, 30);
         normalAttack1.damage = 1f;
         normalAttack1.range = 1.4f;
         normalAttack1.attackDuration = 0.1f;
@@ -20,7 +20,7 @@ public class PlayerSet : Singleton<PlayerSet> {
         NormalAttack.Add(normalAttack1);
 
         SkillSetting normalAttack2 = new SkillSetting();
-        normalAttack2.actDuration = 0.3f;
+        normalAttack2.actDuration = SkillSetting.frameToSeconds(13, 30);
         normalAttack2.damage = 1f;
         normalAttack2.range = 1.4f;
         normalAttack2.attackDuration = 0.1f;
@@ -28,7 +28,7 @@ public class PlayerSet : Singleton<PlayerSet> {
         NormalAttack.Add(normalAttack2);
 
         SkillSetting normalAttack3 = new SkillSetting();
-        normalAttack3.actDuration = 0.3f;
+        normalAttack3.actDuration = SkillSetting.frameToSeconds(15, 30);
         normalAttack3.damage = 1f;
         normalAttack3.range = 1.4f;
         normalAttack3.attackDuration = 0.1f;
