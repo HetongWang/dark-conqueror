@@ -1,0 +1,122 @@
+fileFormatVersion: 2
+guid: 81d8b9c9ae86e8d4fb01324fc4e7508e
+timeCreated: 1447411711
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PCNormalAttack3_0
+    21300002: PCNormalAttack3_1
+    21300004: PCNormalAttack3_2
+    21300006: PCNormalAttack3_3
+    21300008: PCNormalAttack3_4
+    21300010: PCNormalAttack3_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: PCNormalAttack3_0
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 1404
+        width: 687
+        height: 631
+      alignment: 9
+      pivot: {x: .355291367, y: .541442394}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCNormalAttack3_1
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 1398
+        width: 504
+        height: 650
+      alignment: 9
+      pivot: {x: .450089216, y: .552660942}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCNormalAttack3_2
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 1388
+        width: 389
+        height: 659
+      alignment: 9
+      pivot: {x: .46887207, y: .538915992}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCNormalAttack3_3
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 641
+        width: 706
+        height: 650
+      alignment: 9
+      pivot: {x: .261917859, y: .575008333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCNormalAttack3_4
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 670
+        width: 730
+        height: 646
+      alignment: 9
+      pivot: {x: .718009055, y: .591145337}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCNormalAttack3_5
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 15
+        width: 747
+        height: 630
+      alignment: 9
+      pivot: {x: .720876098, y: .590384662}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

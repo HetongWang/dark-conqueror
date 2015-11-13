@@ -28,4 +28,9 @@ public class SkillSetting {
         this.range = range;
         this.attackDuration = attackDuration;
     }
+
+    public static float frameToSeconds(float length, float fps)
+    {
+        return length / fps;
+    }
 }
