@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public Menu currentMenu;
+    public string PCName;
 
     void OnGUI()
     {
@@ -25,7 +26,7 @@ public class MainMenu : MonoBehaviour
         if (currentMenu == Menu.MainMenu)
         {
 
-            GUILayout.Box("Last Fantasy");
+            GUILayout.Box("Dark Conqueror");
             GUILayout.Space(10);
 
             if (GUILayout.Button("New Game"))
@@ -50,17 +51,11 @@ public class MainMenu : MonoBehaviour
             GUILayout.Box("Name Your Characters");
             GUILayout.Space(10);
 
-            GUILayout.Label("Knight");
-            Game.current.knight.name = GUILayout.TextField(Game.current.knight.name, 20);
-            GUILayout.Label("Rogue");
-            Game.current.rogue.name = GUILayout.TextField(Game.current.rogue.name, 20);
-            GUILayout.Label("Wizard");
-            Game.current.wizard.name = GUILayout.TextField(Game.current.wizard.name, 20);
+            GUILayout.Label("Please enter overlord name");
+            PCName = GUILayout.TextField(PCName, 20);
 
-            if (GUILayout.Button("Save"))
+            if (GUILayout.Button("Start"))
             {
-                //Save the current Game as a new saved Game
-                SaveLoad.Save();
                 //Move on to game...
                 Application.LoadLevel(1);
             }
@@ -75,26 +70,6 @@ public class MainMenu : MonoBehaviour
 
         else if (currentMenu == Menu.Continue)
         {
-
-            GUILayout.Box("Select Save File");
-            GUILayout.Space(10);
-
-            foreach (Game g in SaveLoad.savedGames)
-            {
-                if (GUILayout.Button(g.knight.name + " - " + g.rogue.name + " - " + g.wizard.name))
-                {
-                    Game.current = g;
-                    //Move on to game...
-                    Application.LoadLevel(1);
-                }
-
-            }
-
-            GUILayout.Space(10);
-            if (GUILayout.Button("Cancel"))
-            {
-                currentMenu = Menu.MainMenu;
-            }
 
         }
 
