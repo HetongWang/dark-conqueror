@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d37997a25a33d4a4690ea3a69773a317
-timeCreated: 1447406809
+timeCreated: 1447539297
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -75,7 +75,7 @@ TextureImporter:
         width: 798
         height: 1031
       alignment: 9
-      pivot: {x: .377192974, y: .490785658}
+      pivot: {x: .469999999, y: .490785658}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: meowslash02
       rect:
@@ -85,7 +85,7 @@ TextureImporter:
         width: 942
         height: 1028
       alignment: 9
-      pivot: {x: .430997878, y: .4873541}
+      pivot: {x: .519999981, y: .4873541}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: meowslash03
       rect:
@@ -95,7 +95,7 @@ TextureImporter:
         width: 992
         height: 986
       alignment: 9
-      pivot: {x: .39213711, y: .496957392}
+      pivot: {x: .469999999, y: .496957392}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: meowslash04
       rect:
@@ -105,7 +105,7 @@ TextureImporter:
         width: 964
         height: 978
       alignment: 9
-      pivot: {x: .37551868, y: .497955024}
+      pivot: {x: .449999988, y: .497955024}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: meowslash05
       rect:
@@ -115,7 +115,7 @@ TextureImporter:
         width: 909
         height: 950
       alignment: 9
-      pivot: {x: .370737076, y: .495789468}
+      pivot: {x: .449999988, y: .495789468}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: meowslash06
       rect:
@@ -125,7 +125,7 @@ TextureImporter:
         width: 1085
         height: 918
       alignment: 9
-      pivot: {x: .577880204, y: .522875845}
+      pivot: {x: .649999976, y: .522875845}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: meowslash07
       rect:
@@ -135,7 +135,7 @@ TextureImporter:
         width: 1168
         height: 861
       alignment: 9
-      pivot: {x: .536815047, y: .516840875}
+      pivot: {x: .600000024, y: .516840875}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: meowslash08
       rect:
@@ -145,7 +145,7 @@ TextureImporter:
         width: 1203
         height: 866
       alignment: 9
-      pivot: {x: .521197021, y: .53348732}
+      pivot: {x: .550000012, y: .53348732}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: meowslash09
       rect:
@@ -155,7 +155,7 @@ TextureImporter:
         width: 1208
         height: 866
       alignment: 9
-      pivot: {x: .51903975, y: .538106263}
+      pivot: {x: .579999983, y: .538106263}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: meowslash10
       rect:
@@ -165,7 +165,7 @@ TextureImporter:
         width: 891
         height: 874
       alignment: 9
-      pivot: {x: .338945001, y: .536613286}
+      pivot: {x: .449999988, y: .536613286}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: meowslash11
       rect:
@@ -175,7 +175,7 @@ TextureImporter:
         width: 887
         height: 890
       alignment: 9
-      pivot: {x: .382187158, y: .535955071}
+      pivot: {x: .5, y: .535955071}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: meowslash12
       rect:
@@ -185,7 +185,7 @@ TextureImporter:
         width: 970
         height: 1044
       alignment: 9
-      pivot: {x: .513402045, y: .493295014}
+      pivot: {x: .600000024, y: .493295014}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: meowslash13
       rect:
@@ -195,7 +195,7 @@ TextureImporter:
         width: 983
         height: 1047
       alignment: 9
-      pivot: {x: .507629693, y: .494746894}
+      pivot: {x: .600000024, y: .494746894}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: meowslash14
       rect:
@@ -205,7 +205,7 @@ TextureImporter:
         width: 1008
         height: 1039
       alignment: 9
-      pivot: {x: .495039672, y: .490856588}
+      pivot: {x: .550000012, y: .490856588}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: meowslash15
       rect:
@@ -215,7 +215,7 @@ TextureImporter:
         width: 1007
         height: 1043
       alignment: 9
-      pivot: {x: .494538218, y: .492809206}
+      pivot: {x: .550000012, y: .492809206}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: meowslash16
       rect:
@@ -225,7 +225,7 @@ TextureImporter:
         width: 727
         height: 957
       alignment: 9
-      pivot: {x: .299862444, y: .53709507}
+      pivot: {x: .400000006, y: .53709507}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: meowslash17
       rect:
@@ -235,7 +235,7 @@ TextureImporter:
         width: 696
         height: 980
       alignment: 9
-      pivot: {x: .268678159, y: .522448957}
+      pivot: {x: .379999995, y: .522448957}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

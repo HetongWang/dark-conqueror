@@ -205,4 +205,19 @@ public class Character : MonoBehaviour {
             }
         }
     }
+
+    public Vector3 childPosition(Vector2 offset)
+    {
+        Vector3 position = transform.position;
+        if (facingRight)
+        {
+            position.x += Mathf.Abs(offset.x);
+        }
+        else
+        {
+            position.x -= Mathf.Abs(offset.x);
+        }
+        position.y += offset.y;
+        return position;
+    }
 }

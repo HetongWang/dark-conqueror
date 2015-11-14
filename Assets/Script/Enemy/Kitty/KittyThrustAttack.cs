@@ -11,8 +11,7 @@ public class KittyThrustAttack : BasicAttack {
         base.Awake();
         setAttr(KittySet.Instance.KittyThrust);
         targetTag.Add("Player");
-        setAnimator();
-        Destroy(gameObject, setting.actDuration);
+        Destroy(gameObject, setting.attackDuration);
     }
 
     public override void getDemage(Collider2D col)
@@ -37,9 +36,5 @@ public class KittyThrustAttack : BasicAttack {
         }
  
         force = dirction * forceIntensity;
-        if (dirction.x > 0)
-            anim.SetBool("faceRight", true);
-        else
-            anim.SetBool("faceRight", false);
     }
 }

@@ -16,6 +16,8 @@ public class KittySet: Singleton<KittySet> {
     public SkillSetting Leap = new SkillSetting();
     public float LeapAngle;
     public SkillSetting Slash = new SkillSetting();
+    public float slashMoveDist;
+    public float slashForce;
 
     public float KittyWolfMoveSpeed = 11f;
     public float KittyWolfDistance = 30f;
@@ -46,10 +48,13 @@ public class KittySet: Singleton<KittySet> {
         Leap.range = 2f;
         LeapAngle = 45f;       
 
-        Slash.actDuration = SkillSetting.frameToSeconds(17, 12);
-        Slash.cd = 1f;
+        Slash.actDuration = SkillSetting.frameToSeconds(41, 40);
+        Slash.cd = 2f;
         Slash.damage = 1.5f;
-        Slash.range = 0.5f;
+        Slash.range = 1.3f;
         Slash.freezenTime = 0.5f;
+        Slash.attackDuration = 0.5f;
+        slashMoveDist = 2.5f;
+        slashForce = 300f;
     }
 }
