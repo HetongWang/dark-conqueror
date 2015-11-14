@@ -3,6 +3,15 @@ using System.Collections;
 
 public class Kitty: Enemy
 {
+    public enum Ability
+    {
+        idle,
+        thrust,
+        summonWolf,
+        leap,
+        slash
+    }
+
     public GameObject thrustAttackPrefab;
     public GameObject enragePrefab;
     public GameObject kittyWolfPrefab;
@@ -15,6 +24,7 @@ public class Kitty: Enemy
         addSkill("thrust", thrustAttack);
         addSkill("enrage", enrage);
         addSkill("summonWolf", summonWolf);
+        addSkill("leap", leap);
 
         facingRight = false;
         hp = KittySet.Instance.hp;
@@ -27,6 +37,7 @@ public class Kitty: Enemy
     public override void Update()
     {
         base.Update();
+        behavior = "leap";
         switch (behavior)
         {
             case "enrage":
@@ -37,6 +48,9 @@ public class Kitty: Enemy
                 break;
             case "thrust":
                 useSkill(behavior, KittySet.Instance.KittyThrust);
+                break;
+            case "leap":
+                useSkill(behavior, KittySet.Instance.Leap);
                 break;
         }
     }
@@ -50,7 +64,7 @@ public class Kitty: Enemy
     {
         Vector3 position = transform.position;
         position.y += 0.2f;
-        anim.SetInteger("attack", 1);
+        anim.SetInteger("skill", (int)Ability.thrust);
 
         if (facingRight)
         { 
@@ -67,7 +81,7 @@ public class Kitty: Enemy
 
         yield return new WaitForSeconds(KittySet.Instance.KittyThrust.actDuration);
 
-        anim.SetInteger("attack", 0);
+        anim.SetInteger("skill", 0);
         yield break;
     }
 
@@ -88,7 +102,7 @@ public class Kitty: Enemy
 
     public IEnumerator summonWolf()
     {
-        anim.SetInteger("attack", 2);
+        anim.SetInteger("skill", (int)Ability.summonWolf);
 
         // First wolf
         Vector3 position = transform.position;
@@ -109,7 +123,44 @@ public class Kitty: Enemy
 
         yield return new WaitForSeconds(KittySet.Instance.SummonWolf.actDuration);
 
-        anim.SetInteger("attack", 0);
+        anim.SetInteger("skill", 0);
+        yield break;
+    }
+
+    public IEnumerator leap()
+    {
+        float timer = Time.time;
+        anim.SetInteger("skill", (int)Ability.leap);
+        yield return new WaitForSeconds(7 / 24);
+
+        body.velocity = leapVelocity();
+        yield return new WaitForSeconds(KittySet.Instance.Leap.actDuration - 7 / 24);
+
+        Debug.Log(Time.time - timer);
+        anim.SetInteger("skill", 0);
+        yield break;
+    }
+
+    private Vector2 leapVelocity()
+    {
+        float h = 0;
+        float d = KittySet.Instance.Leap.range;
+        float g = Physics2D.gravity.y;
+        float rad = KittySet.Instance.LeapAngle * Mathf.Deg2Rad;
+
+        float vx = -d * Mathf.Sqrt(g / (2 * (h - Mathf.Tan(rad) * d)));
+        float vy = Mathf.Abs(Mathf.Tan(rad) * vx);
+        Vector2 v = new Vector2(vx, vy);
+
+        if (!facingRight)
+            v.x = Mathf.Abs(v.x);
+        else
+            v.x = -Mathf.Abs(v.x);
+        return v;
+    }
+
+    public IEnumerator slash()
+    {
         yield break;
     }
 }
