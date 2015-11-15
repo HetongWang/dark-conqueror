@@ -1,12 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\CameraFollow.cs">
     <Files>
-      <File FileName="Assets\Script\Singleton\Singleton.cs" Line="34" Column="58" />
-      <File FileName="Assets\Script\Character.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\CameraFollow.cs" Line="27" Column="6" />
-      <File FileName="Assets\Script\Player\Player.cs" Line="14" Column="34" />
-      <File FileName="Assets\Script\Enemy\Kitty\KittyWolfAttack.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\CameraFollow.cs" Line="16" Column="2" />
+      <File FileName="Assets\Script\Player\Player.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Enemy\Kitty\KittyWolfAttack.cs" Line="12" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
