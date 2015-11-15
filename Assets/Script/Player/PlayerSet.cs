@@ -7,6 +7,7 @@ public class PlayerSet : Singleton<PlayerSet> {
     public float dashSpeed = 2f;
     public float dodgingForce = 520f;
     public List<SkillSetting> NormalAttack = new List<SkillSetting>();
+    public BurnStatus.Setting normalAttackBurn = new BurnStatus.Setting();
     public SkillSetting Dodge = new SkillSetting();
 
     protected PlayerSet()
@@ -34,6 +35,10 @@ public class PlayerSet : Singleton<PlayerSet> {
         normalAttack3.attackDuration = 0.1f;
         normalAttack3.freezenTime = 0.5f;
         NormalAttack.Add(normalAttack3);
+
+        normalAttackBurn.damage = 10f;
+        normalAttackBurn.duration = 3f;
+        normalAttackBurn.maxOverlay = 1;
 
         Dodge.actDuration = 0.8f;
         Dodge.cd = 1f;

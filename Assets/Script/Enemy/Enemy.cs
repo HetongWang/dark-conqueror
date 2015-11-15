@@ -3,9 +3,12 @@
 public class Enemy : Character
 {
     public GameObject hpslider;
-    public string behavior = null;
 
+    public string behavior = null;
     protected BasicAI ai = null;
+
+    [HideInInspector]
+    public int souls;
 
     public void setHPBar(Vector2 position, float initHP)
     {
@@ -27,5 +30,11 @@ public class Enemy : Character
         {
             run(ai.horMove());
         }
+    }
+
+    void OnDestroy()
+    {
+        Player player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+        player.souls += souls;
     }
 }

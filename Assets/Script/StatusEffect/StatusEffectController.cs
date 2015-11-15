@@ -13,11 +13,12 @@ public class StatusEffectController
         this.person = person;
     }
 
-    public void addStatus(string name)
+    public void addStatus(StatusEffect effect)
     {
+        string name = effect.GetType().Name;
         if (!status.ContainsKey(name))
         {
-            StatusEffect instance = newStatusInstance(name);
+            StatusEffect instance = effect;
             if (instance != null)
             {
                 status.Add(name, instance);
@@ -47,18 +48,5 @@ public class StatusEffectController
                 status.Remove(s);
             }
         }
-    }
-
-    public StatusEffect newStatusInstance(string name)
-    {
-        StatusEffect res = null;
-        switch (name)
-        {
-            case "burn":
-                res = new BurnStatus(person);
-                break;
-        }
-
-        return res;
     }
 }

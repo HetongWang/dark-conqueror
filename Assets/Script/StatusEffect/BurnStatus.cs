@@ -1,21 +1,24 @@
 ﻿using UnityEngine;
 
-public class BurnStatusSet : Singleton<BurnStatusSet>
-{
-    public float duration = 3f;
-    public float demage = 0.5f;
-    public bool canOverlay = false;
-}
-
 public class BurnStatus : StatusEffect
 {
-    public BurnStatus(Character person) : base(person)
+    public struct Setting
     {
-        duration = BurnStatusSet.Instance.duration;
+        public float damage, duration;
+        public int maxOverlay;
+    }
+
+    protected float damage;
+
+    public BurnStatus( Character person, Setting setting) : base(person)
+    {
+        duration = setting.duration;
+        damage = setting.damage;
+        maxOverlay = setting.maxOverlay;
     }
 
     public override void effect()
     {
-        person.getDemage(BurnStatusSet.Instance.demage * Time.deltaTime);
+        person.getDemage(damage * Time.deltaTime);
     }
 }

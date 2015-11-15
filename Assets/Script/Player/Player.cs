@@ -18,18 +18,22 @@ public class Player : Character
     private bool normalAttacking = false;
     private bool nextNormalAttack = false;
 
+    public int souls = 0;
+    [HideInInspector]
+    public int normalAttackLevel = 1;
+
     public override void Awake()
     {
         base.Awake();
         //anim = GetComponent<Animator>();
-        addSkill("normalAttack", normalAttack);
-        addSkill("dodge", dodge);
         anim = GetComponent<Animator>();
-
         hp = PlayerSet.Instance.hp;
-
         addButtonDetect("left");
         addButtonDetect("right");
+
+        addSkill("normalAttack", normalAttack);
+        addSkill("dodge", dodge);
+        souls = 2;
     }
 
     // Update is called once per frame
@@ -100,9 +104,10 @@ public class Player : Character
         }
         GameObject go =  (GameObject)Instantiate(normalAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         NormalAttack na = go.GetComponent<NormalAttack>();
+        na.setPhase(normalAttackPhase);
         na.setAttr(PlayerSet.Instance.NormalAttack[normalAttackPhase]);
+        na.setLevel(normalAttackLevel);
         na.transform.parent = transform;
-        Debug.Log("normalAttackPhase" + normalAttackPhase);
 
         yield return new WaitForSeconds(PlayerSet.Instance.NormalAttack[normalAttackPhase].actDuration - 0.2f);
         normalAttacking = false;

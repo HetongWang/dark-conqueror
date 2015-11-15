@@ -185,7 +185,7 @@ public class Character : MonoBehaviour {
     /// <param name="name">skill name</param>
     /// <param name="f">skill IEnumerator function</param>
     /// <param name="cd"></param>
-    protected void addSkill(string name, skillFunction f, float initCD = 0)
+    public void addSkill(string name, skillFunction f, float initCD = 0)
     {
         skills.Add(name, f);
         skillCooler.Add(name, initCD);

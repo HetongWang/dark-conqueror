@@ -4,6 +4,7 @@ using System.Collections;
 public class NormalAttack : BasicAttack {
 
     protected int phase = 0;
+    protected int level = 1;
 
     public override void Awake()
     {
@@ -20,6 +21,22 @@ public class NormalAttack : BasicAttack {
     {
         base.getDemage(col);
         Character c = col.gameObject.GetComponent<Character>();
-        c.statusController.addStatus("burn");
+        if (phase == 2 && level > 1)
+            burnAttack(c);
+    }
+
+    public void setPhase(int phase)
+    {
+        this.phase = phase;
+    }
+
+    public void setLevel(int level)
+    {
+        this.level = level;
+    }
+
+    protected void burnAttack(Character c)
+    {
+        c.statusController.addStatus(new BurnStatus(c, PlayerSet.Instance.normalAttackBurn));
     }
 }
