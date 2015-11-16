@@ -169,6 +169,7 @@ public class Character : MonoBehaviour {
 
     protected void detectGround()
     {
+        Debug.Log(this.GetType().Name);
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
         anim.SetBool("grounded", grounded);
     }

@@ -11,7 +11,7 @@ public class BasicAI {
     protected bool moveToRight = true;
     protected Vector3 initPosition;
 
-    public float viewRange = 13;
+    public float viewRange = 7f;
     public float guardRange = 3;
     public float distantToPlayer = 1f;
     public GameObject targetPlayer;

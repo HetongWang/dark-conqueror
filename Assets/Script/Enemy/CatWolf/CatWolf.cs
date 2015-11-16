@@ -38,7 +38,6 @@ public class CatWolf : Enemy
     public override void Update()
     {
         base.Update();
-        Debug.Log(behavior);
         switch (behavior)
         {
             case "alert":

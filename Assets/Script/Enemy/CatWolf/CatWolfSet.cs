@@ -5,7 +5,7 @@ public class CatWolfSet : Singleton<CatWolfSet>
     public Vector2 hpBarOffset = new Vector2(0, 1.5f);
 
     public float hp = 50;
-    public float moveSpeed = 6f;
+    public float moveSpeed = 8f;
 
     public SkillSetting alert = new SkillSetting();
     public SkillSetting maul = new SkillSetting();
