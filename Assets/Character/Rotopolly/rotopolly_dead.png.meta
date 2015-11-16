@@ -1,0 +1,309 @@
+fileFormatVersion: 2
+guid: 18351d932b18a1246bcf736f83c8091c
+timeCreated: 1447666887
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: RotopollyDead 01
+    21300002: RotopollyDead 02
+    21300004: RotopollyDead 03
+    21300006: RotopollyDead 04
+    21300008: RotopollyDead 05
+    21300010: RotopollyDead 06
+    21300012: RotopollyDead 07
+    21300014: RotopollyDead 08
+    21300016: RotopollyDead 09
+    21300018: RotopollyDead 10
+    21300020: RotopollyDead 11
+    21300022: RotopollyDead 12
+    21300024: RotopollyDead 13
+    21300026: RotopollyDead 14
+    21300028: RotopollyDead 15
+    21300030: RotopollyDead 16
+    21300032: RotopollyDead 17
+    21300034: RotopollyDead 18
+    21300036: RotopollyDead 19
+    21300038: RotopollyDead 20
+    21300040: RotopollyDead 21
+    21300042: RotopollyDead 22
+    21300044: RotopollyDead 23
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: RotopollyDead 01
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1669
+        width: 470
+        height: 377
+      alignment: 9
+      pivot: {x: .670212746, y: .509283841}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 02
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 1592
+        width: 427
+        height: 454
+      alignment: 9
+      pivot: {x: .714285731, y: .550660789}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 03
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 1576
+        width: 378
+        height: 470
+      alignment: 9
+      pivot: {x: .698412716, y: .482978731}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 04
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 1619
+        width: 453
+        height: 427
+      alignment: 9
+      pivot: {x: .715231776, y: .451990634}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 05
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1197
+        width: 471
+        height: 377
+      alignment: 9
+      pivot: {x: .634819508, y: .490716189}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 06
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 1120
+        width: 427
+        height: 454
+      alignment: 9
+      pivot: {x: .620608926, y: .442731291}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 07
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 1104
+        width: 378
+        height: 470
+      alignment: 9
+      pivot: {x: .679894209, y: .491489351}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 08
+      rect:
+        serializedVersion: 2
+        x: 1284
+        y: 1147
+        width: 453
+        height: 427
+      alignment: 9
+      pivot: {x: .600441515, y: .533957839}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 09
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1669
+        width: 470
+        height: 377
+      alignment: 9
+      pivot: {x: .670212746, y: .509283841}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 10
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 1592
+        width: 427
+        height: 454
+      alignment: 9
+      pivot: {x: .714285731, y: .550660789}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 11
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 1576
+        width: 378
+        height: 470
+      alignment: 9
+      pivot: {x: .698412716, y: .482978731}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 12
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 1619
+        width: 453
+        height: 427
+      alignment: 9
+      pivot: {x: .715231776, y: .451990634}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 13
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1197
+        width: 471
+        height: 377
+      alignment: 9
+      pivot: {x: .634819508, y: .490716189}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 14
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 1120
+        width: 427
+        height: 454
+      alignment: 9
+      pivot: {x: .620608926, y: .442731291}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 15
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 1104
+        width: 378
+        height: 470
+      alignment: 9
+      pivot: {x: .679894209, y: .491489351}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 16
+      rect:
+        serializedVersion: 2
+        x: 1284
+        y: 1147
+        width: 453
+        height: 427
+      alignment: 9
+      pivot: {x: .573951423, y: .533957839}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 17
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 702
+        width: 477
+        height: 400
+      alignment: 9
+      pivot: {x: .501048207, y: .57249999}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 18
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 716
+        width: 479
+        height: 386
+      alignment: 9
+      pivot: {x: .471816272, y: .595854938}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 19
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 779
+        width: 531
+        height: 323
+      alignment: 9
+      pivot: {x: .440677971, y: .73993808}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 20
+      rect:
+        serializedVersion: 2
+        x: 1495
+        y: 770
+        width: 513
+        height: 332
+      alignment: 9
+      pivot: {x: .436647177, y: .722891569}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 21
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 779
+        width: 531
+        height: 323
+      alignment: 9
+      pivot: {x: .440677971, y: .73993808}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 22
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 383
+        width: 540
+        height: 317
+      alignment: 9
+      pivot: {x: .433333337, y: .757097781}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RotopollyDead 23
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 383
+        width: 540
+        height: 317
+      alignment: 9
+      pivot: {x: .433333337, y: .757097781}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
