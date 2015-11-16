@@ -1,16 +1,17 @@
 fileFormatVersion: 2
-guid: e03f4c97079ad2047ad264c9b84cef2f
-timeCreated: 1447644997
+guid: 5d32c2caf2362d6408411b82e002af8c
+timeCreated: 1447647690
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: PCSwingCombo12
-    21300002: PCSwingCombo13
-    21300004: PCSwingCombo14
-    21300006: PCSwingCombo15 (1)
-    21300008: PCSwingCombo16 (1)
-    21300010: PCSwingCombo17 (1)
-    21300012: PCSwingCombo17
+    21300000: catwolfIdle01
+    21300002: catwolfIdle02
+    21300004: catwolfIdle08
+    21300006: catwolfIdle03
+    21300008: catwolfIdle07
+    21300010: catwolfIdle04
+    21300012: catwolfIdle06
+    21300014: catwolfIdle05
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -37,7 +38,7 @@ TextureImporter:
   maxTextureSize: 4096
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -51,81 +52,91 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: PCSwingCombo12
+    - name: catwolfIdle01
       rect:
         serializedVersion: 2
         x: 2
-        y: 2809
-        width: 1554
-        height: 1285
+        y: 1502
+        width: 995
+        height: 544
       alignment: 9
-      pivot: {x: .403796643, y: .600778222}
+      pivot: {x: .499497473, y: .511029422}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PCSwingCombo13
+    - name: catwolfIdle02
       rect:
         serializedVersion: 2
-        x: 1558
-        y: 2794
-        width: 1064
-        height: 1300
+        x: 999
+        y: 1508
+        width: 1000
+        height: 538
       alignment: 9
-      pivot: {x: .535244346, y: .614615381}
+      pivot: {x: .493999988, y: .51672864}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PCSwingCombo14
+    - name: catwolfIdle08
       rect:
         serializedVersion: 2
-        x: 2624
-        y: 2777
-        width: 1020
-        height: 1317
+        x: 999
+        y: 1508
+        width: 1000
+        height: 538
       alignment: 9
-      pivot: {x: .588725507, y: .599848151}
+      pivot: {x: .493999988, y: .51672864}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PCSwingCombo15 (1)
-      rect:
-        serializedVersion: 2
-        x: 3646
-        y: 2537
-        width: 1424
-        height: 1557
-      alignment: 9
-      pivot: {x: .235603929, y: .529865146}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PCSwingCombo16 (1)
-      rect:
-        serializedVersion: 2
-        x: 5072
-        y: 2532
-        width: 2177
-        height: 1562
-      alignment: 9
-      pivot: {x: .5, y: .540332913}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PCSwingCombo17 (1)
+    - name: catwolfIdle03
       rect:
         serializedVersion: 2
         x: 2
-        y: 1153
-        width: 2177
-        height: 1377
+        y: 968
+        width: 1011
+        height: 532
       alignment: 9
-      pivot: {x: .5, y: .615831494}
+      pivot: {x: .486646891, y: .522556365}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PCSwingCombo17
+    - name: catwolfIdle07
       rect:
         serializedVersion: 2
-        x: 2181
-        y: 1238
-        width: 1494
-        height: 1292
+        x: 2
+        y: 968
+        width: 1011
+        height: 532
       alignment: 9
-      pivot: {x: .713855445, y: .656346738}
+      pivot: {x: .486646891, y: .522556365}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfIdle04
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 971
+        width: 1014
+        height: 529
+      alignment: 9
+      pivot: {x: .483234704, y: .525519848}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfIdle06
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 971
+        width: 1014
+        height: 529
+      alignment: 9
+      pivot: {x: .483234704, y: .525519848}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfIdle05
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 442
+        width: 1010
+        height: 524
+      alignment: 9
+      pivot: {x: .481188118, y: .530534327}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

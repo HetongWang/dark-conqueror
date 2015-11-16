@@ -1,0 +1,166 @@
+fileFormatVersion: 2
+guid: ff39de3d43b54084eabfd7c04fe31da3
+timeCreated: 1447647694
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: catwolfDead01
+    21300002: catwolfDead02
+    21300004: catwolfDead03
+    21300006: catwolfDead04
+    21300008: catwolfDead05
+    21300010: catwolfDead06
+    21300012: catwolfDead07
+    21300014: catwolfDead08
+    21300016: catwolfDead09
+    21300018: catwolfDead10
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: catwolfDead01
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1398
+        width: 977
+        height: 648
+      alignment: 9
+      pivot: {x: .424257934, y: .457561731}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfDead02
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 1436
+        width: 993
+        height: 610
+      alignment: 9
+      pivot: {x: .46475327, y: .487704933}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfDead03
+      rect:
+        serializedVersion: 2
+        x: 1976
+        y: 1480
+        width: 1002
+        height: 566
+      alignment: 9
+      pivot: {x: .492514968, y: .523851573}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfDead04
+      rect:
+        serializedVersion: 2
+        x: 2980
+        y: 1525
+        width: 1003
+        height: 521
+      alignment: 9
+      pivot: {x: .51595217, y: .557581604}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfDead05
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 842
+        width: 1001
+        height: 554
+      alignment: 9
+      pivot: {x: .533966005, y: .587545097}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfDead06
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 850
+        width: 1026
+        height: 546
+      alignment: 9
+      pivot: {x: .519005835, y: .601648331}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfDead07
+      rect:
+        serializedVersion: 2
+        x: 2033
+        y: 838
+        width: 1049
+        height: 558
+      alignment: 9
+      pivot: {x: .531458557, y: .588709652}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfDead08
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 281
+        width: 1054
+        height: 555
+      alignment: 9
+      pivot: {x: .533681214, y: .591891885}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfDead09
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 285
+        width: 1055
+        height: 551
+      alignment: 9
+      pivot: {x: .534123242, y: .596188724}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfDead10
+      rect:
+        serializedVersion: 2
+        x: 2115
+        y: 273
+        width: 1043
+        height: 563
+      alignment: 9
+      pivot: {x: .528763175, y: .583481371}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
