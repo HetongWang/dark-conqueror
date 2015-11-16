@@ -4,6 +4,7 @@ public class Enemy : Character
 {
     public GameObject hpslider;
 
+    [HideInInspector]
     public string behavior = null;
     protected BasicAI ai = null;
 

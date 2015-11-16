@@ -126,6 +126,7 @@ MonoBehaviour:
   behavior: 
   souls: 0
   CatWolfAttack: {fileID: 163778, guid: fd8cc489fe43903479e24bf35d95a109, type: 2}
+  CatWolfPrefab: {fileID: 0}
   crouching: 0
 --- !u!212 &21264608
 SpriteRenderer:
@@ -151,7 +152,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1783731295
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2ae0742584d4a6248875227c7bb187dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 296e8baf2e0ca30439e24c53bda8b427, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21276526
 SpriteRenderer:

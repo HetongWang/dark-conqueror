@@ -14,6 +14,7 @@ public class CatWolf : Enemy
     }
 
     public GameObject CatWolfAttack;
+    public GameObject CatWolfPrefab;
 
     public bool crouching = false;
 
@@ -150,7 +151,7 @@ public class CatWolf : Enemy
             cameraBorder += 2f;
         }
         Vector3 position = new Vector3(cameraBorder, transform.position.y, transform.position.z);
-        Instantiate(gameObject, position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        Instantiate(CatWolfPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         yield return new WaitForSeconds(CatWolfSet.Instance.pounce.actDuration);
 
         anim.SetInteger("skill", 0);

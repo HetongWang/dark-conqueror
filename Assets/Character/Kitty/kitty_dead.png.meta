@@ -1,0 +1,166 @@
+fileFormatVersion: 2
+guid: 4a842fb0dcd2d2648addf309b2f12831
+timeCreated: 1447666895
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: MeowDead01
+    21300002: MeowDead02
+    21300004: MeowDead03
+    21300006: MeowDead04
+    21300008: MeowDead05
+    21300010: MeowDead06
+    21300012: MeowDead07
+    21300014: MeowDead08
+    21300016: MeowDead09
+    21300018: MeowDead10
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: MeowDead01
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3096
+        width: 669
+        height: 998
+      alignment: 9
+      pivot: {x: -.0695067272, y: .433867723}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MeowDead02
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 3103
+        width: 639
+        height: 991
+      alignment: 9
+      pivot: {x: .000782472605, y: .439959645}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MeowDead03
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 3122
+        width: 795
+        height: 972
+      alignment: 9
+      pivot: {x: .219496861, y: .450617284}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MeowDead04
+      rect:
+        serializedVersion: 2
+        x: 2111
+        y: 3157
+        width: 997
+        height: 937
+      alignment: 9
+      pivot: {x: .373620868, y: .471718252}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MeowDead05
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2209
+        width: 1118
+        height: 885
+      alignment: 9
+      pivot: {x: .451252222, y: .51751411}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MeowDead06
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 2391
+        width: 1315
+        height: 703
+      alignment: 9
+      pivot: {x: .521292746, y: .697012782}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MeowDead07
+      rect:
+        serializedVersion: 2
+        x: 2439
+        y: 2463
+        width: 1476
+        height: 631
+      alignment: 9
+      pivot: {x: .554539323, y: 1.03328049}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MeowDead08
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1568
+        width: 1476
+        height: 639
+      alignment: 9
+      pivot: {x: .554539323, y: 1.02503908}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MeowDead09
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 1563
+        width: 1475
+        height: 644
+      alignment: 9
+      pivot: {x: .554237306, y: 1.02018631}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MeowDead10
+      rect:
+        serializedVersion: 2
+        x: 2439
+        y: 2463
+        width: 1476
+        height: 631
+      alignment: 9
+      pivot: {x: .554539323, y: 1.03328049}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
