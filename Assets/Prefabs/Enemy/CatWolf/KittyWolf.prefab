@@ -12,6 +12,7 @@ GameObject:
   - 61: {fileID: 6177426}
   - 50: {fileID: 5058022}
   - 114: {fileID: 11437140}
+  - 95: {fileID: 9587064}
   m_Layer: 10
   m_Name: KittyWolf
   m_TagString: Enemy
@@ -54,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.17956924, y: -1.54265189, z: 0}
+  m_LocalPosition: {x: -3.17000008, y: -.939999998, z: 0}
   m_LocalScale: {x: .206927195, y: .20692715, z: .20692715}
   m_Children:
   - {fileID: 467424}
@@ -89,6 +90,23 @@ BoxCollider2D:
   m_Offset: {x: -.107077241, y: 0}
   serializedVersion: 2
   m_Size: {x: 7.41823292, y: 4.80000019}
+--- !u!95 &9587064
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147804}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3ec41282fac1ed4891f3e5bc05e69ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11437140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -105,7 +123,10 @@ MonoBehaviour:
   invincible: 0
   hp: 10
   hpslider: {fileID: 189274, guid: eaa717e95e5b13145ba51f93ca3a2290, type: 2}
+  behavior: 
+  souls: 0
   CatWolfAttack: {fileID: 163778, guid: fd8cc489fe43903479e24bf35d95a109, type: 2}
+  crouching: 0
 --- !u!212 &21264608
 SpriteRenderer:
   m_ObjectHideFlags: 1
