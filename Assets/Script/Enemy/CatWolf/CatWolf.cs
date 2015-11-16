@@ -6,11 +6,11 @@ public class CatWolf : Enemy
     public enum Ability
     {
         idle,
-        alert,
+        crouch,
         maul,
         pounce,
         summonFriends,
-        crouch
+        alert,
     }
 
     public GameObject CatWolfAttack;
@@ -24,12 +24,14 @@ public class CatWolf : Enemy
         moveSpeed = CatWolfSet.Instance.moveSpeed;
         hp = CatWolfSet.Instance.hp;
         anim = GetComponent<Animator>();
+        ai = new CatWolfAI(this);
         setHPBar(CatWolfSet.Instance.hpBarOffset, CatWolfSet.Instance.hp);
 
         addSkill("alert", alert);
         addSkill("maul", maul);
         addSkill("pounce", pounce);
         addSkill("summonFriends", summonFriends, CatWolfSet.Instance.summonFriendsInitCD);
+        addSkill("crouch", crouch);
     }
 
     public override void Update()
@@ -40,17 +42,8 @@ public class CatWolf : Enemy
             case "alert":
                 useSkill(behavior, CatWolfSet.Instance.alert);
                 break;
-            case "maul":
-                useSkill(behavior, CatWolfSet.Instance.maul);
-                break;
-            case "pounce":
-                useSkill(behavior, CatWolfSet.Instance.pounce);
-                break;
             case "summonFriends":
                 useSkill(behavior, CatWolfSet.Instance.summonFriends);
-                break;
-            case "crouch":
-                useSkill(behavior, CatWolfSet.Instance.crouch);
                 break;
         }
  
@@ -82,7 +75,16 @@ public class CatWolf : Enemy
         _ai.alerted = true;
         yield return new WaitForSeconds(CatWolfSet.Instance.alert.actDuration);
 
-        anim.SetInteger("skill", (int)Ability.idle);
+        if (behavior == "maul")
+        {
+            useSkill(behavior, CatWolfSet.Instance.maul);
+        }
+        else if (behavior == "pounce")
+        {
+            useSkill(behavior, CatWolfSet.Instance.pounce);
+        }
+        else 
+            anim.SetInteger("skill", (int)Ability.idle);
         yield break;
     }
 
@@ -90,18 +92,10 @@ public class CatWolf : Enemy
     {
         anim.SetInteger("skill", (int)Ability.maul);
 
-        Vector3 position = transform.position;
-        position.y = 1f;
-        if (facingRight)
-        {
-            position.x += CatWolfSet.Instance.maul.range / 2;
-        }
-        else
-        {
-            position.x -= CatWolfSet.Instance.maul.range / 2;
-        }
+        Vector3 position = childPosition(new Vector2(0.75f, 0.19f));
 
         GameObject go = (GameObject)Instantiate(CatWolfAttack, position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        go.transform.parent = transform;
         EnemyCommonAttack attack = go.GetComponent<EnemyCommonAttack>();
         attack.setAttr(CatWolfSet.Instance.maul);
         yield return new WaitForSeconds(CatWolfSet.Instance.maul.actDuration);
@@ -115,22 +109,21 @@ public class CatWolf : Enemy
     public IEnumerator pounce()
     {
         anim.SetInteger("skill", (int)Ability.pounce);
+        yield return new WaitForSeconds(0.1f);
 
-        Vector3 position = transform.position;
-        position.y = 1f;
+        Vector3 position = childPosition(new Vector2(0.75f, 0.19f));
         if (facingRight)
         {
-            position.x += CatWolfSet.Instance.maul.range / 2;
             body.AddForce(CatWolfSet.Instance.pounceForce);
         }
         else
         {
-            position.x -= CatWolfSet.Instance.maul.range / 2;
             Vector2 force = new Vector2(-CatWolfSet.Instance.pounceForce.x, CatWolfSet.Instance.pounceForce.y);
             body.AddForce(force);
         }
 
         GameObject go = (GameObject)Instantiate(CatWolfAttack, position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        go.transform.parent = transform;
         EnemyCommonAttack attack = go.GetComponent<EnemyCommonAttack>();
         attack.setAttr(CatWolfSet.Instance.pounce);
 

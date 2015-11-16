@@ -7,6 +7,10 @@ public class EnemyCommonAttack : BasicAttack
     {
         base.Awake();
         targetTag.Add("Player");
+    }
+    
+    void Start()
+    {
         Destroy(gameObject, setting.attackDuration);
     }
 }

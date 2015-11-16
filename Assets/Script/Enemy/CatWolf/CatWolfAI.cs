@@ -36,7 +36,7 @@ public class CatWolfAI : BasicAI
         }
 
         if (targetPlayerDistance < CatWolfSet.Instance.pounce.range)
-            return "huddle";
+            return "crouch";
 
         return "move";
     }

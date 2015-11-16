@@ -22,6 +22,8 @@ public class Enemy : Character
         base.Update();
         if (ai != null)
             behavior = ai.update();
+        else
+            Debug.Log("Lack of AI");
     }
 
     public virtual void FixedUpdate()
