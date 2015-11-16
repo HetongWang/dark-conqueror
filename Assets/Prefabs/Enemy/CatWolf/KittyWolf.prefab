@@ -126,7 +126,7 @@ MonoBehaviour:
   behavior: 
   souls: 0
   CatWolfAttack: {fileID: 163778, guid: fd8cc489fe43903479e24bf35d95a109, type: 2}
-  CatWolfPrefab: {fileID: 0}
+  CatWolfPrefab: {fileID: 147804}
   crouching: 0
 --- !u!212 &21264608
 SpriteRenderer:

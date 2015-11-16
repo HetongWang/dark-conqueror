@@ -51,6 +51,16 @@ public class CatWolf : Enemy
  
     }
 
+    public override void FixedUpdate()
+    {
+        if (behavior == "move")
+        {
+            CatWolfAI _ai = (CatWolfAI)ai;
+            _ai.alerted = false;
+            run(ai.horMove());
+        }
+    }
+
     public override void Hurt(SkillSetting setting)
     {
         CatWolfAI _ai = (CatWolfAI)ai;

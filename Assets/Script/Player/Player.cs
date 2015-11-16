@@ -213,6 +213,7 @@ public class Player : Character
             if (anim)
             {
                 anim.SetBool("hurt", true);
+                anim.SetInteger("skill", 0);
             }
         }
     }
