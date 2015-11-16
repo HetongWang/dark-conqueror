@@ -38,6 +38,7 @@ public class CatWolf : Enemy
     public override void Update()
     {
         base.Update();
+        Debug.Log(behavior);
         switch (behavior)
         {
             case "alert":
@@ -52,6 +53,8 @@ public class CatWolf : Enemy
 
     public override void Hurt(SkillSetting setting)
     {
+        CatWolfAI _ai = (CatWolfAI)ai;
+        _ai.alerted = false;
         if (!invincible)
         {
             if (crouching)
