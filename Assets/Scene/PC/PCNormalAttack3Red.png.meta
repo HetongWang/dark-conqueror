@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: e03f4c97079ad2047ad264c9b84cef2f
+timeCreated: 1447644997
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PCSwingCombo12
+    21300002: PCSwingCombo13
+    21300004: PCSwingCombo14
+    21300006: PCSwingCombo15 (1)
+    21300008: PCSwingCombo16 (1)
+    21300010: PCSwingCombo17 (1)
+    21300012: PCSwingCombo17
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 200
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: PCSwingCombo12
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2809
+        width: 1554
+        height: 1285
+      alignment: 9
+      pivot: {x: .403796643, y: .600778222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingCombo13
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 2794
+        width: 1064
+        height: 1300
+      alignment: 9
+      pivot: {x: .535244346, y: .614615381}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingCombo14
+      rect:
+        serializedVersion: 2
+        x: 2624
+        y: 2777
+        width: 1020
+        height: 1317
+      alignment: 9
+      pivot: {x: .588725507, y: .599848151}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingCombo15 (1)
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 2537
+        width: 1424
+        height: 1557
+      alignment: 9
+      pivot: {x: .235603929, y: .529865146}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingCombo16 (1)
+      rect:
+        serializedVersion: 2
+        x: 5072
+        y: 2532
+        width: 2177
+        height: 1562
+      alignment: 9
+      pivot: {x: .5, y: .540332913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingCombo17 (1)
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1153
+        width: 2177
+        height: 1377
+      alignment: 9
+      pivot: {x: .5, y: .615831494}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingCombo17
+      rect:
+        serializedVersion: 2
+        x: 2181
+        y: 1238
+        width: 1494
+        height: 1292
+      alignment: 9
+      pivot: {x: .713855445, y: .656346738}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
