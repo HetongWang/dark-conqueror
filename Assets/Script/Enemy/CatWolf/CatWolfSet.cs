@@ -13,6 +13,7 @@ public class CatWolfSet : Singleton<CatWolfSet>
     public Vector2 pounceForce;
     public SkillSetting summonFriends = new SkillSetting();
     public float summonFriendsInitCD;
+    public SkillSetting crouch = new SkillSetting();
 
     public float huddleRatio = 0.5f;
 
@@ -35,5 +36,9 @@ public class CatWolfSet : Singleton<CatWolfSet>
         summonFriends.cd = 8f;
         summonFriends.attackDuration = 0f;
         summonFriendsInitCD = 10f;
+
+        crouch.actDuration = 0.4f;
+        crouch.cd = 2f;
+        crouch.damage = 0.3f; // damage reduced
     }
 }
