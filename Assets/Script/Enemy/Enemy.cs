@@ -34,6 +34,7 @@ public class Enemy : Character
 
     void OnDestroy()
     {
+        Debug.Log(this.GetType().Name);
         Player player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
         player.souls += souls;
     }
