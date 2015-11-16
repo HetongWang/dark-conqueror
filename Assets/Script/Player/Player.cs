@@ -59,6 +59,9 @@ public class Player : Character
 
     void attack()
     {
+        if (blocked)
+            return;
+
         if (Input.GetButtonDown("NormalAttack"))
         {
             if (normalAttacking)
@@ -89,7 +92,10 @@ public class Player : Character
 
     public IEnumerator normalAttack()
     {
-        anim.SetInteger("attack", normalAttackPhase + 1);
+        if (normalAttackLevel > 1 && normalAttackPhase == 2)
+            anim.SetInteger("skill", 4);
+        else
+            anim.SetInteger("skill", normalAttackPhase + 1);
         normalAttacking = true;
         // Wait sword wave forward
         yield return new WaitForSeconds(0.2f);
@@ -114,7 +120,7 @@ public class Player : Character
 
         if (!nextNormalAttack)
         {
-            anim.SetInteger("attack", 0);
+            anim.SetInteger("skill", 0);
             normalAttackPhase = 0;
         }
         else
@@ -154,14 +160,16 @@ public class Player : Character
 
     public void block()
     {
-        if (Input.GetButtonDown("Block"))
+        if (Input.GetButtonDown("Block") && actingTime <= 0)
         {
             blocked = true;
+            anim.SetBool("block", true);
         }
         
         if (Input.GetButtonUp("Block"))
         {
             blocked = false;
+            anim.SetBool("block", false);
         }
     }
 
