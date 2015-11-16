@@ -1,0 +1,188 @@
+fileFormatVersion: 2
+guid: 4fbe7a8af1c7043469faa457de0dd714
+timeCreated: 1447640483
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PCJump01
+    21300002: PCJump12
+    21300004: PCJump02
+    21300006: PCJump11
+    21300008: PCJump03
+    21300010: PCJump10
+    21300012: PCJump04
+    21300014: PCJump05
+    21300016: PCJump06
+    21300018: PCJump07
+    21300020: PCJump08
+    21300022: PCJump09
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 195
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: PCJump01
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2785
+        width: 892
+        height: 1309
+      alignment: 9
+      pivot: {x: .575112104, y: .541252851}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCJump12
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2785
+        width: 892
+        height: 1309
+      alignment: 9
+      pivot: {x: .575112104, y: .541252851}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCJump02
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 2788
+        width: 876
+        height: 1306
+      alignment: 9
+      pivot: {x: .565068483, y: .55934149}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCJump11
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 2788
+        width: 876
+        height: 1306
+      alignment: 9
+      pivot: {x: .565068483, y: .55934149}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCJump03
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 2804
+        width: 859
+        height: 1290
+      alignment: 9
+      pivot: {x: .572759032, y: .566279054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCJump10
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 2804
+        width: 859
+        height: 1290
+      alignment: 9
+      pivot: {x: .572759032, y: .566279054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCJump04
+      rect:
+        serializedVersion: 2
+        x: 2635
+        y: 2750
+        width: 789
+        height: 1344
+      alignment: 9
+      pivot: {x: .590621054, y: .518229187}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCJump05
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1393
+        width: 778
+        height: 1355
+      alignment: 9
+      pivot: {x: .601542413, y: .515498161}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCJump06
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 1421
+        width: 850
+        height: 1327
+      alignment: 9
+      pivot: {x: .549411774, y: .522607386}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCJump07
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 1432
+        width: 877
+        height: 1316
+      alignment: 9
+      pivot: {x: .518814147, y: .519376874}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCJump08
+      rect:
+        serializedVersion: 2
+        x: 2513
+        y: 1554
+        width: 916
+        height: 1194
+      alignment: 9
+      pivot: {x: .422489077, y: .587520957}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCJump09
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 201
+        width: 916
+        height: 1190
+      alignment: 9
+      pivot: {x: .422489077, y: .589495778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
