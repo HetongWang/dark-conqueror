@@ -23,9 +23,26 @@ public class KittyAI : BasicAI {
         if (targetPlayer)
         {
             float dis = Mathf.Abs(targetPlayer.transform.position.x - person.transform.position.x);
-            if (dis < KittySet.Instance.KittyThrust.range && person.skillCooler["thrust"] <= 0)
+            if (dis < KittySet.Instance.Slash.range)
             {
-                skillName = "thrust";
+                skillName = "leap";
+                int r = (int)Random.value * 3;
+                if (r == 0)
+                {
+                    if (person.skillCooler["thrust"] <= 0)
+                        skillName = "thrust";
+                }
+                else if (r == 1)
+                {
+                    if (person.skillCooler["slash"] <= 0)
+                        skillName = "slash";
+                }
+                else if (r == 2)
+                {
+                    if (person.skillCooler["leap"] <= 0)
+                        skillName = "leap";
+                }
+
             }
         }
         return skillName;

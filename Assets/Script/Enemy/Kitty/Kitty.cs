@@ -41,7 +41,6 @@ public class Kitty: Enemy
     public override void Update()
     {
         base.Update();
-        behavior = "slash";
         switch (behavior)
         {
             case "enrage":

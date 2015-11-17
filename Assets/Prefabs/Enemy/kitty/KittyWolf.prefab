@@ -45,6 +45,7 @@ GameObject:
   - 61: {fileID: 6124724}
   - 50: {fileID: 5078818}
   - 114: {fileID: 11484998}
+  - 95: {fileID: 9549248}
   m_Layer: 10
   m_Name: KittyWolf
   m_TagString: Enemy
@@ -132,6 +133,23 @@ BoxCollider2D:
   m_Offset: {x: -.543983698, y: 0}
   serializedVersion: 2
   m_Size: {x: 8.29203224, y: 4.80000019}
+--- !u!95 &9549248
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187170}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 17b81542e84eb7b43b14c12c09956d5f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11468998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,6 +178,8 @@ MonoBehaviour:
   invincible: 0
   hp: 10
   hpslider: {fileID: 189274, guid: eaa717e95e5b13145ba51f93ca3a2290, type: 2}
+  behavior: 
+  souls: 0
 --- !u!212 &21277410
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -184,7 +204,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1783731295
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2ae0742584d4a6248875227c7bb187dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d32c2caf2362d6408411b82e002af8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21299798
 SpriteRenderer:
