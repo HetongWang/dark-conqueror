@@ -41,6 +41,7 @@ public class Kitty: Enemy
     public override void Update()
     {
         base.Update();
+        Debug.Log(behavior);
         switch (behavior)
         {
             case "enrage":
@@ -131,7 +132,6 @@ public class Kitty: Enemy
 
     public IEnumerator leap()
     {
-        float timer = Time.time;
         anim.SetInteger("skill", (int)Ability.leap);
         yield return new WaitForSeconds(7 / 24);
 

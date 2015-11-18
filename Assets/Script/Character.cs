@@ -111,8 +111,8 @@ public class Character : MonoBehaviour {
 
             if (anim)
             {
-                anim.SetBool("hurt", true);
                 anim.SetInteger("skill", 0);
+                anim.SetBool("hurt", true);
             }
         }
     }

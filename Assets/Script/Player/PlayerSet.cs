@@ -6,6 +6,8 @@ public class PlayerSet : Singleton<PlayerSet> {
     public float hp = 5000;
     public float dashSpeed = 2f;
     public float dodgingForce = 520f;
+    public float dodgingSkyForce = 200f;
+    public float jumpForce = 600f;
     public List<SkillSetting> NormalAttack = new List<SkillSetting>();
     public BurnStatus.Setting normalAttackBurn = new BurnStatus.Setting();
     public SkillSetting Dodge = new SkillSetting();

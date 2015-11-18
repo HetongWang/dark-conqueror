@@ -27,6 +27,7 @@ public class Player : Character
         //anim = GetComponent<Animator>();
         anim = GetComponent<Animator>();
         hp = PlayerSet.Instance.hp;
+        jumpForce = PlayerSet.Instance.jumpForce;
         addButtonDetect("left");
         addButtonDetect("right");
 
@@ -193,10 +194,15 @@ public class Player : Character
     public IEnumerator dodge()
     {
         invincible = true;
-        if (facingRight)
-            body.AddForce(Vector2.right * PlayerSet.Instance.dodgingForce);
+        Vector2 force;
+        if (grounded)
+            force = Vector2.left * PlayerSet.Instance.dodgingForce;
         else
-            body.AddForce(Vector2.left * PlayerSet.Instance.dodgingForce);
+            force = Vector2.left * PlayerSet.Instance.dodgingSkyForce;
+        if (facingRight)
+            body.AddForce(force);
+        else
+            body.AddForce(force);
         yield return new WaitForSeconds(PlayerSet.Instance.Dodge.actDuration);
 
         invincible = false;

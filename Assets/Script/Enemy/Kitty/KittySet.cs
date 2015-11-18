@@ -26,7 +26,7 @@ public class KittySet: Singleton<KittySet> {
     protected KittySet()
     {
         KittyThrust.actDuration = SkillSetting.frameToSeconds(7, 12);
-        KittyThrust.cd = 2f;
+        KittyThrust.cd = 3f;
         KittyThrust.damage = 2f;
         KittyThrust.range = 1.4f;
         KittyThrust.attackDuration = 0.6f;
@@ -43,7 +43,7 @@ public class KittySet: Singleton<KittySet> {
         SummonWolf.range = 10f;
         SummonWolf.attackDuration = 0f;
 
-        Leap.actDuration = SkillSetting.frameToSeconds(12, 24);
+        Leap.actDuration = SkillSetting.frameToSeconds(13, 24);
         Leap.cd = 2f;
         Leap.range = 2f;
         LeapAngle = 45f;       
