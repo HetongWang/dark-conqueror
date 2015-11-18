@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class PlayerSet : Singleton<PlayerSet> {
 
-    public float hp = 50;
+    public float hp = 5000;
     public float dashSpeed = 2f;
     public float dodgingForce = 520f;
     public List<SkillSetting> NormalAttack = new List<SkillSetting>();

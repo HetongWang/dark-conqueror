@@ -3,7 +3,7 @@
 public class CatWolfSet : Singleton<CatWolfSet>
 {
     public Vector2 hpBarOffset = new Vector2(0, 1.5f);
-    public int amount = 6;
+    public int amount = 1;
 
     public float hp = 10;
     public float moveSpeed = 8f;
@@ -38,7 +38,7 @@ public class CatWolfSet : Singleton<CatWolfSet>
         pounceForce = new Vector2(350, 350);
         
         summonFriends.actDuration = 0.6f;
-        summonFriends.cd = 8f;
+        summonFriends.cd = 2f;
         summonFriends.attackDuration = 0f;
         summonFriendsInitCD = 10f;
 

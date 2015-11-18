@@ -5,9 +5,10 @@ using System.Collections.Generic;
 public class Character : MonoBehaviour {
 
     protected bool facingRight = true;
+    public bool invincible = false;
+    protected bool blocked = false;
     public float moveSpeed = 3f;
     public float jumpForce = 600;
-    public bool invincible = false;
 
     protected Transform groundCheck;
     protected bool grounded = false;
@@ -49,6 +50,12 @@ public class Character : MonoBehaviour {
 
     public void updateStatus()
     {
+        movementFreezenTime = Mathf.Max(movementFreezenTime, freezenTime);
+        if (movementFreezenTime > 0)
+        {
+            movementFreezenTime -= Time.deltaTime;
+        }
+
         if (freezenTime > 0)
         {
             freezenTime -= Time.deltaTime;
@@ -62,10 +69,6 @@ public class Character : MonoBehaviour {
         if (actingTime > 0)
         {
             actingTime -= Time.deltaTime;
-        }
-        if (movementFreezenTime > 0)
-        {
-            movementFreezenTime -= Time.deltaTime;
         }
 
         if (anim)
@@ -101,7 +104,7 @@ public class Character : MonoBehaviour {
 
     public virtual void Hurt(SkillSetting setting)
     {
-        if (!invincible)
+        if (!invincible && !blocked)
         {
             getDemage(setting.damage);
             freezenTime = Mathf.Max(setting.freezenTime, freezenTime);
@@ -109,6 +112,7 @@ public class Character : MonoBehaviour {
             if (anim)
             {
                 anim.SetBool("hurt", true);
+                anim.SetInteger("skill", 0);
             }
         }
     }

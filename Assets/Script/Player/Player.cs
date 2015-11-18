@@ -6,7 +6,6 @@ public class Player : Character
 {
     protected bool jumped = false;
     protected bool dashed = false;
-    protected bool blocked = false;
 
     public GameObject normalAttackPrefab;
 
@@ -208,7 +207,8 @@ public class Player : Character
         if (!invincible && !blocked)
         {
             getDemage(setting.damage);
-            freezenTime = setting.freezenTime;
+            freezenTime = Mathf.Max(setting.freezenTime, freezenTime);
+            normalAttackPhase = 0;
 
             if (anim)
             {
