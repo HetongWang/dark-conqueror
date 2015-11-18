@@ -9,7 +9,7 @@ public class KittyThrustAttack : BasicAttack {
     public override void Awake()
     {
         base.Awake();
-        setAttr(KittySet.Instance.KittyThrust);
+        setAttr(KittySet.Instance.KittyThrust.clone());
         targetTag.Add("Player");
         Destroy(gameObject, setting.attackDuration);
     }

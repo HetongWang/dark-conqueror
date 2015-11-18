@@ -29,7 +29,7 @@ public class PlayerSet : Singleton<PlayerSet> {
         NormalAttack.Add(normalAttack2);
 
         SkillSetting normalAttack3 = new SkillSetting();
-        normalAttack3.actDuration = SkillSetting.frameToSeconds(15, 30);
+        normalAttack3.actDuration = SkillSetting.frameToSeconds(20, 30);
         normalAttack3.damage = 1f;
         normalAttack3.range = 1.4f;
         normalAttack3.attackDuration = 0.1f;

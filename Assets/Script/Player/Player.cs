@@ -209,6 +209,8 @@ public class Player : Character
             getDemage(setting.damage);
             freezenTime = Mathf.Max(setting.freezenTime, freezenTime);
             normalAttackPhase = 0;
+            normalAttacking = false;
+            nextNormalAttack = false;
 
             if (anim)
             {

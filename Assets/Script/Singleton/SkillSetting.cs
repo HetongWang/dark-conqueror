@@ -29,6 +29,18 @@ public class SkillSetting {
         this.attackDuration = attackDuration;
     }
 
+    public SkillSetting clone()
+    {
+        SkillSetting n = new SkillSetting();
+        n.cd = cd;
+        n.actDuration = actDuration;
+        n.freezenTime = freezenTime;
+        n.attackDuration = attackDuration;
+        n.range = range;
+        n.damage = damage;
+        return n;
+    }
+
     public static float frameToSeconds(float length, float fps)
     {
         return length / fps;
