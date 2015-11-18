@@ -9,7 +9,8 @@ public class Kitty: Enemy
         thrust,
         summonWolf,
         leap,
-        slash
+        slash,
+        enrage
     }
 
     public GameObject thrustAttackPrefab;
@@ -92,9 +93,11 @@ public class Kitty: Enemy
         enraged = true;
         moveSpeed *= KittySet.Instance.enrageEnhancement;
         Instantiate(enragePrefab, transform.position, Quaternion.Euler(Vector3.zero));
+        anim.SetInteger("skill", (int)Ability.enrage);
         anim.SetBool("enrage", true);
         yield return new WaitForSeconds(KittySet.Instance.KittyEnrage.actDuration);
 
+        anim.SetInteger("skill", (int)Ability.idle);
         anim.SetBool("enrage", false);
         Vector3 scale = transform.localScale;
         scale *= 1.1f;
