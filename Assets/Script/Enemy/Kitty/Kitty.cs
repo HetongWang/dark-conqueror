@@ -91,6 +91,8 @@ public class Kitty: Enemy
     public IEnumerator enrage()
     {
         enraged = true;
+        if (currentSkill != null)
+            StopCoroutine(currentSkill);
         moveSpeed *= KittySet.Instance.enrageEnhancement;
         Instantiate(enragePrefab, transform.position, Quaternion.Euler(Vector3.zero));
         anim.SetInteger("skill", (int)Ability.enrage);

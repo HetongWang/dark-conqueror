@@ -24,6 +24,7 @@ public class Character : MonoBehaviour {
     public delegate IEnumerator skillFunction();
     protected Dictionary<string, skillFunction> skills = new Dictionary<string, skillFunction>();
     public Dictionary<string, float> skillCooler = new Dictionary<string, float>();
+    protected Coroutine currentSkill = null;
 
     /// <summary>
     /// Initialize method setting HP, AI, adding skills and other component
@@ -108,6 +109,8 @@ public class Character : MonoBehaviour {
         {
             getDemage(setting.damage);
             freezenTime = Mathf.Max(setting.freezenTime, freezenTime);
+            if (currentSkill != null)
+                StopCoroutine(currentSkill);
 
             if (anim)
             {
@@ -201,7 +204,7 @@ public class Character : MonoBehaviour {
         {
         Debug.Log(name);
             actingTime = setting.actDuration + 0.05f;
-            StartCoroutine(skills[name]());
+            currentSkill = StartCoroutine(skills[name]());
             skillCooler[name] = setting.cd;
 
             if (!canMove)

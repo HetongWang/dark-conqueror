@@ -210,19 +210,12 @@ public class Player : Character
 
     public override void Hurt(SkillSetting setting)
     {
+        base.Hurt(setting);
         if (!invincible && !blocked)
         {
-            getDemage(setting.damage);
-            freezenTime = Mathf.Max(setting.freezenTime, freezenTime);
             normalAttackPhase = 0;
             normalAttacking = false;
             nextNormalAttack = false;
-
-            if (anim)
-            {
-                anim.SetBool("hurt", true);
-                anim.SetInteger("skill", 0);
-            }
         }
     }
 
