@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11437140}
   - 95: {fileID: 9587064}
   m_Layer: 10
-  m_Name: KittyWolf
+  m_Name: Catwolf
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

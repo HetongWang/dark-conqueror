@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CatWolf : Enemy
 {
+    static public int amount = 0;
     public enum Ability
     {
         idle,
@@ -44,7 +45,8 @@ public class CatWolf : Enemy
                 useSkill(behavior, CatWolfSet.Instance.alert);
                 break;
             case "summonFriends":
-                useSkill(behavior, CatWolfSet.Instance.summonFriends);
+                if (amount < CatWolfSet.Instance.amount)
+                    useSkill(behavior, CatWolfSet.Instance.summonFriends);
                 break;
         }
  
@@ -164,6 +166,7 @@ public class CatWolf : Enemy
         }
         Vector3 position = new Vector3(cameraBorder, transform.position.y, transform.position.z);
         Instantiate(CatWolfPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        amount += 1;
         yield return new WaitForSeconds(CatWolfSet.Instance.pounce.actDuration);
 
         anim.SetInteger("skill", 0);

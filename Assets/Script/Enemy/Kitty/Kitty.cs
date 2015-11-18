@@ -138,7 +138,6 @@ public class Kitty: Enemy
         body.velocity = leapVelocity();
         yield return new WaitForSeconds(KittySet.Instance.Leap.actDuration - 7 / 24);
 
-        Debug.Log(Time.time - timer);
         anim.SetInteger("skill", 0);
         yield break;
     }

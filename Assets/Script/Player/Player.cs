@@ -33,7 +33,7 @@ public class Player : Character
 
         addSkill("normalAttack", normalAttack);
         addSkill("dodge", dodge);
-        souls = 0;
+        souls = 1;
     }
 
     // Update is called once per frame

@@ -16,7 +16,7 @@ public class CatWolfAI : BasicAI
         if (movementMode == moveMode.guard)
             return "move";
 
-        if (person.skillCooler["summonFriends"] <= 0)
+        if (person.skillCooler["summonFriends"] <= 0 && CatWolf.amount < CatWolfSet.Instance.amount)
             return "summonFriends";
 
         if (targetPlayerDistance < CatWolfSet.Instance.pounce.range && person.skillCooler["pounce"] <= 0)

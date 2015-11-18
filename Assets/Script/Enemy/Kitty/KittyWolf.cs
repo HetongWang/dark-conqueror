@@ -8,6 +8,7 @@ public class KittyWolf : Enemy
     public override void Awake()
     {
         base.Awake();
+        anim = GetComponent<Animator>();
         facingRight = false;
         moveSpeed = KittySet.Instance.KittyWolfMoveSpeed;
         hp = KittySet.Instance.KittyWolfHP;
@@ -19,15 +20,20 @@ public class KittyWolf : Enemy
     public override void Update()
     {
         base.Update();
+        detectGround();
+        if (Mathf.Abs(transform.position.x - initPosition) > KittySet.Instance.KittyWolfDistance)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public override void FixedUpdate()
+    {
         if (grounded)
         {
             run(direction);
         }
 
-        if (Mathf.Abs(transform.position.x - initPosition) > KittySet.Instance.KittyWolfDistance)
-        {
-            Destroy(gameObject);
-        }
     }
 
     public void setDirection(float direction)
