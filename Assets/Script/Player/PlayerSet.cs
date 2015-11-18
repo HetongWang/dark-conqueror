@@ -15,7 +15,7 @@ public class PlayerSet : Singleton<PlayerSet> {
     protected PlayerSet()
     {
         SkillSetting normalAttack1 = new SkillSetting();
-        normalAttack1.actDuration = SkillSetting.frameToSeconds(13, 30);
+        normalAttack1.actDuration = SkillSetting.frameToSeconds(14, 30);
         normalAttack1.damage = 1f;
         normalAttack1.range = 1.4f;
         normalAttack1.attackDuration = 0.1f;
