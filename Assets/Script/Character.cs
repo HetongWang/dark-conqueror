@@ -199,7 +199,8 @@ public class Character : MonoBehaviour {
     {
         if (name != null && skillCooler[name] <= 0 && (canActing() || enforce))
         {
-            actingTime = setting.actDuration;
+        Debug.Log(name);
+            actingTime = setting.actDuration + 0.05f;
             StartCoroutine(skills[name]());
             skillCooler[name] = setting.cd;
 
