@@ -65,9 +65,18 @@ public class Kitty: Enemy
     public override void FixedUpdate()
     {
         base.FixedUpdate();
+        slashingUpdate();
+    }
+
+    protected void slashingUpdate()
+    {
         if (slashing)
         {
-            Vector2 v = new Vector2(- KittySet.Instance.slashMoveDist / KittySet.Instance.Slash.actDuration, 0);
+            Vector2 v;
+            if (facingRight)
+                v = new Vector2(KittySet.Instance.slashMoveDist / KittySet.Instance.Slash.actDuration, 0);
+            else 
+                v = new Vector2(- KittySet.Instance.slashMoveDist / KittySet.Instance.Slash.actDuration, 0);
             body.velocity = v;
         }
     }

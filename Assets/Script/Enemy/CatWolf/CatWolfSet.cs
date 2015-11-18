@@ -40,7 +40,7 @@ public class CatWolfSet : Singleton<CatWolfSet>
         summonFriends.actDuration = 0.6f;
         summonFriends.cd = 2f;
         summonFriends.attackDuration = 0f;
-        summonFriendsInitCD = 10f;
+        summonFriendsInitCD = 1f;
 
         crouch.actDuration = 1.25f;
         crouch.cd = 2f;

@@ -36,6 +36,15 @@ public class CatWolf : Enemy
         addSkill("crouch", crouch);
     }
 
+    public void Start()
+    {
+        Vector3 scale = transform.localScale;
+        if (scale.x > 0)
+            facingRight = false;
+        else
+            facingRight = true;
+    }
+
     public override void Update()
     {
         base.Update();
@@ -64,10 +73,10 @@ public class CatWolf : Enemy
 
     public override void Hurt(SkillSetting setting)
     {
-        CatWolfAI _ai = (CatWolfAI)ai;
-        _ai.alerted = false;
         if (!invincible)
         {
+            CatWolfAI _ai = (CatWolfAI)ai;
+            _ai.alerted = false;
             if (crouching)
             {
                 getDemage(setting.damage * CatWolfSet.Instance.crouch.damage);
@@ -77,7 +86,10 @@ public class CatWolf : Enemy
                 getDemage(setting.damage);
                 freezenTime = setting.freezenTime;
                 if (anim)
+                {
                     anim.SetBool("hurt", true);
+                    anim.SetInteger("skill", 0);
+                }
             }
         }
     }
@@ -154,7 +166,8 @@ public class CatWolf : Enemy
     {
         anim.SetInteger("skill", (int)Ability.summonFriends);
         float cameraBorder;
-        if (Random.value > 0.5f)
+        bool onLeft = Random.value > 0.5f ? true : false;
+        if (onLeft)
         {
             cameraBorder = Camera.main.transform.position.x - Camera.main.orthographicSize * Screen.width / Screen.height;
             cameraBorder -= 2f;
@@ -165,7 +178,9 @@ public class CatWolf : Enemy
             cameraBorder += 2f;
         }
         Vector3 position = new Vector3(cameraBorder, transform.position.y, transform.position.z);
-        Instantiate(CatWolfPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        GameObject go = (GameObject)Instantiate(CatWolfPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        CatWolf wolf = go.GetComponent<CatWolf>();
+
         amount += 1;
         yield return new WaitForSeconds(CatWolfSet.Instance.pounce.actDuration);
 

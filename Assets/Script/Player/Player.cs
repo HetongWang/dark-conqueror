@@ -196,13 +196,14 @@ public class Player : Character
         invincible = true;
         Vector2 force;
         if (grounded)
-            force = Vector2.left * PlayerSet.Instance.dodgingForce;
+            force = Vector2.right * PlayerSet.Instance.dodgingForce;
         else
-            force = Vector2.left * PlayerSet.Instance.dodgingSkyForce;
+            force = Vector2.right * PlayerSet.Instance.dodgingSkyForce;
+
         if (facingRight)
             body.AddForce(force);
         else
-            body.AddForce(force);
+            body.AddForce(-force);
         yield return new WaitForSeconds(PlayerSet.Instance.Dodge.actDuration);
 
         invincible = false;
