@@ -95,7 +95,7 @@ public class Kitty: Enemy
 
         GameObject gameo = (GameObject)Instantiate(thrustAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         KittyThrustAttack thrust = gameo.GetComponent<KittyThrustAttack>();
-        thrust.init(facingRight ? Vector2.right : Vector2.left, enraged);
+        thrust.init(enraged);
         thrust.transform.parent = transform;
 
         yield return new WaitForSeconds(KittySet.Instance.KittyThrust.actDuration);

@@ -6,6 +6,7 @@ public class BasicAttack : MonoBehaviour {
     private List<GameObject> hurted;
     public List<string> targetTag = new List<string>();
     protected SkillSetting setting;
+    public Vector2 force;
 
     protected Animator anim;
 
@@ -39,6 +40,14 @@ public class BasicAttack : MonoBehaviour {
         if (person)
         {
             person.Hurt(setting);
+
+            Vector2 f = setting.targetForce;
+            if (!person.facingRight)
+                f.x = Mathf.Abs(f.x);
+            else
+                f.x = -Mathf.Abs(f.x);
+            person.body.AddForce(f);
+
             hurted.Add(col.gameObject);
         }
     }

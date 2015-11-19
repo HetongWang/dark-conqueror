@@ -135,17 +135,8 @@ public class CatWolf : Enemy
         anim.SetInteger("skill", (int)Ability.pounce);
         yield return new WaitForSeconds(CatWolfSet.Instance.pounce.actDuration * 0.1f);
 
+        addSelfForce(CatWolfSet.Instance.pounce.selfForce);
         Vector3 position = childPosition(new Vector2(0.75f, 0.19f));
-        if (facingRight)
-        {
-            body.AddForce(CatWolfSet.Instance.pounceForce);
-        }
-        else
-        {
-            Vector2 force = new Vector2(-CatWolfSet.Instance.pounceForce.x, CatWolfSet.Instance.pounceForce.y);
-            body.AddForce(force);
-        }
-
         GameObject go = (GameObject)Instantiate(CatWolfAttack, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         go.transform.parent = transform;
         EnemyCommonAttack attack = go.GetComponent<EnemyCommonAttack>();

@@ -18,7 +18,8 @@ public class Character : MonoBehaviour {
     protected float freezenTime = 0;
     public float hp = 10;
 
-    protected Rigidbody2D body;
+    [HideInInspector]
+    public Rigidbody2D body;
     protected Animator anim;
     public StatusEffectController statusController;
 
@@ -231,5 +232,18 @@ public class Character : MonoBehaviour {
         }
         position.y += offset.y;
         return position;
+    }
+
+    public void addSelfForce(Vector2 force)
+    {
+        if (facingRight)
+        {
+            body.AddForce(force);
+        }
+        else
+        {
+            Vector2 f = new Vector2(-force.x, force.y);
+            body.AddForce(f);
+        }
     }
 }

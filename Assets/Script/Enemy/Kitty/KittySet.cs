@@ -9,7 +9,6 @@ public class KittySet: Singleton<KittySet> {
     public float enrageEnhancement = 1.5f;
 
     public SkillSetting KittyThrust = new SkillSetting();
-    public float KittyThrustForceIntensity = 50f;
 
     public SkillSetting KittyEnrage = new SkillSetting();
     public SkillSetting SummonWolf = new SkillSetting();
@@ -31,6 +30,7 @@ public class KittySet: Singleton<KittySet> {
         KittyThrust.range = 1.4f;
         KittyThrust.attackDuration = 0.6f;
         KittyThrust.freezenTime = 0.8f;
+        KittyThrust.targetForce = new Vector2(500, 0);
 
         KittyEnrage.actDuration = 1f;
         KittyEnrage.cd = 2000f;
@@ -55,6 +55,6 @@ public class KittySet: Singleton<KittySet> {
         Slash.freezenTime = 0.5f;
         Slash.attackDuration = 0.5f;
         slashMoveDist = 2.5f;
-        slashForce = 300f;
+        Slash.targetForce = new Vector2(300f, 0);
     }
 }

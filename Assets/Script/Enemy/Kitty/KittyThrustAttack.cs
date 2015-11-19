@@ -3,9 +3,6 @@ using System.Collections;
 
 public class KittyThrustAttack : BasicAttack {
 
-    public float forceIntensity = KittySet.Instance.KittyThrustForceIntensity;
-    protected Vector2 force;
-
     public override void Awake()
     {
         base.Awake();
@@ -27,14 +24,12 @@ public class KittyThrustAttack : BasicAttack {
         yield break;
     }
 
-    public void init(Vector2 dirction, bool enraged)
+    public void init(bool enraged)
     {
         if (enraged)
         {
-            forceIntensity *= KittySet.Instance.enrageEnhancement;
+            force.x *= KittySet.Instance.enrageEnhancement;
             setting.damage *= KittySet.Instance.enrageEnhancement;
         }
- 
-        force = dirction * forceIntensity;
     }
 }
