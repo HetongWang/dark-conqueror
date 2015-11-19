@@ -43,10 +43,14 @@ public class BasicAttack : MonoBehaviour {
             person.Hurt(setting);
 
             Vector2 f = setting.targetForce;
-            if (owner.facingRight)
-                f.x = Mathf.Abs(f.x);
-            else
-                f.x = -Mathf.Abs(f.x);
+
+            if (owner != null)
+            {
+                if (owner.facingRight)
+                    f.x = Mathf.Abs(f.x);
+                else
+                    f.x = -Mathf.Abs(f.x);
+            }
             person.body.AddForce(f);
 
             hurted.Add(col.gameObject);

@@ -33,6 +33,7 @@ public class SiegeBow : Enemy
     {
         GameObject go =  (GameObject)Instantiate(javelinPrefab, transform.position, Quaternion.Euler(0, 0, angle));
         Javelin jl = go.GetComponent<Javelin>();
+        jl.init(this);
         SiegeBowAI bowAI = (SiegeBowAI)ai;
         jl.setInitVelocity(bowAI.velocity);
         yield break;
