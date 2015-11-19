@@ -62,6 +62,8 @@ public class Character : MonoBehaviour {
         if (freezenTime > 0)
         {
             freezenTime -= Time.deltaTime;
+            if (anim)
+                anim.SetBool("hurt", true);
         }
         else
         {
