@@ -13,13 +13,16 @@ public class CatWolfAI : BasicAI
     public override string update()
     {
         seekPlayer();
-        if (movementMode == moveMode.guard)
+        if (movementMode == moveMode.guard ||
+            person.facingRight != targetOnRight)
             return "move";
 
         if (person.skillCooler["summonFriends"] <= 0 && CatWolf.amount < CatWolfSet.Instance.amount)
             return "summonFriends";
 
-        if (targetPlayerDistance < CatWolfSet.Instance.pounce.range && person.skillCooler["pounce"] <= 0)
+        if (targetPlayerDistance > CatWolfSet.Instance.maul.range && 
+            targetPlayerDistance < CatWolfSet.Instance.pounce.range && 
+            person.skillCooler["pounce"] <= 0)
         {
             if (alerted)
                 return "pounce";
@@ -35,8 +38,8 @@ public class CatWolfAI : BasicAI
                 return "alert";
         }
 
-        if (targetPlayerDistance < CatWolfSet.Instance.pounce.range)
-            return "crouch";
+        //if (targetPlayerDistance < CatWolfSet.Instance.pounce.range)
+        //   return "crouch";
 
         return "move";
     }

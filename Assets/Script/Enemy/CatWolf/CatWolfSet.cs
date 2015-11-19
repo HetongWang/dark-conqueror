@@ -3,7 +3,7 @@
 public class CatWolfSet : Singleton<CatWolfSet>
 {
     public Vector2 hpBarOffset = new Vector2(0, 1.5f);
-    public int amount = 3;
+    public int amount = 1;
 
     public float hp = 10;
     public float moveSpeed = 8f;
@@ -20,16 +20,16 @@ public class CatWolfSet : Singleton<CatWolfSet>
 
     protected CatWolfSet()
     {
-        alert.actDuration = 1.25f;
+        alert.actDuration = 1f;
         alert.cd = 2f;
 
-        maul.actDuration = SkillSetting.frameToSeconds(15, 12);
+        maul.actDuration = SkillSetting.frameToSeconds(16, 12);
         maul.cd = 2f;
         maul.damage = 1f;
-        maul.range = 1f;
+        maul.range = 1.3f;
         maul.freezenTime = 0.2f;
 
-        pounce.actDuration = 0.9f;
+        pounce.actDuration = 1f;
         pounce.cd = 3f;
         pounce.damage = 2f;
         pounce.range = 4f;
@@ -38,9 +38,9 @@ public class CatWolfSet : Singleton<CatWolfSet>
         pounceForce = new Vector2(350, 350);
         
         summonFriends.actDuration = 0.6f;
-        summonFriends.cd = 2f;
+        summonFriends.cd = 6f;
         summonFriends.attackDuration = 0f;
-        summonFriendsInitCD = 1f;
+        summonFriendsInitCD = 8f;
 
         crouch.actDuration = 1.25f;
         crouch.cd = 2f;

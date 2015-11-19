@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class Character : MonoBehaviour {
 
-    protected bool facingRight = true;
+    [HideInInspector]
+    public bool facingRight = true;
     public bool invincible = false;
     protected bool blocked = false;
     public float moveSpeed = 3f;
@@ -202,7 +203,10 @@ public class Character : MonoBehaviour {
     {
         if (name != null && skillCooler[name] <= 0 && (canActing() || enforce))
         {
-        Debug.Log(name);
+            Debug.Log(name);
+            if (enforce && currentSkill != null)
+                StopCoroutine(currentSkill);
+
             actingTime = setting.actDuration + 0.05f;
             currentSkill = StartCoroutine(skills[name]());
             skillCooler[name] = setting.cd;

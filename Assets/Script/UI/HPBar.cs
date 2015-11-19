@@ -20,7 +20,10 @@ public class HPBar : MonoBehaviour
     void Update()
     {
         if (person == null)
+        {
             Destroy(gameObject);
+            return;
+        }
 
         value = person.hp;
         // Set the scale of the value bar to be proportional to the player's value.

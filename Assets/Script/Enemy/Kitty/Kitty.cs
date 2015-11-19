@@ -81,6 +81,13 @@ public class Kitty: Enemy
         }
     }
 
+    public override void Hurt(SkillSetting setting)
+    {
+        base.Hurt(setting);
+        if (!invincible && !blocked)
+            slashing = false;
+    }
+
     public IEnumerator thrustAttack()
     {
         anim.SetInteger("skill", (int)Ability.thrust);

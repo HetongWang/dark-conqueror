@@ -16,6 +16,7 @@ public class BasicAI {
     public float distantToPlayer = 1f;
     public GameObject targetPlayer;
     public float targetPlayerDistance = float.PositiveInfinity;
+    public bool targetOnRight;
 
     public string behaviour;
 
@@ -61,6 +62,11 @@ public class BasicAI {
                 initPosition = person.transform.position;
             movementMode = moveMode.guard;
         }
+
+        if (targetPlayer.transform.position.x < person.transform.position.x)
+            targetOnRight = false;
+        else
+            targetOnRight = true;
     }
 
     protected float guardMovement()
