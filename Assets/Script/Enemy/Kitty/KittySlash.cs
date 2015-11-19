@@ -12,8 +12,9 @@ public class KittySlash : BasicAttack
         Destroy(gameObject, setting.attackDuration);
     }
 
-    public void init(Vector2 dirction, bool enraged)
+    public void init(Character owner, bool enraged)
     {
+        this.owner = owner;
         if (enraged)
         {
             setting.damage *= KittySet.Instance.enrageEnhancement;

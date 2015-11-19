@@ -7,6 +7,7 @@ public class BasicAttack : MonoBehaviour {
     public List<string> targetTag = new List<string>();
     protected SkillSetting setting;
     public Vector2 force;
+    public Character owner;
 
     protected Animator anim;
 
@@ -42,7 +43,7 @@ public class BasicAttack : MonoBehaviour {
             person.Hurt(setting);
 
             Vector2 f = setting.targetForce;
-            if (!person.facingRight)
+            if (owner.facingRight)
                 f.x = Mathf.Abs(f.x);
             else
                 f.x = -Mathf.Abs(f.x);
@@ -60,5 +61,10 @@ public class BasicAttack : MonoBehaviour {
     public void setAttr(SkillSetting skill)
     {
         setting = skill;
+    }
+    
+    public virtual void init(Character c)
+    {
+        owner = c;
     }
 }

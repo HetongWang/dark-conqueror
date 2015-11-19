@@ -95,7 +95,7 @@ public class Kitty: Enemy
 
         GameObject gameo = (GameObject)Instantiate(thrustAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         KittyThrustAttack thrust = gameo.GetComponent<KittyThrustAttack>();
-        thrust.init(enraged);
+        thrust.init(this, enraged);
         thrust.transform.parent = transform;
 
         yield return new WaitForSeconds(KittySet.Instance.KittyThrust.actDuration);
@@ -192,14 +192,14 @@ public class Kitty: Enemy
         GameObject go1 = (GameObject)Instantiate(slash1Prefab, position, Quaternion.Euler(0, 0, 0));
         go1.transform.parent = transform;
         KittySlash slash1 = go1.GetComponent<KittySlash>();
-        slash1.init(facingRight ? Vector2.right : Vector2.left, enraged);
+        slash1.init(this, enraged);
         yield return new WaitForSeconds(KittySet.Instance.Slash.actDuration * 0.35f);
 
         position = childPosition(new Vector2(0.57f, 0f));
         GameObject go2 = (GameObject)Instantiate(slash2Prefab, position, Quaternion.Euler(0, 0, 0));
         go2.transform.parent = transform;
         KittySlash slash2 = go2.GetComponent<KittySlash>();
-        slash2.init(facingRight ? Vector2.right : Vector2.left, enraged);
+        slash2.init(this, enraged);
         slashing = false;
         yield return new WaitForSeconds(KittySet.Instance.Slash.actDuration * 0.4f);
 

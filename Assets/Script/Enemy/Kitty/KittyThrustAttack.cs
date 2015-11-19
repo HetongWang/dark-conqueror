@@ -24,8 +24,9 @@ public class KittyThrustAttack : BasicAttack {
         yield break;
     }
 
-    public void init(bool enraged)
+    public void init(Character c, bool enraged)
     {
+        owner = c;
         if (enraged)
         {
             force.x *= KittySet.Instance.enrageEnhancement;
