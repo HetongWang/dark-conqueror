@@ -27,7 +27,7 @@ public class CatWolfSet : Singleton<CatWolfSet>
         maul.cd = 2f;
         maul.damage = 1f;
         maul.range = 1.3f;
-        maul.freezenTime = 0.2f;
+        maul.freezenTime = 0.7f;
 
         pounce.actDuration = 1f;
         pounce.cd = 3f;

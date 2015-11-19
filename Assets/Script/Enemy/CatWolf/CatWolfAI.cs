@@ -8,6 +8,7 @@ public class CatWolfAI : BasicAI
     public CatWolfAI(Character catwolf) : base(catwolf)
     {
         viewRange = 15f;
+        distantToPlayer = 1.3f;
     }
 
     public override string update()

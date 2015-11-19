@@ -8,8 +8,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 404944}
-  - 58: {fileID: 5845860}
   - 114: {fileID: 11491904}
+  - 61: {fileID: 6102284}
   m_Layer: 13
   m_Name: EnemyCommonAttack
   m_TagString: Attack
@@ -29,8 +29,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!58 &5845860
-CircleCollider2D:
+--- !u!61 &6102284
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -39,9 +39,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: .100000001, y: 0}
   serializedVersion: 2
-  m_Radius: .25
+  m_Size: {x: .769999981, y: .5}
 --- !u!114 &11491904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -64,6 +64,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
