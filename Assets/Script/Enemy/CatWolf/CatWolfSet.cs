@@ -3,7 +3,7 @@
 public class CatWolfSet : Singleton<CatWolfSet>
 {
     public Vector2 hpBarOffset = new Vector2(0, 1.5f);
-    public int amount = 1;
+    public int amount = 3;
 
     public float hp = 10;
     public float moveSpeed = 8f;
