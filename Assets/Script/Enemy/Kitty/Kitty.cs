@@ -88,6 +88,12 @@ public class Kitty: Enemy
             slashing = false;
     }
 
+    public override IEnumerator dying()
+    {
+        anim.SetBool("dying", true);
+        yield break;
+    }
+
     public IEnumerator thrustAttack()
     {
         anim.SetInteger("skill", (int)Ability.thrust);

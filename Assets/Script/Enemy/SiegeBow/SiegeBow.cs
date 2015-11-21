@@ -14,6 +14,7 @@ public class SiegeBow : Enemy
         addSkill("shoot", shoot, SiegeBowSet.Instance.SiegeBowShoot.cd);
         hp = SiegeBowSet.Instance.hp;
         dyingDuration = 0f;
+        disappearTime = 0f;
 
         ai = new SiegeBowAI(this);
         setHPBar(SiegeBowSet.Instance.hpBarOffset, SiegeBowSet.Instance.hp);
