@@ -40,18 +40,7 @@ public class BasicAttack : MonoBehaviour {
         Character person = col.gameObject.GetComponent<Character>();
         if (person)
         {
-            person.Hurt(setting);
-
-            Vector2 f = setting.targetForce;
-
-            if (owner != null)
-            {
-                if (owner.facingRight)
-                    f.x = Mathf.Abs(f.x);
-                else
-                    f.x = -Mathf.Abs(f.x);
-            }
-            person.body.AddForce(f);
+            person.Hurt(setting, owner);
 
             hurted.Add(col.gameObject);
         }
@@ -61,14 +50,15 @@ public class BasicAttack : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
     }
-    
-    public void setAttr(SkillSetting skill)
+
+    public void setAttr(SkillSetting setting)
     {
-        setting = skill;
+        this.setting = setting;
     }
     
-    public virtual void init(Character c)
+    public virtual void init(Character c, SkillSetting setting)
     {
         owner = c;
+        this.setting = setting;
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Enemy : Character
 {
@@ -7,14 +8,16 @@ public class Enemy : Character
     [HideInInspector]
     public string behavior = null;
     protected BasicAI ai = null;
+    protected GameObject hpBar;
 
     [HideInInspector]
     public int souls;
 
     public void setHPBar(Vector2 position, float initHP)
     {
-        GameObject go = (GameObject)Instantiate(hpslider, transform.position, Quaternion.Euler(0, 0, 0));
-        HPBar slider = go.GetComponent<HPBar>();
+        hpBar = (GameObject)Instantiate(hpslider, transform.position, Quaternion.Euler(0, 0, 0));
+        HPBar slider = hpBar.GetComponent<HPBar>();
+        hpBar.transform.parent = transform;
         slider.bind(this, initHP, position);
     }
 
@@ -31,6 +34,18 @@ public class Enemy : Character
         {
             run(ai.horMove());
         }
+    }
+
+    public override IEnumerator dying()
+    {
+        if (anim)
+            anim.SetBool("dying", true);
+        yield return new WaitForSeconds(dyingDuration);
+
+        Destroy(hpBar);
+        yield return new WaitForSeconds(disappearTime);
+        Destroy(gameObject);
+        yield break;
     }
 
     void OnDestroy()

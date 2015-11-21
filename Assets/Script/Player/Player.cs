@@ -209,15 +209,16 @@ public class Player : Character
         invincible = false;
     }
 
-    public override void Hurt(SkillSetting setting)
+    public override void Hurt(SkillSetting setting, Character source)
     {
-        base.Hurt(setting);
+        base.Hurt(setting, source);
         if (!invincible && !blocked)
         {
             normalAttackPhase = 0;
             normalAttacking = false;
             nextNormalAttack = false;
         }
+
     }
 
     bool multiTapDetect(string key, int times)

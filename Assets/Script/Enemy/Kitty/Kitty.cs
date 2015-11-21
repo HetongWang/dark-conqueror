@@ -81,9 +81,9 @@ public class Kitty: Enemy
         }
     }
 
-    public override void Hurt(SkillSetting setting)
+    public override void Hurt(SkillSetting setting, Character source)
     {
-        base.Hurt(setting);
+        base.Hurt(setting, source);
         if (!invincible && !blocked)
             slashing = false;
     }

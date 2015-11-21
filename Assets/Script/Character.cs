@@ -2,21 +2,24 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Character : MonoBehaviour {
-
+public class Character : MonoBehaviour
+{
     [HideInInspector]
     public bool facingRight = true;
     public bool invincible = false;
     protected bool blocked = false;
     public float moveSpeed = 3f;
     public float jumpForce = 600;
+    public float hp = 10;
+    protected float dyingDuration = 1.1f;
+    [HideInInspector]
+    public static float disappearTime = 0.7f;
 
     protected Transform groundCheck;
     protected bool grounded = false;
     protected float movementFreezenTime = 0;
     protected float actingTime = 0;
     protected float freezenTime = 0;
-    public float hp = 10;
 
     [HideInInspector]
     public Rigidbody2D body;
@@ -82,7 +85,7 @@ public class Character : MonoBehaviour {
 
     private void updateSkillCD()
     {
-        List<string> keys = new List<string> (skillCooler.Keys);
+        List<string> keys = new List<string>(skillCooler.Keys);
         foreach (string s in keys)
         {
             if (skillCooler[s] > 0)
@@ -107,7 +110,7 @@ public class Character : MonoBehaviour {
             return false;
     }
 
-    public virtual void Hurt(SkillSetting setting)
+    public virtual void Hurt(SkillSetting setting, Character source)
     {
         if (!invincible && !blocked)
         {
@@ -122,6 +125,16 @@ public class Character : MonoBehaviour {
                 anim.SetBool("hurt", true);
             }
         }
+
+        Vector2 f = setting.targetForce;
+        if (source != null)
+        {
+            if (source.facingRight)
+                f.x = Mathf.Abs(f.x);
+            else
+                f.x = -Mathf.Abs(f.x);
+        }
+        body.AddForce(f);
     }
 
     public void getDemage(float amount)
@@ -135,7 +148,17 @@ public class Character : MonoBehaviour {
     public void AliveOrDie()
     {
         if (hp <= 0)
-            Destroy(gameObject);
+        {
+            actingTime = 9999999f;
+            movementFreezenTime = 99999999f;
+            StartCoroutine(dying());
+        }
+
+    }
+
+    public virtual IEnumerator dying()
+    {
+        yield break;
     }
 
     public void run(float horInput)

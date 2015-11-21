@@ -13,6 +13,7 @@ public class SiegeBow : Enemy
         base.Awake();
         addSkill("shoot", shoot, SiegeBowSet.Instance.SiegeBowShoot.cd);
         hp = SiegeBowSet.Instance.hp;
+        dyingDuration = 0f;
 
         ai = new SiegeBowAI(this);
         setHPBar(SiegeBowSet.Instance.hpBarOffset, SiegeBowSet.Instance.hp);
@@ -33,7 +34,7 @@ public class SiegeBow : Enemy
     {
         GameObject go =  (GameObject)Instantiate(javelinPrefab, transform.position, Quaternion.Euler(0, 0, angle));
         Javelin jl = go.GetComponent<Javelin>();
-        jl.init(this);
+        jl.owner = this;
         SiegeBowAI bowAI = (SiegeBowAI)ai;
         jl.setInitVelocity(bowAI.velocity);
         yield break;

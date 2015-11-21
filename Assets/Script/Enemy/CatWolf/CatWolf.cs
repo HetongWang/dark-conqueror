@@ -74,7 +74,7 @@ public class CatWolf : Enemy
         }
     }
 
-    public override void Hurt(SkillSetting setting)
+    public override void Hurt(SkillSetting setting, Character source)
     {
         if (!invincible)
         {
@@ -123,7 +123,7 @@ public class CatWolf : Enemy
         GameObject go = (GameObject)Instantiate(CatWolfAttack, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         go.transform.parent = transform;
         EnemyCommonAttack attack = go.GetComponent<EnemyCommonAttack>();
-        attack.setAttr(CatWolfSet.Instance.maul);
+        attack.init(this, CatWolfSet.Instance.maul);
         yield return new WaitForSeconds(CatWolfSet.Instance.maul.actDuration);
 
         anim.SetInteger("skill", 0);
@@ -140,7 +140,7 @@ public class CatWolf : Enemy
         GameObject go = (GameObject)Instantiate(CatWolfAttack, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         go.transform.parent = transform;
         EnemyCommonAttack attack = go.GetComponent<EnemyCommonAttack>();
-        attack.setAttr(CatWolfSet.Instance.pounce);
+        attack.init(this, CatWolfSet.Instance.pounce);
 
         yield return new WaitForSeconds(CatWolfSet.Instance.pounce.actDuration * 0.9f);
 
@@ -167,7 +167,6 @@ public class CatWolf : Enemy
         }
         Vector3 position = new Vector3(cameraBorder, transform.position.y, transform.position.z);
         GameObject go = (GameObject)Instantiate(CatWolfPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
-        CatWolf wolf = go.GetComponent<CatWolf>();
 
         amount += 1;
         yield return new WaitForSeconds(CatWolfSet.Instance.pounce.actDuration);
