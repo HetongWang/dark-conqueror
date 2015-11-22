@@ -13,16 +13,15 @@ public class RotopollySet : Singleton<RotopollySet>
 
     protected RotopollySet()
     {
-        run.actDuration = float.PositiveInfinity;
+        run.actDuration = 0.5f;
         run.cd = 0f;
-        run.attackDuration = run.actDuration;
         run.range = 6f;
-        run.damage = 1f;
+        run.damage = 0.5f;
         run.freezenTime = 0.2f;
         run.targetForce = new Vector2(100, 0);
-        run.selfForce = new Vector2(200, 0);
 
         jump.actDuration = 0f;
+        jump.cd = 2f;
         jump.selfForce = new Vector2(50, 300);
     }
 }

@@ -126,15 +126,18 @@ public class Character : MonoBehaviour
             }
         }
 
-        Vector2 f = setting.targetForce;
-        if (source != null)
+        if (setting.targetForce != null)
         {
-            if (source.facingRight)
-                f.x = Mathf.Abs(f.x);
-            else
-                f.x = -Mathf.Abs(f.x);
+            Vector2 f = setting.targetForce;
+            if (source != null)
+            {
+                if (source.facingRight)
+                    f.x = Mathf.Abs(f.x);
+                else
+                    f.x = -Mathf.Abs(f.x);
+            }
+            body.AddForce(f);
         }
-        body.AddForce(f);
     }
 
     public void getDemage(float amount)

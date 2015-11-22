@@ -12,6 +12,7 @@ GameObject:
   - 61: {fileID: 6177426}
   - 50: {fileID: 5058022}
   - 95: {fileID: 9587064}
+  - 114: {fileID: 11407694}
   m_Layer: 10
   m_Name: Rotopolly
   m_TagString: Enemy
@@ -106,6 +107,29 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11407694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7ade673f76fca429a2c9c95bfe9eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facingRight: 1
+  invincible: 0
+  moveSpeed: 3
+  jumpForce: 600
+  hp: 10
+  disappearTime: 4
+  body: {fileID: 0}
+  hpslider: {fileID: 189274, guid: eaa717e95e5b13145ba51f93ca3a2290, type: 2}
+  behavior: 
+  souls: 0
+  attackPrefab: {fileID: 163778, guid: 9efce8b6ac450b84bab4241d95a3044b, type: 2}
+  couldRun: 0
 --- !u!212 &21264608
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -170,6 +194,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: a126e7fdf86e34b4db26a73d4f0f959d,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: attackPrefab
+      value: 
+      objectReference: {fileID: 163778, guid: 9efce8b6ac450b84bab4241d95a3044b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147804}
