@@ -90,7 +90,9 @@ public class Kitty: Enemy
 
     public override IEnumerator dying()
     {
+        Destroy(hpBar);
         anim.SetBool("dying", true);
+        anim.speed = 0.5f;
         yield break;
     }
 

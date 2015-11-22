@@ -11,6 +11,7 @@ public class EnemyCommonAttack : BasicAttack
     
     void Start()
     {
-        Destroy(gameObject, setting.attackDuration);
+        if (setting.attackDuration > 0)
+            Destroy(gameObject, setting.attackDuration);
     }
 }

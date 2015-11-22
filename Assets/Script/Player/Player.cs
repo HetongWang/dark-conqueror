@@ -90,6 +90,12 @@ public class Player : Character
         }
     }
 
+    public void jump()
+    {
+        if (grounded)
+            body.AddForce(new Vector2(0, jumpForce));
+    }
+
     public IEnumerator normalAttack()
     {
         if (normalAttackLevel > 1 && normalAttackPhase == 2)

@@ -13,7 +13,7 @@ public class Character : MonoBehaviour
     public float hp = 10;
     protected float dyingDuration = 1.1f;
     [HideInInspector]
-    public static float disappearTime = 0.7f;
+    public float disappearTime = 4f;
 
     protected Transform groundCheck;
     protected bool grounded = false;
@@ -206,12 +206,6 @@ public class Character : MonoBehaviour
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
         if (anim)
             anim.SetBool("grounded", grounded);
-    }
-
-    public void jump()
-    {
-        if (grounded)
-            body.AddForce(new Vector2(0, jumpForce));
     }
 
     /// <summary>

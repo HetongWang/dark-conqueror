@@ -7,7 +7,7 @@ public class SkillSetting {
         actDuration = 0.5f,     // animation time or attackspeed
         damage = 0, 
         range = 0, 
-        attackDuration = 0.8f,  // attack instance survive time. 
+        attackDuration = 0.1f,  // attack instance survive time. 
         freezenTime = 0f;       // target stagger time
 
     public Vector2 targetForce = Vector2.zero;

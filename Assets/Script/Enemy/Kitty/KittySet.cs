@@ -4,7 +4,7 @@ public class KittySet: Singleton<KittySet> {
 
     public Vector2 hpBarOffset = new Vector2(0, 4.5f);
 
-    public float hp = 50;
+    public float hp = 2;
     public float enrageTrigger;
     public float enrageEnhancement = 1.5f;
 
@@ -44,6 +44,7 @@ public class KittySet: Singleton<KittySet> {
         SummonWolf.damage = 3f;
         SummonWolf.range = 10f;
         SummonWolf.attackDuration = 0f;
+        SummonWolf.freezenTime = 0.3f;
 
         Leap.actDuration = SkillSetting.frameToSeconds(13, 24);
         Leap.cd = 2f;

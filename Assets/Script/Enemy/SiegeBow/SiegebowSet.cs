@@ -7,6 +7,7 @@ public class SiegeBowSet : Singleton<SiegeBowSet> {
     public float hp = 20;
     public SkillSetting SiegeBowShoot = new SkillSetting();
     public float minShootRange = 1f;
+    public float maxShootRange = 10f;
 
     protected SiegeBowSet()
     {

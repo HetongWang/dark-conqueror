@@ -43,6 +43,7 @@ public class Enemy : Character
         yield return new WaitForSeconds(dyingDuration);
 
         Destroy(hpBar);
+        Debug.Log(disappearTime);
         yield return new WaitForSeconds(disappearTime);
         Destroy(gameObject);
         yield break;

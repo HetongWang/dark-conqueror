@@ -4,6 +4,7 @@ public class SiegeBowAI : BasicAI
 {
     public float error = 0.2f;
     public float minShootRange = SiegeBowSet.Instance.minShootRange;
+    public float maxShootRange = SiegeBowSet.Instance.maxShootRange;
     public Vector2 velocity;
 
     public SiegeBowAI(Character siegebow) : base(siegebow)
@@ -44,7 +45,8 @@ public class SiegeBowAI : BasicAI
         bool res = true;
         if (person.skillCooler["shoot"] > 0)
             res = false;
-        if (targetPlayer.transform.position.x - person.transform.position.x > -minShootRange)
+        if (targetPlayer.transform.position.x - person.transform.position.x > -minShootRange ||
+            targetPlayer.transform.position.x - person.transform.position.x < -maxShootRange)
             res = false;
 
         return res;
