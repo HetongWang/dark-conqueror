@@ -137,8 +137,10 @@ MonoBehaviour:
   moveSpeed: 3
   jumpForce: 600
   hp: 100
+  disappearTime: 4
   body: {fileID: 0}
   normalAttackPrefab: {fileID: 183768, guid: 284fc0c03170d8f478951f32c2dc30ee, type: 2}
+  commonAttackPrefab: {fileID: 183768, guid: 044c3a677f40b4b4391e0a752a52ce0b, type: 2}
   souls: 0
   normalAttackLevel: 1
 --- !u!212 &21251660

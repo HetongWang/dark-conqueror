@@ -9,8 +9,9 @@ public class PlayerSet : Singleton<PlayerSet> {
     public float dodgingSkyForce = 200f;
     public float jumpForce = 600f;
     public List<SkillSetting> NormalAttack = new List<SkillSetting>();
-    public BurnStatus.Setting normalAttackBurn = new BurnStatus.Setting();
+    public SkillSetting overheadSwing = new SkillSetting();
     public SkillSetting Dodge = new SkillSetting();
+    public BurnStatus.Setting normalAttackBurn = new BurnStatus.Setting();
 
     protected PlayerSet()
     {
@@ -46,5 +47,12 @@ public class PlayerSet : Singleton<PlayerSet> {
         Dodge.cd = 1f;
         Dodge.damage = 0f;
         Dodge.range = 2f;
+
+        overheadSwing.actDuration = SkillSetting.frameToSeconds(50, 30);
+        overheadSwing.cd = 2f;
+        overheadSwing.damage = 4f;
+        overheadSwing.range = 1.5f;
+        overheadSwing.freezenTime = 2f;
+        overheadSwing.targetForce = new Vector2(200, 0);
     }
 }

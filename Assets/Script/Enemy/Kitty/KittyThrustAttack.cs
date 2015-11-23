@@ -20,7 +20,7 @@ public class KittyThrustAttack : BasicAttack {
     protected IEnumerator attackPhase(Collider2D col)
     {
         yield return new WaitForSeconds(setting.actDuration / 4);
-        col.gameObject.GetComponent<Rigidbody2D>().AddForce(force);
+        col.gameObject.GetComponent<Rigidbody2D>().AddForce(setting.targetForce);
         yield break;
     }
 
@@ -29,7 +29,7 @@ public class KittyThrustAttack : BasicAttack {
         owner = c;
         if (enraged)
         {
-            force.x *= KittySet.Instance.enrageEnhancement;
+            setting.targetForce.x *= KittySet.Instance.enrageEnhancement;
             setting.damage *= KittySet.Instance.enrageEnhancement;
         }
     }
