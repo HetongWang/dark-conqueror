@@ -1,0 +1,188 @@
+fileFormatVersion: 2
+guid: f428de177c5a8214bbbda1c979a673a4
+timeCreated: 1448287248
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: CroppedRun01
+    21300002: CroppedRun02
+    21300004: CroppedRun03
+    21300006: CroppedRun04
+    21300008: CroppedRun05
+    21300010: CroppedRun06
+    21300012: CroppedRun07
+    21300014: CroppedRun08
+    21300016: CroppedRun09
+    21300018: CroppedRun10
+    21300020: CroppedRun11
+    21300022: CroppedRun12
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 190
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: CroppedRun01
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3144
+        width: 1175
+        height: 950
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CroppedRun02
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 3144
+        width: 1175
+        height: 950
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CroppedRun03
+      rect:
+        serializedVersion: 2
+        x: 2356
+        y: 3144
+        width: 1175
+        height: 950
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CroppedRun04
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2192
+        width: 1175
+        height: 950
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CroppedRun05
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 2192
+        width: 1175
+        height: 950
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CroppedRun06
+      rect:
+        serializedVersion: 2
+        x: 2356
+        y: 2192
+        width: 1175
+        height: 950
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CroppedRun07
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1240
+        width: 1175
+        height: 950
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CroppedRun08
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 1240
+        width: 1175
+        height: 950
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CroppedRun09
+      rect:
+        serializedVersion: 2
+        x: 2356
+        y: 1240
+        width: 1175
+        height: 950
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CroppedRun10
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 288
+        width: 1175
+        height: 950
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CroppedRun11
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 288
+        width: 1175
+        height: 950
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CroppedRun12
+      rect:
+        serializedVersion: 2
+        x: 2356
+        y: 288
+        width: 1175
+        height: 950
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

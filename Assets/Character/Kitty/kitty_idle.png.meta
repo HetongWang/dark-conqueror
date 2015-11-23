@@ -1,0 +1,188 @@
+fileFormatVersion: 2
+guid: 58d8443de72b4a14e9283f8068cdeeb0
+timeCreated: 1448286944
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: meowIDLE01
+    21300002: meowIDLE02
+    21300004: meowIDLE03
+    21300006: meowIDLE11
+    21300008: meowIDLE04
+    21300010: meowIDLE10
+    21300012: meowIDLE05
+    21300014: meowIDLE06
+    21300016: meowIDLE07
+    21300018: meowIDLE08
+    21300020: meowIDLE09
+    21300022: meowIDLE12
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 195
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: meowIDLE01
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3048
+        width: 760
+        height: 1046
+      alignment: 9
+      pivot: {x: .488815784, y: .510038257}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowIDLE02
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 3049
+        width: 760
+        height: 1045
+      alignment: 9
+      pivot: {x: .488815784, y: .510526299}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowIDLE03
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 3054
+        width: 759
+        height: 1040
+      alignment: 9
+      pivot: {x: .48550725, y: .512980759}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowIDLE11
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 3054
+        width: 759
+        height: 1040
+      alignment: 9
+      pivot: {x: .48550725, y: .512980759}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowIDLE04
+      rect:
+        serializedVersion: 2
+        x: 2287
+        y: 3058
+        width: 754
+        height: 1036
+      alignment: 9
+      pivot: {x: .48209548, y: .514961362}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowIDLE10
+      rect:
+        serializedVersion: 2
+        x: 2287
+        y: 3058
+        width: 754
+        height: 1036
+      alignment: 9
+      pivot: {x: .48209548, y: .514961362}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowIDLE05
+      rect:
+        serializedVersion: 2
+        x: 3043
+        y: 3070
+        width: 753
+        height: 1024
+      alignment: 9
+      pivot: {x: .478751659, y: .520996094}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowIDLE06
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2026
+        width: 751
+        height: 1020
+      alignment: 9
+      pivot: {x: .477363527, y: .523039222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowIDLE07
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 2029
+        width: 751
+        height: 1017
+      alignment: 9
+      pivot: {x: .477363527, y: .524582088}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowIDLE08
+      rect:
+        serializedVersion: 2
+        x: 1508
+        y: 2026
+        width: 751
+        height: 1020
+      alignment: 9
+      pivot: {x: .477363527, y: .523039222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowIDLE09
+      rect:
+        serializedVersion: 2
+        x: 2261
+        y: 2023
+        width: 752
+        height: 1023
+      alignment: 9
+      pivot: {x: .478058517, y: .521505356}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: meowIDLE12
+      rect:
+        serializedVersion: 2
+        x: 3015
+        y: 2003
+        width: 760
+        height: 1043
+      alignment: 9
+      pivot: {x: .488815784, y: .511505246}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
