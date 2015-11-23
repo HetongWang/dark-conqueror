@@ -1,0 +1,144 @@
+fileFormatVersion: 2
+guid: a1cc6e35376e2f94495e06fc1e781099
+timeCreated: 1448239628
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: DropAttack01
+    21300002: DropAttack02
+    21300004: DropAttack03
+    21300006: DropAttack04
+    21300008: DropAttack05
+    21300010: DropAttack06
+    21300012: DropAttack07
+    21300014: DropAttack08
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 195
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: DropAttack01
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1311
+        width: 888
+        height: 1461
+      alignment: 9
+      pivot: {x: .531531513, y: .452429831}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DropAttack02
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 1435
+        width: 1481
+        height: 1337
+      alignment: 9
+      pivot: {x: .480081022, y: .495138377}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DropAttack03
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3
+        width: 1694
+        height: 1306
+      alignment: 9
+      pivot: {x: .483471066, y: .513782561}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DropAttack04
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2774
+        width: 1750
+        height: 1320
+      alignment: 9
+      pivot: {x: .5, y: .530303001}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DropAttack05
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 2774
+        width: 1750
+        height: 1320
+      alignment: 9
+      pivot: {x: .5, y: .530303001}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DropAttack06
+      rect:
+        serializedVersion: 2
+        x: 2375
+        y: 1452
+        width: 1691
+        height: 1320
+      alignment: 9
+      pivot: {x: .482554704, y: .530303001}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DropAttack07
+      rect:
+        serializedVersion: 2
+        x: 2525
+        y: 271
+        width: 837
+        height: 1179
+      alignment: 9
+      pivot: {x: .679808855, y: .47413063}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DropAttack08
+      rect:
+        serializedVersion: 2
+        x: 1698
+        y: 242
+        width: 825
+        height: 1191
+      alignment: 9
+      pivot: {x: .681212127, y: .467674226}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

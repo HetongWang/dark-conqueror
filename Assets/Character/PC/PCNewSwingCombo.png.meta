@@ -1,0 +1,243 @@
+fileFormatVersion: 2
+guid: e366eec045f288044ab66c3bc835a1cd
+timeCreated: 1448239814
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PCSwingComboGrey01
+    21300002: PCSwingComboGrey02
+    21300004: PCSwingComboGrey03
+    21300006: PCSwingComboGrey04
+    21300008: PCSwingComboGrey05
+    21300010: PCSwingComboGrey06
+    21300012: PCSwingComboGrey07
+    21300014: PCSwingComboGrey08
+    21300016: PCSwingComboGrey09
+    21300018: PCSwingComboGrey10
+    21300020: PCSwingComboGrey11
+    21300022: PCSwingComboGrey12
+    21300024: PCSwingComboGrey13
+    21300026: PCSwingComboGrey14
+    21300028: PCSwingComboGrey15
+    21300030: PCSwingComboGrey16
+    21300032: PCSwingComboGrey17
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 195
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: PCSwingComboGrey01
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 6694
+        width: 690
+        height: 1496
+      alignment: 9
+      pivot: {x: .526086986, y: .58088237}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingComboGrey02
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 6634
+        width: 641
+        height: 1556
+      alignment: 9
+      pivot: {x: .566302657, y: .557840645}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingComboGrey03
+      rect:
+        serializedVersion: 2
+        x: 1337
+        y: 6572
+        width: 1277
+        height: 1618
+      alignment: 9
+      pivot: {x: .321065009, y: .536464751}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingComboGrey04
+      rect:
+        serializedVersion: 2
+        x: 2616
+        y: 6611
+        width: 1281
+        height: 1579
+      alignment: 9
+      pivot: {x: .28259173, y: .555414796}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingComboGrey05
+      rect:
+        serializedVersion: 2
+        x: 3899
+        y: 6614
+        width: 2084
+        height: 1576
+      alignment: 9
+      pivot: {x: .521113217, y: .565355301}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingComboGrey06
+      rect:
+        serializedVersion: 2
+        x: 5985
+        y: 6602
+        width: 2098
+        height: 1588
+      alignment: 9
+      pivot: {x: .52430886, y: .568639815}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingComboGrey07
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 5234
+        width: 2098
+        height: 1336
+      alignment: 9
+      pivot: {x: .52430886, y: .675898194}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingComboGrey08
+      rect:
+        serializedVersion: 2
+        x: 2102
+        y: 4912
+        width: 1255
+        height: 1658
+      alignment: 9
+      pivot: {x: .692430258, y: .527744293}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingComboGrey09
+      rect:
+        serializedVersion: 2
+        x: 3359
+        y: 4744
+        width: 1038
+        height: 1826
+      alignment: 9
+      pivot: {x: .607899785, y: .479737133}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingComboGrey10
+      rect:
+        serializedVersion: 2
+        x: 4399
+        y: 4802
+        width: 1433
+        height: 1768
+      alignment: 9
+      pivot: {x: .363572925, y: .467194557}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingComboGrey11
+      rect:
+        serializedVersion: 2
+        x: 5834
+        y: 4852
+        width: 1547
+        height: 1718
+      alignment: 9
+      pivot: {x: .40336135, y: .451688021}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingComboGrey12
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3457
+        width: 1554
+        height: 1285
+      alignment: 9
+      pivot: {x: .396396399, y: .600778222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingComboGrey13
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 3442
+        width: 1064
+        height: 1300
+      alignment: 9
+      pivot: {x: .524436116, y: .614615381}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingComboGrey14
+      rect:
+        serializedVersion: 2
+        x: 2624
+        y: 3425
+        width: 1020
+        height: 1317
+      alignment: 9
+      pivot: {x: .577450991, y: .599848151}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingComboGrey15
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 3185
+        width: 1424
+        height: 1557
+      alignment: 9
+      pivot: {x: .227528095, y: .529865146}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingComboGrey16
+      rect:
+        serializedVersion: 2
+        x: 5072
+        y: 3180
+        width: 2177
+        height: 1562
+      alignment: 9
+      pivot: {x: .494717509, y: .540332913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCSwingComboGrey17
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1801
+        width: 2177
+        height: 1377
+      alignment: 9
+      pivot: {x: .494717509, y: .615831494}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

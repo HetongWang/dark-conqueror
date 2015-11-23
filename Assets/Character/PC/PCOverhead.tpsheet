@@ -1,0 +1,14 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# Sprite sheet: PCOverhead.png (4096 x 4096)
+# $TexturePacker:SmartUpdate:ff29c599c3c209858ea5df95ca1c12e8:4a116dfd6713f4410d34d8b1917de0db:11d1daab0aeb81d59632632dcb0af3cc$
+#
+
+PCOverheadSwing01;2;2277;900;1817;1.25;0.5817281232801321
+PCOverheadSwing02;904;2265;1601;1829;0.5590256089943785;0.580098414434117
+PCOverheadSwing03;2;434;1601;1829;0.5590256089943785;0.580098414434117
+PCOverheadSwing04;1605;939;1270;1324;0.6070866141732284;0.8013595166163142
