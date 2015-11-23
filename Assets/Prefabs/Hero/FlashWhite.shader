@@ -1,4 +1,4 @@
-﻿Shader "Sprites/DefaultColorFlash"
+﻿Shader "Sprites/WhiteFlash"
 {
 	Properties
 	{

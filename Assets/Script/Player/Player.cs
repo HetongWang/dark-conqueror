@@ -242,9 +242,9 @@ public class Player : Character
         float flashSpeed = 2;
         SpriteRenderer r = GetComponent<SpriteRenderer>();
         Shader defaultShader = r.material.shader;
-        r.material.shader = Shader.Find("Sprites/DefaultColorFlash");
+        r.material.shader = Shader.Find("Sprites/WhiteFlash");
 
-        while (timer < 0.2f)
+        while (timer < 0.15f)
         {
             flashAmount += Time.deltaTime * flashSpeed;
             timer += Time.deltaTime;
@@ -252,7 +252,7 @@ public class Player : Character
             yield return new WaitForEndOfFrame();
         }
 
-        while (timer < 0.4f)
+        while (timer < 0.3f)
         {
             flashAmount -= Time.deltaTime * flashSpeed;
             timer += Time.deltaTime;

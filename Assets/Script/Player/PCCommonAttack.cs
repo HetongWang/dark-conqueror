@@ -19,7 +19,7 @@ public class PCCommonAttack : BasicAttack
     public override void getDemage(Collider2D col)
     {
         base.getDemage(col);
-        Character c = col.gameObject.GetComponent<Character>();
+        col.gameObject.GetComponent<Character>();
     }
 
     public void setLevel(int level)
