@@ -11,7 +11,7 @@ public class RotopollyAI : BasicAI
 
     public RotopollyAI(Enemy c) : base(c)
     {
-        viewRange = 6f;
+        viewRange = 16f;
     }
 
     public override string update()
@@ -95,20 +95,10 @@ public class RotopollyAI : BasicAI
 
         float res = 0;
         float dis = person.transform.position.x - player.transform.position.x;
-        if (Mathf.Abs(dis) > distantToPlayer)
-        {
-            if (dis > 0)
-                res = 1;
-            else if (dis < 0)
-                res = -1;
-        }
-        else
-        {
-            if (dis > 0.2)
-                res = -0.01f;
-            else if (dis < 0.2)
-                res = 0.01f;
-        }
+        if (dis > 0)
+            res = 1;
+        else if (dis < 0)
+            res = -1;
         return res;
     }
 }
