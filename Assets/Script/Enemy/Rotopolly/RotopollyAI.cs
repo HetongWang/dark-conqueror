@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
+using System.Collections;
 
 public class RotopollyAI : BasicAI
 {
     public float moveTimer = 0;
     public float idleTimer = 0;
-    public float moveTime = 5f;
+    public float moveTime = 4f;
     public float idleTime = 2f;
     public float comboChance = 0.3f;
 
     public RotopollyAI(Enemy c) : base(c)
     {
-        viewRange = 16f;
+        viewRange = 20f;
     }
 
     public override string update()
@@ -68,12 +68,18 @@ public class RotopollyAI : BasicAI
     public void runStatus()
     {
         float dis = targetPlayer.transform.position.x - person.transform.position.x;
+        Rotopolly rot = (Rotopolly)person;
         if (person.facingRight)
         {
             if (dis < 0)
             {
                 if (Random.value > comboChance)
                     currentStatus = "idle";
+                else
+                {
+                    Object.Destroy(rot.attackObject);
+                    rot.newAttack();
+                }
                 person.Flip();
             }
         }
@@ -83,9 +89,21 @@ public class RotopollyAI : BasicAI
             {
                 if (Random.value > comboChance)
                     currentStatus = "idle";
-                person.Flip();
+                else
+                {
+                    Object.Destroy(rot.attackObject);
+                    rot.newAttack();
+                }
+                person.StartCoroutine(delayFlip());
             }
         }
+    }
+
+    public IEnumerator delayFlip()
+    {
+        yield return new WaitForSeconds(0.1f);
+        person.Flip();
+        yield break;
     }
 
     protected override float attackMovement(GameObject player)

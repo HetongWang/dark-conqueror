@@ -14,12 +14,12 @@ public class RotopollySet : Singleton<RotopollySet>
     protected RotopollySet()
     {
         run.actDuration = 1f;
-        run.cd = 8f;
+        run.cd = 6f;
         run.range = 9f;
         run.damage = 2f;
         run.attackDuration = 0f;
         run.freezenTime = 0.3f;
-        run.targetForce = new Vector2(100, 0);
+        run.targetForce = new Vector2(200, 0);
 
         jump.actDuration = 0f;
         jump.cd = 2f;

@@ -80,17 +80,22 @@ public class Rotopolly : Enemy
         anim.SetInteger("skill", 0);
     }
 
+    public void newAttack()
+    {
+        Vector3 position = childPosition(new Vector2(0, 0));
+        attackObject = (GameObject)Instantiate(attackPrefab, position, Quaternion.Euler(0, 0, 0));
+        attackObject.transform.parent = transform;
+        RotopollyAttack a = attackObject.GetComponent<RotopollyAttack>();
+        a.init(this, RotopollySet.Instance.run);
+    }
+
     public IEnumerator run()
     {
         anim.SetInteger("skill", 1);
         yield return new WaitForSeconds(RotopollySet.Instance.run.actDuration);
 
         couldRun = true;
-        Vector3 position = childPosition(new Vector2(0, 0));
-        attackObject = (GameObject)Instantiate(attackPrefab, position, Quaternion.Euler(0, 0, 0));
-        attackObject.transform.parent = transform;
-        RotopollyAttack a = attackObject.GetComponent<RotopollyAttack>();
-        a.init(this, RotopollySet.Instance.run);
+        newAttack();
         anim.SetInteger("skill", 2);
         yield break;
     }
