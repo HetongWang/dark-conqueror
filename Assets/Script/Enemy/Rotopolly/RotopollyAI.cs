@@ -7,7 +7,7 @@ public class RotopollyAI : BasicAI
     public float idleTimer = 0;
     public float moveTime = 4f;
     public float idleTime = 2f;
-    public float comboChance = 0.3f;
+    public float comboChance = RotopollySet.Instance.runComboChance;
 
     public RotopollyAI(Enemy c) : base(c)
     {
@@ -68,7 +68,6 @@ public class RotopollyAI : BasicAI
     public void runStatus()
     {
         float dis = targetPlayer.transform.position.x - person.transform.position.x;
-        Rotopolly rot = (Rotopolly)person;
         if (person.facingRight)
         {
             if (dis < 0)
@@ -77,10 +76,8 @@ public class RotopollyAI : BasicAI
                     currentStatus = "idle";
                 else
                 {
-                    Object.Destroy(rot.attackObject);
-                    rot.newAttack();
+                    person.StartCoroutine(delayFlip());
                 }
-                person.Flip();
             }
         }
         else
@@ -91,17 +88,15 @@ public class RotopollyAI : BasicAI
                     currentStatus = "idle";
                 else
                 {
-                    Object.Destroy(rot.attackObject);
-                    rot.newAttack();
+                    person.StartCoroutine(delayFlip());
                 }
-                person.StartCoroutine(delayFlip());
             }
         }
     }
 
     public IEnumerator delayFlip()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForEndOfFrame();
         person.Flip();
         yield break;
     }

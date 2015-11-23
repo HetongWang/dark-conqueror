@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
+using System.Collections;
 
 class RotopollyAttack : EnemyCommonAttack
 {
@@ -10,11 +10,24 @@ class RotopollyAttack : EnemyCommonAttack
 
     void Update()
     {
-        setting.damage = owner.body.velocity.x / RotopollySet.Instance.runSpeed * RotopollySet.Instance.run.damage;
+        setting.damage = Mathf.Abs(owner.body.velocity.x) / RotopollySet.Instance.runSpeed * RotopollySet.Instance.run.damage;
         Rotopolly r = (Rotopolly)owner;
         if (!r.couldRun)
         {
             Destroy(gameObject);
         }
+    }
+
+    public override void getDemage(Collider2D col)
+    {
+        base.getDemage(col);
+        StartCoroutine(clearHurtChar());
+    }
+
+    public IEnumerator clearHurtChar()
+    {
+        yield return new WaitForSeconds(0.5f);
+        hurtChar.Clear();
+        yield break;
     }
 }

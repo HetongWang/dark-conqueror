@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class BasicAttack : MonoBehaviour {
 
-    private List<GameObject> hurted;
+    protected List<GameObject> hurtChar;
     public List<string> targetTag = new List<string>();
     protected SkillSetting setting;
     [HideInInspector]
@@ -16,14 +16,14 @@ public class BasicAttack : MonoBehaviour {
     /// </summary>
     public virtual void Awake()
     {
-        hurted = new List<GameObject>();
+        hurtChar = new List<GameObject>();
     }
 
     protected void OnTriggerEnter2D(Collider2D col)
     {
         if (targetTag.Contains(col.tag))
         {
-            foreach (GameObject i in hurted)
+            foreach (GameObject i in hurtChar)
             {
                 if (i == col.gameObject)
                 {
@@ -42,7 +42,7 @@ public class BasicAttack : MonoBehaviour {
         {
             person.Hurt(setting, owner);
 
-            hurted.Add(col.gameObject);
+            hurtChar.Add(col.gameObject);
         }
     }
 
@@ -59,6 +59,6 @@ public class BasicAttack : MonoBehaviour {
     public virtual void init(Character c, SkillSetting setting)
     {
         owner = c;
-        this.setting = setting;
+        this.setting = setting.clone();
     }
 }

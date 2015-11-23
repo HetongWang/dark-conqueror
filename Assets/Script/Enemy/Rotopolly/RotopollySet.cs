@@ -9,6 +9,7 @@ public class RotopollySet : Singleton<RotopollySet>
     public SkillSetting run = new SkillSetting();
     public float runSpeed = 10f;
     public float runAcceleration = 12f;
+    public float runComboChance = 0.3f;
     public SkillSetting jump = new SkillSetting();
 
     protected RotopollySet()
