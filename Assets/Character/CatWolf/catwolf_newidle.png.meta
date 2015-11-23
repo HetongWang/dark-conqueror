@@ -1,21 +1,21 @@
 fileFormatVersion: 2
-guid: 5d32c2caf2362d6408411b82e002af8c
-timeCreated: 1448286212
+guid: a28bbfaee8e30ab4086374b583f117f5
+timeCreated: 1448286072
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: catwolfIdle01
     21300002: catwolfIdle02
-    21300004: catwolfIdle08
-    21300006: catwolfIdle03
-    21300008: catwolfIdle07
-    21300010: catwolfIdle04
-    21300012: catwolfIdle06
-    21300014: catwolfIdle05
+    21300004: catwolfIdle03
+    21300006: catwolfIdle04
+    21300008: catwolfIdle05
+    21300010: catwolfIdle06
+    21300012: catwolfIdle07
+    21300014: catwolfIdle08
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -66,7 +66,7 @@ TextureImporter:
         width: 995
         height: 544
       alignment: 9
-      pivot: {x: .499497473, y: .71102941}
+      pivot: {x: .499497473, y: .611029387}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: catwolfIdle02
       rect:
@@ -76,17 +76,7 @@ TextureImporter:
         width: 1000
         height: 538
       alignment: 9
-      pivot: {x: .493999988, y: .716728628}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: catwolfIdle08
-      rect:
-        serializedVersion: 2
-        x: 999
-        y: 1508
-        width: 1000
-        height: 538
-      alignment: 9
-      pivot: {x: .493999988, y: .51672864}
+      pivot: {x: .493999988, y: .616728604}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: catwolfIdle03
       rect:
@@ -96,17 +86,7 @@ TextureImporter:
         width: 1011
         height: 532
       alignment: 9
-      pivot: {x: .486646891, y: .722556412}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: catwolfIdle07
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 968
-        width: 1011
-        height: 532
-      alignment: 9
-      pivot: {x: .486646891, y: .522556365}
+      pivot: {x: .486646891, y: .622556388}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: catwolfIdle04
       rect:
@@ -116,7 +96,17 @@ TextureImporter:
         width: 1014
         height: 529
       alignment: 9
-      pivot: {x: .483234704, y: .725519776}
+      pivot: {x: .483234704, y: .625519812}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfIdle05
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 442
+        width: 1010
+        height: 524
+      alignment: 9
+      pivot: {x: .481188118, y: .630534291}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: catwolfIdle06
       rect:
@@ -128,15 +118,25 @@ TextureImporter:
       alignment: 9
       pivot: {x: .483234704, y: .525519848}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: catwolfIdle05
+    - name: catwolfIdle07
       rect:
         serializedVersion: 2
         x: 2
-        y: 442
-        width: 1010
-        height: 524
+        y: 968
+        width: 1011
+        height: 532
       alignment: 9
-      pivot: {x: .481188118, y: .730534315}
+      pivot: {x: .486646891, y: .522556365}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfIdle08
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1508
+        width: 1000
+        height: 538
+      alignment: 9
+      pivot: {x: .493999988, y: .51672864}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
