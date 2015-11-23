@@ -13,6 +13,7 @@ public class Rotopolly : Enemy
 
     [HideInInspector]
     public bool couldRun = false;
+    public GameObject attackObject = null;
 
     public override void Awake()
     {
@@ -32,8 +33,7 @@ public class Rotopolly : Enemy
     public override void Update()
     {
         base.Update();
-        running();
-        behavior = "run";
+        StartCoroutine(running());
         switch (behavior)
         {
             case "run":
@@ -43,51 +43,55 @@ public class Rotopolly : Enemy
             case "jump":
                 useSkill("jump", RotopollySet.Instance.jump);
                 break;
-            case "stopRun":
+            case "idle":
                 stopRun();
                 break;
         }
     }
 
-    public void running()
+    public IEnumerator running()
     {
         if (behavior == "run" && couldRun)
         {
             if (Mathf.Abs(body.velocity.x) < RotopollySet.Instance.runSpeed)
             {
-                float x;
+                Vector2 v = new Vector2(0, body.velocity.y);
                 if (facingRight)
-                    x = RotopollySet.Instance.runAcceleration * Time.deltaTime + body.velocity.x;
+                    v.x = RotopollySet.Instance.runAcceleration * Time.deltaTime + body.velocity.x;
                 else
-                    x = body.velocity.x - RotopollySet.Instance.runAcceleration * Time.deltaTime;
+                    v.x = body.velocity.x - RotopollySet.Instance.runAcceleration * Time.deltaTime;
 
-                Vector2 v = new Vector2(x, body.velocity.y);
+                anim.speed = Mathf.Abs(body.velocity.x / RotopollySet.Instance.moveSpeed);
+                yield return new WaitForFixedUpdate();
                 body.velocity = v;
             }
-            anim.speed = Mathf.Abs(body.velocity.x / RotopollySet.Instance.moveSpeed);
         }
+        yield break;
     }
 
     public void stopRun()
     {
         anim.speed = 1;
         couldRun = false;
-        StopCoroutine(currentSkill);
+        if (currentSkill != null)
+            StopCoroutine(currentSkill);
+        if (attackObject != null)
+            Destroy(attackObject);
         anim.SetInteger("skill", 0);
     }
 
     public IEnumerator run()
     {
-        Vector3 position = childPosition(new Vector2(0, 0));
-        GameObject go = (GameObject)Instantiate(attackPrefab, position, Quaternion.Euler(0, 0, 0));
-        RotopollyAttack a = go.GetComponent<RotopollyAttack>();
-        a.init(this, RotopollySet.Instance.run);
-
         anim.SetInteger("skill", 1);
         yield return new WaitForSeconds(RotopollySet.Instance.run.actDuration);
 
         couldRun = true;
-        anim.SetInteger("skill", 1);
+        Vector3 position = childPosition(new Vector2(0, 0));
+        attackObject = (GameObject)Instantiate(attackPrefab, position, Quaternion.Euler(0, 0, 0));
+        attackObject.transform.parent = transform;
+        RotopollyAttack a = attackObject.GetComponent<RotopollyAttack>();
+        a.init(this, RotopollySet.Instance.run);
+        anim.SetInteger("skill", 2);
         yield break;
     }
 

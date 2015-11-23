@@ -93,7 +93,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    protected void Flip()
+    public void Flip()
     {
         facingRight = !facingRight;
 

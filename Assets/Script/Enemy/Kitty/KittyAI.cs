@@ -5,7 +5,7 @@ public class KittyAI : BasicAI {
 
     private bool enraged = false;
 
-    public KittyAI(Character kitty): base(kitty)
+    public KittyAI(Enemy kitty): base(kitty)
     {
         viewRange = 15f;
     }
