@@ -13,16 +13,15 @@ public class Level1Trigger2 : MonoBehaviour
 
         float cameraBorder;
         cameraBorder = Camera.main.transform.position.x + Camera.main.orthographicSize * Screen.width / Screen.height;
-        cameraBorder -= 2f;
+        cameraBorder += 2f;
 
         Vector3 position = new Vector3(cameraBorder, transform.position.y, transform.position.z);
-        position.y += Camera.main.transform.position.x + Camera.main.orthographicSize;
         Instantiate(rotopollyPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
 
-        position.x -= 2f;
+        position.x += 2f;
         Instantiate(rotopollyPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
 
-        position.x -= 2f;
+        position.x += 2f;
         Instantiate(rotopollyPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         triggered = true; 
     }

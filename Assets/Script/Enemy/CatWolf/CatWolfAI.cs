@@ -5,7 +5,7 @@ public class CatWolfAI : BasicAI
 {
     public bool alerted = false;
 
-    public CatWolfAI(Character catwolf) : base(catwolf)
+    public CatWolfAI(Enemy catwolf) : base(catwolf)
     {
         viewRange = 15f;
         distantToPlayer = 1.3f;

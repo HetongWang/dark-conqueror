@@ -166,7 +166,7 @@ public class CatWolf : Enemy
             cameraBorder += 2f;
         }
         Vector3 position = new Vector3(cameraBorder, transform.position.y, transform.position.z);
-        GameObject go = (GameObject)Instantiate(CatWolfPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        Instantiate(CatWolfPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
 
         amount += 1;
         yield return new WaitForSeconds(CatWolfSet.Instance.pounce.actDuration);

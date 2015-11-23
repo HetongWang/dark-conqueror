@@ -6,7 +6,7 @@ public class BasicAttack : MonoBehaviour {
     private List<GameObject> hurted;
     public List<string> targetTag = new List<string>();
     protected SkillSetting setting;
-    public Vector2 force;
+    [HideInInspector]
     public Character owner;
 
     protected Animator anim;

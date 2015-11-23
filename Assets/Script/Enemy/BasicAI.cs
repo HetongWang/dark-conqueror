@@ -3,7 +3,8 @@ using System.Collections;
 
 
 public class BasicAI {
-    protected Character person;
+    protected Enemy person;
+    public string currentStatus = "idle";
     protected enum moveMode { attack, guard };
 
     protected GameObject[] players;
@@ -12,7 +13,7 @@ public class BasicAI {
     protected Vector3 initPosition;
 
     public float viewRange = 7f;
-    public float guardRange = 3;
+    public float guardRange = 3f;
     public float distantToPlayer = 1f;
     public GameObject targetPlayer;
     public float targetPlayerDistance = float.PositiveInfinity;
@@ -20,7 +21,7 @@ public class BasicAI {
 
     public string behaviour;
 
-    public BasicAI(Character person)
+    public BasicAI(Enemy person)
     {
         this.person = person;
         initPosition = person.transform.position;
@@ -83,7 +84,7 @@ public class BasicAI {
         return res;
     }
 
-    protected float attackMovement(GameObject player)
+    protected virtual float attackMovement(GameObject player)
     {
         if (player == null)
             return 0;

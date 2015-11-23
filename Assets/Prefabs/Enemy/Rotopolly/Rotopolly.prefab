@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.22000003, y: -1.23000002, z: 0}
+  m_LocalPosition: {x: 1.40999997, y: -1.17999995, z: 0}
   m_LocalScale: {x: .206927195, y: .20692715, z: .20692715}
   m_Children:
   - {fileID: 467424}
@@ -130,6 +130,7 @@ MonoBehaviour:
   souls: 0
   attackPrefab: {fileID: 163778, guid: 9efce8b6ac450b84bab4241d95a3044b, type: 2}
   couldRun: 0
+  attackObject: {fileID: 0}
 --- !u!212 &21264608
 SpriteRenderer:
   m_ObjectHideFlags: 1

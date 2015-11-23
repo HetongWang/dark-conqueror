@@ -8,6 +8,7 @@ public class Player : Character
     protected bool dashed = false;
 
     public GameObject normalAttackPrefab;
+    public GameObject commonAttackPrefab;
 
     protected Dictionary<string, int> buttonCount = new Dictionary<string, int>();
     protected Dictionary<string, float> buttonCooler = new Dictionary<string, float>();
@@ -33,6 +34,7 @@ public class Player : Character
 
         addSkill("normalAttack", normalAttack);
         addSkill("dodge", dodge);
+        addSkill("overheadSwing", overheadSwing);
         souls = 1;
     }
 
@@ -68,6 +70,11 @@ public class Player : Character
                 nextNormalAttack = true;
             if (normalAttackPhase == 0 && !nextNormalAttack)
                 useSkill("normalAttack", PlayerSet.Instance.NormalAttack[0]);
+        }
+
+        if (Input.GetButtonDown("HeavyHit"))
+        {
+            useSkill("overheadSwing", PlayerSet.Instance.overheadSwing);
         }
 
     }
@@ -266,6 +273,22 @@ public class Player : Character
             buttonCount.Add(key, 0);
             buttonCoolerTime.Add(key, coolertime);
         }
+    }
+
+    public IEnumerator overheadSwing()
+    {
+        anim.SetInteger("skill", 5);
+        yield return new WaitForSeconds(0.5f);
+
+        Vector3 position = childPosition(new Vector2(PlayerSet.Instance.overheadSwing.range / 2, 0));
+        GameObject go =  (GameObject)Instantiate(commonAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        PCCommonAttack attack = go.GetComponent<PCCommonAttack>();
+        attack.init(this, PlayerSet.Instance.overheadSwing);
+        attack.transform.parent = transform;
+        yield return new WaitForSeconds(PlayerSet.Instance.overheadSwing.actDuration - 0.5f);
+
+        anim.SetInteger("skill", 0);
+        yield break;
     }
 
 }

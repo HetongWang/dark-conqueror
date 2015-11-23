@@ -7,7 +7,7 @@ public class SiegeBowAI : BasicAI
     public float maxShootRange = SiegeBowSet.Instance.maxShootRange;
     public Vector2 velocity;
 
-    public SiegeBowAI(Character siegebow) : base(siegebow)
+    public SiegeBowAI(Enemy siegebow) : base(siegebow)
     {
 
     }

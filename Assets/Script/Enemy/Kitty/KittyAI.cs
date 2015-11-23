@@ -5,7 +5,7 @@ public class KittyAI : BasicAI {
 
     private bool enraged = false;
 
-    public KittyAI(Character kitty): base(kitty)
+    public KittyAI(Enemy kitty): base(kitty)
     {
         viewRange = 15f;
     }
@@ -14,7 +14,7 @@ public class KittyAI : BasicAI {
     {
         string skillName = null;
 
-        if (person.skillCooler["summonWolf"] <= 0)
+        if (targetPlayerDistance < KittySet.Instance.SummonWolf.range && person.skillCooler["summonWolf"] <= 0)
             return "summonWolf";
 
         if (isEnrage())
