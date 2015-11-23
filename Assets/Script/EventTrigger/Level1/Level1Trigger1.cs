@@ -12,8 +12,8 @@ public class Level1Trigger1 : MonoBehaviour
             return;
 
         float cameraBorder;
-        cameraBorder = Camera.main.transform.position.x - Camera.main.orthographicSize * Screen.width / Screen.height;
-        cameraBorder -= 2f;
+        cameraBorder = Camera.main.transform.position.x + Camera.main.orthographicSize * Screen.width / Screen.height;
+        cameraBorder += 2f;
 
         Vector3 position = new Vector3(cameraBorder, transform.position.y, transform.position.z);
         Instantiate(rotopollyPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));

@@ -84,7 +84,7 @@ public class BasicAI {
         return res;
     }
 
-    protected float attackMovement(GameObject player)
+    protected virtual float attackMovement(GameObject player)
     {
         if (player == null)
             return 0;

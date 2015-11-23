@@ -1098,7 +1098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afccd15a0a2c528409423c511f7231b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotopollyPrefab: {fileID: 147804, guid: 2c78cf587bc166c4b8889ad7ee94251e, type: 2}
+  rotopollyPrefab: {fileID: 147804, guid: ee1458f45b405b5448307d8864695aa0, type: 2}
   triggered: 0
 --- !u!61 &855008687
 BoxCollider2D:
@@ -1893,7 +1893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64bbcced7c2b014409e05a1a941dd41d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotopollyPrefab: {fileID: 147804, guid: 2c78cf587bc166c4b8889ad7ee94251e, type: 2}
+  rotopollyPrefab: {fileID: 147804, guid: ee1458f45b405b5448307d8864695aa0, type: 2}
   triggered: 0
 --- !u!61 &1703253120
 BoxCollider2D:
