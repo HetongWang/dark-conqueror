@@ -14,16 +14,7 @@ public class KittyThrustAttack : BasicAttack {
     public override void getDemage(Collider2D col)
     {
         base.getDemage(col);
-        StartCoroutine(attackPhase(col));
     }
-
-    protected IEnumerator attackPhase(Collider2D col)
-    {
-        yield return new WaitForSeconds(setting.actDuration / 4);
-        col.gameObject.GetComponent<Rigidbody2D>().AddForce(setting.targetForce);
-        yield break;
-    }
-
     public void init(Character c, bool enraged)
     {
         owner = c;

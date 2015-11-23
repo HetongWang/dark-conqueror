@@ -99,14 +99,14 @@ public class Kitty: Enemy
     public IEnumerator thrustAttack()
     {
         anim.SetInteger("skill", (int)Ability.thrust);
-        Vector3 position = childPosition(new Vector2(KittySet.Instance.KittyThrust.range / 2, 0.2f));
+        yield return new WaitForSeconds(KittySet.Instance.KittyThrust.actDuration / 2);
 
+        Vector3 position = childPosition(new Vector2(KittySet.Instance.KittyThrust.range / 2, 0.2f));
         GameObject gameo = (GameObject)Instantiate(thrustAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         KittyThrustAttack thrust = gameo.GetComponent<KittyThrustAttack>();
         thrust.init(this, enraged);
         thrust.transform.parent = transform;
-
-        yield return new WaitForSeconds(KittySet.Instance.KittyThrust.actDuration);
+        yield return new WaitForSeconds(KittySet.Instance.KittyThrust.actDuration / 2);
 
         anim.SetInteger("skill", 0);
         yield break;
