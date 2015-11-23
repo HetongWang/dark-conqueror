@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: 6a62efca58843674f8518675c609f598
+timeCreated: 1448294749
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: StabPNG01
+    21300002: StabPNG02
+    21300004: StabPNG03
+    21300006: StabPNG04
+    21300008: StabPNG05
+    21300010: StabPNG06
+    21300012: StabPNG07
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .400000006, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 195
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: StabPNG01
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3050
+        width: 898
+        height: 1044
+      alignment: 9
+      pivot: {x: .531403124, y: .495210737}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: StabPNG02
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 3064
+        width: 822
+        height: 1030
+      alignment: 9
+      pivot: {x: .5982968286, y: .501941741}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: StabPNG03
+      rect:
+        serializedVersion: 2
+        x: 1726
+        y: 3113
+        width: 840
+        height: 981
+      alignment: 9
+      pivot: {x: .621428573, y: .523955166}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: StabPNG04
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 3137
+        width: 1439
+        height: 957
+      alignment: 9
+      pivot: {x: .745517743, y: .539184928}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: StabPNG05
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2098
+        width: 1439
+        height: 950
+      alignment: 9
+      pivot: {x: .745517743, y: .543157876}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: StabPNG06
+      rect:
+        serializedVersion: 2
+        x: 1443
+        y: 2112
+        width: 1439
+        height: 936
+      alignment: 9
+      pivot: {x: .745517743, y: .551282048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: StabPNG07
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1158
+        width: 1265
+        height: 938
+      alignment: 9
+      pivot: {x: .745517743, y: .550106585}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
