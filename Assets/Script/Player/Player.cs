@@ -230,38 +230,8 @@ public class Player : Character
             normalAttackPhase = 0;
             normalAttacking = false;
             nextNormalAttack = false;
-            StartCoroutine(hurtFlash());
         }
 
-    }
-
-    public IEnumerator hurtFlash()
-    {
-        float timer = 0;
-        float flashAmount = 0;
-        float flashSpeed = 2;
-        SpriteRenderer r = GetComponent<SpriteRenderer>();
-        Shader defaultShader = r.material.shader;
-        r.material.shader = Shader.Find("Sprites/WhiteFlash");
-
-        while (timer < 0.15f)
-        {
-            flashAmount += Time.deltaTime * flashSpeed;
-            timer += Time.deltaTime;
-            r.material.SetFloat("_FlashAmount", flashAmount);
-            yield return new WaitForEndOfFrame();
-        }
-
-        while (timer < 0.3f)
-        {
-            flashAmount -= Time.deltaTime * flashSpeed;
-            timer += Time.deltaTime;
-            r.material.SetFloat("_FlashAmount", flashAmount);
-            yield return new WaitForEndOfFrame();
-        }
-
-        r.material.shader = defaultShader;
-        yield break;
     }
 
     bool multiTapDetect(string key, int times)

@@ -54,4 +54,10 @@ public class Enemy : Character
         Player player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
         player.souls += souls;
     }
+
+    public override void setFlashColor()
+    {
+        SpriteRenderer r = GetComponent<SpriteRenderer>();
+        r.material.SetColor("_FlashColor", new Color(1, 0.4f, 0.4f));
+    }
 }

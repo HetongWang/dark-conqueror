@@ -12,6 +12,8 @@ public class Character : MonoBehaviour
     public float jumpForce = 600;
     public float hp = 10;
     protected float dyingDuration = 1.1f;
+    protected float hurtFlashTime = 0.3f;
+    protected float hurtFlashAmount = 0.3f;
     [HideInInspector]
     public float disappearTime = 4f;
 
@@ -116,6 +118,7 @@ public class Character : MonoBehaviour
         {
             getDemage(setting.damage);
             freezenTime = Mathf.Max(setting.freezenTime, freezenTime);
+            StartCoroutine(hurtFlash());
             if (currentSkill != null)
                 StopCoroutine(currentSkill);
 
@@ -268,5 +271,39 @@ public class Character : MonoBehaviour
             Vector2 f = new Vector2(-force.x, force.y);
             body.AddForce(f);
         }
+    }
+
+    public IEnumerator hurtFlash()
+    {
+        float timer = 0;
+        float flashAmount = 0;
+        float flashSpeed = hurtFlashAmount /(hurtFlashTime / 2);
+        SpriteRenderer r = GetComponent<SpriteRenderer>();
+        Shader defaultShader = r.material.shader;
+        r.material.shader = Shader.Find("Sprites/WhiteFlash");
+        setFlashColor();
+
+        while (timer < 0.15f)
+        {
+            flashAmount += Time.deltaTime * flashSpeed;
+            timer += Time.deltaTime;
+            r.material.SetFloat("_FlashAmount", flashAmount);
+            yield return new WaitForEndOfFrame();
+        }
+
+        while (timer < 0.3f)
+        {
+            flashAmount -= Time.deltaTime * flashSpeed;
+            timer += Time.deltaTime;
+            r.material.SetFloat("_FlashAmount", flashAmount);
+            yield return new WaitForEndOfFrame();
+        }
+
+        r.material.shader = defaultShader;
+        yield break;
+    }
+
+    public virtual void setFlashColor()
+    {
     }
 }
