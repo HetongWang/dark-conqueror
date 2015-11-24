@@ -1,0 +1,144 @@
+fileFormatVersion: 2
+guid: a28bbfaee8e30ab4086374b583f117f5
+timeCreated: 1448286072
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: catwolfIdle01
+    21300002: catwolfIdle02
+    21300004: catwolfIdle03
+    21300006: catwolfIdle04
+    21300008: catwolfIdle05
+    21300010: catwolfIdle06
+    21300012: catwolfIdle07
+    21300014: catwolfIdle08
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: catwolfIdle01
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1502
+        width: 995
+        height: 544
+      alignment: 9
+      pivot: {x: .499497473, y: .611029387}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfIdle02
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1508
+        width: 1000
+        height: 538
+      alignment: 9
+      pivot: {x: .493999988, y: .616728604}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfIdle03
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 968
+        width: 1011
+        height: 532
+      alignment: 9
+      pivot: {x: .486646891, y: .622556388}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfIdle04
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 971
+        width: 1014
+        height: 529
+      alignment: 9
+      pivot: {x: .483234704, y: .625519812}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfIdle05
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 442
+        width: 1010
+        height: 524
+      alignment: 9
+      pivot: {x: .481188118, y: .630534291}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfIdle06
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 971
+        width: 1014
+        height: 529
+      alignment: 9
+      pivot: {x: .483234704, y: .525519848}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfIdle07
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 968
+        width: 1011
+        height: 532
+      alignment: 9
+      pivot: {x: .486646891, y: .522556365}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: catwolfIdle08
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1508
+        width: 1000
+        height: 538
+      alignment: 9
+      pivot: {x: .493999988, y: .51672864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

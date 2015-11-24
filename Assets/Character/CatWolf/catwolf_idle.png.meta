@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5d32c2caf2362d6408411b82e002af8c
-timeCreated: 1447647690
+timeCreated: 1448286212
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -38,7 +38,7 @@ TextureImporter:
   maxTextureSize: 4096
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -66,7 +66,7 @@ TextureImporter:
         width: 995
         height: 544
       alignment: 9
-      pivot: {x: .499497473, y: .511029422}
+      pivot: {x: .499497473, y: .71102941}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: catwolfIdle02
       rect:
@@ -76,7 +76,7 @@ TextureImporter:
         width: 1000
         height: 538
       alignment: 9
-      pivot: {x: .493999988, y: .51672864}
+      pivot: {x: .493999988, y: .716728628}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: catwolfIdle08
       rect:
@@ -96,7 +96,7 @@ TextureImporter:
         width: 1011
         height: 532
       alignment: 9
-      pivot: {x: .486646891, y: .522556365}
+      pivot: {x: .486646891, y: .722556412}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: catwolfIdle07
       rect:
@@ -116,7 +116,7 @@ TextureImporter:
         width: 1014
         height: 529
       alignment: 9
-      pivot: {x: .483234704, y: .525519848}
+      pivot: {x: .483234704, y: .725519776}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: catwolfIdle06
       rect:
@@ -136,7 +136,7 @@ TextureImporter:
         width: 1010
         height: 524
       alignment: 9
-      pivot: {x: .481188118, y: .530534327}
+      pivot: {x: .481188118, y: .730534315}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
