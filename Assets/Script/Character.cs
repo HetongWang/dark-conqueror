@@ -8,6 +8,8 @@ public class Character : MonoBehaviour
     public bool facingRight = true;
     public bool invincible = false;
     protected bool blocked = false;
+    [HideInInspector]
+    public bool antiStagger = false;
     public float moveSpeed = 3f;
     public float jumpForce = 600;
     public float hp = 10;
@@ -32,6 +34,7 @@ public class Character : MonoBehaviour
     protected Dictionary<string, skillFunction> skills = new Dictionary<string, skillFunction>();
     public Dictionary<string, float> skillCooler = new Dictionary<string, float>();
     protected Coroutine currentSkill = null;
+    protected skillFunction interruptCallBack = null;
 
     /// <summary>
     /// Initialize method setting HP, AI, adding skills and other component
@@ -119,8 +122,7 @@ public class Character : MonoBehaviour
             getDemage(setting.damage);
             freezenTime = Mathf.Max(setting.freezenTime, freezenTime);
             StartCoroutine(hurtFlash());
-            if (currentSkill != null)
-                StopCoroutine(currentSkill);
+            cancelCurrentSkill();
 
             if (anim)
             {
@@ -226,16 +228,26 @@ public class Character : MonoBehaviour
         skillCooler.Add(name, initCD);
     }
 
+    public void useSkill(string name, SkillSetting setting, skillFunction interruptCallBack, bool canMove = false, bool enforce = false)
+    {
+        useSkill(name, setting, canMove, enforce);
+        if (name != null && skillCooler[name] <= 0 && (canActing() || enforce))
+        {
+            this.interruptCallBack = interruptCallBack;
+        }
+    }
+
     public void useSkill(string name, SkillSetting setting, bool canMove = false, bool enforce = false)
     {
         if (name != null && skillCooler[name] <= 0 && (canActing() || enforce))
         {
             Debug.Log(name);
             if (enforce && currentSkill != null)
-                StopCoroutine(currentSkill);
+                cancelCurrentSkill();
 
             actingTime = setting.actDuration + 0.05f;
             currentSkill = StartCoroutine(skills[name]());
+            interruptCallBack = null;
             skillCooler[name] = setting.cd;
 
             if (!canMove)
@@ -243,6 +255,14 @@ public class Character : MonoBehaviour
                 movementFreezenTime = setting.actDuration;
             }
         }
+    }
+
+    public void cancelCurrentSkill()
+    {
+        if (interruptCallBack != null)
+            StartCoroutine(interruptCallBack());
+        if (currentSkill != null)
+            StopCoroutine(currentSkill);
     }
 
     public Vector3 childPosition(Vector2 offset)
@@ -303,7 +323,5 @@ public class Character : MonoBehaviour
         yield break;
     }
 
-    public virtual void setFlashColor()
-    {
-    }
+    public virtual void setFlashColor() { }
 }

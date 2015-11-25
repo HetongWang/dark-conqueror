@@ -11,15 +11,15 @@ public class PCCommonAttack : BasicAttack
         targetTag.Add("Enemy");
     }
 
-    void Start()
+    protected virtual void Start()
     {
-        Destroy(gameObject, setting.attackDuration);
+        if (setting.attackDuration != 0)
+            Destroy(gameObject, setting.attackDuration);
     }
 
     public override void getDemage(Collider2D col)
     {
         base.getDemage(col);
-        col.gameObject.GetComponent<Character>();
     }
 
     public void setLevel(int level)

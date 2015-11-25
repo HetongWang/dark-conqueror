@@ -9,6 +9,7 @@ public class Player : Character
 
     public GameObject normalAttackPrefab;
     public GameObject commonAttackPrefab;
+    public GameObject dropAttackPrefab;
 
     protected Dictionary<string, int> buttonCount = new Dictionary<string, int>();
     protected Dictionary<string, float> buttonCooler = new Dictionary<string, float>();
@@ -35,6 +36,8 @@ public class Player : Character
         addSkill("normalAttack", normalAttack);
         addSkill("dodge", dodge);
         addSkill("overheadSwing", overheadSwing);
+        addSkill("block", block);
+        addSkill("dropAttack", dropAttack);
         souls = 1;
     }
 
@@ -44,7 +47,10 @@ public class Player : Character
         base.Update();
         updateButtonCooler();
 
-        block();
+        if (Input.GetButton("Block"))
+            useSkill("block", PlayerSet.Instance.block);
+        if (Input.GetButtonUp("Block"))
+            stopBlock();
         isDodging(Input.GetAxisRaw("Horizontal"));
 
         if (Input.GetButtonDown("Jump") && !blocked)
@@ -61,9 +67,6 @@ public class Player : Character
 
     void attack()
     {
-        if (blocked)
-            return;
-
         if (Input.GetButtonDown("NormalAttack"))
         {
             if (normalAttacking)
@@ -74,9 +77,13 @@ public class Player : Character
 
         if (Input.GetButtonDown("HeavyHit"))
         {
-            useSkill("overheadSwing", PlayerSet.Instance.overheadSwing);
+            if (grounded)
+                useSkill("overheadSwing", PlayerSet.Instance.overheadSwing);
+            else
+            {
+                useSkill("dropAttack", PlayerSet.Instance.dropAttack, cancelDropAttack);
+            }
         }
-
     }
 
     void FixedUpdate()
@@ -99,7 +106,7 @@ public class Player : Character
 
     public void jump()
     {
-        if (grounded)
+        if (grounded && actingTime <= 0 && freezenTime <= 0)
             body.AddForce(new Vector2(0, jumpForce));
     }
 
@@ -171,19 +178,19 @@ public class Player : Character
             dashed = false;
     }
 
-    public void block()
+    public IEnumerator block()
     {
-        if (Input.GetButtonDown("Block") && actingTime <= 0)
-        {
-            blocked = true;
-            anim.SetBool("block", true);
-        }
-        
-        if (Input.GetButtonUp("Block"))
-        {
-            blocked = false;
-            anim.SetBool("block", false);
-        }
+        blocked = true;
+        anim.SetBool("block", true);
+        yield break;
+    }
+
+    public void stopBlock()
+    {
+        blocked = false;
+        actingTime = 0;
+        movementFreezenTime = 0;
+        anim.SetBool("block", false);
     }
 
     public void isDodging(float horInput)
@@ -201,7 +208,7 @@ public class Player : Character
             if (facingRight)
                 Flip();
         }
-        useSkill("dodge", PlayerSet.Instance.Dodge, true);
+        useSkill("dodge", PlayerSet.Instance.dodge, true);
     }
 
     public IEnumerator dodge()
@@ -217,7 +224,7 @@ public class Player : Character
             body.AddForce(force);
         else
             body.AddForce(-force);
-        yield return new WaitForSeconds(PlayerSet.Instance.Dodge.actDuration);
+        yield return new WaitForSeconds(PlayerSet.Instance.dodge.actDuration);
 
         invincible = false;
     }
@@ -291,4 +298,38 @@ public class Player : Character
         yield break;
     }
 
+    public IEnumerator dropAttack()
+    {
+        anim.SetInteger("skill", 6);
+        body.gravityScale = 2;
+        anim.speed = 0;
+
+        while (true)
+        {
+            if (grounded)
+            {
+                Vector3 position = childPosition(new Vector2(0, -0.8f));
+                GameObject go = (GameObject)Instantiate(dropAttackPrefab, position, Quaternion.Euler(0, 0, 0));
+                go.transform.parent = transform;
+                DropAttack a = go.GetComponent<DropAttack>();
+                a.init(this, PlayerSet.Instance.dropAttack);
+                StartCoroutine(cancelDropAttack());
+                break;
+            }
+            yield return new WaitForEndOfFrame();
+        }
+        actingTime = PlayerSet.Instance.dropAttack.actDuration;
+        movementFreezenTime = actingTime;
+        yield return new WaitForSeconds(PlayerSet.Instance.dropAttack.actDuration);
+
+        anim.SetInteger("skill", 0);
+        yield break;
+    }
+
+    public IEnumerator cancelDropAttack()
+    {
+        anim.speed = 1;
+        body.gravityScale = 1;
+        yield break;
+    }
 }

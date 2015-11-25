@@ -10,7 +10,10 @@ public class PlayerSet : Singleton<PlayerSet> {
     public float jumpForce = 600f;
     public List<SkillSetting> NormalAttack = new List<SkillSetting>();
     public SkillSetting overheadSwing = new SkillSetting();
-    public SkillSetting Dodge = new SkillSetting();
+    public SkillSetting dodge = new SkillSetting();
+    public SkillSetting block = new SkillSetting();
+    public SkillSetting dropAttack = new SkillSetting();
+    public float dropAttackForce = 50f;
     public BurnStatus.Setting normalAttackBurn = new BurnStatus.Setting();
 
     protected PlayerSet()
@@ -20,7 +23,7 @@ public class PlayerSet : Singleton<PlayerSet> {
         normalAttack1.damage = 1f;
         normalAttack1.range = 1.4f;
         normalAttack1.attackDuration = 0.1f;
-        normalAttack1.freezenTime = 0.5f;
+        normalAttack1.freezenTime = 0.3f;
         NormalAttack.Add(normalAttack1);
 
         SkillSetting normalAttack2 = new SkillSetting();
@@ -28,7 +31,7 @@ public class PlayerSet : Singleton<PlayerSet> {
         normalAttack2.damage = 1f;
         normalAttack2.range = 1.4f;
         normalAttack2.attackDuration = 0.1f;
-        normalAttack2.freezenTime = 0.3f;
+        normalAttack2.freezenTime = 0.2f;
         NormalAttack.Add(normalAttack2);
 
         SkillSetting normalAttack3 = new SkillSetting();
@@ -36,17 +39,19 @@ public class PlayerSet : Singleton<PlayerSet> {
         normalAttack3.damage = 1f;
         normalAttack3.range = 1.4f;
         normalAttack3.attackDuration = 0.1f;
-        normalAttack3.freezenTime = 0.7f;
+        normalAttack3.freezenTime = 0.5f;
         NormalAttack.Add(normalAttack3);
 
         normalAttackBurn.damage = 10f;
         normalAttackBurn.duration = 3f;
         normalAttackBurn.maxOverlay = 1;
 
-        Dodge.actDuration = 0.8f;
-        Dodge.cd = 1f;
-        Dodge.damage = 0f;
-        Dodge.range = 2f;
+        block.actDuration = float.PositiveInfinity;
+
+        dodge.actDuration = 0.8f;
+        dodge.cd = 1f;
+        dodge.damage = 0f;
+        dodge.range = 2f;
 
         overheadSwing.actDuration = SkillSetting.frameToSeconds(50, 30);
         overheadSwing.cd = 2f;
@@ -54,5 +59,12 @@ public class PlayerSet : Singleton<PlayerSet> {
         overheadSwing.range = 1.5f;
         overheadSwing.freezenTime = 2f;
         overheadSwing.targetForce = new Vector2(200, 0);
+
+        dropAttack.actDuration = 0.7f;
+        dropAttack.cd = 2f;
+        dropAttack.damage = 2f;
+        dropAttack.range = 1f;
+        dropAttack.attackDuration = 0.1f;
+        dropAttack.freezenTime = 1f;
     }
 }
