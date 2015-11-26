@@ -38,6 +38,7 @@ public class CatWolf : Enemy
 
     public override void Start()
     {
+        base.Start();
         Vector3 scale = transform.localScale;
         if (scale.x > 0)
             facingRight = false;
@@ -76,24 +77,11 @@ public class CatWolf : Enemy
 
     public override void Hurt(SkillSetting setting, Character source)
     {
+        base.Hurt(setting, source);
         if (!invincible)
         {
             CatWolfAI _ai = (CatWolfAI)ai;
             _ai.alerted = false;
-            if (crouching)
-            {
-                getDemage(setting.damage * CatWolfSet.Instance.crouch.damage);
-            }
-            else
-            {
-                getDemage(setting.damage);
-                freezenTime = setting.freezenTime;
-                if (anim)
-                {
-                    anim.SetBool("hurt", true);
-                    anim.SetInteger("skill", 0);
-                }
-            }
         }
     }
 
@@ -112,6 +100,21 @@ public class CatWolf : Enemy
         else 
             anim.SetInteger("skill", (int)Ability.idle);
         yield break;
+    }
+
+    public override void getDemage(float amount)
+    {
+        if (!invincible)
+        {
+            if (crouching)
+            {
+                hp -= amount * CatWolfSet.Instance.crouch.damage;
+            }
+            else
+            {
+                hp -= amount;
+            }
+        }
     }
 
     public IEnumerator maul()

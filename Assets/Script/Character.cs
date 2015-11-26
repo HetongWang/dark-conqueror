@@ -172,7 +172,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void getDemage(float amount)
+    public virtual void getDemage(float amount)
     {
         if (!invincible)
         {
@@ -348,17 +348,5 @@ public class Character : MonoBehaviour
 
         r.material.shader = defaultShader;
         yield break;
-    }
-
-    protected void outline(Color c)
-    {
-        SpriteRenderer r = GetComponent<SpriteRenderer>();
-        r.material.shader = Shader.Find("Sprites/Outline");
-    }
-
-    protected void setDefaultShader()
-    {
-        SpriteRenderer r = GetComponent<SpriteRenderer>();
-        r.material.shader = defaultShader;
     }
 }
