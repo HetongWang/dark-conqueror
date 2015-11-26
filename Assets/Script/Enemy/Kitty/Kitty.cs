@@ -92,7 +92,7 @@ public class Kitty: Enemy
     {
         Destroy(hpBar);
         anim.SetBool("dying", true);
-        anim.speed = 0.5f;
+        StartCoroutine(GameManager.slowMotion(0.2f, 0.5f, 1f));
         yield break;
     }
 

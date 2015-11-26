@@ -81,7 +81,7 @@ public class Player : Character
                 useSkill("overheadSwing", PlayerSet.Instance.overheadSwing);
             else
             {
-                useSkill("dropAttack", PlayerSet.Instance.dropAttack, cancelDropAttack);
+                useSkill("dropAttack", PlayerSet.Instance.dropAttack, PlayerSet.Instance.dropAttack.actDuration);
             }
         }
     }

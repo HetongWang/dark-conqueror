@@ -11,7 +11,7 @@ public class Enemy : Character
     protected GameObject hpBar;
 
     [HideInInspector]
-    public int souls;
+    protected int souls = 5;
 
     public void setHPBar(Vector2 position, float initHP)
     {
@@ -49,7 +49,7 @@ public class Enemy : Character
         yield break;
     }
 
-    void OnDestroy()
+    protected virtual void OnDestroy()
     {
         Player player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
         player.souls += souls;

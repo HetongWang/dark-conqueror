@@ -9,7 +9,6 @@ public class Character : MonoBehaviour
     public bool invincible = false;
     protected bool blocked = false;
     [HideInInspector]
-    public bool antiStagger = false;
     public float moveSpeed = 3f;
     public float jumpForce = 600;
     public float hp = 10;
@@ -24,6 +23,7 @@ public class Character : MonoBehaviour
     protected float movementFreezenTime = 0;
     protected float actingTime = 0;
     protected float freezenTime = 0;
+    protected float antiStaggerTime = 0;
 
     [HideInInspector]
     public Rigidbody2D body;
@@ -79,9 +79,19 @@ public class Character : MonoBehaviour
                 anim.SetBool("hurt", false);
         }
 
+        if (antiStaggerTime > 0)
+        {
+            antiStaggerTime -= Time.deltaTime;
+        }
+
         if (actingTime > 0)
         {
             actingTime -= Time.deltaTime;
+        }
+        else
+        {
+            currentSkill = null;
+            interruptCallBack = null;
         }
 
         if (anim)
@@ -120,18 +130,21 @@ public class Character : MonoBehaviour
         if (!invincible && !blocked)
         {
             getDemage(setting.damage);
-            freezenTime = Mathf.Max(setting.freezenTime, freezenTime);
             StartCoroutine(hurtFlash());
-            cancelCurrentSkill();
-
-            if (anim)
+            if (antiStaggerTime <= 0)
             {
-                anim.SetInteger("skill", 0);
-                anim.SetBool("hurt", true);
+                freezenTime = Mathf.Max(setting.freezenTime, freezenTime);
+                cancelCurrentSkill();
+
+                if (anim)
+                {
+                    anim.SetInteger("skill", 0);
+                    anim.SetBool("hurt", true);
+                }
             }
         }
 
-        if (setting.targetForce != null)
+        if (setting.targetForce != null && antiStaggerTime <= 0)
         {
             Vector2 f = setting.targetForce;
             if (source != null)
@@ -231,12 +244,14 @@ public class Character : MonoBehaviour
     public void useSkill(string name, SkillSetting setting, skillFunction interruptCallBack, bool canMove = false, bool enforce = false)
     {
         useSkill(name, setting, canMove, enforce);
-        if (name != null && skillCooler[name] <= 0 && (canActing() || enforce))
-        {
-            this.interruptCallBack = interruptCallBack;
-        }
+        this.interruptCallBack = interruptCallBack;
     }
 
+    public void useSkill(string name, SkillSetting setting, float antiStaggerTime, bool canMove = false, bool enforce = false)
+    {
+        useSkill(name, setting, canMove, enforce);
+        this.antiStaggerTime = antiStaggerTime;
+    }
     public void useSkill(string name, SkillSetting setting, bool canMove = false, bool enforce = false)
     {
         if (name != null && skillCooler[name] <= 0 && (canActing() || enforce))
@@ -247,7 +262,6 @@ public class Character : MonoBehaviour
 
             actingTime = setting.actDuration + 0.05f;
             currentSkill = StartCoroutine(skills[name]());
-            interruptCallBack = null;
             skillCooler[name] = setting.cd;
 
             if (!canMove)

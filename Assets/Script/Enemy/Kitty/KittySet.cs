@@ -4,7 +4,7 @@ public class KittySet: Singleton<KittySet> {
 
     public Vector2 hpBarOffset = new Vector2(0, 4.5f);
 
-    public float hp = 50;
+    public float hp = 5;
     public float enrageTrigger;
     public float enrageEnhancement = 1.5f;
 
