@@ -23,7 +23,7 @@ public class PlayerSet : Singleton<PlayerSet> {
         normalAttack1.damage = 1f;
         normalAttack1.range = 1.4f;
         normalAttack1.attackDuration = 0.1f;
-        normalAttack1.freezenTime = 0.2f;
+        normalAttack1.freezenTime = 0.15f;
         NormalAttack.Add(normalAttack1);
 
         SkillSetting normalAttack2 = new SkillSetting();
@@ -40,6 +40,7 @@ public class PlayerSet : Singleton<PlayerSet> {
         normalAttack3.range = 1.4f;
         normalAttack3.attackDuration = 0.1f;
         normalAttack3.freezenTime = 0.2f;
+        normalAttack3.targetForce = new Vector2(180, 0);
         NormalAttack.Add(normalAttack3);
 
         normalAttackBurn.damage = 10f;
