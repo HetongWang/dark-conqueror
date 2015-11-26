@@ -37,6 +37,8 @@ public class Character : MonoBehaviour
     protected Coroutine currentSkill = null;
     protected skillFunction interruptCallBack = null;
 
+    private Shader defaultShader;
+
     /// <summary>
     /// Initialize method setting HP, AI, adding skills and other component
     /// </summary>
@@ -46,6 +48,12 @@ public class Character : MonoBehaviour
         body.freezeRotation = true;
         groundCheck = transform.Find("groundCheck");
         statusController = new StatusEffectController(this);
+    }
+
+    public virtual void Start()
+    {
+        SpriteRenderer r = GetComponent<SpriteRenderer>();
+        defaultShader = r.material.shader;
     }
 
     /// <summary>
@@ -145,7 +153,7 @@ public class Character : MonoBehaviour
             }
             else
             {
-                StartCoroutine(GameManager.slowMotion(0.1f, 0.15f, 0.05f));
+                StartCoroutine(GameManager.slowMotion(0.02f, 0.2f, 0f));
                 StartCoroutine(hurtFlash(new Color(1, 0.4f, 0.4f)));
             }
         }
@@ -319,7 +327,6 @@ public class Character : MonoBehaviour
         float flashAmount = 0;
         float flashSpeed = hurtFlashAmount /(hurtFlashTime / 2);
         SpriteRenderer r = GetComponent<SpriteRenderer>();
-        Shader defaultShader = r.material.shader;
         r.material.shader = Shader.Find("Sprites/WhiteFlash");
         r.material.SetColor("_FlashColor", c);
 
@@ -341,5 +348,17 @@ public class Character : MonoBehaviour
 
         r.material.shader = defaultShader;
         yield break;
+    }
+
+    protected void outline(Color c)
+    {
+        SpriteRenderer r = GetComponent<SpriteRenderer>();
+        r.material.shader = Shader.Find("Sprites/Outline");
+    }
+
+    protected void setDefaultShader()
+    {
+        SpriteRenderer r = GetComponent<SpriteRenderer>();
+        r.material.shader = defaultShader;
     }
 }

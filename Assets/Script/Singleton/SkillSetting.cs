@@ -10,6 +10,7 @@ public class SkillSetting {
         attackDuration = 0.1f,  // attack instance survive time. 
         freezenTime = 0f;       // target stagger time
 
+    public string name;
     public Vector2 targetForce = Vector2.zero;
     public Vector2 selfForce = Vector2.zero;
 

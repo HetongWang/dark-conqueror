@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = scale;
         yield return new WaitForSeconds(freezenTime * Time.timeScale);
 
-        while (true)
+        while (true && time > 0)
         {
             Time.timeScale = Mathf.Lerp(scale, 1, timer / time);
             timer += Time.deltaTime / Time.timeScale;

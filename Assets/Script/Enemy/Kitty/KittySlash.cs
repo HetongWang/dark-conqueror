@@ -7,7 +7,7 @@ public class KittySlash : BasicAttack
     public override void Awake()
     {
         base.Awake();
-        setAttr(KittySet.Instance.Slash.clone());
+        setAttr(KittySet.Instance.slash.clone());
         targetTag.Add("Player");
         Destroy(gameObject, setting.attackDuration);
     }

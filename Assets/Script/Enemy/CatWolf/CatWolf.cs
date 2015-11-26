@@ -36,7 +36,7 @@ public class CatWolf : Enemy
         addSkill("crouch", crouch);
     }
 
-    public void Start()
+    public override void Start()
     {
         Vector3 scale = transform.localScale;
         if (scale.x > 0)

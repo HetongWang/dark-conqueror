@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class PlayerSet : Singleton<PlayerSet> {
 
-    public float hp = 2500;
+    public float hp = 1500;
     public float dashSpeed = 2f;
     public float dodgingForce = 520f;
     public float dodgingSkyForce = 200f;
