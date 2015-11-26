@@ -13,6 +13,12 @@ public class Enemy : Character
     [HideInInspector]
     protected int souls = 5;
 
+    public override void Awake()
+    {
+        base.Awake();
+        hurtFlashColor = new Color(1, 0.4f, 0.4f);
+    }
+
     public void setHPBar(Vector2 position, float initHP)
     {
         hpBar = (GameObject)Instantiate(hpslider, transform.position, Quaternion.Euler(0, 0, 0));
@@ -43,7 +49,6 @@ public class Enemy : Character
         yield return new WaitForSeconds(dyingDuration);
 
         Destroy(hpBar);
-        Debug.Log(disappearTime);
         yield return new WaitForSeconds(disappearTime);
         Destroy(gameObject);
         yield break;
@@ -53,11 +58,5 @@ public class Enemy : Character
     {
         Player player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
         player.souls += souls;
-    }
-
-    public override void setFlashColor()
-    {
-        SpriteRenderer r = GetComponent<SpriteRenderer>();
-        r.material.SetColor("_FlashColor", new Color(1, 0.4f, 0.4f));
     }
 }

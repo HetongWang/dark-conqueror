@@ -32,6 +32,7 @@ public class Player : Character
         jumpForce = PlayerSet.Instance.jumpForce;
         addButtonDetect("left");
         addButtonDetect("right");
+        hurtFlashAmount = 0.5f;
 
         addSkill("normalAttack", normalAttack);
         addSkill("dodge", dodge);

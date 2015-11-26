@@ -19,14 +19,15 @@ public class GameManager : MonoBehaviour
 
     public static IEnumerator slowMotion(float scale, float freezenTime, float time)
     {
-        float timer = Time.time;
+        float timer = 0;
         Time.timeScale = scale;
-        yield return new WaitForSeconds(freezenTime);
+        yield return new WaitForSeconds(freezenTime * Time.timeScale);
 
         while (true)
         {
             Time.timeScale = Mathf.Lerp(scale, 1, timer / time);
-            if (Time.time - timer > time)
+            timer += Time.deltaTime / Time.timeScale;
+            if (timer >= time)
                 break;
             yield return new WaitForEndOfFrame();
         }

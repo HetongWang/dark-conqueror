@@ -86,13 +86,14 @@ public class Kitty: Enemy
         base.Hurt(setting, source);
         if (!invincible && !blocked)
             slashing = false;
+        if (hp <= 0)
+            StartCoroutine(GameManager.slowMotion(0.2f, 0.2f, 3f));
     }
 
     public override IEnumerator dying()
     {
         Destroy(hpBar);
         anim.SetBool("dying", true);
-        StartCoroutine(GameManager.slowMotion(0.2f, 0.5f, 1f));
         yield break;
     }
 

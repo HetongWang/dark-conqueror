@@ -15,6 +15,7 @@ public class Character : MonoBehaviour
     protected float dyingDuration = 1.1f;
     protected float hurtFlashTime = 0.3f;
     protected float hurtFlashAmount = 0.3f;
+    protected Color hurtFlashColor = new Color(1, 1, 1);
     [HideInInspector]
     public float disappearTime = 4f;
 
@@ -130,17 +131,22 @@ public class Character : MonoBehaviour
         if (!invincible && !blocked)
         {
             getDemage(setting.damage);
-            StartCoroutine(hurtFlash());
             if (antiStaggerTime <= 0)
             {
                 freezenTime = Mathf.Max(setting.freezenTime, freezenTime);
                 cancelCurrentSkill();
+                StartCoroutine(hurtFlash(hurtFlashColor));
 
                 if (anim)
                 {
                     anim.SetInteger("skill", 0);
                     anim.SetBool("hurt", true);
                 }
+            }
+            else
+            {
+                StartCoroutine(GameManager.slowMotion(0.1f, 0.15f, 0.05f));
+                StartCoroutine(hurtFlash(new Color(1, 0.4f, 0.4f)));
             }
         }
 
@@ -307,7 +313,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    public IEnumerator hurtFlash()
+    public IEnumerator hurtFlash(Color c)
     {
         float timer = 0;
         float flashAmount = 0;
@@ -315,7 +321,7 @@ public class Character : MonoBehaviour
         SpriteRenderer r = GetComponent<SpriteRenderer>();
         Shader defaultShader = r.material.shader;
         r.material.shader = Shader.Find("Sprites/WhiteFlash");
-        setFlashColor();
+        r.material.SetColor("_FlashColor", c);
 
         while (timer < 0.15f)
         {
@@ -336,6 +342,4 @@ public class Character : MonoBehaviour
         r.material.shader = defaultShader;
         yield break;
     }
-
-    public virtual void setFlashColor() { }
 }
