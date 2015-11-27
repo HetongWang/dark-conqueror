@@ -11,13 +11,13 @@ public class SiegeBow : Enemy
     public override void Awake()
     {
         base.Awake();
-        addSkill("shoot", shoot, SiegeBowSet.Instance.SiegeBowShoot.cd);
-        hp = SiegeBowSet.Instance.hp;
+        addSkill("shoot", shoot, SiegeBowSet.SiegeBowShoot.cd);
+        hp = SiegeBowSet.hp;
         dyingDuration = 0f;
         disappearTime = 0f;
 
         ai = new SiegeBowAI(this);
-        setHPBar(SiegeBowSet.Instance.hpBarOffset, SiegeBowSet.Instance.hp);
+        setHPBar(SiegeBowSet.hpBarOffset, SiegeBowSet.hp);
     }
 
     public override void Update()
@@ -26,7 +26,7 @@ public class SiegeBow : Enemy
         switch (behavior)
         {
             case "shoot":
-                useSkill("shoot", SiegeBowSet.Instance.SiegeBowShoot);
+                useSkill("shoot", SiegeBowSet.SiegeBowShoot);
                 break;
         }
     }

@@ -37,6 +37,6 @@ public class NormalAttack : BasicAttack {
 
     protected void burnAttack(Character c)
     {
-        c.statusController.addStatus(new BurnStatus(c, PlayerSet.Instance.normalAttackBurn));
+        c.statusController.addStatus(new BurnStatus(c, PlayerSet.normalAttackBurn));
     }
 }

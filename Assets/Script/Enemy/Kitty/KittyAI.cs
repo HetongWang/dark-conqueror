@@ -14,7 +14,7 @@ public class KittyAI : BasicAI {
     {
         string skillName = null;
 
-        if (targetPlayerDistance < KittySet.Instance.SummonWolf.range && person.skillCooler["summonWolf"] <= 0)
+        if (targetPlayerDistance < KittySet.SummonWolf.range && person.skillCooler["summonWolf"] <= 0)
             return "summonWolf";
 
         if (isEnrage())
@@ -51,7 +51,7 @@ public class KittyAI : BasicAI {
     bool isEnrage()
     {
         bool res = false;
-        if (!enraged && person.hp < KittySet.Instance.enrageTrigger)
+        if (!enraged && person.hp < KittySet.enrageTrigger)
         {
             res = true;
             enraged = true;
@@ -67,7 +67,7 @@ public class KittyAI : BasicAI {
             return skill;
         else
         {
-            if (targetPlayerDistance <= KittySet.Instance.KittyThrust.range)
+            if (targetPlayerDistance <= KittySet.KittyThrust.range)
             {
                 return "idle";
             }

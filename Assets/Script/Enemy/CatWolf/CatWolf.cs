@@ -23,16 +23,17 @@ public class CatWolf : Enemy
     {
         base.Awake();
         facingRight = false;
-        moveSpeed = CatWolfSet.Instance.moveSpeed;
-        hp = CatWolfSet.Instance.hp;
+        setting = new CatWolfSet();
+        moveSpeed = setting.moveSpeed;
+        hp = setting.hp;
         anim = GetComponent<Animator>();
         ai = new CatWolfAI(this);
-        setHPBar(CatWolfSet.Instance.hpBarOffset, CatWolfSet.Instance.hp);
+        setHPBar(setting.hpBarOffset, setting.hp);
 
         addSkill("alert", alert);
         addSkill("maul", maul);
         addSkill("pounce", pounce);
-        addSkill("summonFriends", summonFriends, CatWolfSet.Instance.summonFriendsInitCD);
+        addSkill("summonFriends", summonFriends, setting.summonFriendsInitCD);
         addSkill("crouch", crouch);
     }
 
@@ -52,14 +53,14 @@ public class CatWolf : Enemy
         switch (behavior)
         {
             case "alert":
-                useSkill(behavior, CatWolfSet.Instance.alert);
+                useSkill(behavior, setting.alert);
                 break;
             case "summonFriends":
-                if (amount < CatWolfSet.Instance.amount)
-                    useSkill(behavior, CatWolfSet.Instance.summonFriends);
+                if (amount < setting.amount)
+                    useSkill(behavior, setting.summonFriends);
                 break;
             case "maul":
-                useSkill(behavior, CatWolfSet.Instance.maul);
+                useSkill(behavior, setting.maul);
                 break;
         }
  
@@ -91,11 +92,11 @@ public class CatWolf : Enemy
         anim.SetInteger("skill", (int)Ability.alert);
         CatWolfAI _ai = (CatWolfAI)ai;
         _ai.alerted = true;
-        yield return new WaitForSeconds(CatWolfSet.Instance.alert.actDuration);
+        yield return new WaitForSeconds(setting.alert.actDuration);
 
         if (behavior == "pounce")
         {
-            useSkill(behavior, CatWolfSet.Instance.pounce, false, true);
+            useSkill(behavior, setting.pounce, false, true);
         }
         else 
             anim.SetInteger("skill", (int)Ability.idle);
@@ -108,7 +109,7 @@ public class CatWolf : Enemy
         {
             if (crouching)
             {
-                hp -= amount * CatWolfSet.Instance.crouch.damage;
+                hp -= amount * setting.crouch.damage;
             }
             else
             {
@@ -126,8 +127,8 @@ public class CatWolf : Enemy
         GameObject go = (GameObject)Instantiate(CatWolfAttack, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         go.transform.parent = transform;
         EnemyCommonAttack attack = go.GetComponent<EnemyCommonAttack>();
-        attack.init(this, CatWolfSet.Instance.maul);
-        yield return new WaitForSeconds(CatWolfSet.Instance.maul.actDuration);
+        attack.init(this, setting.maul);
+        yield return new WaitForSeconds(setting.maul.actDuration);
 
         anim.SetInteger("skill", 0);
         yield break;
@@ -136,16 +137,16 @@ public class CatWolf : Enemy
     public IEnumerator pounce()
     {
         anim.SetInteger("skill", (int)Ability.pounce);
-        yield return new WaitForSeconds(CatWolfSet.Instance.pounce.actDuration * 0.1f);
+        yield return new WaitForSeconds(setting.pounce.actDuration * 0.1f);
 
-        addSelfForce(CatWolfSet.Instance.pounce.selfForce);
+        addSelfForce(setting.pounce.selfForce);
         Vector3 position = childPosition(new Vector2(0.75f, 0.19f));
         GameObject go = (GameObject)Instantiate(CatWolfAttack, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         go.transform.parent = transform;
         EnemyCommonAttack attack = go.GetComponent<EnemyCommonAttack>();
-        attack.init(this, CatWolfSet.Instance.pounce);
+        attack.init(this, setting.pounce);
 
-        yield return new WaitForSeconds(CatWolfSet.Instance.pounce.actDuration * 0.9f);
+        yield return new WaitForSeconds(setting.pounce.actDuration * 0.9f);
 
         anim.SetInteger("skill", 0);
         CatWolfAI _ai = (CatWolfAI)ai;
@@ -172,7 +173,7 @@ public class CatWolf : Enemy
         Instantiate(CatWolfPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
 
         amount += 1;
-        yield return new WaitForSeconds(CatWolfSet.Instance.pounce.actDuration);
+        yield return new WaitForSeconds(setting.pounce.actDuration);
 
         anim.SetInteger("skill", 0);
         yield break;
@@ -182,7 +183,7 @@ public class CatWolf : Enemy
     {
         anim.SetInteger("skill", (int)Ability.crouch);
         crouching = true;
-        yield return new WaitForSeconds(CatWolfSet.Instance.crouch.actDuration);
+        yield return new WaitForSeconds(setting.crouch.actDuration);
 
         crouching = false;
         anim.SetInteger("skill", (int)Ability.idle);

@@ -7,7 +7,7 @@ public class RotopollyAI : BasicAI
     public float idleTimer = 0;
     public float moveTime = 4f;
     public float idleTime = 2f;
-    public float comboChance = RotopollySet.Instance.runComboChance;
+    public float comboChance = RotopollySet.runComboChance;
 
     public RotopollyAI(Enemy c) : base(c)
     {
@@ -51,7 +51,7 @@ public class RotopollyAI : BasicAI
 
     public void moveStatus()
     {
-        if (person.skillCooler["run"] <= 0 && targetPlayerDistance < RotopollySet.Instance.run.range)
+        if (person.skillCooler["run"] <= 0 && targetPlayerDistance < RotopollySet.run.range)
         {
             float dis = targetPlayer.transform.position.x - person.transform.position.x;
             if (person.facingRight && dis < 0)

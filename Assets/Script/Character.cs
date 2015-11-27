@@ -36,6 +36,8 @@ public class Character : MonoBehaviour
     public Dictionary<string, float> skillCooler = new Dictionary<string, float>();
     protected Coroutine currentSkill = null;
     protected skillFunction interruptCallBack = null;
+    [HideInInspector]
+    public 
 
     private Shader defaultShader;
 

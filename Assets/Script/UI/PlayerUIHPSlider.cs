@@ -13,7 +13,7 @@ public class PlayerUIHPSlider : MonoBehaviour
     public virtual void Awake()
     {
         person = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
-        initValue = PlayerSet.Instance.hp;
+        initValue = PlayerSet.hp;
         bar = GetComponent<UnityEngine.UI.Image>();
         barScale = transform.localScale;
     }

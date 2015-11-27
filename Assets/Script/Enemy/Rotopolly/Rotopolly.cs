@@ -18,13 +18,13 @@ public class Rotopolly : Enemy
     public override void Awake()
     {
         base.Awake();
-        hp = RotopollySet.Instance.hp;
-        moveSpeed = RotopollySet.Instance.moveSpeed;
+        hp = RotopollySet.hp;
+        moveSpeed = RotopollySet.moveSpeed;
 
         facingRight = false;
         ai = new RotopollyAI(this);
         anim = GetComponent<Animator>();
-        setHPBar(RotopollySet.Instance.hpBarOffset, RotopollySet.Instance.hp);
+        setHPBar(RotopollySet.hpBarOffset, RotopollySet.hp);
 
         addSkill("run", run);
         addSkill("jump", jump);
@@ -38,10 +38,10 @@ public class Rotopolly : Enemy
         {
             case "run":
                 if (!couldRun)
-                    useSkill("run", RotopollySet.Instance.run);
+                    useSkill("run", RotopollySet.run);
                 break;
             case "jump":
-                useSkill("jump", RotopollySet.Instance.jump);
+                useSkill("jump", RotopollySet.jump);
                 break;
             case "idle":
                 stopRun();
@@ -53,15 +53,15 @@ public class Rotopolly : Enemy
     {
         if (behavior == "run" && couldRun)
         {
-            if (Mathf.Abs(body.velocity.x) < RotopollySet.Instance.runSpeed)
+            if (Mathf.Abs(body.velocity.x) < RotopollySet.runSpeed)
             {
                 Vector2 v = new Vector2(0, body.velocity.y);
                 if (facingRight)
-                    v.x = RotopollySet.Instance.runAcceleration * Time.deltaTime + body.velocity.x;
+                    v.x = RotopollySet.runAcceleration * Time.deltaTime + body.velocity.x;
                 else
-                    v.x = body.velocity.x - RotopollySet.Instance.runAcceleration * Time.deltaTime;
+                    v.x = body.velocity.x - RotopollySet.runAcceleration * Time.deltaTime;
 
-                anim.speed = Mathf.Abs(body.velocity.x / RotopollySet.Instance.moveSpeed);
+                anim.speed = Mathf.Abs(body.velocity.x / RotopollySet.moveSpeed);
                 yield return new WaitForFixedUpdate();
                 body.velocity = v;
             }
@@ -86,13 +86,13 @@ public class Rotopolly : Enemy
         attackObject = (GameObject)Instantiate(attackPrefab, position, Quaternion.Euler(0, 0, 0));
         attackObject.transform.parent = transform;
         RotopollyAttack a = attackObject.GetComponent<RotopollyAttack>();
-        a.init(this, RotopollySet.Instance.run);
+        a.init(this, RotopollySet.run);
     }
 
     public IEnumerator run()
     {
         anim.SetInteger("skill", 1);
-        yield return new WaitForSeconds(RotopollySet.Instance.run.actDuration);
+        yield return new WaitForSeconds(RotopollySet.run.actDuration);
 
         couldRun = true;
         newAttack();
@@ -103,7 +103,7 @@ public class Rotopolly : Enemy
     public IEnumerator jump()
     {
         if (grounded)
-            body.AddForce(RotopollySet.Instance.jump.selfForce);
+            body.AddForce(RotopollySet.jump.selfForce);
         yield break;
     }
 }

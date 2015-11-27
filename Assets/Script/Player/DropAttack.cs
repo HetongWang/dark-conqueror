@@ -7,6 +7,6 @@ public class DropAttack : PCCommonAttack
     {
         base.Start();
         PointEffector2D newton = GetComponent<PointEffector2D>();
-        newton.forceMagnitude = PlayerSet.Instance.dropAttackForce;
+        newton.forceMagnitude = PlayerSet.dropAttackForce;
     }
 }

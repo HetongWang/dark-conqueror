@@ -18,11 +18,11 @@ public class CatWolfAI : BasicAI
             person.facingRight != targetOnRight)
             return "move";
 
-        if (person.skillCooler["summonFriends"] <= 0 && CatWolf.amount < CatWolfSet.Instance.amount)
+        if (person.skillCooler["summonFriends"] <= 0 && CatWolf.amount < person.setting.amount)
             return "summonFriends";
 
-        if (targetPlayerDistance > CatWolfSet.Instance.maul.range && 
-            targetPlayerDistance < CatWolfSet.Instance.pounce.range && 
+        if (targetPlayerDistance > person.setting.maul.range && 
+            targetPlayerDistance < person.setting.pounce.range && 
             person.skillCooler["pounce"] <= 0)
         {
             if (alerted)
@@ -31,7 +31,7 @@ public class CatWolfAI : BasicAI
                 return "alert";
         }
 
-        if (targetPlayerDistance < CatWolfSet.Instance.maul.range && person.skillCooler["maul"] <= 0)
+        if (targetPlayerDistance < person.setting.maul.range && person.skillCooler["maul"] <= 0)
         {
             if (alerted)
                 return "maul";
@@ -39,7 +39,7 @@ public class CatWolfAI : BasicAI
                 return "alert";
         }
 
-        //if (targetPlayerDistance < CatWolfSet.Instance.pounce.range)
+        //if (targetPlayerDistance < person.setting.pounce.range)
         //   return "crouch";
 
         return "move";

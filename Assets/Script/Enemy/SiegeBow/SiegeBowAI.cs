@@ -3,8 +3,8 @@
 public class SiegeBowAI : BasicAI
 {
     public float error = 0.2f;
-    public float minShootRange = SiegeBowSet.Instance.minShootRange;
-    public float maxShootRange = SiegeBowSet.Instance.maxShootRange;
+    public float minShootRange = SiegeBowSet.minShootRange;
+    public float maxShootRange = SiegeBowSet.maxShootRange;
     public Vector2 velocity;
 
     public SiegeBowAI(Enemy siegebow) : base(siegebow)

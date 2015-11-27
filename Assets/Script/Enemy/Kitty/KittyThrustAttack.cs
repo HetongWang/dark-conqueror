@@ -6,7 +6,7 @@ public class KittyThrustAttack : BasicAttack {
     public override void Awake()
     {
         base.Awake();
-        setAttr(KittySet.Instance.KittyThrust.clone());
+        setAttr(KittySet.KittyThrust.clone());
         targetTag.Add("Player");
         Destroy(gameObject, setting.attackDuration);
     }
@@ -20,8 +20,8 @@ public class KittyThrustAttack : BasicAttack {
         owner = c;
         if (enraged)
         {
-            setting.targetForce.x *= KittySet.Instance.enrageEnhancement;
-            setting.damage *= KittySet.Instance.enrageEnhancement;
+            setting.targetForce.x *= KittySet.enrageEnhancement;
+            setting.damage *= KittySet.enrageEnhancement;
         }
     }
 }

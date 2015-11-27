@@ -10,8 +10,8 @@ public class KittyWolf : Enemy
         base.Awake();
         anim = GetComponent<Animator>();
         facingRight = false;
-        moveSpeed = KittySet.Instance.KittyWolfMoveSpeed;
-        hp = KittySet.Instance.KittyWolfHP;
+        moveSpeed = KittySet.KittyWolfMoveSpeed;
+        hp = KittySet.KittyWolfHP;
         initPosition = transform.position.x;
 
         Destroy(gameObject, 3f);
@@ -21,7 +21,7 @@ public class KittyWolf : Enemy
     {
         base.Update();
         detectGround();
-        if (Mathf.Abs(transform.position.x - initPosition) > KittySet.Instance.KittyWolfDistance)
+        if (Mathf.Abs(transform.position.x - initPosition) > KittySet.KittyWolfDistance)
         {
             Destroy(gameObject);
         }

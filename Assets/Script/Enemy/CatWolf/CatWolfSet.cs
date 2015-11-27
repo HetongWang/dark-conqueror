@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CatWolfSet : Singleton<CatWolfSet>
+public class CatWolfSet
 {
     public Vector2 hpBarOffset = new Vector2(0, 4.5f);
     public int amount = 0;
@@ -17,7 +17,7 @@ public class CatWolfSet : Singleton<CatWolfSet>
 
     public float huddleRatio = 0.5f;
 
-    protected CatWolfSet()
+    public CatWolfSet()
     {
         alert.actDuration = 1f;
         alert.cd = 2f;
