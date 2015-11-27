@@ -18,23 +18,24 @@ public class CatWolf : Enemy
     public GameObject CatWolfPrefab;
 
     public bool crouching = false;
+    public CatWolfSet setting;
 
     public override void Awake()
     {
         base.Awake();
         facingRight = false;
-        setting = new CatWolfSet();
-        moveSpeed = setting.moveSpeed;
-        hp = setting.hp;
-        anim = GetComponent<Animator>();
-        ai = new CatWolfAI(this);
-        setHPBar(setting.hpBarOffset, setting.hp);
+        _setting = new CatWolfSet();
+        setting = (CatWolfSet)_setting;
 
         addSkill("alert", alert);
         addSkill("maul", maul);
         addSkill("pounce", pounce);
         addSkill("summonFriends", summonFriends, setting.summonFriendsInitCD);
         addSkill("crouch", crouch);
+
+        anim = GetComponent<Animator>();
+        ai = new CatWolfAI(this);
+        setHPBar(setting.hpBarOffset, setting.hp);
     }
 
     public override void Start()
@@ -56,7 +57,7 @@ public class CatWolf : Enemy
                 useSkill(behavior, setting.alert);
                 break;
             case "summonFriends":
-                if (amount < setting.amount)
+                if (amount < CatWolfSet.amount)
                     useSkill(behavior, setting.summonFriends);
                 break;
             case "maul":

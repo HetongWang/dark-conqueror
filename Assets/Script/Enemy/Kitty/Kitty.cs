@@ -21,10 +21,14 @@ public class Kitty: Enemy
 
     public bool enraged = false;
     private bool slashing = false;
+    [HideInInspector]
+    public KittySet setting;
 
     public override void Awake()
     {
         base.Awake();
+        _setting = new KittySet();
+        setting = (KittySet)_setting;
         addSkill("thrust", thrustAttack);
         addSkill("enrage", enrage);
         addSkill("summonWolf", summonWolf);
@@ -32,11 +36,10 @@ public class Kitty: Enemy
         addSkill("slash", slash);
 
         facingRight = false;
-        hp = KittySet.hp;
 
         ai = new KittyAI(this);
         anim = GetComponent<Animator>();
-        setHPBar(KittySet.hpBarOffset, KittySet.hp);
+        setHPBar(setting.hpBarOffset, setting.hp);
     }
 
     public override void Update()
@@ -45,19 +48,19 @@ public class Kitty: Enemy
         switch (behavior)
         {
             case "enrage":
-                useSkill(behavior, KittySet.KittyEnrage, false, true);
+                useSkill(behavior, setting.KittyEnrage, false, true);
                 break;
             case "summonWolf":
-                useSkill(behavior, KittySet.SummonWolf);
+                useSkill(behavior, setting.SummonWolf);
                 break;
             case "thrust":
-                useSkill(behavior, KittySet.KittyThrust);
+                useSkill(behavior, setting.KittyThrust);
                 break;
             case "leap":
-                useSkill(behavior, KittySet.Leap);
+                useSkill(behavior, setting.Leap);
                 break;
             case "slash":
-                useSkill(behavior, KittySet.slash);
+                useSkill(behavior, setting.slash);
                 break;
         }
     }
@@ -74,9 +77,9 @@ public class Kitty: Enemy
         {
             Vector2 v;
             if (facingRight)
-                v = new Vector2(KittySet.slashMoveDist / KittySet.slash.actDuration, 0);
+                v = new Vector2(setting.slashMoveDist / setting.slash.actDuration, 0);
             else 
-                v = new Vector2(- KittySet.slashMoveDist / KittySet.slash.actDuration, 0);
+                v = new Vector2(- setting.slashMoveDist / setting.slash.actDuration, 0);
             body.velocity = v;
         }
     }
@@ -100,14 +103,14 @@ public class Kitty: Enemy
     public IEnumerator thrustAttack()
     {
         anim.SetInteger("skill", (int)Ability.thrust);
-        yield return new WaitForSeconds(KittySet.KittyThrust.actDuration / 2);
+        yield return new WaitForSeconds(setting.KittyThrust.actDuration / 2);
 
-        Vector3 position = childPosition(new Vector2(KittySet.KittyThrust.range / 2, 0.2f));
+        Vector3 position = childPosition(new Vector2(setting.KittyThrust.range / 2, 0.2f));
         GameObject gameo = (GameObject)Instantiate(thrustAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         KittyThrustAttack thrust = gameo.GetComponent<KittyThrustAttack>();
-        thrust.init(this, enraged);
+        thrust.init(this, setting.KittyThrust);
         thrust.transform.parent = transform;
-        yield return new WaitForSeconds(KittySet.KittyThrust.actDuration / 2);
+        yield return new WaitForSeconds(setting.KittyThrust.actDuration / 2);
 
         anim.SetInteger("skill", 0);
         yield break;
@@ -117,12 +120,12 @@ public class Kitty: Enemy
     {
         enraged = true;
         if (currentSkill != null)
-            StopCoroutine(currentSkill);
-        moveSpeed *= KittySet.enrageEnhancement;
+            cancelCurrentSkill();
+        enrageEnhance();
         Instantiate(enragePrefab, transform.position, Quaternion.Euler(Vector3.zero));
         anim.SetInteger("skill", (int)Ability.enrage);
         anim.SetBool("enrage", true);
-        yield return new WaitForSeconds(KittySet.KittyEnrage.actDuration);
+        yield return new WaitForSeconds(setting.KittyEnrage.actDuration);
 
         anim.SetInteger("skill", (int)Ability.idle);
         anim.SetBool("enrage", false);
@@ -130,6 +133,15 @@ public class Kitty: Enemy
         scale *= 1.1f;
         transform.localScale = scale;
         yield break;
+    }
+
+    private void enrageEnhance()
+    {
+        setting.moveSpeed *= setting.enrageEnhancement;
+        setting.slash.damage *= setting.enrageEnhancement;
+        setting.slash.cd *= setting.enrageEnhancement;
+        setting.KittyThrust.damage *= setting.enrageEnhancement;
+        setting.KittyThrust.targetForce *= setting.enrageEnhancement;
     }
 
     public IEnumerator summonWolf()
@@ -141,7 +153,7 @@ public class Kitty: Enemy
         position.y += 10;
         GameObject g1 = (GameObject)Instantiate(kittyWolfPrefab, position, Quaternion.Euler(0, 0, 0));
         KittyWolf w1 = g1.GetComponent<KittyWolf>();
-        w1.setDirection(facingRight ? 1 : -1);
+        w1.init(facingRight ? 1 : -1, this);
 
         // Second wolf
         position.x = ai.targetPlayer.transform.position.x;
@@ -151,9 +163,9 @@ public class Kitty: Enemy
             position.x -= 5f;
         GameObject g2 = (GameObject)Instantiate(kittyWolfPrefab, position, Quaternion.Euler(0, 0, 0));
         KittyWolf w2 = g2.GetComponent<KittyWolf>();
-        w2.setDirection(!facingRight ? 1 : -1);
+        w2.init(!facingRight ? 1 : -1, this);
 
-        yield return new WaitForSeconds(KittySet.SummonWolf.actDuration);
+        yield return new WaitForSeconds(setting.SummonWolf.actDuration);
 
         anim.SetInteger("skill", 0);
         yield break;
@@ -165,7 +177,7 @@ public class Kitty: Enemy
         yield return new WaitForSeconds(9 / 24);
 
         body.velocity = leapVelocity();
-        yield return new WaitForSeconds(KittySet.Leap.actDuration - 9 / 24);
+        yield return new WaitForSeconds(setting.Leap.actDuration - 9 / 24);
 
         anim.SetInteger("skill", 0);
         yield break;
@@ -174,9 +186,9 @@ public class Kitty: Enemy
     private Vector2 leapVelocity()
     {
         float h = 0;
-        float d = KittySet.Leap.range;
+        float d = setting.Leap.range;
         float g = Physics2D.gravity.y;
-        float rad = KittySet.LeapAngle * Mathf.Deg2Rad;
+        float rad = setting.LeapAngle * Mathf.Deg2Rad;
 
         float vx = -d * Mathf.Sqrt(g / (2 * (h - Mathf.Tan(rad) * d)));
         float vy = Mathf.Abs(Mathf.Tan(rad) * vx);
@@ -191,27 +203,27 @@ public class Kitty: Enemy
 
     public IEnumerator slash()
     {
-        antiStaggerTime = KittySet.slash.actDuration;
+        antiStaggerTime = setting.slash.actDuration;
         anim.SetInteger("skill", (int)Ability.slash);
-        yield return new WaitForSeconds(KittySet.slash.actDuration * 0.15f);
+        yield return new WaitForSeconds(setting.slash.actDuration * 0.15f);
 
         slashing = true;
-        yield return new WaitForSeconds(KittySet.slash.actDuration * 0.10f);
+        yield return new WaitForSeconds(setting.slash.actDuration * 0.10f);
 
         Vector3 position = childPosition(new Vector2(0.72f, 0f));
         GameObject go1 = (GameObject)Instantiate(slash1Prefab, position, Quaternion.Euler(0, 0, 0));
         go1.transform.parent = transform;
         KittySlash slash1 = go1.GetComponent<KittySlash>();
-        slash1.init(this, enraged);
-        yield return new WaitForSeconds(KittySet.slash.actDuration * 0.35f);
+        slash1.init(this, setting.slash);
+        yield return new WaitForSeconds(setting.slash.actDuration * 0.35f);
 
         position = childPosition(new Vector2(0.57f, 0f));
         GameObject go2 = (GameObject)Instantiate(slash2Prefab, position, Quaternion.Euler(0, 0, 0));
         go2.transform.parent = transform;
         KittySlash slash2 = go2.GetComponent<KittySlash>();
-        slash2.init(this, enraged);
+        slash2.init(this, setting.slash);
         slashing = false;
-        yield return new WaitForSeconds(KittySet.slash.actDuration * 0.4f);
+        yield return new WaitForSeconds(setting.slash.actDuration * 0.4f);
 
         anim.SetInteger("skill", (int)Ability.idle);
         yield break;

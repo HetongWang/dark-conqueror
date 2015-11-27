@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 
-public class KittySet: Singleton<KittySet> {
+public class KittySet: CharacterSet {
 
     public Vector2 hpBarOffset = new Vector2(0, 4.5f);
 
-    public float hp = 50;
     public float enrageTrigger;
     public float enrageEnhancement = 1.5f;
 
@@ -22,8 +21,10 @@ public class KittySet: Singleton<KittySet> {
     public float KittyWolfDistance = 30f;
     public float KittyWolfHP = 2f;
 
-    protected KittySet()
+    public KittySet()
     {
+        hp = 50;
+
         KittyThrust.actDuration = SkillSetting.frameToSeconds(7, 12);
         KittyThrust.cd = 3f;
         KittyThrust.damage = 2f;

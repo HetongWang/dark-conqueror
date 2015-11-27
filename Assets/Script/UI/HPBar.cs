@@ -25,7 +25,7 @@ public class HPBar : MonoBehaviour
             return;
         }
 
-        value = person.hp;
+        value = person._setting.hp;
         if (value < 0)
             value = 0;
         // Set the scale of the value bar to be proportional to the player's value.

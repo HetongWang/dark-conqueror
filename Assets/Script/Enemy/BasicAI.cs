@@ -3,7 +3,7 @@ using System.Collections;
 
 
 public class BasicAI {
-    protected Enemy person;
+    protected Enemy _person;
     public string currentStatus = "idle";
     protected enum moveMode { attack, guard };
 
@@ -23,7 +23,7 @@ public class BasicAI {
 
     public BasicAI(Enemy person)
     {
-        this.person = person;
+        this._person = person;
         initPosition = person.transform.position;
         players = GameObject.FindGameObjectsWithTag("Player");
         movementMode = moveMode.guard;
@@ -43,11 +43,11 @@ public class BasicAI {
         }
 
         targetPlayer = players[0];
-        targetPlayerDistance = Vector3.Distance(players[0].transform.position, person.transform.position);
+        targetPlayerDistance = Vector3.Distance(players[0].transform.position, _person.transform.position);
 
         for (int i = 1; i < players.Length; i++)
         {
-            float dis = Vector3.Distance(players[i].transform.position, person.transform.position);
+            float dis = Vector3.Distance(players[i].transform.position, _person.transform.position);
             if (dis < targetPlayerDistance)
             {
                 targetPlayer = players[i];
@@ -60,11 +60,11 @@ public class BasicAI {
         else
         {
             if (movementMode == moveMode.attack)
-                initPosition = person.transform.position;
+                initPosition = _person.transform.position;
             movementMode = moveMode.guard;
         }
 
-        if (targetPlayer.transform.position.x < person.transform.position.x)
+        if (targetPlayer.transform.position.x < _person.transform.position.x)
             targetOnRight = false;
         else
             targetOnRight = true;
@@ -73,7 +73,7 @@ public class BasicAI {
     protected float guardMovement()
     {
         float res;
-        if (Mathf.Abs(person.transform.position.x - initPosition.x) > guardRange)
+        if (Mathf.Abs(_person.transform.position.x - initPosition.x) > guardRange)
             moveToRight = !moveToRight;
 
         if (moveToRight)
@@ -90,7 +90,7 @@ public class BasicAI {
             return 0;
 
         float res = 0;
-        float dis = person.transform.position.x - player.transform.position.x;
+        float dis = _person.transform.position.x - player.transform.position.x;
         if (Mathf.Abs(dis) > distantToPlayer)
         {
             if (dis > 0)

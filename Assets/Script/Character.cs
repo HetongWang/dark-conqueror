@@ -2,16 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Character : MonoBehaviour
+abstract public class Character : MonoBehaviour
 {
+    [HideInInspector]
+    public float hp;
+
     [HideInInspector]
     public bool facingRight = true;
     public bool invincible = false;
     protected bool blocked = false;
-    [HideInInspector]
-    public float moveSpeed = 3f;
-    public float jumpForce = 600;
-    public float hp = 10;
     protected float dyingDuration = 1.1f;
     protected float hurtFlashTime = 0.3f;
     protected float hurtFlashAmount = 0.3f;
@@ -29,6 +28,7 @@ public class Character : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D body;
     protected Animator anim;
+    private Shader defaultShader;
     public StatusEffectController statusController;
 
     public delegate IEnumerator skillFunction();
@@ -37,9 +37,7 @@ public class Character : MonoBehaviour
     protected Coroutine currentSkill = null;
     protected skillFunction interruptCallBack = null;
     [HideInInspector]
-    public 
-
-    private Shader defaultShader;
+    public CharacterSet _setting;
 
     /// <summary>
     /// Initialize method setting HP, AI, adding skills and other component
@@ -54,6 +52,7 @@ public class Character : MonoBehaviour
 
     public virtual void Start()
     {
+        hp = _setting.hp;
         SpriteRenderer r = GetComponent<SpriteRenderer>();
         defaultShader = r.material.shader;
     }
@@ -212,10 +211,10 @@ public class Character : MonoBehaviour
         if (horInput != 0)
         {
             Vector2 v = body.velocity;
-            if (Mathf.Abs(v.x) < moveSpeed * Mathf.Abs(horInput))
-                v.x = moveSpeed * horInput;
+            if (Mathf.Abs(v.x) < _setting.moveSpeed * Mathf.Abs(horInput))
+                v.x = _setting.moveSpeed * horInput;
             else if (Mathf.Sign(horInput) != Mathf.Sign(v.x))
-                v.x += moveSpeed * horInput;
+                v.x += _setting.moveSpeed * horInput;
             body.velocity = v;
             //body.velocity = new Vector2(horInput * moveSpeed, body.velocity.y);
         }
@@ -231,7 +230,7 @@ public class Character : MonoBehaviour
     {
         move(horInput);
         if (verInput != 0)
-            body.velocity = new Vector2(body.velocity.x, verInput * moveSpeed);
+            body.velocity = new Vector2(body.velocity.x, verInput * _setting.moveSpeed);
         else
         {
             body.velocity = new Vector2(body.velocity.x, 0);

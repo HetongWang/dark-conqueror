@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class PlayerSet : Singleton<PlayerSet> {
+public class PlayerSet : CharacterSet {
 
-    public float hp = 1500;
     public float dashSpeed = 2f;
     public float dodgingForce = 520f;
     public float dodgingSkyForce = 200f;
-    public float jumpForce = 600f;
     public List<SkillSetting> NormalAttack = new List<SkillSetting>();
     public SkillSetting overheadSwing = new SkillSetting();
     public SkillSetting dodge = new SkillSetting();
@@ -16,8 +14,10 @@ public class PlayerSet : Singleton<PlayerSet> {
     public float dropAttackForce = 50f;
     public BurnStatus.Setting normalAttackBurn = new BurnStatus.Setting();
 
-    protected PlayerSet()
+    public PlayerSet()
     {
+        hp = 200f;
+
         SkillSetting normalAttack1 = new SkillSetting();
         normalAttack1.actDuration = SkillSetting.frameToSeconds(14, 30);
         normalAttack1.damage = 1f;

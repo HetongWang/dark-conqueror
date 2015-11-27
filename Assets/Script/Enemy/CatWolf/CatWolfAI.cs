@@ -4,11 +4,13 @@ using System.Collections.Generic;
 public class CatWolfAI : BasicAI
 {
     public bool alerted = false;
+    public CatWolf person;
 
     public CatWolfAI(Enemy catwolf) : base(catwolf)
     {
         viewRange = 15f;
         distantToPlayer = 1.3f;
+        person = (CatWolf)_person;
     }
 
     public override string update()
@@ -18,7 +20,7 @@ public class CatWolfAI : BasicAI
             person.facingRight != targetOnRight)
             return "move";
 
-        if (person.skillCooler["summonFriends"] <= 0 && CatWolf.amount < person.setting.amount)
+        if (person.skillCooler["summonFriends"] <= 0 && CatWolf.amount < CatWolfSet.amount)
             return "summonFriends";
 
         if (targetPlayerDistance > person.setting.maul.range && 

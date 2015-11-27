@@ -5,6 +5,7 @@ public class NormalAttack : BasicAttack {
 
     protected int phase = 0;
     protected int level = 1;
+    private Player owner;
 
     public override void Awake()
     {
@@ -14,6 +15,7 @@ public class NormalAttack : BasicAttack {
 
     void Start()
     {
+        owner = (Player)_owner;
         Destroy(gameObject, setting.attackDuration);
     }
 
@@ -37,6 +39,6 @@ public class NormalAttack : BasicAttack {
 
     protected void burnAttack(Character c)
     {
-        c.statusController.addStatus(new BurnStatus(c, PlayerSet.normalAttackBurn));
+        c.statusController.addStatus(new BurnStatus(c, owner.setting.normalAttackBurn));
     }
 }

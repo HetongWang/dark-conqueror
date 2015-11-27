@@ -7,7 +7,7 @@ public class BasicAttack : MonoBehaviour {
     public List<string> targetTag = new List<string>();
     protected SkillSetting setting;
     [HideInInspector]
-    public Character owner;
+    public Character _owner;
 
     protected Animator anim;
 
@@ -40,7 +40,7 @@ public class BasicAttack : MonoBehaviour {
         Character person = col.gameObject.GetComponent<Character>();
         if (person)
         {
-            person.Hurt(setting, owner);
+            person.Hurt(setting, _owner);
 
             hurtChar.Add(col.gameObject);
         }
@@ -58,7 +58,7 @@ public class BasicAttack : MonoBehaviour {
     
     public virtual void init(Character c, SkillSetting setting)
     {
-        owner = c;
-        this.setting = setting.clone();
+        _owner = c;
+        this.setting = setting;
     }
 }

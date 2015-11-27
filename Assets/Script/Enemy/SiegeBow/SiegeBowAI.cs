@@ -3,24 +3,28 @@
 public class SiegeBowAI : BasicAI
 {
     public float error = 0.2f;
-    public float minShootRange = SiegeBowSet.minShootRange;
-    public float maxShootRange = SiegeBowSet.maxShootRange;
+    public float minShootRange;
+    public float maxShootRange;
     public Vector2 velocity;
+
+    private SiegeBow person;
 
     public SiegeBowAI(Enemy siegebow) : base(siegebow)
     {
-
+        person = (SiegeBow)siegebow;
+        minShootRange = person.setting.minShootRange;
+        maxShootRange = person.setting.maxShootRange;
     }
 
     public Vector2 shootVelocity()
     {
-        float h = -(person.transform.position.y - targetPlayer.transform.position.y);
-        float d = person.transform.position.x - targetPlayer.transform.position.x;
+        float h = -(_person.transform.position.y - targetPlayer.transform.position.y);
+        float d = _person.transform.position.x - targetPlayer.transform.position.x;
         float g = Physics2D.gravity.y;
 
         d = Random.Range(1 - error, 1 + error) * d;
 
-        SiegeBow bow = (SiegeBow)person;
+        SiegeBow bow = (SiegeBow)_person;
         float vx = -d * Mathf.Sqrt(g / (2 * (h - Mathf.Tan(bow.angle) * d)));
         float vy = Mathf.Abs(Mathf.Tan(bow.angle) * vx);
         Vector2 v = new Vector2(vx, vy);
@@ -43,10 +47,10 @@ public class SiegeBowAI : BasicAI
     bool couldShoot()
     {
         bool res = true;
-        if (person.skillCooler["shoot"] > 0)
+        if (_person.skillCooler["shoot"] > 0)
             res = false;
-        if (targetPlayer.transform.position.x - person.transform.position.x > -minShootRange ||
-            targetPlayer.transform.position.x - person.transform.position.x < -maxShootRange)
+        if (targetPlayer.transform.position.x - _person.transform.position.x > -minShootRange ||
+            targetPlayer.transform.position.x - _person.transform.position.x < -maxShootRange)
             res = false;
 
         return res;

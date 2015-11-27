@@ -8,10 +8,10 @@ public class Javelin : BasicAttack
     protected bool onGround = false;
 
     public float surviveTime = 4f;
+    private SiegeBow owner;
 
     public override void Awake()
     {
-        setAttr(SiegeBowSet.SiegeBowShoot);
         base.Awake();
         body = GetComponent<Rigidbody2D>();
         targetTag.Add("Player");

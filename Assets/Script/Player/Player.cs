@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Player : Character 
 {
+    [HideInInspector]
+    public PlayerSet setting;
     protected bool jumped = false;
     protected bool dashed = false;
 
@@ -26,10 +28,11 @@ public class Player : Character
     public override void Awake()
     {
         base.Awake();
+        _setting = new PlayerSet();
+        setting = (PlayerSet)_setting;
+
         //anim = GetComponent<Animator>();
         anim = GetComponent<Animator>();
-        hp = PlayerSet.hp;
-        jumpForce = PlayerSet.jumpForce;
         addButtonDetect("left");
         addButtonDetect("right");
         hurtFlashAmount = 0.5f;
@@ -39,7 +42,6 @@ public class Player : Character
         addSkill("overheadSwing", overheadSwing);
         addSkill("block", block);
         addSkill("dropAttack", dropAttack);
-        souls = 1;
     }
 
     // Update is called once per frame
@@ -49,7 +51,7 @@ public class Player : Character
         updateButtonCooler();
 
         if (Input.GetButton("Block"))
-            useSkill("block", PlayerSet.block);
+            useSkill("block", setting.block);
         if (Input.GetButtonUp("Block"))
             stopBlock();
         isDodging(Input.GetAxisRaw("Horizontal"));
@@ -73,16 +75,16 @@ public class Player : Character
             if (normalAttacking)
                 nextNormalAttack = true;
             if (normalAttackPhase == 0 && !nextNormalAttack)
-                useSkill("normalAttack", PlayerSet.NormalAttack[0]);
+                useSkill("normalAttack", setting.NormalAttack[0]);
         }
 
         if (Input.GetButtonDown("HeavyHit"))
         {
             if (grounded)
-                useSkill("overheadSwing", PlayerSet.overheadSwing);
+                useSkill("overheadSwing", setting.overheadSwing);
             else
             {
-                useSkill("dropAttack", PlayerSet.dropAttack, PlayerSet.dropAttack.actDuration);
+                useSkill("dropAttack", setting.dropAttack, setting.dropAttack.actDuration);
             }
         }
     }
@@ -93,7 +95,7 @@ public class Player : Character
 
         // Detect if dash
         if (dashed)
-            horInput *= PlayerSet.dashSpeed;
+            horInput *= setting.dashSpeed;
         if (!blocked)
             run(horInput);
 
@@ -108,7 +110,7 @@ public class Player : Character
     public void jump()
     {
         if (grounded && actingTime <= 0 && freezenTime <= 0)
-            body.AddForce(new Vector2(0, jumpForce));
+            body.AddForce(new Vector2(0, setting.jumpForce));
     }
 
     public IEnumerator normalAttack()
@@ -123,20 +125,20 @@ public class Player : Character
 
         Vector3 position = transform.position;
         if (facingRight) { 
-            position.x += PlayerSet.NormalAttack[normalAttackPhase].range / 2;
+            position.x += setting.NormalAttack[normalAttackPhase].range / 2;
         }
         else
         {
-            position.x -= PlayerSet.NormalAttack[normalAttackPhase].range / 2;
+            position.x -= setting.NormalAttack[normalAttackPhase].range / 2;
         }
         GameObject go =  (GameObject)Instantiate(normalAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         NormalAttack na = go.GetComponent<NormalAttack>();
         na.setPhase(normalAttackPhase);
-        na.setAttr(PlayerSet.NormalAttack[normalAttackPhase]);
+        na.setAttr(setting.NormalAttack[normalAttackPhase]);
         na.setLevel(normalAttackLevel);
         na.transform.parent = transform;
 
-        yield return new WaitForSeconds(PlayerSet.NormalAttack[normalAttackPhase].actDuration - 0.2f);
+        yield return new WaitForSeconds(setting.NormalAttack[normalAttackPhase].actDuration - 0.2f);
         normalAttacking = false;
 
         if (!nextNormalAttack)
@@ -150,7 +152,7 @@ public class Player : Character
             normalAttackPhase += 1;
             normalAttackPhase %= 3;
             actingTime = 0;
-            useSkill("normalAttack", PlayerSet.NormalAttack[normalAttackPhase]);
+            useSkill("normalAttack", setting.NormalAttack[normalAttackPhase]);
         }
         yield break;
     }
@@ -209,7 +211,7 @@ public class Player : Character
             if (facingRight)
                 Flip();
         }
-        useSkill("dodge", PlayerSet.dodge, true);
+        useSkill("dodge", setting.dodge, true);
     }
 
     public IEnumerator dodge()
@@ -217,15 +219,15 @@ public class Player : Character
         invincible = true;
         Vector2 force;
         if (grounded)
-            force = Vector2.right * PlayerSet.dodgingForce;
+            force = Vector2.right * setting.dodgingForce;
         else
-            force = Vector2.right * PlayerSet.dodgingSkyForce;
+            force = Vector2.right * setting.dodgingSkyForce;
 
         if (facingRight)
             body.AddForce(force);
         else
             body.AddForce(-force);
-        yield return new WaitForSeconds(PlayerSet.dodge.actDuration);
+        yield return new WaitForSeconds(setting.dodge.actDuration);
 
         invincible = false;
     }
@@ -288,12 +290,12 @@ public class Player : Character
         anim.SetInteger("skill", 5);
         yield return new WaitForSeconds(0.5f);
 
-        Vector3 position = childPosition(new Vector2(PlayerSet.overheadSwing.range / 2, 0));
+        Vector3 position = childPosition(new Vector2(setting.overheadSwing.range / 2, 0));
         GameObject go =  (GameObject)Instantiate(commonAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         PCCommonAttack attack = go.GetComponent<PCCommonAttack>();
-        attack.init(this, PlayerSet.overheadSwing);
+        attack.init(this, setting.overheadSwing);
         attack.transform.parent = transform;
-        yield return new WaitForSeconds(PlayerSet.overheadSwing.actDuration - 0.5f);
+        yield return new WaitForSeconds(setting.overheadSwing.actDuration - 0.5f);
 
         anim.SetInteger("skill", 0);
         yield break;
@@ -313,15 +315,15 @@ public class Player : Character
                 GameObject go = (GameObject)Instantiate(dropAttackPrefab, position, Quaternion.Euler(0, 0, 0));
                 go.transform.parent = transform;
                 DropAttack a = go.GetComponent<DropAttack>();
-                a.init(this, PlayerSet.dropAttack);
+                a.init(this, setting.dropAttack);
                 StartCoroutine(cancelDropAttack());
                 break;
             }
             yield return new WaitForEndOfFrame();
         }
-        actingTime = PlayerSet.dropAttack.actDuration;
+        actingTime = setting.dropAttack.actDuration;
         movementFreezenTime = actingTime;
-        yield return new WaitForSeconds(PlayerSet.dropAttack.actDuration);
+        yield return new WaitForSeconds(setting.dropAttack.actDuration);
 
         anim.SetInteger("skill", 0);
         yield break;

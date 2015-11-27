@@ -3,22 +3,18 @@ using System.Collections;
 
 public class KittySlash : BasicAttack
 {
+    private Kitty owner;
 
     public override void Awake()
     {
         base.Awake();
-        setAttr(KittySet.slash.clone());
         targetTag.Add("Player");
-        Destroy(gameObject, setting.attackDuration);
     }
 
-    public void init(Character owner, bool enraged)
+    void Start()
     {
-        this.owner = owner;
-        if (enraged)
-        {
-            setting.damage *= KittySet.enrageEnhancement;
-        }
+        owner = (Kitty)_owner;
+        Destroy(gameObject, setting.attackDuration);
     }
 }
 

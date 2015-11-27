@@ -4,17 +4,19 @@ using System.Collections.Generic;
 public class KittyAI : BasicAI {
 
     private bool enraged = false;
+    protected Kitty person;
 
     public KittyAI(Enemy kitty): base(kitty)
     {
         viewRange = 15f;
+        person = (Kitty)kitty;
     }
 
     public string attack()
     {
         string skillName = null;
 
-        if (targetPlayerDistance < KittySet.SummonWolf.range && person.skillCooler["summonWolf"] <= 0)
+        if (targetPlayerDistance < person.setting.SummonWolf.range && person.skillCooler["summonWolf"] <= 0)
             return "summonWolf";
 
         if (isEnrage())
@@ -51,7 +53,7 @@ public class KittyAI : BasicAI {
     bool isEnrage()
     {
         bool res = false;
-        if (!enraged && person.hp < KittySet.enrageTrigger)
+        if (!enraged && person.hp < person.setting.enrageTrigger)
         {
             res = true;
             enraged = true;
@@ -67,7 +69,7 @@ public class KittyAI : BasicAI {
             return skill;
         else
         {
-            if (targetPlayerDistance <= KittySet.KittyThrust.range)
+            if (targetPlayerDistance <= person.setting.KittyThrust.range)
             {
                 return "idle";
             }

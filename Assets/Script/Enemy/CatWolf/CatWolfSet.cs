@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
 
-public class CatWolfSet
+public class CatWolfSet : CharacterSet
 {
     public Vector2 hpBarOffset = new Vector2(0, 4.5f);
-    public int amount = 0;
-
-    public float hp = 10;
-    public float moveSpeed = 8f;
+    public static int amount = 0;
 
     public SkillSetting alert = new SkillSetting();
     public SkillSetting maul = new SkillSetting();

@@ -11,7 +11,7 @@ public class WaspAI : BasicAI
     public override string update()
     {
         seekPlayer();
-        switch (person.behavior)
+        switch (_person.behavior)
         {
             case "high":
                 highStatus();

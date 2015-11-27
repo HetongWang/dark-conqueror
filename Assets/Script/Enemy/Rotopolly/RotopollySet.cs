@@ -1,19 +1,20 @@
 ﻿using UnityEngine;
 
-public class RotopollySet : Singleton<RotopollySet>
+public class RotopollySet : CharacterSet
 {
     public Vector2 hpBarOffset = new Vector2(0, 4.5f);
 
-    public float hp = 3;
-    public float moveSpeed = 2f;
     public SkillSetting run = new SkillSetting();
     public float runSpeed = 10f;
     public float runAcceleration = 12f;
     public float runComboChance = 0.3f;
     public SkillSetting jump = new SkillSetting();
 
-    protected RotopollySet()
+    public RotopollySet()
     {
+        hp = 3;
+        moveSpeed = 2f;
+
         run.actDuration = 1f;
         run.cd = 6f;
         run.range = 9f;

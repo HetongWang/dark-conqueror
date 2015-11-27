@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class KittyEnrage : MonoBehaviour
+public class KittyEnrage : BasicAttack
 {
-    void Awake()
+    private Kitty owner;
+
+    void Start()
     {
-        GetComponent<PointEffector2D>().forceMagnitude = KittySet.KittyEnrage.targetForce.x;
-        Destroy(gameObject, KittySet.KittyEnrage.attackDuration);
+        GetComponent<PointEffector2D>().forceMagnitude = owner.setting.KittyEnrage.targetForce.x;
+        Destroy(gameObject, owner.setting.KittyEnrage.attackDuration);
     }
 }

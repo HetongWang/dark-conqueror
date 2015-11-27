@@ -7,18 +7,22 @@ public class RotopollyAI : BasicAI
     public float idleTimer = 0;
     public float moveTime = 4f;
     public float idleTime = 2f;
-    public float comboChance = RotopollySet.runComboChance;
+    public float comboChance;
+
+    private Rotopolly person;
 
     public RotopollyAI(Enemy c) : base(c)
     {
         viewRange = 20f;
+        person = (Rotopolly)_person;
+        comboChance = person.setting.runComboChance;
     }
 
     public override string update()
     {
         base.update();
         seekPlayer();
-        switch (person.behavior)
+        switch (_person.behavior)
         {
             case "run":
                 runStatus();
@@ -51,13 +55,13 @@ public class RotopollyAI : BasicAI
 
     public void moveStatus()
     {
-        if (person.skillCooler["run"] <= 0 && targetPlayerDistance < RotopollySet.run.range)
+        if (_person.skillCooler["run"] <= 0 && targetPlayerDistance < person.setting.run.range)
         {
-            float dis = targetPlayer.transform.position.x - person.transform.position.x;
-            if (person.facingRight && dis < 0)
-                person.Flip();
-            if (!person.facingRight && dis > 0)
-                person.Flip();
+            float dis = targetPlayer.transform.position.x - _person.transform.position.x;
+            if (_person.facingRight && dis < 0)
+                _person.Flip();
+            if (!_person.facingRight && dis > 0)
+                _person.Flip();
             currentStatus = "run";
         }
 
@@ -67,8 +71,8 @@ public class RotopollyAI : BasicAI
 
     public void runStatus()
     {
-        float dis = targetPlayer.transform.position.x - person.transform.position.x;
-        if (person.facingRight)
+        float dis = targetPlayer.transform.position.x - _person.transform.position.x;
+        if (_person.facingRight)
         {
             if (dis < 0)
             {
@@ -76,7 +80,7 @@ public class RotopollyAI : BasicAI
                     currentStatus = "idle";
                 else
                 {
-                    person.StartCoroutine(delayFlip());
+                    _person.StartCoroutine(delayFlip());
                 }
             }
         }
@@ -88,7 +92,7 @@ public class RotopollyAI : BasicAI
                     currentStatus = "idle";
                 else
                 {
-                    person.StartCoroutine(delayFlip());
+                    _person.StartCoroutine(delayFlip());
                 }
             }
         }
@@ -97,7 +101,7 @@ public class RotopollyAI : BasicAI
     public IEnumerator delayFlip()
     {
         yield return new WaitForEndOfFrame();
-        person.Flip();
+        _person.Flip();
         yield break;
     }
 
@@ -107,7 +111,7 @@ public class RotopollyAI : BasicAI
             return 0;
 
         float res = 0;
-        float dis = person.transform.position.x - player.transform.position.x;
+        float dis = _person.transform.position.x - player.transform.position.x;
         if (dis > 0)
             res = 1;
         else if (dis < 0)
