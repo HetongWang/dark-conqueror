@@ -9,6 +9,7 @@ public class HPBar : MonoBehaviour
 
     Transform bar;
     private Vector3 barScale;
+    private Vector3 velority;
     protected Vector2 offset;
 
     public virtual void Awake()
@@ -25,11 +26,12 @@ public class HPBar : MonoBehaviour
             return;
         }
 
-        value = person._setting.hp;
+        value = person.hp;
         if (value < 0)
             value = 0;
         // Set the scale of the value bar to be proportional to the player's value.
-        bar.localScale = new Vector3(barScale.x * value / initValue, 1, 1);
+        Vector3 newScale = new Vector3(barScale.x * value / initValue, 1, 1);
+        bar.localScale = Vector3.SmoothDamp(bar.localScale, newScale, ref velority, 0.1f);
     }
 
     public void bind(Character ch, float initHP, Vector2 offset)

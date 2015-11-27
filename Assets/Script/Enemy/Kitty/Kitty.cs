@@ -122,7 +122,9 @@ public class Kitty: Enemy
         if (currentSkill != null)
             cancelCurrentSkill();
         enrageEnhance();
-        Instantiate(enragePrefab, transform.position, Quaternion.Euler(Vector3.zero));
+        GameObject go = (GameObject)Instantiate(enragePrefab, transform.position, Quaternion.Euler(Vector3.zero));
+        KittyEnrage a = go.GetComponent<KittyEnrage>();
+        a.init(this, setting.KittyEnrage);
         anim.SetInteger("skill", (int)Ability.enrage);
         anim.SetBool("enrage", true);
         yield return new WaitForSeconds(setting.KittyEnrage.actDuration);

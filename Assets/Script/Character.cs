@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 abstract public class Character : MonoBehaviour
 {
-    [HideInInspector]
     public float hp;
 
     [HideInInspector]

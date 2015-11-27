@@ -11,15 +11,19 @@ public class KittyWolf : Enemy
         base.Awake();
         facingRight = false;
         _setting = new CatWolfSet();
-        _setting.moveSpeed = owner.setting.KittyWolfMoveSpeed;
-        _setting.hp = owner.setting.KittyWolfHP;
 
         anim = GetComponent<Animator>();
         initPosition = transform.position.x;
+        Destroy(gameObject, 3f);
+    }
 
+    public override void Start()
+    {
+        base.Start();
+        _setting.moveSpeed = owner.setting.KittyWolfMoveSpeed;
+        _setting.hp = owner.setting.KittyWolfHP;
         KittyWolfAttack a = transform.FindChild("KittyWolfAttack").GetComponent<KittyWolfAttack>();
         a.init(owner, owner.setting.SummonWolf);
-        Destroy(gameObject, 3f);
     }
 
     public override void Update()

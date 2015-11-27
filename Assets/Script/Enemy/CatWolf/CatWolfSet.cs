@@ -16,6 +16,9 @@ public class CatWolfSet : CharacterSet
 
     public CatWolfSet()
     {
+        hp = 10;
+        moveSpeed = 8f;
+
         alert.actDuration = 1f;
         alert.cd = 2f;
 
