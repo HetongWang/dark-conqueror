@@ -8,7 +8,6 @@ public class Javelin : BasicAttack
     protected bool onGround = false;
 
     public float surviveTime = 4f;
-    private SiegeBow owner;
 
     public override void Awake()
     {

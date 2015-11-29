@@ -67,6 +67,12 @@ public class Enemy : Character
             GameObject go = (GameObject)Instantiate(Resources.Load("Souls"), position, Quaternion.Euler(0, 0, 0));
             Souls s = go.GetComponent<Souls>();
             s.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, souls * 2 + 5));
+            Debug.Log(lastHurt);
+            if (lastHurt != null)
+            {
+                Debug.Log("lastHurt: " + lastHurt.GetType().Name);
+                s.GetComponent<Rigidbody2D>().AddForce(lastHurt.targetForce / 2);
+            }
         }
         yield return new WaitForSeconds(0.1f);
 

@@ -38,6 +38,7 @@ abstract public class Character : MonoBehaviour
     protected skillFunction interruptCallBack = null;
     [HideInInspector]
     public CharacterSet _setting;
+    protected SkillSetting lastHurt;
 
     /// <summary>
     /// Initialize method setting HP, AI, adding skills and other component
@@ -63,8 +64,8 @@ abstract public class Character : MonoBehaviour
     public virtual void Update()
     {
         detectGround();
-        AliveOrDie();
         updateStatus();
+        AliveOrDie();
         updateSkillCD();
         statusController.updateStatus();
     }
@@ -157,8 +158,11 @@ abstract public class Character : MonoBehaviour
                 StartCoroutine(GameManager.slowMotion(0.02f, 0.2f, 0f));
                 StartCoroutine(hurtFlash(new Color(1, 0.4f, 0.4f)));
             }
+            lastHurt = setting;
+            Debug.Log("last hurt charging");
         }
 
+        // Deal attack force
         if (setting.targetForce != null && antiStaggerTime <= 0)
         {
             Vector2 f = setting.targetForce;
@@ -178,6 +182,8 @@ abstract public class Character : MonoBehaviour
         if (!invincible)
         {
             hp -= amount;
+            lastHurt = null;
+            Debug.Log("last hurt null");
         }
     }
 
