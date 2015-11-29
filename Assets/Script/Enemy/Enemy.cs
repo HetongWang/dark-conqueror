@@ -30,7 +30,7 @@ public class Enemy : Character
     public override void Update()
     {
         base.Update();
-        if (ai != null)
+        if (ai != null && !died)
             behavior = ai.update();
     }
 
@@ -72,9 +72,9 @@ public class Enemy : Character
             {
                 Debug.Log("lastHurt: " + lastHurt.GetType().Name);
                 if (Mathf.Abs(lastHurt.targetForce.x) < 120f)
-                    s.GetComponent<Rigidbody2D>().AddForce(new Vector2(30, 0));
+                    s.GetComponent<Rigidbody2D>().AddForce(new Vector2(50, 0));
                 else
-                    s.GetComponent<Rigidbody2D>().AddForce(lastHurt.targetForce / 3f);
+                    s.GetComponent<Rigidbody2D>().AddForce(lastHurt.targetForce / 2.5f);
             }
         }
         yield return new WaitForSeconds(0.1f);
