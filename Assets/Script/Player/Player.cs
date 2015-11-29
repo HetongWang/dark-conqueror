@@ -21,7 +21,6 @@ public class Player : Character
     private bool normalAttacking = false;
     private bool nextNormalAttack = false;
 
-    public int souls = 0;
     [HideInInspector]
     public int normalAttackLevel = 1;
 
@@ -113,6 +112,12 @@ public class Player : Character
             body.AddForce(new Vector2(0, setting.jumpForce));
     }
 
+    public override IEnumerator dying()
+    {
+        Time.timeScale = 0;
+        yield break;
+    }
+
     public IEnumerator normalAttack()
     {
         if (normalAttackLevel > 1 && normalAttackPhase == 2)
@@ -133,8 +138,8 @@ public class Player : Character
         }
         GameObject go =  (GameObject)Instantiate(normalAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         NormalAttack na = go.GetComponent<NormalAttack>();
+        na.init(this, setting.NormalAttack[normalAttackPhase]);
         na.setPhase(normalAttackPhase);
-        na.setAttr(setting.NormalAttack[normalAttackPhase]);
         na.setLevel(normalAttackLevel);
         na.transform.parent = transform;
 

@@ -10,9 +10,6 @@ public class Enemy : Character
     protected BasicAI ai = null;
     protected GameObject hpBar;
 
-    [HideInInspector]
-    protected int souls = 5;
-
     public override void Awake()
     {
         base.Awake();
@@ -55,7 +52,7 @@ public class Enemy : Character
         yield break;
     }
 
-    IEnumerator soulsExplosion()
+    protected IEnumerator soulsExplosion()
     {
         Vector3 position = transform.position;
         position.y -= 0.2f;

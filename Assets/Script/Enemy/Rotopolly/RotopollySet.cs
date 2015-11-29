@@ -14,6 +14,7 @@ public class RotopollySet : CharacterSet
     {
         hp = 3;
         moveSpeed = 2f;
+        souls = 3;
 
         run.actDuration = 1f;
         run.cd = 6f;

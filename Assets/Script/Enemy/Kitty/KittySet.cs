@@ -24,6 +24,7 @@ public class KittySet: CharacterSet {
     public KittySet()
     {
         hp = 50;
+        souls = 20;
 
         KittyThrust.actDuration = SkillSetting.frameToSeconds(7, 12);
         KittyThrust.cd = 3f;

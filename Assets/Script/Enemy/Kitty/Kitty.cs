@@ -95,6 +95,7 @@ public class Kitty: Enemy
     {
         Destroy(hpBar);
         StartCoroutine(GameManager.slowMotion(0.2f, 0.2f, 3f));
+        StartCoroutine(soulsExplosion());
         anim.SetBool("dying", true);
         yield break;
     }

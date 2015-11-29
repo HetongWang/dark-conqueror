@@ -12,6 +12,7 @@ public class SiegeBowSet : CharacterSet
     public SiegeBowSet()
     {
         hp = 20;
+        souls = 3;
 
         SiegeBowShoot.actDuration = 0.5f;
         SiegeBowShoot.cd = 2f;

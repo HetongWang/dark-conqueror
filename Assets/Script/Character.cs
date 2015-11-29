@@ -40,6 +40,7 @@ abstract public class Character : MonoBehaviour
     [HideInInspector]
     public CharacterSet _setting;
     protected SkillSetting lastHurt;
+    public int souls;
 
     /// <summary>
     /// Initialize method setting HP, AI, adding skills and other component
@@ -57,6 +58,7 @@ abstract public class Character : MonoBehaviour
         hp = _setting.hp;
         SpriteRenderer r = GetComponent<SpriteRenderer>();
         defaultShader = r.material.shader;
+        souls = _setting.souls;
     }
 
     /// <summary>

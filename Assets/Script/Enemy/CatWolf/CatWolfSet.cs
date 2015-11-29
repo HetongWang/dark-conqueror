@@ -18,6 +18,7 @@ public class CatWolfSet : CharacterSet
     {
         hp = 10;
         moveSpeed = 8f;
+        souls = 5;
 
         alert.actDuration = 1f;
         alert.cd = 2f;
