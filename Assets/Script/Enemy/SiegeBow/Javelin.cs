@@ -50,7 +50,10 @@ public class Javelin : BasicAttack
         {
             angle = Mathf.Atan(body.velocity.y / body.velocity.x);
             angle = angle * Mathf.Rad2Deg;
-            transform.localRotation = Quaternion.Euler(0, 0, angle);
+            if (body.velocity.x < 0)
+                transform.localRotation = Quaternion.Euler(0, 0, angle);
+            else
+                transform.localRotation = Quaternion.Euler(0, 0, angle + 180);
         }
     }
 }

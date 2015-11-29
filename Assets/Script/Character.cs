@@ -8,7 +8,8 @@ abstract public class Character : MonoBehaviour
 
     [HideInInspector]
     public bool facingRight = true;
-    private bool died = false;
+    [HideInInspector]
+    public bool died = false;
     public bool invincible = false;
     protected bool blocked = false;
     protected float dyingDuration = 1.1f;
@@ -159,7 +160,6 @@ abstract public class Character : MonoBehaviour
                 StartCoroutine(hurtFlash(new Color(1, 0.4f, 0.4f)));
             }
             lastHurt = setting;
-            Debug.Log("last hurt charging");
         }
 
         // Deal attack force
@@ -183,7 +183,6 @@ abstract public class Character : MonoBehaviour
         {
             hp -= amount;
             lastHurt = null;
-            Debug.Log("last hurt null");
         }
     }
 
@@ -196,6 +195,7 @@ abstract public class Character : MonoBehaviour
             died = true;
             actingTime = 9999999f;
             movementFreezenTime = 99999999f;
+            anim.SetInteger("skill", 0);
             StartCoroutine(dying());
         }
 

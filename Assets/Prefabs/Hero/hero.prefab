@@ -303,14 +303,14 @@ PointEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 16384
-  m_ForceMagnitude: -7
+  m_ForceMagnitude: -10
   m_ForceVariation: 0
   m_DistanceScale: 1
   m_Drag: 3
   m_AngularDrag: 0
   m_ForceSource: 0
   m_ForceTarget: 0
-  m_ForceMode: 2
+  m_ForceMode: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
