@@ -2,7 +2,7 @@
 
 public class SiegeBowAI : BasicAI
 {
-    public float error = 0.2f;
+    public float error = 1f;
     public float minShootRange;
     public float maxShootRange;
     public Vector2 velocity;
@@ -22,7 +22,7 @@ public class SiegeBowAI : BasicAI
         float d = _person.transform.position.x - targetPlayer.transform.position.x;
         float g = Physics2D.gravity.y;
 
-        d = Random.Range(1 - error, 1 + error) * d;
+        d = Random.Range(-error, error) + d;
 
         SiegeBow bow = (SiegeBow)_person;
         float vx = -d * Mathf.Sqrt(g / (2 * (h - Mathf.Tan(bow.angle) * d)));

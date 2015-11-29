@@ -24,6 +24,7 @@ public class PlayerSet : CharacterSet {
         normalAttack1.range = 1.4f;
         normalAttack1.attackDuration = 0.1f;
         normalAttack1.freezenTime = 0.15f;
+        normalAttack1.targetForce = new Vector2(50, 0);
         NormalAttack.Add(normalAttack1);
 
         SkillSetting normalAttack2 = new SkillSetting();
@@ -32,6 +33,7 @@ public class PlayerSet : CharacterSet {
         normalAttack2.range = 1.4f;
         normalAttack2.attackDuration = 0.1f;
         normalAttack2.freezenTime = 0.1f;
+        normalAttack2.targetForce = new Vector2(50, 0);
         NormalAttack.Add(normalAttack2);
 
         SkillSetting normalAttack3 = new SkillSetting();
@@ -40,7 +42,7 @@ public class PlayerSet : CharacterSet {
         normalAttack3.range = 1.4f;
         normalAttack3.attackDuration = 0.1f;
         normalAttack3.freezenTime = 0.2f;
-        normalAttack3.targetForce = new Vector2(180, 0);
+        normalAttack3.targetForce = new Vector2(150, 0);
         NormalAttack.Add(normalAttack3);
 
         normalAttackBurn.damage = 10f;

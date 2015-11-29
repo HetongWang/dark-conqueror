@@ -71,18 +71,15 @@ public class Enemy : Character
             if (lastHurt != null)
             {
                 Debug.Log("lastHurt: " + lastHurt.GetType().Name);
-                s.GetComponent<Rigidbody2D>().AddForce(lastHurt.targetForce / 2);
+                if (Mathf.Abs(lastHurt.targetForce.x) < 120f)
+                    s.GetComponent<Rigidbody2D>().AddForce(new Vector2(30, 0));
+                else
+                    s.GetComponent<Rigidbody2D>().AddForce(lastHurt.targetForce / 3f);
             }
         }
         yield return new WaitForSeconds(0.1f);
 
         Destroy(soulsExplosion);
         yield break;
-    }
-
-    protected virtual void OnDestroy()
-    {
-        Player player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
-        player.souls += souls;
     }
 }
