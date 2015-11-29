@@ -11,6 +11,7 @@ public class KittyWolf : Enemy
         base.Awake();
         facingRight = false;
         _setting = new CatWolfSet();
+        souls = 0;
 
         anim = GetComponent<Animator>();
         initPosition = transform.position.x;

@@ -8,7 +8,7 @@ Physics2DSettings:
   m_DefaultMaterial: {fileID: 6200000, guid: ae0fa03557eb1664ab1cce8c1ca887bb, type: 2}
   m_VelocityIterations: 8
   m_PositionIterations: 3
-  m_VelocityThreshold: 1
+  m_VelocityThreshold: 3
   m_MaxLinearCorrection: .200000003
   m_MaxAngularCorrection: 8
   m_MaxTranslationSpeed: 100
@@ -22,4 +22,4 @@ Physics2DSettings:
   m_QueriesHitTriggers: 1
   m_QueriesStartInColliders: 1
   m_ChangeStopsCallbacks: 0
-  m_LayerCollisionMatrix: fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff9fffffff0ffffffd8fffffff5ffffffffffffffdbffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  m_LayerCollisionMatrix: fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff9ffffffb0ffffff98ffffffd5ffffffffffffff93ffffffd9ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff

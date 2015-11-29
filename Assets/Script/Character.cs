@@ -8,6 +8,7 @@ abstract public class Character : MonoBehaviour
 
     [HideInInspector]
     public bool facingRight = true;
+    private bool died = false;
     public bool invincible = false;
     protected bool blocked = false;
     protected float dyingDuration = 1.1f;
@@ -182,8 +183,11 @@ abstract public class Character : MonoBehaviour
 
     public void AliveOrDie()
     {
+        if (died)
+            return;
         if (hp <= 0)
         {
+            died = true;
             actingTime = 9999999f;
             movementFreezenTime = 99999999f;
             StartCoroutine(dying());

@@ -46,11 +46,31 @@ public class Enemy : Character
     {
         if (anim)
             anim.SetBool("dying", true);
+        StartCoroutine(soulsExplosion());
         yield return new WaitForSeconds(dyingDuration);
 
         Destroy(hpBar);
         yield return new WaitForSeconds(disappearTime);
         Destroy(gameObject);
+        yield break;
+    }
+
+    IEnumerator soulsExplosion()
+    {
+        Vector3 position = transform.position;
+        position.y -= 0.2f;
+        Object soulsExplosion = Instantiate(Resources.Load("SoulsExplosion"), position, Quaternion.Euler(0, 0, 0));
+        for (int i = 0; i < souls; i++)
+        {
+            position = transform.position;
+            position.x += Random.value - 0.5f;
+            GameObject go = (GameObject)Instantiate(Resources.Load("Souls"), position, Quaternion.Euler(0, 0, 0));
+            Souls s = go.GetComponent<Souls>();
+            s.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, souls * 2 + 5));
+        }
+        yield return new WaitForSeconds(0.1f);
+
+        Destroy(soulsExplosion);
         yield break;
     }
 
