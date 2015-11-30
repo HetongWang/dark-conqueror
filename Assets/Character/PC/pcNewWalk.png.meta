@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b3b1ed0ab5acbbe41ad02273f72b4102
-timeCreated: 1448290077
+timeCreated: 1448853913
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -73,7 +73,7 @@ TextureImporter:
         width: 482
         height: 650
       alignment: 9
-      pivot: {x: .596473038, y: .620769238}
+      pivot: {x: .596473038, y: .620769262}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PCWalk02
       rect:
@@ -83,7 +83,7 @@ TextureImporter:
         width: 465
         height: 653
       alignment: 9
-      pivot: {x: .66989249, y: .615313923}
+      pivot: {x: .66989249, y: .615313947}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PCWalk03
       rect:
@@ -93,7 +93,7 @@ TextureImporter:
         width: 446
         height: 658
       alignment: 9
-      pivot: {x: .705156922, y: .614437675}
+      pivot: {x: .705156922, y: .614437699}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PCWalk05
       rect:
@@ -103,7 +103,7 @@ TextureImporter:
         width: 430
         height: 625
       alignment: 9
-      pivot: {x: .75, y: .6}
+      pivot: {x: .75, y: .600000024}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PCWalk06
       rect:
@@ -113,7 +113,7 @@ TextureImporter:
         width: 437
         height: 638
       alignment: 9
-      pivot: {x: .749427915, y: .622727251}
+      pivot: {x: .749427915, y: .622727275}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PCWalk07
       rect:
@@ -123,7 +123,7 @@ TextureImporter:
         width: 437
         height: 633
       alignment: 9
-      pivot: {x: .737986267, y: .618957317}
+      pivot: {x: .737986267, y: .618957341}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PCWalk08
       rect:
@@ -133,7 +133,7 @@ TextureImporter:
         width: 440
         height: 627
       alignment: 9
-      pivot: {x: .69204545, y: .617543852}
+      pivot: {x: .69204545, y: .617543876}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PCWalk09
       rect:
@@ -143,7 +143,7 @@ TextureImporter:
         width: 506
         height: 640
       alignment: 9
-      pivot: {x: .615612626, y: .61953125}
+      pivot: {x: .615612626, y: .619531274}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PCWalk10
       rect:
@@ -153,7 +153,7 @@ TextureImporter:
         width: 632
         height: 651
       alignment: 9
-      pivot: {x: .578322768, y: .61382488}
+      pivot: {x: .578322768, y: .613824904}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PCWalk11
       rect:
@@ -163,7 +163,7 @@ TextureImporter:
         width: 684
         height: 650
       alignment: 9
-      pivot: {x: .554824591, y: .597692317}
+      pivot: {x: .554824591, y: .597692311}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PCWalk12
       rect:
@@ -173,7 +173,7 @@ TextureImporter:
         width: 719
         height: 636
       alignment: 9
-      pivot: {x: .530598044, y: .586635208}
+      pivot: {x: .530598044, y: .586635232}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PCWalk13
       rect:
@@ -183,7 +183,7 @@ TextureImporter:
         width: 721
         height: 635
       alignment: 9
-      pivot: {x: .529126227, y: .590551174}
+      pivot: {x: .529126227, y: .590551198}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PCWalk14
       rect:
@@ -193,7 +193,7 @@ TextureImporter:
         width: 688
         height: 647
       alignment: 9
-      pivot: {x: .554505825, y: .606182373}
+      pivot: {x: .554505825, y: .606182396}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PCWalk15
       rect:
@@ -203,7 +203,7 @@ TextureImporter:
         width: 584
         height: 647
       alignment: 9
-      pivot: {x: .540239751, y: .617001569}
+      pivot: {x: .540239751, y: .617001593}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PCWalk16
       rect:
@@ -213,7 +213,7 @@ TextureImporter:
         width: 544
         height: 650
       alignment: 9
-      pivot: {x: .563419104, y: .617692327}
+      pivot: {x: .563419104, y: .617692351}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
