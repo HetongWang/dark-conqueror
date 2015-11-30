@@ -12,7 +12,10 @@ public class PlayerSet : CharacterSet {
     public SkillSetting block = new SkillSetting();
     public SkillSetting dropAttack = new SkillSetting();
     public float dropAttackForce = 50f;
+    public SkillSetting eruptionFire = new SkillSetting();
+    public int eruptionFireTimes;
     public BurnStatus.Setting normalAttackBurn = new BurnStatus.Setting();
+    public BurnStatus.Setting eruptionFireBurn = new BurnStatus.Setting();
 
     public PlayerSet()
     {
@@ -69,5 +72,17 @@ public class PlayerSet : CharacterSet {
         dropAttack.range = 1f;
         dropAttack.attackDuration = 0.1f;
         dropAttack.freezenTime = 1f;
+
+        eruptionFireTimes = 3;
+        eruptionFire.actDuration = 1f;
+        eruptionFire.cd = 6f;
+        eruptionFire.damage = 2f;
+        eruptionFire.range = 1f;
+        eruptionFire.attackDuration = 0.55f;
+        eruptionFire.freezenTime = 0.5f;
+
+        eruptionFireBurn.damage = 2f;
+        eruptionFireBurn.duration = 2f;
+        eruptionFireBurn.maxOverlay = 1;
     }
 }

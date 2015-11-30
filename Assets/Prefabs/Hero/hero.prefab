@@ -220,13 +220,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   facingRight: 1
+  died: 0
   invincible: 0
   disappearTime: 4
   body: {fileID: 0}
+  souls: 0
   normalAttackPrefab: {fileID: 183768, guid: 284fc0c03170d8f478951f32c2dc30ee, type: 2}
   commonAttackPrefab: {fileID: 183768, guid: 044c3a677f40b4b4391e0a752a52ce0b, type: 2}
   dropAttackPrefab: {fileID: 175328, guid: 2da9a2cda89b02f4db3394f0e1b5c59b, type: 2}
-  souls: 0
+  eruptionFirePrefab: {fileID: 159472, guid: d02114af7038ed54aa8e8fba6ec9d7ef, type: 2}
   normalAttackLevel: 1
 --- !u!114 &11472700
 MonoBehaviour:
@@ -342,6 +344,10 @@ Prefab:
       propertyPath: dropAttackPrefab
       value: 
       objectReference: {fileID: 175328, guid: 2da9a2cda89b02f4db3394f0e1b5c59b, type: 2}
+    - target: {fileID: 0}
+      propertyPath: eruptionFirePrefab
+      value: 
+      objectReference: {fileID: 159472, guid: d02114af7038ed54aa8e8fba6ec9d7ef, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 185750}

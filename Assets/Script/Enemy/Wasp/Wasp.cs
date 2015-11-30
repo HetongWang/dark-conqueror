@@ -1,11 +1,31 @@
-﻿using System;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Assets.Script.Enemy.Wasp
+public class Wasp : Enemy
 {
-    class Wasp
+    public GameObject attackPrefab;
+    [HideInInspector]
+    public WaspSet setting;
+
+    public override void Awake()
     {
+        base.Awake();
+        _setting = new WaspSet();
+        setting = (WaspSet)_setting;
+        behavior = "high";
+
+        ai = new SiegeBowAI(this);
+        setHPBar(setting.hpBarOffset, setting.hp);
     }
+
+    public override void Update()
+    {
+        base.Update();
+        switch (behavior)
+        {
+
+        }
+    }
+
 }

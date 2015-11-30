@@ -105,11 +105,12 @@ public class Kitty: Enemy
         anim.SetInteger("skill", (int)Ability.thrust);
         yield return new WaitForSeconds(setting.KittyThrust.actDuration / 2);
 
-        Vector3 position = childPosition(new Vector2(setting.KittyThrust.range / 2, 0.2f));
-        GameObject gameo = (GameObject)Instantiate(thrustAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        GameObject gameo = Instantiate(thrustAttackPrefab);
         KittyThrustAttack thrust = gameo.GetComponent<KittyThrustAttack>();
         thrust.init(this, setting.KittyThrust);
-        thrust.transform.parent = transform;
+        gameo.transform.parent = transform;
+        gameo.transform.localPosition = new Vector2(-3.2f, 0.25f);
+        gameo.transform.localScale = new Vector3(4.7f, 3.2f, 1);
         yield return new WaitForSeconds(setting.KittyThrust.actDuration / 2);
 
         anim.SetInteger("skill", 0);
@@ -122,7 +123,10 @@ public class Kitty: Enemy
         if (currentSkill != null)
             cancelCurrentSkill();
         enrageEnhance();
-        GameObject go = (GameObject)Instantiate(enragePrefab, transform.position, Quaternion.Euler(Vector3.zero));
+        GameObject go = Instantiate(enragePrefab);
+        go.transform.parent = transform;
+        go.transform.localPosition = new Vector3(-0.2f, 0, 0);
+        go.transform.localScale = new Vector3(2.67f, 2.67f, 1);
         KittyEnrage a = go.GetComponent<KittyEnrage>();
         a.init(this, setting.KittyEnrage);
         anim.SetInteger("skill", (int)Ability.enrage);
@@ -212,16 +216,18 @@ public class Kitty: Enemy
         slashing = true;
         yield return new WaitForSeconds(setting.slash.actDuration * 0.10f);
 
-        Vector3 position = childPosition(new Vector2(0.72f, 0f));
-        GameObject go1 = (GameObject)Instantiate(slash1Prefab, position, Quaternion.Euler(0, 0, 0));
+        GameObject go1 = Instantiate(slash1Prefab);
         go1.transform.parent = transform;
+        go1.transform.localPosition = new Vector3(-1.9f, 0, 0);
+        go1.transform.localScale = new Vector3(7.15f, 7.15f, 1);
         KittySlash slash1 = go1.GetComponent<KittySlash>();
         slash1.init(this, setting.slash);
         yield return new WaitForSeconds(setting.slash.actDuration * 0.35f);
 
-        position = childPosition(new Vector2(0.57f, 0f));
-        GameObject go2 = (GameObject)Instantiate(slash2Prefab, position, Quaternion.Euler(0, 0, 0));
+        GameObject go2 = Instantiate(slash2Prefab);
         go2.transform.parent = transform;
+        go2.transform.localPosition = new Vector3(-1.6f, 0, 0);
+        go2.transform.localScale = new Vector3(7.15f, 7.15f, 1);
         KittySlash slash2 = go2.GetComponent<KittySlash>();
         slash2.init(this, setting.slash);
         slashing = false;

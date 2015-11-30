@@ -44,7 +44,7 @@ Transform:
   m_GameObject: {fileID: 106010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .374148786, y: .374148786, z: .374148786}
+  m_LocalScale: {x: .584550917, y: .584550858, z: .584550858}
   m_Children:
   - {fileID: 496750}
   m_Father: {fileID: 0}
@@ -118,15 +118,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efebd41c7cbbcef469464f38c27008c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facingRight: 1
-  invincible: 0
-  moveSpeed: 3
-  jumpForce: 600
   hp: 10
+  facingRight: 1
+  died: 0
+  invincible: 0
+  disappearTime: 4
   body: {fileID: 0}
+  souls: 0
   hpslider: {fileID: 189274, guid: eaa717e95e5b13145ba51f93ca3a2290, type: 2}
   behavior: 
-  souls: 0
   thrustAttackPrefab: {fileID: 121260, guid: 860e18ce3931a8345b0861247c6ff518, type: 2}
   slash1Prefab: {fileID: 107168, guid: 573848e7edf174d4f8623f5eb9301499, type: 2}
   slash2Prefab: {fileID: 176824, guid: 51331282be9b36e40b9a7a26dbe1f2b9, type: 2}
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1783731295
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300026, guid: d37997a25a33d4a4690ea3a69773a317, type: 3}
+  m_Sprite: {fileID: 21300010, guid: d37997a25a33d4a4690ea3a69773a317, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21261496
 SpriteRenderer:

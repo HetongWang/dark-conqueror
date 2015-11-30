@@ -12,6 +12,7 @@ public class Player : Character
     public GameObject normalAttackPrefab;
     public GameObject commonAttackPrefab;
     public GameObject dropAttackPrefab;
+    public GameObject eruptionFirePrefab;
 
     protected Dictionary<string, int> buttonCount = new Dictionary<string, int>();
     protected Dictionary<string, float> buttonCooler = new Dictionary<string, float>();
@@ -41,6 +42,7 @@ public class Player : Character
         addSkill("overheadSwing", overheadSwing);
         addSkill("block", block);
         addSkill("dropAttack", dropAttack);
+        addSkill("eruptionFire", eruptionFire);
     }
 
     // Update is called once per frame
@@ -85,6 +87,11 @@ public class Player : Character
             {
                 useSkill("dropAttack", setting.dropAttack, setting.dropAttack.actDuration);
             }
+        }
+
+        if (Input.GetButtonDown("Magic"))
+        {
+            useSkill("eruptionFire", setting.eruptionFire);
         }
     }
 
@@ -338,6 +345,22 @@ public class Player : Character
     {
         anim.speed = 1;
         body.gravityScale = 1;
+        yield break;
+    }
+
+    public IEnumerator eruptionFire()
+    {
+        anim.SetInteger("skill", 7);
+        for (int i = 0; i < setting.eruptionFireTimes; i++)
+        {
+            float distance = 3.3f * i + 3.6f;
+            GameObject go = Instantiate(eruptionFirePrefab);
+            go.transform.parent = transform;
+            go.transform.localPosition = new Vector2(distance, -2.47f);
+            go.transform.localScale = new Vector3(1.336f, 1.336f, 1);
+            yield return new WaitForSeconds(setting.eruptionFire.actDuration / setting.eruptionFireTimes);
+        }
+        anim.SetInteger("skill", 0);
         yield break;
     }
 }

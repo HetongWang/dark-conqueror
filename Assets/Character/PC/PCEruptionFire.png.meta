@@ -1,0 +1,166 @@
+fileFormatVersion: 2
+guid: 7166623c17563ec4390a24874e6ca6fb
+timeCreated: 1448847687
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PCEruptionFire_0
+    21300002: PCEruptionFire_1
+    21300004: PCEruptionFire_2
+    21300006: PCEruptionFire_3
+    21300008: PCEruptionFire_4
+    21300010: PCEruptionFire_5
+    21300012: PCEruptionFire_6
+    21300014: PCEruptionFire_7
+    21300016: PCEruptionFire_8
+    21300018: PCEruptionFire_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 80
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: PCEruptionFire_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1461
+        width: 414
+        height: 584
+      alignment: 9
+      pivot: {x: .600000024, y: .600000024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCEruptionFire_1
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 1466
+        width: 437
+        height: 580
+      alignment: 9
+      pivot: {x: .589999974, y: .600000024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCEruptionFire_2
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 1466
+        width: 448
+        height: 579
+      alignment: 9
+      pivot: {x: .589999974, y: .600000024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCEruptionFire_3
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 1467
+        width: 458
+        height: 578
+      alignment: 9
+      pivot: {x: .600000024, y: .600000024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCEruptionFire_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 880
+        width: 450
+        height: 578
+      alignment: 9
+      pivot: {x: .600000024, y: .600000024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCEruptionFire_5
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 881
+        width: 437
+        height: 577
+      alignment: 9
+      pivot: {x: .610000014, y: .600000024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCEruptionFire_6
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 881
+        width: 439
+        height: 577
+      alignment: 9
+      pivot: {x: .610000014, y: .600000024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCEruptionFire_7
+      rect:
+        serializedVersion: 2
+        x: 1336
+        y: 880
+        width: 440
+        height: 578
+      alignment: 9
+      pivot: {x: .610000014, y: .600000024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCEruptionFire_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 299
+        width: 439
+        height: 578
+      alignment: 9
+      pivot: {x: .610000014, y: .600000024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCEruptionFire_9
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 299
+        width: 440
+        height: 578
+      alignment: 9
+      pivot: {x: .610000014, y: .600000024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
