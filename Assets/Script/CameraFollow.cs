@@ -17,8 +17,6 @@ public class CameraFollow : MonoBehaviour
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        Vector3 initPosition = new Vector3(player.position.x + xOffset, player.position.y, transform.position.z);
-        transform.position = initPosition;
     }
 
     bool CheckXMargin()

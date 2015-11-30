@@ -13,7 +13,10 @@ public class SoulsCollector : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         Souls s = col.GetComponent<Souls>();
-        s.disappear();
-        player.souls += 1;
+        if (s != null)
+        {
+            s.disappear();
+            player.souls += 1;
+        }
     }
 }

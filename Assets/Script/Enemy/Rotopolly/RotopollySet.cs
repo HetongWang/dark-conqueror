@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 
-public class RotopollySet : CharacterSet
+public class RotopollySet : EnemySet
 {
-    public Vector2 hpBarOffset = new Vector2(0, 4.5f);
-
     public SkillSetting run = new SkillSetting();
     public float runSpeed = 10f;
     public float runAcceleration = 12f;

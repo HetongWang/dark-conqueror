@@ -81,6 +81,12 @@ public class Rotopolly : Enemy
         anim.SetInteger("skill", 0);
     }
 
+    public override IEnumerator dying()
+    {
+        stopRun();
+        return base.dying();
+    }
+
     public void newAttack()
     {
         Vector3 position = childPosition(new Vector2(0, 0));

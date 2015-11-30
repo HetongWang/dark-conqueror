@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 
-public class CatWolfSet : CharacterSet
+public class CatWolfSet : EnemySet
 {
-    public Vector2 hpBarOffset = new Vector2(0, 4.5f);
     public static int amount = 0;
 
     public SkillSetting alert = new SkillSetting();

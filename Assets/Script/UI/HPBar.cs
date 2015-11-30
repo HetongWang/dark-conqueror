@@ -15,7 +15,6 @@ public class HPBar : MonoBehaviour
     public virtual void Awake()
     {
         bar = transform.FindChild("HPBar");
-        barScale = transform.localScale;
     }
 
     void Update()
@@ -30,7 +29,7 @@ public class HPBar : MonoBehaviour
         if (value < 0)
             value = 0;
         // Set the scale of the value bar to be proportional to the player's value.
-        Vector3 newScale = new Vector3(barScale.x * value / initValue, 1, 1);
+        Vector3 newScale = new Vector3(value / initValue, 1, 1);
         bar.localScale = Vector3.SmoothDamp(bar.localScale, newScale, ref velority, 0.1f);
     }
 

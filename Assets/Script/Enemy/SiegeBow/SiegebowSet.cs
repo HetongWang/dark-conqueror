@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 
-public class SiegeBowSet : CharacterSet
+public class SiegeBowSet : EnemySet
 {
-
-    public Vector2 hpBarOffset = new Vector2(0, 4.5f);
-
     public SkillSetting SiegeBowShoot = new SkillSetting();
     public float minShootRange = 1f;
     public float maxShootRange = 10f;
