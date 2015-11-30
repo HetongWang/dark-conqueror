@@ -358,6 +358,9 @@ public class Player : Character
             go.transform.parent = transform;
             go.transform.localPosition = new Vector2(distance, -2.47f);
             go.transform.localScale = new Vector3(1.336f, 1.336f, 1);
+            go.transform.parent = null;
+            EruptionFire fire = go.GetComponent<EruptionFire>();
+            fire.init(this, setting.eruptionFire);
             yield return new WaitForSeconds(setting.eruptionFire.actDuration / setting.eruptionFireTimes);
         }
         anim.SetInteger("skill", 0);

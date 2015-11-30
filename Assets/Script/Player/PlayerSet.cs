@@ -20,6 +20,7 @@ public class PlayerSet : CharacterSet {
     public PlayerSet()
     {
         hp = 200f;
+        souls = 10;
 
         SkillSetting normalAttack1 = new SkillSetting();
         normalAttack1.actDuration = SkillSetting.frameToSeconds(14, 30);
@@ -73,9 +74,9 @@ public class PlayerSet : CharacterSet {
         dropAttack.attackDuration = 0.1f;
         dropAttack.freezenTime = 1f;
 
-        eruptionFireTimes = 3;
-        eruptionFire.actDuration = 1f;
-        eruptionFire.cd = 6f;
+        eruptionFireTimes = 2;
+        eruptionFire.actDuration = 0.67f;
+        eruptionFire.cd = 2f;
         eruptionFire.damage = 2f;
         eruptionFire.range = 1f;
         eruptionFire.attackDuration = 0.55f;
