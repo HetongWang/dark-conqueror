@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Kitty: Enemy
 {
@@ -28,6 +29,7 @@ public class Kitty: Enemy
     {
         base.Awake();
         _setting = new KittySet();
+        dyingDuration = 1.5f;
         setting = (KittySet)_setting;
         addSkill("thrust", thrustAttack);
         addSkill("enrage", enrage);
@@ -97,6 +99,12 @@ public class Kitty: Enemy
         StartCoroutine(GameManager.slowMotion(0.2f, 0.2f, 3f));
         StartCoroutine(soulsExplosion());
         anim.SetBool("dying", true);
+
+        yield return new WaitForSeconds(dyingDuration);
+        List<Dialog> conver = new List<Dialog>();
+        conver.Add(new Dialog("Kitty", "Kill... kill you..."));
+        conver.Add(new Dialog("PC", "I'm Your Father"));
+        GameManager.Instance.newConversation(conver);
         yield break;
     }
 

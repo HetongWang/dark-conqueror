@@ -24,7 +24,6 @@ public class Wasp : Enemy
         base.Update();
         switch (behavior)
         {
-
         }
     }
 
