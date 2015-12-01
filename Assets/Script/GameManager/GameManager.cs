@@ -6,6 +6,8 @@ public class GameManager : Singleton<GameManager>
 {
     public GameObject UpgradeMenuPrefab;
     public GameObject HUDPrefab;
+    public Sprite PCPicture;
+    public Sprite KittyPicture;
     protected GameObject menu;
     protected GameObject hud;
     protected ConversationManager cm;
@@ -15,6 +17,8 @@ public class GameManager : Singleton<GameManager>
     {
         hud = Instantiate(HUDPrefab);
         cm = new ConversationManager(hud);
+        cm.PCPicture = PCPicture;
+        cm.KittyPicture = KittyPicture;
     }
 
     void Update()
