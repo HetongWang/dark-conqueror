@@ -25,8 +25,8 @@ public class SiegeBowAI : BasicAI
         d = Random.Range(-error, error) + d;
 
         SiegeBow bow = (SiegeBow)_person;
-        float vx = -d * Mathf.Sqrt(g / (2 * (h - Mathf.Tan(bow.angle) * d)));
-        float vy = Mathf.Abs(Mathf.Tan(bow.angle) * vx);
+        float vx = -d * Mathf.Sqrt(g / (2 * (h - Mathf.Tan(bow.setting.shootAngle) * d)));
+        float vy = Mathf.Abs(Mathf.Tan(bow.setting.shootAngle) * vx);
         Vector2 v = new Vector2(vx, vy);
 
         return v;

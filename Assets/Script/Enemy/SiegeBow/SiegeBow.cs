@@ -6,7 +6,6 @@ public class SiegeBow : Enemy
 {
     public GameObject javelinPrefab;
 
-    public float angle = Mathf.Deg2Rad * 30;
     public SiegeBowSet setting;
 
     public override void Awake()
@@ -35,7 +34,7 @@ public class SiegeBow : Enemy
 
     public IEnumerator shoot()
     {
-        GameObject go =  (GameObject)Instantiate(javelinPrefab, transform.position, Quaternion.Euler(0, 0, angle));
+        GameObject go =  (GameObject)Instantiate(javelinPrefab, transform.position, Quaternion.Euler(0, 0, -setting.shootAngle * Mathf.Rad2Deg));
         Javelin jl = go.GetComponent<Javelin>();
         jl.init(this, setting.SiegeBowShoot);
         SiegeBowAI bowAI = (SiegeBowAI)ai;

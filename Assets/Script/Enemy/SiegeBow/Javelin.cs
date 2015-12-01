@@ -33,10 +33,6 @@ public class Javelin : BasicAttack
             onGround = true;
             Destroy(gameObject, surviveTime);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
     public void setInitVelocity(Vector2 v)
