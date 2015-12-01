@@ -1,19 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject UpgradeMenu;
     protected GameObject menu;
+	private bool paused;
+	protected GameObject pauseMenu;
+	public GameObject mainUI;
+
+	void Awake(){
+		pauseMenu = GameObject.FindGameObjectsWithTag("PauseMenu")[0];
+		pauseMenu.GetComponent<UnityEngine.Canvas>().enabled = true;
+		pauseMenu.SetActive(false);
+
+		mainUI = GameObject.FindGameObjectsWithTag("UI")[0];
+	}
 
     void Update()
     {
         if (Input.GetButtonDown("Menu"))
         {
-            if (menu == null)
-                menu = (GameObject)Instantiate(UpgradeMenu, Vector3.zero, Quaternion.Euler(0, 0, 0));
-            else
-                Destroy(menu);
+//            if (menu == null)
+			if (paused == false){
+				pauseMenu.SetActive(true);
+				mainUI.SetActive(false);
+				paused = true;
+                //menu = (GameObject)Instantiate(UpgradeMenu, Vector3.zero, Quaternion.Euler(0, 0, 0));
+				
+			} else {
+				pauseMenu.SetActive(false);
+				mainUI.SetActive(true);
+				paused = false;
+                //Destroy(menu);
+			}
         }
     }
 

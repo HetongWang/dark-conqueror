@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class UIScript : MonoBehaviour {
+	public UnityEngine.Canvas pauseMenu;
+
+	public virtual void Awake(){
+		pauseMenu = GetComponentInParent<UnityEngine.Canvas>();
+	}
 
 	public void StartGame(){
 		Application.LoadLevel(1);
+
 	}
 
 	public void ExitGame(){
@@ -18,6 +25,7 @@ public class UIScript : MonoBehaviour {
 	}
 
 	public void UnPause(){
-
+		Time.timeScale = 1;
+		pauseMenu.enabled = false;
 	}
 }

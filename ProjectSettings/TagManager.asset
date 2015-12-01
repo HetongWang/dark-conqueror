@@ -10,6 +10,7 @@ TagManager:
   - Attack
   - ground
   - Souls
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

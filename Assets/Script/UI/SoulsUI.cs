@@ -14,6 +14,6 @@ public class SoulsUI : MonoBehaviour
 
     void Update()
     {
-        text.text = "Souls: " + person.souls;
+        text.text = "" + person.souls;
     }
 }
