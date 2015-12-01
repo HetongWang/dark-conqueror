@@ -68,7 +68,8 @@ public class Enemy : Character
             if (lastHurt != null)
             {
                 Debug.Log("lastHurt: " + lastHurt.GetType().Name);
-                if (Mathf.Abs(lastHurt.targetForce.x) < 120f)
+                s.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 20));
+                if (Mathf.Abs(lastHurt.targetForce.x) < 120f && Mathf.Abs(lastHurt.targetForce.x) > 30f)
                     s.GetComponent<Rigidbody2D>().AddForce(new Vector2(50, 0));
                 else
                     s.GetComponent<Rigidbody2D>().AddForce(lastHurt.targetForce / 2.5f);

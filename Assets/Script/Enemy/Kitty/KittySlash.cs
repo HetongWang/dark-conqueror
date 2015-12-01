@@ -3,8 +3,6 @@ using System.Collections;
 
 public class KittySlash : BasicAttack
 {
-    private Kitty owner;
-
     public override void Awake()
     {
         base.Awake();
@@ -13,7 +11,6 @@ public class KittySlash : BasicAttack
 
     void Start()
     {
-        owner = (Kitty)_owner;
         Destroy(gameObject, setting.attackDuration);
     }
 }
