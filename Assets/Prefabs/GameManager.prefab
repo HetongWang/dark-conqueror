@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a4160a22d1e3847abfcc83571b6a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpgradeMenuPrefab: {fileID: 180328, guid: 13afdc0954abb9f4c817e0aac5605923, type: 2}
+  UpgradeMenuPrefab: {fileID: 193680, guid: 0d1c0ae797e58b34b8afaed49951ddd5, type: 2}
   HUDPrefab: {fileID: 122800, guid: e93128c647b3b10418af560c261fcf7a, type: 2}
   PCPicture: {fileID: 21300000, guid: 9aab1e394173fec42af275e8d559433e, type: 3}
   KittyPicture: {fileID: 21300000, guid: 7edf8bb9f75c9ba4aa80441c802d7e7b, type: 3}

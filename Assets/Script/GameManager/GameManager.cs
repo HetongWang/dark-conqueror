@@ -8,11 +8,9 @@ public class GameManager : Singleton<GameManager>
     public GameObject HUDPrefab;
     public Sprite PCPicture;
     public Sprite KittyPicture;
-    protected GameObject menu;
-    protected GameObject hud;
     protected ConversationManager cm;
-	protected GameObject pauseMenu;
-	protected GameObject mainUI;
+    protected GameObject hud;
+	protected GameObject upgradeMenu;
 	protected GameObject endMenu;
 	protected bool paused;
     public bool inConversation = false;
@@ -21,32 +19,28 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         hud = Instantiate(HUDPrefab);
+        upgradeMenu = Instantiate(UpgradeMenuPrefab);
+        upgradeMenu.SetActive(false);
         cm = new ConversationManager(hud);
         cm.PCPicture = PCPicture;
         cm.KittyPicture = KittyPicture;
-
-		pauseMenu = GameObject.FindGameObjectsWithTag("PauseMenu")[0];
-		pauseMenu.GetComponent<UnityEngine.Canvas>().enabled = true;
-		pauseMenu.SetActive(false);
-		mainUI = GameObject.FindGameObjectsWithTag("UI")[0];
     }
 
     void Update()
     {
 		if (Input.GetButtonDown("Menu"))
 		{
-			// if (menu == null)
-			if (paused == false){
-				pauseMenu.SetActive(true);
-				mainUI.SetActive(false);
+			if (!paused)
+            {
+				upgradeMenu.SetActive(true);
+				hud.SetActive(false);
 				paused = true;
-				//menu = (GameObject)Instantiate(UpgradeMenu, Vector3.zero, Quaternion.Euler(0, 0, 0));
-				
-			} else {
-				pauseMenu.SetActive(false);
-				mainUI.SetActive(true);
+			} 
+            else
+            {
+				upgradeMenu.SetActive(false);
+				hud.SetActive(true);
 				paused = false;
-				//Destroy(menu);
 			}
 		}
         if (inConversation)
