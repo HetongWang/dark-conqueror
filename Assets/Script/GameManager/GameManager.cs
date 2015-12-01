@@ -11,7 +11,11 @@ public class GameManager : Singleton<GameManager>
     protected GameObject menu;
     protected GameObject hud;
     protected ConversationManager cm;
+	protected GameObject pauseMenu;
+	protected GameObject mainUI;
+	protected bool paused;
     public bool inConversation = false;
+
 
     void Start()
     {
@@ -19,17 +23,31 @@ public class GameManager : Singleton<GameManager>
         cm = new ConversationManager(hud);
         cm.PCPicture = PCPicture;
         cm.KittyPicture = KittyPicture;
+
+		pauseMenu = GameObject.FindGameObjectsWithTag("PauseMenu")[0];
+		pauseMenu.GetComponent<UnityEngine.Canvas>().enabled = true;
+		pauseMenu.SetActive(false);
+		mainUI = GameObject.FindGameObjectsWithTag("UI")[0];
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Menu"))
-        {
-            if (menu == null)
-                menu = (GameObject)Instantiate(UpgradeMenuPrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
-            else
-                Destroy(menu);
-        }
+		if (Input.GetButtonDown("Menu"))
+		{
+			// if (menu == null)
+			if (paused == false){
+				pauseMenu.SetActive(true);
+				mainUI.SetActive(false);
+				paused = true;
+				//menu = (GameObject)Instantiate(UpgradeMenu, Vector3.zero, Quaternion.Euler(0, 0, 0));
+				
+			} else {
+				pauseMenu.SetActive(false);
+				mainUI.SetActive(true);
+				paused = false;
+				//Destroy(menu);
+			}
+		}
         if (inConversation)
         {
             if (Input.GetButtonDown("Submit") || 
