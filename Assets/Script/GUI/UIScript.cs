@@ -1,14 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class UIScript : MonoBehaviour {
+	public GameObject currentMenu;
+
+	public virtual void Awake(){
+		currentMenu = GameObject.FindGameObjectsWithTag("PauseMenu")[0];
+	}
 
 	public void StartGame(){
 		Application.LoadLevel(1);
+
 	}
 
-	public void ExitGame(){
-		//exit the game
+	public void RestartGame(){
+		Application.LoadLevel(1);
 	}
 
 	public void SkillUp(){
@@ -18,6 +25,7 @@ public class UIScript : MonoBehaviour {
 	}
 
 	public void UnPause(){
-
+		Time.timeScale = 1;
+		currentMenu.SetActive(false);
 	}
 }
