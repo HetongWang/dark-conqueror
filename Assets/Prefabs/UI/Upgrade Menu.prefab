@@ -40,6 +40,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pc: {fileID: 0}
+  normalAttack: 3
+  eruptionFire: 3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
