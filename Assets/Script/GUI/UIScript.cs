@@ -3,10 +3,10 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class UIScript : MonoBehaviour {
-	public UnityEngine.Canvas pauseMenu;
+	public GameObject currentMenu;
 
 	public virtual void Awake(){
-		pauseMenu = GetComponentInParent<UnityEngine.Canvas>();
+		currentMenu = GameObject.FindGameObjectsWithTag("PauseMenu")[0];
 	}
 
 	public void StartGame(){
@@ -14,8 +14,8 @@ public class UIScript : MonoBehaviour {
 
 	}
 
-	public void ExitGame(){
-		//exit the game
+	public void RestartGame(){
+		Application.LoadLevel(1);
 	}
 
 	public void SkillUp(){
@@ -26,6 +26,6 @@ public class UIScript : MonoBehaviour {
 
 	public void UnPause(){
 		Time.timeScale = 1;
-		pauseMenu.enabled = false;
+		currentMenu.SetActive(false);
 	}
 }

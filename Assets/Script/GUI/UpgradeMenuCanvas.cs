@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class UpgradeMenuCanvas : MonoBehaviour
 {
-    public Player pc;
+    //public Player pc;
 
     void OnEnable()
     {
-        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        //pc = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         Time.timeScale = 0;
     }
 

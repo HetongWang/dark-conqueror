@@ -625,6 +625,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4af80670e996f1645a2ad7e412be0947, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &359920700 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 122800, guid: e93128c647b3b10418af560c261fcf7a, type: 2}
+  m_PrefabInternal: {fileID: 393004829}
 --- !u!1001 &393004829
 Prefab:
   m_ObjectHideFlags: 0
@@ -1701,6 +1705,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 11491248, guid: 48be400a59aedbe4a96b41d1971f161e, type: 2}
+      propertyPath: HUDPrefab
+      value: 
+      objectReference: {fileID: 359920700}
+    - target: {fileID: 11491248, guid: 48be400a59aedbe4a96b41d1971f161e, type: 2}
+      propertyPath: UpgradeMenuPrefab
+      value: 
+      objectReference: {fileID: 180328, guid: 13afdc0954abb9f4c817e0aac5605923, type: 2}
+    - target: {fileID: 11491248, guid: 48be400a59aedbe4a96b41d1971f161e, type: 2}
+      propertyPath: PCPicture
+      value: 
+      objectReference: {fileID: 21300000, guid: 9aab1e394173fec42af275e8d559433e,
+        type: 3}
+    - target: {fileID: 11491248, guid: 48be400a59aedbe4a96b41d1971f161e, type: 2}
+      propertyPath: KittyPicture
+      value: 
+      objectReference: {fileID: 21300000, guid: 1291d384087ce37489370bb4463c2b97,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48be400a59aedbe4a96b41d1971f161e, type: 2}
   m_IsPrefabParent: 0

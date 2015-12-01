@@ -13,6 +13,7 @@ public class GameManager : Singleton<GameManager>
     protected ConversationManager cm;
 	protected GameObject pauseMenu;
 	protected GameObject mainUI;
+	protected GameObject endMenu;
 	protected bool paused;
     public bool inConversation = false;
 

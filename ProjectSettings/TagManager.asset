@@ -11,6 +11,7 @@ TagManager:
   - ground
   - Souls
   - PauseMenu
+  - EndMenu
   layers:
   - Default
   - TransparentFX
