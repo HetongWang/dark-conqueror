@@ -31,7 +31,10 @@ public class Wasp : Enemy
     public override void Update()
     {
         base.Update();
-        behavior = "attack";
+        if (died)
+            return;
+
+        behavior = "high";
         switch (behavior)
         {
             case "high":
@@ -105,7 +108,6 @@ public class Wasp : Enemy
         attackObject.transform.localScale = new Vector3(1.25f, 1.25f, 1);
         BasicAttack waspAttack = attackObject.GetComponent<EnemyCommonAttack>();
         waspAttack.init(this, setting.attack);
-        waspAttack.reActive();
 
         Vector3 playerPosition = ai.targetPlayer.transform.position;
         Vector3 endPosition = transform.position;
@@ -128,6 +130,24 @@ public class Wasp : Enemy
         // Attack completed
         Destroy(attackObject);
         anim.SetInteger("skill", 0);
+        yield break;
+    }
+
+    public override IEnumerator dying()
+    {
+        if (anim)
+            anim.SetBool("dying", true);
+        body.gravityScale = 1;
+        StartCoroutine(soulsExplosion());
+        while (!grounded)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        anim.speed = 0;
+        Destroy(hpBar);
+        yield return new WaitForSeconds(disappearTime);
+        Destroy(gameObject);
         yield break;
     }
 }

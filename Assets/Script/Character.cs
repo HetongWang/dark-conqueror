@@ -198,6 +198,7 @@ abstract public class Character : MonoBehaviour
             actingTime = 9999999f;
             movementFreezenTime = 99999999f;
             anim.SetInteger("skill", 0);
+            cancelCurrentSkill();
             StartCoroutine(dying());
         }
 
