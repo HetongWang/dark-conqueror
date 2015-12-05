@@ -129,6 +129,14 @@ public class BasicAI {
         return movement;
 	}
 
+    public void faceToPlayer()
+    {
+        if (targetPlayer.transform.position.x - _person.transform.position.x > 0.5f && !_person.facingRight)
+            _person.Flip();
+        if (targetPlayer.transform.position.x - _person.transform.position.x < 0.5f && _person.facingRight)
+            _person.Flip();
+    }
+
     public virtual string update()
     {
         seekPlayer();

@@ -317,17 +317,21 @@ public class Player : Character
     {
         anim.SetInteger("skill", 6);
         body.gravityScale = 2;
+        body.velocity = new Vector2(body.velocity.x / 2, 0);
         anim.speed = 0;
+
+        Vector3 position = childPosition(new Vector2(0, -0.8f));
+        GameObject go = (GameObject)Instantiate(dropAttackPrefab, position, Quaternion.Euler(0, 0, 0));
+        go.transform.parent = transform;
+        go.GetComponent<PointEffector2D>().enabled = false;
+        DropAttack a = go.GetComponent<DropAttack>();
+        a.init(this, setting.dropAttack);
 
         while (true)
         {
             if (grounded)
             {
-                Vector3 position = childPosition(new Vector2(0, -0.8f));
-                GameObject go = (GameObject)Instantiate(dropAttackPrefab, position, Quaternion.Euler(0, 0, 0));
-                go.transform.parent = transform;
-                DropAttack a = go.GetComponent<DropAttack>();
-                a.init(this, setting.dropAttack);
+                go.GetComponent<PointEffector2D>().enabled = true;
                 StartCoroutine(cancelDropAttack());
                 break;
             }
@@ -335,7 +339,9 @@ public class Player : Character
         }
         actingTime = setting.dropAttack.actDuration;
         movementFreezenTime = actingTime;
-        yield return new WaitForSeconds(setting.dropAttack.actDuration);
+        yield return new WaitForSeconds(0.1f);
+        Destroy(go);
+        yield return new WaitForSeconds(setting.dropAttack.actDuration - 0.1f);
 
         anim.SetInteger("skill", 0);
         yield break;

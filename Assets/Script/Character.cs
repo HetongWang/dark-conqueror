@@ -368,4 +368,9 @@ abstract public class Character : MonoBehaviour
         r.material.shader = defaultShader;
         yield break;
     }
+
+    public bool inAction()
+    {
+        return actingTime > 0 ? true : false;
+    }
 }

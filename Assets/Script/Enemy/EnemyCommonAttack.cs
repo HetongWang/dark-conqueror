@@ -11,7 +11,7 @@ public class EnemyCommonAttack : BasicAttack
     
     void Start()
     {
-        if (setting.attackDuration > 0)
+        if (setting.attackDuration > 0 && !float.IsInfinity(setting.attackDuration))
             Destroy(gameObject, setting.attackDuration);
     }
 }

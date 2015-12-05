@@ -34,7 +34,7 @@ public class Wasp : Enemy
         if (died)
             return;
 
-        behavior = "high";
+        ai.faceToPlayer();
         switch (behavior)
         {
             case "high":
@@ -51,56 +51,61 @@ public class Wasp : Enemy
 
     public IEnumerator inHigh()
     {
-        if (transform.position.y < setting.highHeight)
+        while (true)
         {
-            move(0, 1);
-        }
-        else
-        {
-            move(0, 0);
-            farting();
+            if (transform.position.y < setting.highHeight - 0.1f)
+            {
+                move(0, 1);
+                yield return new WaitForEndOfFrame();
+            }
+            else
+            {
+                move(0, 0);
+                break;
+            }
         }
         yield break;
     }
 
     public IEnumerator inLow()
     {
-        if (transform.position.y > setting.highHeight  - setting.refLowHeight)
+        while (true)
         {
-            move(0, -1);
-        }
-        else
-        {
-            move(0, 0);
-            farting();
+            if (transform.position.y > setting.highHeight - setting.refLowHeight)
+            {
+                move(0, -1);
+                yield return new WaitForEndOfFrame();
+            }
+            else
+            {
+                move(0, 0);
+                break;
+            }
         }
         yield break;
     }
 
-    public void farting()
-    {
-        float angle = Random.value * 360 * Mathf.Deg2Rad;
-        Vector3 position = new Vector3(Mathf.Cos(angle) * setting.fartingRadius, Mathf.Sin(angle) * setting.fartingRadius, 0);
-        transform.position = Vector3.SmoothDamp(transform.position, position, ref velocity, 0.5f);
-    }
 
     public IEnumerator attack()
     {
         float dis = 2f;
         float timer = 0;
+        // actDuration is infinity
+
         Vector3 newPosition;
         if (facingRight)
             newPosition = new Vector3(transform.position.x - dis, transform.position.y, 0);
         else
             newPosition = new Vector3(transform.position.x + dis, transform.position.y, 0);
+        newPosition.y += 1f;
 
-        while (timer < 1f || transform.position != newPosition)
+        while (timer < 1f && transform.position != newPosition)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, 0.2f, setting.attackMoveSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, newPosition, setting.attackMoveSpeed * Time.deltaTime / 2);
             timer += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
-
+        // wasp prepare attack
 
         GameObject attackObject = Instantiate(attackPrefab);
         attackObject.transform.parent = transform;
@@ -111,24 +116,28 @@ public class Wasp : Enemy
 
         Vector3 playerPosition = ai.targetPlayer.transform.position;
         Vector3 endPosition = transform.position;
+        endPosition.y = setting.highHeight - setting.refLowHeight;
         if (facingRight)
-            endPosition.x += ai.targetPlayerDistance * 2;
+            endPosition.x += ai.targetPlayerDistance * 1.5f;
         else
-            endPosition.x -= ai.targetPlayerDistance * 2;
+            endPosition.x -= ai.targetPlayerDistance * 1.5f;
         while (transform.position != playerPosition)
         {
             transform.position = Vector3.MoveTowards(transform.position, playerPosition, setting.attackMoveSpeed * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
+        // complete attack
 
         while (transform.position != endPosition)
         {
             transform.position = Vector3.MoveTowards(transform.position, endPosition, setting.attackMoveSpeed * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
+        // wasp return low
 
         // Attack completed
         Destroy(attackObject);
+        actingTime = 0;
         anim.SetInteger("skill", 0);
         yield break;
     }

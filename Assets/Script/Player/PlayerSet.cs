@@ -71,7 +71,7 @@ public class PlayerSet : CharacterSet {
         dropAttack.cd = 2f;
         dropAttack.damage = 2f;
         dropAttack.range = 1f;
-        dropAttack.attackDuration = 0.1f;
+        dropAttack.attackDuration = 0f;
         dropAttack.freezenTime = 1f;
 
         eruptionFireTimes = 2;

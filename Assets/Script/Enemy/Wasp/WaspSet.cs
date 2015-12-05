@@ -8,8 +8,8 @@ public class WaspSet : CharacterSet
     public float attackMoveSpeed;
     public SkillSetting high = new SkillSetting();
     public SkillSetting low = new SkillSetting();
-    public RangeAttribute highFartingTime;
-    public RangeAttribute lowFartingTime;
+    public FloatRange highFartingTime;
+    public FloatRange lowFartingTime;
     public float fartingRadius;
     public float refLowHeight;
     public float highHeight;
@@ -17,23 +17,23 @@ public class WaspSet : CharacterSet
     public WaspSet()
     {
         hp = 3;
-        moveSpeed = 2f;
+        moveSpeed = 6f;
         souls = 4;
-        highFartingTime = new RangeAttribute(1, 3);
-        lowFartingTime = new RangeAttribute(2, 4);
-        refLowHeight = 2f;
+        highFartingTime = new FloatRange(1, 3);
+        lowFartingTime = new FloatRange(2, 4);
+        refLowHeight = 1.5f;
         fartingRadius = 1f;
 
-        attack.actDuration = 1f;
-        attack.cd = 2f;
+        attack.actDuration = float.PositiveInfinity;
+        attack.cd = 6f;
         attack.damage = 1.5f;
         attack.range = 10f;
         attack.attackDuration = 0;
-        attackMoveSpeed = 12f;
+        attackMoveSpeed = 15f;
 
-        high.actDuration = 0;
+        high.actDuration = 0.2f;
         high.cd = 1f;
-        low.actDuration = 0;
+        low.actDuration = 0.2f;
         low.cd = 1f;
     }
 }
