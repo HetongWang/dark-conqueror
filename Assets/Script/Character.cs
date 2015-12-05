@@ -218,33 +218,39 @@ abstract public class Character : MonoBehaviour
 
     protected void move(float horInput)
     {
-        // Control horizontal speed
-        if (horInput != 0)
+        if (movementFreezenTime <= 0)
         {
-            Vector2 v = body.velocity;
-            if (Mathf.Abs(v.x) < _setting.moveSpeed * Mathf.Abs(horInput))
-                v.x = _setting.moveSpeed * horInput;
-            else if (Mathf.Sign(horInput) != Mathf.Sign(v.x))
-                v.x += _setting.moveSpeed * horInput;
-            body.velocity = v;
-            //body.velocity = new Vector2(horInput * moveSpeed, body.velocity.y);
-        }
+            // Control horizontal speed
+            if (horInput != 0)
+            {
+                Vector2 v = body.velocity;
+                if (Mathf.Abs(v.x) < _setting.moveSpeed * Mathf.Abs(horInput))
+                    v.x = _setting.moveSpeed * horInput;
+                else if (Mathf.Sign(horInput) != Mathf.Sign(v.x))
+                    v.x += _setting.moveSpeed * horInput;
+                body.velocity = v;
+                //body.velocity = new Vector2(horInput * moveSpeed, body.velocity.y);
+            }
 
-        // Change facing direct
-        if ((horInput > 0 && !facingRight) || (horInput < 0 && facingRight))
-        {
-            Flip();
+            // Change facing direct
+            if ((horInput > 0 && !facingRight) || (horInput < 0 && facingRight))
+            {
+                Flip();
+            }
         }
     }
 
     protected void move(float horInput, float verInput)
     {
-        move(horInput);
-        if (verInput != 0)
-            body.velocity = new Vector2(body.velocity.x, verInput * _setting.moveSpeed);
-        else
+        if (movementFreezenTime <= 0)
         {
-            body.velocity = new Vector2(body.velocity.x, 0);
+            move(horInput);
+            if (verInput != 0)
+                body.velocity = new Vector2(body.velocity.x, verInput * _setting.moveSpeed);
+            else
+            {
+                body.velocity = new Vector2(body.velocity.x, 0);
+            }
         }
     }
 

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6e174240ab1ed994db894e1817dce3a5
-timeCreated: 1447666899
+timeCreated: 1449298280
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 4096
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -74,7 +74,7 @@ TextureImporter:
         width: 517
         height: 675
       alignment: 9
-      pivot: {x: .704061866, y: .358518511}
+      pivot: {x: .63564539, y: .249347329}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WASPDead03
       rect:
@@ -114,7 +114,7 @@ TextureImporter:
         width: 524
         height: 675
       alignment: 9
-      pivot: {x: .694656491, y: .358518511}
+      pivot: {x: .621528447, y: .262448102}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WASPDead04
       rect:
@@ -154,7 +154,7 @@ TextureImporter:
         width: 516
         height: 674
       alignment: 9
-      pivot: {x: .70348835, y: .357566774}
+      pivot: {x: .640651524, y: .24823378}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WASPDead11
       rect:
@@ -194,7 +194,7 @@ TextureImporter:
         width: 523
         height: 674
       alignment: 9
-      pivot: {x: .694072664, y: .357566774}
+      pivot: {x: .620804846, y: .256980568}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WASPDead12
       rect:

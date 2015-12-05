@@ -61,4 +61,10 @@ public class BasicAttack : MonoBehaviour {
         _owner = c;
         this.setting = setting;
     }
+
+    public void reActive()
+    {
+        gameObject.SetActive(true);
+        hurtChar.Clear();
+    }
 }
