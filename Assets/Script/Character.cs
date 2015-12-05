@@ -241,6 +241,19 @@ abstract public class Character : MonoBehaviour
         }
     }
 
+    protected void moveVer(float verInput)
+    {
+        if (movementFreezenTime <= 0)
+        {
+            if (verInput != 0)
+                body.velocity = new Vector2(body.velocity.x, verInput * _setting.moveSpeed);
+            else
+            {
+                body.velocity = new Vector2(body.velocity.x, 0);
+            }
+        }
+    }
+
     protected void move(float horInput, float verInput)
     {
         if (movementFreezenTime <= 0)

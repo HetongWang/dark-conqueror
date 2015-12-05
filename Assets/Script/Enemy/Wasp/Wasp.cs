@@ -53,14 +53,22 @@ public class Wasp : Enemy
     {
         while (true)
         {
+            if (ai.targetPlayerDistance > 5f)
+            {
+                move(facingRight ? 1 : -1);
+            }
+            else
+            {
+                move(0);
+            }
             if (transform.position.y < setting.highHeight - 0.1f)
             {
-                move(0, 1);
+                moveVer(1);
                 yield return new WaitForEndOfFrame();
             }
             else
             {
-                move(0, 0);
+                moveVer(0);
                 break;
             }
         }
@@ -71,14 +79,22 @@ public class Wasp : Enemy
     {
         while (true)
         {
+            if (ai.targetPlayerDistance > 5f)
+            {
+                move(facingRight ? 1 : -1);
+            }
+            else
+            {
+                move(0);
+            }
             if (transform.position.y > setting.highHeight - setting.refLowHeight)
             {
-                move(0, -1);
+                moveVer(-1);
                 yield return new WaitForEndOfFrame();
             }
             else
             {
-                move(0, 0);
+                moveVer(0);
                 break;
             }
         }
@@ -158,6 +174,7 @@ public class Wasp : Enemy
     {
         if (anim)
             anim.SetBool("dying", true);
+        GetComponent<CircleCollider2D>().isTrigger = false;
         body.gravityScale = 1;
         StartCoroutine(soulsExplosion());
         while (!grounded)
