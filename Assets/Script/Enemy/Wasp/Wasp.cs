@@ -175,14 +175,13 @@ public class Wasp : Enemy
         if (anim)
             anim.SetBool("dying", true);
         GetComponent<CircleCollider2D>().isTrigger = false;
-        body.gravityScale = 1;
+        body.gravityScale = 0.4f;
         StartCoroutine(soulsExplosion());
         while (!grounded)
         {
             yield return new WaitForEndOfFrame();
         }
 
-        anim.speed = 0;
         Destroy(hpBar);
         yield return new WaitForSeconds(disappearTime);
         Destroy(gameObject);
