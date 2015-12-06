@@ -17,9 +17,11 @@ public class KittySet: CharacterSet {
     public float slashMoveDist;
     public float slashForce;
     public SkillSetting shadowAttack = new SkillSetting();
+    public float shadowAttackFadeOutTime;
     public IntRange shadowAttackTimes;
     public float shadowFadeOutTime;
-    public float shadowSilenceTime;
+    public float shadowFadeInTime;
+    public FloatRange shadowSilenceTime;
     public Vector2 shadowPosition;
     public float shadowAttackSpeed;
 
@@ -40,7 +42,7 @@ public class KittySet: CharacterSet {
         KittyThrust.freezenTime = 0.8f;
         KittyThrust.targetForce = new Vector2(500, 0);
 
-        enrageTrigger = hp * 0.6f;
+        enrageTrigger = hp * 0.9f;
         KittyEnrage.actDuration = 1f;
         KittyEnrage.cd = 2000f;
         KittyEnrage.damage = 0f;
@@ -74,10 +76,13 @@ public class KittySet: CharacterSet {
         shadowAttack.freezenTime = 1f;
         shadowAttack.attackDuration = 0;
         shadowAttack.targetForce = new Vector2(300f, 0);
+
         shadowFadeOutTime = 1f;
-        shadowSilenceTime = 0.5f;
-        shadowAttackTimes = new IntRange(3, 4);
-        shadowPosition = new Vector2(3, 2);
-        shadowAttackSpeed = 6f;
+        shadowFadeInTime = 1f;
+        shadowSilenceTime = new FloatRange(0, 0);
+        shadowAttackTimes = new IntRange(2, 4);
+        shadowAttackFadeOutTime = 0.3f;
+        shadowPosition = new Vector2(6, 4);
+        shadowAttackSpeed = 20f;
     }
 }

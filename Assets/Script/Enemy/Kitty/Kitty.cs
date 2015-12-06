@@ -13,7 +13,8 @@ public class Kitty: Enemy
         slash,
         enrage,
         shadowFadeOut,
-        shadowAttack
+        shadowAttack,
+        shadowFadeIn
     }
 
     public GameObject thrustAttackPrefab;
@@ -50,6 +51,7 @@ public class Kitty: Enemy
     public override void Update()
     {
         base.Update();
+        behavior = "shadow";
         switch (behavior)
         {
             case "enrage":
@@ -68,7 +70,7 @@ public class Kitty: Enemy
                 useSkill(behavior, setting.slash);
                 break;
             case "shadow":
-                useSkill(behavior, setting.shadowAttack);
+                useSkill(behavior, setting.shadowAttack, true);
                 break;
         }
     }
@@ -162,7 +164,6 @@ public class Kitty: Enemy
         setting.slash.cd *= setting.enrageEnhancement;
         setting.KittyThrust.damage *= setting.enrageEnhancement;
         setting.KittyThrust.targetForce *= setting.enrageEnhancement;
-        addSkill("shadow", shadow);
     }
 
     public IEnumerator summonWolf()
@@ -255,33 +256,80 @@ public class Kitty: Enemy
     public IEnumerator shadow()
     {
         int times = 0;
+        Vector3 initPosition;
 
         antiStaggerTime = float.PositiveInfinity;
         anim.SetInteger("skill", (int)Ability.shadowFadeOut);
+        body.gravityScale = 0;
+        body.AddForce(new Vector2(50, 200));
         yield return new WaitForSeconds(setting.shadowFadeOutTime);
-        yield return new WaitForSeconds(setting.shadowSilenceTime);
+
+        body.velocity = Vector2.zero;
+        initPosition = transform.position;
+        yield return new WaitForSeconds(setting.shadowSilenceTime.random());
 
         anim.SetInteger("skill", (int)Ability.shadowAttack);
         setting.moveSpeed = setting.shadowAttackSpeed;
         while (times < setting.shadowAttackTimes.random())
         {
+            // Random start position
             Vector2 position = ai.targetPlayer.transform.position;
-            if (Random.value > 0.5f)
+            bool attackFromSky = Random.value > 0.5 ? false : true;
+            bool attackFromRight = Random.value > 0.5 ? false : true;
+            if (attackFromRight)
                 position.x += setting.shadowPosition.x;
             else
                 position.x -= setting.shadowPosition.x;
-
-            if (Random.value > 0.5f)
+            if (attackFromSky)
                 position.y += setting.shadowPosition.y;
 
+            // Start attack
+            transform.position = position;
             Vector2 playerPosition = new Vector2(ai.targetPlayer.transform.position.x, ai.targetPlayer.transform.position.y);
-            move((playerPosition - position).normalized);
 
+            float timer = 0;
+            
+            // Attack Duration
+            while (true)
+            {
+                move((playerPosition - position).normalized);
+                timer += Time.deltaTime;
+                if (!attackFromSky && timer > 0.4f)
+                    break;
+                if (attackFromSky && grounded)
+                    break;
+                yield return new WaitForEndOfFrame();
+            }
+
+            timer = 0;
+            while (timer < setting.shadowAttackFadeOutTime)
+            {
+                yield return new WaitForEndOfFrame();
+                float t = timer / setting.shadowAttackFadeOutTime;
+                GetComponent<SpriteRenderer>().material.color = Color.Lerp(Color.white, Color.clear, t);
+                timer += Time.deltaTime;
+            }
+
+            transform.position = new Vector3(0, 10000, transform.position.z);
+            yield return new WaitForSeconds(setting.shadowSilenceTime.random());
             times += 1;
+            GetComponent<SpriteRenderer>().material.color = Color.white;
         }
+
+        anim.SetInteger("skill", (int)Ability.shadowFadeIn);
+        yield return new WaitForEndOfFrame();
+        transform.position = initPosition;
+        body.velocity = Vector2.zero;
+        ai.faceToPlayer();
         setting.moveSpeed = new KittySet().moveSpeed;
+        body.gravityScale = 0.5f;
+        yield return new WaitForSeconds(setting.shadowFadeInTime);
 
         antiStaggerTime = 0;
+        actingTime = 0;
+        movementFreezenTime = 0;
+        body.gravityScale = 1;
+        anim.SetInteger("skill", (int)Ability.idle);
         yield break;
     }
 }
