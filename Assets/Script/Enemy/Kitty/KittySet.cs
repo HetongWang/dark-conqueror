@@ -16,7 +16,12 @@ public class KittySet: CharacterSet {
     public SkillSetting slash = new SkillSetting();
     public float slashMoveDist;
     public float slashForce;
-    public SkillSetting shadow = new SkillSetting();
+    public SkillSetting shadowAttack = new SkillSetting();
+    public IntRange shadowAttackTimes;
+    public float shadowFadeOutTime;
+    public float shadowSilenceTime;
+    public Vector2 shadowPosition;
+    public float shadowAttackSpeed;
 
     public float KittyWolfMoveSpeed = 11f;
     public float KittyWolfDistance = 30f;
@@ -24,18 +29,18 @@ public class KittySet: CharacterSet {
 
     public KittySet()
     {
-        hp = 50;
+        hp = 70;
         souls = 20;
 
         KittyThrust.actDuration = SkillSetting.frameToSeconds(7, 12);
         KittyThrust.cd = 3f;
         KittyThrust.damage = 2f;
         KittyThrust.range = 1.4f;
-        KittyThrust.attackDuration = 0.6f;
+        KittyThrust.attackDuration = 0.4f;
         KittyThrust.freezenTime = 0.8f;
         KittyThrust.targetForce = new Vector2(500, 0);
 
-        enrageTrigger = hp * 0.9f;
+        enrageTrigger = hp * 0.6f;
         KittyEnrage.actDuration = 1f;
         KittyEnrage.cd = 2000f;
         KittyEnrage.damage = 0f;
@@ -63,10 +68,16 @@ public class KittySet: CharacterSet {
         slashMoveDist = 2.5f;
         slash.targetForce = new Vector2(300f, 0);
 
-        shadow.actDuration = float.PositiveInfinity;
-        shadow.damage = 5f;
-        shadow.freezenTime = 1f;
-        shadow.attackDuration = 0;
-        shadow.targetForce = new Vector2(300f, 0);
+        shadowAttack.actDuration = float.PositiveInfinity;
+        shadowAttack.damage = 5f;
+        shadowAttack.cd = 5f;
+        shadowAttack.freezenTime = 1f;
+        shadowAttack.attackDuration = 0;
+        shadowAttack.targetForce = new Vector2(300f, 0);
+        shadowFadeOutTime = 1f;
+        shadowSilenceTime = 0.5f;
+        shadowAttackTimes = new IntRange(3, 4);
+        shadowPosition = new Vector2(3, 2);
+        shadowAttackSpeed = 6f;
     }
 }

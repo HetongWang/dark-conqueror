@@ -7,7 +7,7 @@ public class Wasp : Enemy
     public GameObject attackPrefab;
     [HideInInspector]
     public WaspSet setting;
-    private Vector3 velocity;
+    public float flipLock;
 
     public override void Awake()
     {
@@ -34,7 +34,10 @@ public class Wasp : Enemy
         if (died)
             return;
 
-        ai.faceToPlayer();
+        if (flipLock > 0)
+            flipLock -= Time.deltaTime;
+        if (flipLock <= 0)
+            ai.faceToPlayer();
         switch (behavior)
         {
             case "high":
@@ -53,7 +56,7 @@ public class Wasp : Enemy
     {
         while (true)
         {
-            if (ai.targetPlayerDistance > 5f)
+            if (ai.targetPlayerDistance > setting.attack.range)
             {
                 move(facingRight ? 1 : -1);
             }
@@ -79,7 +82,7 @@ public class Wasp : Enemy
     {
         while (true)
         {
-            if (ai.targetPlayerDistance > 5f)
+            if (ai.targetPlayerDistance > setting.attack.range)
             {
                 move(facingRight ? 1 : -1);
             }
@@ -150,6 +153,7 @@ public class Wasp : Enemy
             transform.position = Vector3.MoveTowards(transform.position, playerPosition, setting.attackMoveSpeed * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
+        flipLock = 0.3f;
         // complete attack
 
         while (transform.position != endPosition)
@@ -175,7 +179,7 @@ public class Wasp : Enemy
         if (anim)
             anim.SetBool("dying", true);
         GetComponent<CircleCollider2D>().isTrigger = false;
-        body.gravityScale = 0.4f;
+        body.gravityScale = 0.6f;
         StartCoroutine(soulsExplosion());
         while (!grounded)
         {

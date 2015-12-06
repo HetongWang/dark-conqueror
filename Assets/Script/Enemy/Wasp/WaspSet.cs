@@ -18,7 +18,7 @@ public class WaspSet : CharacterSet
     {
         hpBarOffset = new Vector2(0, 1.5f);
         hp = 3;
-        moveSpeed = 6f;
+        moveSpeed = 5f;
         souls = 4;
         highFartingTime = new FloatRange(1, 3);
         lowFartingTime = new FloatRange(2, 4);
@@ -28,9 +28,9 @@ public class WaspSet : CharacterSet
         attack.actDuration = float.PositiveInfinity;
         attack.cd = 6f;
         attack.damage = 1.5f;
-        attack.range = 10f;
+        attack.range = 3f;
         attack.attackDuration = 0;
-        attackMoveSpeed = 15f;
+        attackMoveSpeed = 13f;
 
         high.actDuration = 0.2f;
         high.cd = 1f;

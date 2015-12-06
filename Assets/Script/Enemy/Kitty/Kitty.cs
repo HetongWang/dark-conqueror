@@ -11,7 +11,9 @@ public class Kitty: Enemy
         summonWolf,
         leap,
         slash,
-        enrage
+        enrage,
+        shadowFadeOut,
+        shadowAttack
     }
 
     public GameObject thrustAttackPrefab;
@@ -36,6 +38,7 @@ public class Kitty: Enemy
         addSkill("summonWolf", summonWolf);
         addSkill("leap", leap);
         addSkill("slash", slash);
+        addSkill("shadow", shadow);
 
         facingRight = false;
 
@@ -63,6 +66,9 @@ public class Kitty: Enemy
                 break;
             case "slash":
                 useSkill(behavior, setting.slash);
+                break;
+            case "shadow":
+                useSkill(behavior, setting.shadowAttack);
                 break;
         }
     }
@@ -156,6 +162,7 @@ public class Kitty: Enemy
         setting.slash.cd *= setting.enrageEnhancement;
         setting.KittyThrust.damage *= setting.enrageEnhancement;
         setting.KittyThrust.targetForce *= setting.enrageEnhancement;
+        addSkill("shadow", shadow);
     }
 
     public IEnumerator summonWolf()
@@ -247,6 +254,34 @@ public class Kitty: Enemy
 
     public IEnumerator shadow()
     {
+        int times = 0;
+
+        antiStaggerTime = float.PositiveInfinity;
+        anim.SetInteger("skill", (int)Ability.shadowFadeOut);
+        yield return new WaitForSeconds(setting.shadowFadeOutTime);
+        yield return new WaitForSeconds(setting.shadowSilenceTime);
+
+        anim.SetInteger("skill", (int)Ability.shadowAttack);
+        setting.moveSpeed = setting.shadowAttackSpeed;
+        while (times < setting.shadowAttackTimes.random())
+        {
+            Vector2 position = ai.targetPlayer.transform.position;
+            if (Random.value > 0.5f)
+                position.x += setting.shadowPosition.x;
+            else
+                position.x -= setting.shadowPosition.x;
+
+            if (Random.value > 0.5f)
+                position.y += setting.shadowPosition.y;
+
+            Vector2 playerPosition = new Vector2(ai.targetPlayer.transform.position.x, ai.targetPlayer.transform.position.y);
+            move((playerPosition - position).normalized);
+
+            times += 1;
+        }
+        setting.moveSpeed = new KittySet().moveSpeed;
+
+        antiStaggerTime = 0;
         yield break;
     }
 }

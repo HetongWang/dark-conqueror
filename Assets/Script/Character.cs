@@ -268,6 +268,11 @@ abstract public class Character : MonoBehaviour
         }
     }
 
+    protected void move(Vector2 v)
+    {
+        move(v.x, v.y);
+    }
+
     protected void detectGround()
     {
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
@@ -300,7 +305,10 @@ abstract public class Character : MonoBehaviour
     }
     public void useSkill(string name, SkillSetting setting, bool canMove = false, bool enforce = false)
     {
-        if (name != null && skillCooler[name] <= 0 && (canActing() || enforce))
+        if (!skills.ContainsKey(name) || name == null)
+            return;
+
+        if (skillCooler[name] <= 0 && (canActing() || enforce))
         {
             Debug.Log(name);
             if (enforce && currentSkill != null)
