@@ -16,6 +16,7 @@ public class WaspSet : CharacterSet
 
     public WaspSet()
     {
+        hpBarOffset = new Vector2(0, 1.5f);
         hp = 3;
         moveSpeed = 6f;
         souls = 4;

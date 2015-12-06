@@ -119,8 +119,8 @@ public class Wasp : Enemy
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation,
                                  Quaternion.Euler(new Vector3(0, 0, facingRight ? -45 : 45)), 90 * Time.deltaTime);
-            hpBar.transform.localRotation = Quaternion.RotateTowards(transform.rotation,
-                                            Quaternion.Euler(new Vector3(0, 0, facingRight ? -45 : 45)), 90 * Time.deltaTime);
+            hpBar.transform.localRotation = Quaternion.RotateTowards(hpBar.transform.localRotation,
+                                            Quaternion.Euler(new Vector3(0, 0, facingRight ? -45 : -45)), 90 * Time.deltaTime);
             transform.position = Vector3.MoveTowards(transform.position, newPosition, setting.attackMoveSpeed * Time.deltaTime / 2);
             timer += Time.deltaTime;
             yield return new WaitForEndOfFrame();
@@ -145,8 +145,8 @@ public class Wasp : Enemy
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation,
                                  Quaternion.Euler(new Vector3(0, 0, facingRight ? 45 : -45)), 270 * Time.deltaTime);
-            hpBar.transform.localRotation = Quaternion.RotateTowards(transform.rotation,
-                                            Quaternion.Euler(new Vector3(0, 0, facingRight ? 45 : -45)), 90 * Time.deltaTime);
+            hpBar.transform.localRotation = Quaternion.RotateTowards(hpBar.transform.localRotation,
+                                            Quaternion.Euler(new Vector3(0, 0, 45)), 270 * Time.deltaTime);
             transform.position = Vector3.MoveTowards(transform.position, playerPosition, setting.attackMoveSpeed * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
@@ -156,8 +156,8 @@ public class Wasp : Enemy
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, 
                                  Quaternion.Euler(new Vector3(0, 0, 0)), 270 * Time.deltaTime);
-            hpBar.transform.localRotation = Quaternion.RotateTowards(transform.rotation,
-                                            Quaternion.Euler(new Vector3(0, 0, 0)), 90 * Time.deltaTime);
+            hpBar.transform.localRotation = Quaternion.RotateTowards(hpBar.transform.localRotation,
+                                            Quaternion.Euler(new Vector3(0, 0, 0)), 270 * Time.deltaTime);
             transform.position = Vector3.MoveTowards(transform.position, endPosition, setting.attackMoveSpeed * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
