@@ -7,8 +7,11 @@ public class KittySet: CharacterSet {
     public float enrageTrigger;
     public float enrageEnhancement = 1.5f;
 
+    public SkillSetting idle = new SkillSetting();
+    public FloatRange idleTime;
+    public float idleProAfterLeap;
+    public FloatRange idleTimeAfterShadow;
     public SkillSetting KittyThrust = new SkillSetting();
-
     public SkillSetting KittyEnrage = new SkillSetting();
     public SkillSetting SummonWolf = new SkillSetting();
     public SkillSetting Leap = new SkillSetting();
@@ -34,6 +37,10 @@ public class KittySet: CharacterSet {
         hp = 70;
         souls = 20;
 
+        idleTime = new FloatRange(0.5f, 2);
+        idleProAfterLeap = 0.5f;
+        idleTimeAfterShadow = new FloatRange(3, 4);
+
         KittyThrust.actDuration = SkillSetting.frameToSeconds(7, 12);
         KittyThrust.cd = 3f;
         KittyThrust.damage = 2f;
@@ -50,7 +57,7 @@ public class KittySet: CharacterSet {
         KittyEnrage.targetForce = new Vector2(100, 0);
 
         SummonWolf.actDuration = SkillSetting.frameToSeconds(7, 12);
-        SummonWolf.cd = 8f;
+        SummonWolf.cd = 18f;
         SummonWolf.damage = 3f;
         SummonWolf.range = 10f;
         SummonWolf.attackDuration = 0f;
@@ -72,14 +79,14 @@ public class KittySet: CharacterSet {
 
         shadowAttack.actDuration = float.PositiveInfinity;
         shadowAttack.damage = 5f;
-        shadowAttack.cd = 5f;
+        shadowAttack.cd = 25f;
         shadowAttack.freezenTime = 1f;
         shadowAttack.attackDuration = 0;
-        shadowAttack.targetForce = new Vector2(300f, 0);
+        shadowAttack.targetForce = new Vector2(400f, 0);
 
         shadowFadeOutTime = 1f;
         shadowFadeInTime = 1f;
-        shadowSilenceTime = new FloatRange(0, 0);
+        shadowSilenceTime = new FloatRange(1, 3);
         shadowAttackTimes = new IntRange(2, 4);
         shadowAttackFadeOutTime = 0.3f;
         shadowPosition = new Vector2(6, 4);

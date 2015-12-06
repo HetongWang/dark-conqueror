@@ -16,11 +16,14 @@ public class KittyAI : BasicAI {
     {
         string skillName = null;
 
-        if (targetPlayerDistance < person.setting.SummonWolf.range && person.skillCooler["summonWolf"] <= 0)
-            return "summonWolf";
-
         if (isEnrage())
             return "enrage";
+
+        if (person.enraged && person.skillCooler["shadow"] <= 0)
+            return "shadow";
+
+        if (targetPlayerDistance < person.setting.SummonWolf.range && person.skillCooler["summonWolf"] <= 0)
+            return "summonWolf";
 
         if (targetPlayer)
         {

@@ -22,6 +22,7 @@ public class Kitty: Enemy
     public GameObject slash2Prefab;
     public GameObject enragePrefab;
     public GameObject kittyWolfPrefab;
+    public GameObject shadowAttackPrefab;
 
     public bool enraged = false;
     private bool slashing = false;
@@ -34,6 +35,7 @@ public class Kitty: Enemy
         _setting = new KittySet();
         dyingDuration = 1.5f;
         setting = (KittySet)_setting;
+        addSkill("idle", idle);
         addSkill("thrust", thrustAttack);
         addSkill("enrage", enrage);
         addSkill("summonWolf", summonWolf);
@@ -51,9 +53,12 @@ public class Kitty: Enemy
     public override void Update()
     {
         base.Update();
-        behavior = "shadow";
         switch (behavior)
         {
+            case "idle":
+                setting.idle.actDuration = setting.idleTime.random();
+                useSkill(behavior, setting.idle);
+                break;
             case "enrage":
                 useSkill(behavior, setting.KittyEnrage, false, true);
                 break;
@@ -202,6 +207,11 @@ public class Kitty: Enemy
         yield return new WaitForSeconds(setting.Leap.actDuration - 9 / 24);
 
         anim.SetInteger("skill", 0);
+        if (Random.value < setting.idleProAfterLeap)
+        {
+            setting.idle.actDuration = setting.idleTime.random();
+            useSkill("idle", setting.idle, false, true);
+        }
         yield break;
     }
 
@@ -268,8 +278,15 @@ public class Kitty: Enemy
         initPosition = transform.position;
         yield return new WaitForSeconds(setting.shadowSilenceTime.random());
 
+        // Start attack
         anim.SetInteger("skill", (int)Ability.shadowAttack);
         setting.moveSpeed = setting.shadowAttackSpeed;
+        GameObject go = Instantiate(shadowAttackPrefab);
+        go.transform.parent = transform;
+        go.transform.localPosition = new Vector3(-2.23f, 0.04f, 0);
+        go.transform.localScale = new Vector3(4.57f, 4.57f, 1);
+        EnemyCommonAttack attack = go.GetComponent<EnemyCommonAttack>();
+        attack.init(this, setting.shadowAttack);
         while (times < setting.shadowAttackTimes.random())
         {
             // Random start position
@@ -312,16 +329,18 @@ public class Kitty: Enemy
 
             transform.position = new Vector3(0, 10000, transform.position.z);
             yield return new WaitForSeconds(setting.shadowSilenceTime.random());
-            times += 1;
             GetComponent<SpriteRenderer>().material.color = Color.white;
+            attack.reActive();
+            times += 1;
         }
 
         anim.SetInteger("skill", (int)Ability.shadowFadeIn);
+        Destroy(go);
         yield return new WaitForEndOfFrame();
         transform.position = initPosition;
-        body.velocity = Vector2.zero;
         ai.faceToPlayer();
         setting.moveSpeed = new KittySet().moveSpeed;
+        body.velocity = Vector2.zero;
         body.gravityScale = 0.5f;
         yield return new WaitForSeconds(setting.shadowFadeInTime);
 
@@ -330,6 +349,14 @@ public class Kitty: Enemy
         movementFreezenTime = 0;
         body.gravityScale = 1;
         anim.SetInteger("skill", (int)Ability.idle);
+
+        setting.idle.actDuration = setting.idleTimeAfterShadow.random();
+        useSkill("idle", setting.idle, false, true);
+        yield break;
+    }
+
+    public IEnumerator idle()
+    {
         yield break;
     }
 }
