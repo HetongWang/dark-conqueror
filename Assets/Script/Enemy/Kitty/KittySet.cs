@@ -16,6 +16,7 @@ public class KittySet: CharacterSet {
     public SkillSetting slash = new SkillSetting();
     public float slashMoveDist;
     public float slashForce;
+    public SkillSetting shadow = new SkillSetting();
 
     public float KittyWolfMoveSpeed = 11f;
     public float KittyWolfDistance = 30f;
@@ -61,5 +62,11 @@ public class KittySet: CharacterSet {
         slash.attackDuration = 0.2f;
         slashMoveDist = 2.5f;
         slash.targetForce = new Vector2(300f, 0);
+
+        shadow.actDuration = float.PositiveInfinity;
+        shadow.damage = 5f;
+        shadow.freezenTime = 1f;
+        shadow.attackDuration = 0;
+        shadow.targetForce = new Vector2(300f, 0);
     }
 }

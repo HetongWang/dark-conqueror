@@ -244,4 +244,9 @@ public class Kitty: Enemy
         anim.SetInteger("skill", (int)Ability.idle);
         yield break;
     }
+
+    public IEnumerator shadow()
+    {
+        yield break;
+    }
 }
