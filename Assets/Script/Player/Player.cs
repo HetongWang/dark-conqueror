@@ -12,6 +12,7 @@ public class Player : Character
 
     public GameObject normalAttackPrefab;
     public GameObject commonAttackPrefab;
+    public GameObject overheadSwingPrefab;
     public GameObject dropAttackPrefab;
     public GameObject eruptionFirePrefab;
 
@@ -346,14 +347,14 @@ public class Player : Character
     public IEnumerator overheadSwing()
     {
         anim.SetInteger("skill", 5);
-        yield return new WaitForSeconds(SkillSetting.frameToSeconds(25, 30));
+        yield return new WaitForSeconds(setting.overheadSwing.actDuration * 0.6f);
 
         Vector3 position = childPosition(new Vector2(setting.overheadSwing.range / 2, 0));
-        GameObject go =  (GameObject)Instantiate(commonAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        GameObject go =  (GameObject)Instantiate(overheadSwingPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         PCCommonAttack attack = go.GetComponent<PCCommonAttack>();
         attack.init(this, setting.overheadSwing);
         attack.transform.parent = transform;
-        yield return new WaitForSeconds(setting.overheadSwing.actDuration - 25 / 30);
+        yield return new WaitForSeconds(setting.overheadSwing.actDuration * 0.4f);
 
         anim.SetInteger("skill", 0);
         yield break;

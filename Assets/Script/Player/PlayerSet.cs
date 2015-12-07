@@ -82,7 +82,7 @@ public class PlayerSet : CharacterSet {
         dodge.damage = 0f;
         dodge.range = 2f;
 
-        overheadSwing.actDuration = SkillSetting.frameToSeconds(36, 30);
+        overheadSwing.actDuration = SkillSetting.frameToSeconds(40, 30);
         overheadSwing.damage = 4f;
         overheadSwing.range = 1.5f;
         overheadSwing.cd = 1.3f;
