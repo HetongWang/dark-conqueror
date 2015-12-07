@@ -91,6 +91,7 @@ public class CatWolf : Enemy
     public IEnumerator alert()
     {
         anim.SetInteger("skill", (int)Ability.alert);
+        antiStaggerTime = setting.alert.actDuration;
         CatWolfAI _ai = (CatWolfAI)ai;
         _ai.alerted = true;
         yield return new WaitForSeconds(setting.alert.actDuration);
