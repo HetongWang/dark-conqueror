@@ -54,7 +54,6 @@ public class Enemy : Character
         if (anim)
             anim.SetBool("dying", true);
         StartCoroutine(soulsExplosion());
-        ai.targetPlayer.GetComponent<Player>().hp += 2.5f;
         yield return new WaitForSeconds(dyingDuration);
 
         Destroy(hpBar);
