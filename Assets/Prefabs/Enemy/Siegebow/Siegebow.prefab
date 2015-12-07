@@ -28,6 +28,7 @@ GameObject:
   - 50: {fileID: 5018368}
   - 61: {fileID: 6195934}
   - 114: {fileID: 11417114}
+  - 95: {fileID: 9568076}
   m_Layer: 10
   m_Name: Siegebow
   m_TagString: Enemy
@@ -54,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0340000018, y: -.338999987, z: 0}
+  m_LocalPosition: {x: -170.411407, y: -.121511221, z: 0}
   m_LocalScale: {x: .28609854, y: .28609854, z: .28609854}
   m_Children:
   - {fileID: 438642}
@@ -89,6 +90,23 @@ BoxCollider2D:
   m_Offset: {x: 2.32999992, y: -1.16999996}
   serializedVersion: 2
   m_Size: {x: 5.81914139, y: 3.81016564}
+--- !u!95 &9568076
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159090}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1d5540801f2b16546be1436d84503e8f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11417114
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -4,8 +4,8 @@ using System.Collections;
 public class SkillsUI : MonoBehaviour
 {
     protected Player pc;
-	public int normalAttack = 3;
-	public int eruptionFire= 3;
+	public int normalAttack = 13;
+	public int eruptionFire= 6;
     UnityEngine.UI.Text text;
 
     public virtual void Awake()

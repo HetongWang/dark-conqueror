@@ -161,7 +161,6 @@ abstract public class Character : MonoBehaviour
             }
             else
             {
-                StartCoroutine(GameManager.slowMotion(0.02f, 0.2f, 0f));
                 StartCoroutine(hurtFlash(new Color(1, 0.4f, 0.4f)));
             }
             lastHurt = setting;

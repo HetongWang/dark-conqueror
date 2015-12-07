@@ -17,6 +17,7 @@ public class SiegeBow : Enemy
         dyingDuration = 0f;
         disappearTime = 0f;
         ai = new SiegeBowAI(this);
+        anim = GetComponent<Animator>();
         setHPBar(setting.hpBarOffset, setting.hp);
         addSkill("shoot", shoot, setting.SiegeBowShoot.cd);
     }

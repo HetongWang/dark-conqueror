@@ -59,6 +59,7 @@ public class Enemy : Character
 
         Destroy(hpBar);
         yield return new WaitForSeconds(disappearTime);
+        Debug.Log("asdf");
         Destroy(gameObject);
         yield break;
     }
