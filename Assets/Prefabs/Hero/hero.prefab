@@ -47,6 +47,7 @@ GameObject:
   - 114: {fileID: 11407896}
   - 58: {fileID: 5847178}
   - 95: {fileID: 9517630}
+  - 82: {fileID: 8211100}
   m_Layer: 9
   m_Name: hero
   m_TagString: Player
@@ -102,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -173.830002, y: -.980000019, z: 0}
+  m_LocalPosition: {x: -7.01669979, y: -.230000004, z: 0}
   m_LocalScale: {x: .238240853, y: .238240868, z: .238240868}
   m_Children:
   - {fileID: 432832}
@@ -190,6 +191,76 @@ BoxCollider2D:
   m_Offset: {x: -.298712671, y: .699999988}
   serializedVersion: 2
   m_Size: {x: 2.34257054, y: 5.40999985}
+--- !u!82 &8211100
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185750}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 05250de7828fc1447930c52888ee57b6, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: .620000005
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!95 &9517630
 Animator:
   serializedVersion: 3
@@ -225,10 +296,17 @@ MonoBehaviour:
   disappearTime: 4
   body: {fileID: 0}
   souls: 0
+  stamina: 0
+  magic: 0
   normalAttackPrefab: {fileID: 183768, guid: 284fc0c03170d8f478951f32c2dc30ee, type: 2}
   commonAttackPrefab: {fileID: 183768, guid: 044c3a677f40b4b4391e0a752a52ce0b, type: 2}
   dropAttackPrefab: {fileID: 175328, guid: 2da9a2cda89b02f4db3394f0e1b5c59b, type: 2}
   eruptionFirePrefab: {fileID: 159472, guid: d02114af7038ed54aa8e8fba6ec9d7ef, type: 2}
+  swordSwing1: {fileID: 8300000, guid: 05250de7828fc1447930c52888ee57b6, type: 3}
+  swordSwing2: {fileID: 8300000, guid: 4955d89e6a3782349be4756edc704dd2, type: 3}
+  swordSwing3: {fileID: 8300000, guid: a4fb8d7a89ccc414fbbde3bbb3d26928, type: 3}
+  swordDrop: {fileID: 8300000, guid: b75817db5e8d72349b9f5b38ce63450d, type: 3}
+  playerAudio: {fileID: 0}
   normalAttackLevel: 1
 --- !u!114 &11472700
 MonoBehaviour:
