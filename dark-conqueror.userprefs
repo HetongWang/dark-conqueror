@@ -1,16 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Player\Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\GUI\UIScript.cs">
     <Files>
       <File FileName="Assets\Script\BasicAttack.cs" Line="27" Column="14" />
       <File FileName="Assets\Script\UI\SkillsUI.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\GUI\UpgradeMenuCanvas.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\GUI\UIScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\GUI\UIScript.cs" Line="32" Column="25" />
       <File FileName="Assets\Script\GameManager\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Player\Player.cs" Line="66" Column="3" />
+      <File FileName="Assets\Script\Player\Player.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\Player\PlayerSet.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\GameManager\Level1\Level1TriggerGameOver.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\Enemy\Kitty\Kitty.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\GameManager\Level1\Level1Trigger0.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
