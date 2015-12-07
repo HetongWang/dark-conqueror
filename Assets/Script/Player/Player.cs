@@ -219,16 +219,18 @@ public class Player : Character
         if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
         {
             buttonCount["right"] += 1;
+            buttonCount["right"] %= 3;
             direction = "right";
         }
         if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
         {
             buttonCount["left"] += 1;
+            buttonCount["left"] %= 3;
             direction = "left";
         }
 
         if (multiTapDetect(direction, 2) || multiTapDetect(direction, 2))
-            useSkill("dodge", setting.dodge, true, true);
+            useSkill("dodge", setting.dodge, true);
     }
 
     public IEnumerator dodge()

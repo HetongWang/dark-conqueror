@@ -147,6 +147,7 @@ public class Kitty: Enemy
         if (currentSkill != null)
             cancelCurrentSkill();
         enrageEnhance();
+
         GameObject go = Instantiate(enragePrefab);
         go.transform.parent = transform;
         go.transform.localPosition = new Vector3(-0.2f, 0, 0);

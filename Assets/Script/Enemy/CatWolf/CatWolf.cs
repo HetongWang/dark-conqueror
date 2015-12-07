@@ -54,7 +54,7 @@ public class CatWolf : Enemy
         switch (behavior)
         {
             case "alert":
-                useSkill(behavior, setting.alert);
+                useSkill(behavior, setting.alert, setting.alert.actDuration);
                 break;
             case "summonFriends":
                 if (amount < CatWolfSet.amount)
