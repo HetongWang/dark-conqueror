@@ -37,11 +37,10 @@ public class KittySet: CharacterSet {
         hp = 70;
         souls = 20;
 
-        idleTime = new FloatRange(0.5f, 2);
-        idleProAfterLeap = 0.5f;
+        idleTime = new FloatRange(1f, 2f);
 
         KittyThrust.actDuration = SkillSetting.frameToSeconds(7, 12);
-        KittyThrust.cd = 4f;
+        KittyThrust.cd = 5f;
         KittyThrust.damage = 2f;
         KittyThrust.range = 1.4f;
         KittyThrust.attackDuration = 0.4f;
@@ -66,9 +65,10 @@ public class KittySet: CharacterSet {
         Leap.cd = 2f;
         Leap.range = 2f;
         LeapAngle = 45f;       
+        idleProAfterLeap = 0.7f;
 
         slash.actDuration = SkillSetting.frameToSeconds(41, 40);
-        slash.cd = 3f;
+        slash.cd = 7f;
         slash.damage = 1.5f;
         slash.range = 1.3f;
         slash.freezenTime = 0.5f;

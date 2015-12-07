@@ -172,6 +172,7 @@ public class Kitty: Enemy
         setting.slash.cd = 2f;
         setting.KittyThrust.cd = 3f;
         setting.idleTime = new FloatRange(0.5f, 1.5f);
+        setting.idleProAfterLeap = 0.5f;
     }
 
     public IEnumerator summonWolf()
