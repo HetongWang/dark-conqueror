@@ -73,7 +73,7 @@ abstract public class Character : MonoBehaviour
         statusController.updateStatus();
     }
 
-    public void updateStatus()
+    public virtual void updateStatus()
     {
         movementFreezenTime = Mathf.Max(movementFreezenTime, freezenTime);
         if (movementFreezenTime > 0)

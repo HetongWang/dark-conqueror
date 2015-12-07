@@ -275,7 +275,7 @@ public class Kitty: Enemy
         antiStaggerTime = float.PositiveInfinity;
         anim.SetInteger("skill", (int)Ability.shadowFadeOut);
         body.gravityScale = 0;
-        body.AddForce(new Vector2(50, 200));
+        body.AddForce(new Vector2(0, 180));
         yield return new WaitForSeconds(setting.shadowFadeOutTime);
 
         body.velocity = Vector2.zero;

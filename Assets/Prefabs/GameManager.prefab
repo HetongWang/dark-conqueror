@@ -42,7 +42,7 @@ MonoBehaviour:
   UpgradeMenuPrefab: {fileID: 193680, guid: 0d1c0ae797e58b34b8afaed49951ddd5, type: 2}
   HUDPrefab: {fileID: 122800, guid: e93128c647b3b10418af560c261fcf7a, type: 2}
   PCPicture: {fileID: 21300000, guid: 9aab1e394173fec42af275e8d559433e, type: 3}
-  KittyPicture: {fileID: 21300000, guid: 7edf8bb9f75c9ba4aa80441c802d7e7b, type: 3}
+  KittyPicture: {fileID: 21300012, guid: 4d2cb84b2f19a5c45a8e86d7002210ef, type: 3}
   inConversation: 0
 --- !u!1001 &100100000
 Prefab:

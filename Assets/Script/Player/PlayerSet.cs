@@ -3,9 +3,17 @@ using System.Collections.Generic;
 
 public class PlayerSet : CharacterSet {
 
+    public float stamina;
+    public float staminaRecoverSpeed;
+    public float magic;
+    public float magicRecoverSpeed;
+
+    public float blockCost;
     public float dashSpeed = 2f;
+    public float dashCost;
     public float dodgingForce = 520f;
     public float dodgingSkyForce = 200f;
+    public float dodgeCost;
     public List<SkillSetting> NormalAttack = new List<SkillSetting>();
     public SkillSetting overheadSwing = new SkillSetting();
     public SkillSetting dodge = new SkillSetting();
@@ -13,6 +21,7 @@ public class PlayerSet : CharacterSet {
     public SkillSetting dropAttack = new SkillSetting();
     public float dropAttackForce = 50f;
     public SkillSetting eruptionFire = new SkillSetting();
+    public float eruptionFireCost;
     public int eruptionFireTimes;
     public BurnStatus.Setting normalAttackBurn = new BurnStatus.Setting();
     public BurnStatus.Setting eruptionFireBurn = new BurnStatus.Setting();
@@ -20,6 +29,15 @@ public class PlayerSet : CharacterSet {
     public PlayerSet()
     {
         hp = 200f;
+
+        stamina = 100f;
+        staminaRecoverSpeed = 10f;
+        dashCost = 20f;
+        blockCost = 15f;
+        dodgeCost = 20f;
+
+        magic = 100f;
+        magicRecoverSpeed = 0.5f;
         souls = 10;
 
         SkillSetting normalAttack1 = new SkillSetting();
@@ -56,19 +74,17 @@ public class PlayerSet : CharacterSet {
         block.actDuration = float.PositiveInfinity;
 
         dodge.actDuration = 0.8f;
-        dodge.cd = 1f;
+        dodge.cd = 0.5f;
         dodge.damage = 0f;
         dodge.range = 2f;
 
         overheadSwing.actDuration = SkillSetting.frameToSeconds(50, 30);
-        overheadSwing.cd = 2f;
         overheadSwing.damage = 4f;
         overheadSwing.range = 1.5f;
         overheadSwing.freezenTime = 2f;
         overheadSwing.targetForce = new Vector2(200, 0);
 
         dropAttack.actDuration = 0.7f;
-        dropAttack.cd = 2f;
         dropAttack.damage = 2f;
         dropAttack.range = 1f;
         dropAttack.attackDuration = 0f;
@@ -76,11 +92,11 @@ public class PlayerSet : CharacterSet {
 
         eruptionFireTimes = 2;
         eruptionFire.actDuration = 0.67f;
-        eruptionFire.cd = 2f;
         eruptionFire.damage = 2f;
         eruptionFire.range = 1f;
         eruptionFire.attackDuration = 0.55f;
         eruptionFire.freezenTime = 0.5f;
+        eruptionFireCost = 30f;
 
         eruptionFireBurn.damage = 2f;
         eruptionFireBurn.duration = 2f;

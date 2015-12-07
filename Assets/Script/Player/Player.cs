@@ -6,6 +6,8 @@ public class Player : Character
 {
     [HideInInspector]
     public PlayerSet setting;
+    public float stamina;
+    public float magic;
     protected bool jumped = false;
     protected bool dashed = false;
 
@@ -30,6 +32,9 @@ public class Player : Character
         base.Awake();
         _setting = new PlayerSet();
         setting = (PlayerSet)_setting;
+        hp = setting.hp;
+        stamina = setting.stamina;
+        magic = setting.magic;
 
         //anim = GetComponent<Animator>();
         anim = GetComponent<Animator>();
@@ -51,9 +56,9 @@ public class Player : Character
         base.Update();
         updateButtonCooler();
 
-        if (Input.GetButton("Block"))
+        if (Input.GetButton("Block") && stamina > 1f) 
             useSkill("block", setting.block);
-        if (Input.GetButtonUp("Block"))
+        if (Input.GetButtonUp("Block") || stamina <= 0)
             stopBlock();
         isDodging(Input.GetAxisRaw("Horizontal"));
 
@@ -67,6 +72,38 @@ public class Player : Character
             anim.SetBool("dash", false);
 
         attack();
+    }
+
+    public override void updateStatus()
+    {
+        base.updateStatus();
+
+        // Update Stamina
+        bool staminaCost = false;
+        if (dashed)
+        {
+            stamina -= setting.dashCost * Time.deltaTime;
+            staminaCost = true;
+        }
+        if (blocked)
+        { 
+            stamina -= setting.blockCost * Time.deltaTime;
+            staminaCost = true;
+        }
+        if (!staminaCost)
+            stamina += setting.staminaRecoverSpeed * Time.deltaTime;
+        if (stamina > setting.stamina)
+            stamina = setting.stamina;
+        if (stamina < 0)
+            stamina = 0;
+
+        // Update Magic
+        magic += setting.magicRecoverSpeed * Time.deltaTime;
+        if (magic > setting.magic)
+            magic = setting.magic;
+        if (magic < 0)
+            magic = 0;
+
     }
 
     void attack()
@@ -89,7 +126,7 @@ public class Player : Character
             }
         }
 
-        if (Input.GetButtonDown("Magic"))
+        if (Input.GetButtonDown("Magic") && magic >= setting.eruptionFireCost)
         {
             useSkill("eruptionFire", setting.eruptionFire);
         }
@@ -191,6 +228,8 @@ public class Player : Character
             dashed = false;
         if (!facingRight && Input.GetButtonUp("Horizontal"))
             dashed = false;
+        if (stamina <= 0)
+            dashed = false;
     }
 
     public IEnumerator block()
@@ -212,6 +251,8 @@ public class Player : Character
     {
         if (!blocked || horInput == 0)
             return;
+        if (stamina < setting.dashCost)
+            return;
 
         if (horInput > 0)
         {
@@ -223,7 +264,7 @@ public class Player : Character
             if (facingRight)
                 Flip();
         }
-        useSkill("dodge", setting.dodge, true);
+        useSkill("dodge", setting.dodge, true, true);
     }
 
     public IEnumerator dodge()
@@ -239,6 +280,7 @@ public class Player : Character
             body.AddForce(force);
         else
             body.AddForce(-force);
+        stamina -= setting.dodgeCost;
         yield return new WaitForSeconds(setting.dodge.actDuration);
 
         invincible = false;
@@ -357,6 +399,7 @@ public class Player : Character
     public IEnumerator eruptionFire()
     {
         anim.SetInteger("skill", 7);
+        magic -= setting.eruptionFireCost;
         for (int i = 0; i < setting.eruptionFireTimes; i++)
         {
             float distance = 3.3f * i + 3.6f;

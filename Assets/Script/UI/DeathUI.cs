@@ -12,6 +12,6 @@ public class DeathUI : MonoBehaviour
     void Update()
     {
         if (person.died)
-            GetComponent<Canvas>().enabled = true;
+            gameObject.SetActive(true);
     }
 }

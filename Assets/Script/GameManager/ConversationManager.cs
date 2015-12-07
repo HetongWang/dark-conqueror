@@ -16,8 +16,7 @@ public class ConversationManager
 
     public void newConversation(List<Dialog> d)
     {
-        Canvas dialogCanvas = dialogGO.GetComponent<Canvas>();
-        dialogCanvas.enabled = true;
+        dialogGO.SetActive(true);
         conversation = d;
         converIndex = 0;
         setDialog();
@@ -26,8 +25,7 @@ public class ConversationManager
     public void conversationEnd()
     {
         GameManager.Instance.inConversation = false;
-        Canvas dialogCanvas = dialogGO.GetComponent<Canvas>();
-        dialogCanvas.enabled = false;
+        dialogGO.SetActive(false);
         Time.timeScale = 1;
     }
 
