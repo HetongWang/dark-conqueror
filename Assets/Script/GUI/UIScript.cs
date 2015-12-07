@@ -4,9 +4,11 @@ using UnityEngine.UI;
 
 public class UIScript : MonoBehaviour {
 	public GameObject currentMenu;
+	public GameObject hud;
 
 	public virtual void Awake(){
 		currentMenu = GameObject.FindGameObjectsWithTag("PauseMenu")[0];
+		//hud = GameObject.FindGameObjectsWithTag("UI")[1];
 	}
 
 	public void StartGame(){
@@ -27,5 +29,6 @@ public class UIScript : MonoBehaviour {
 	public void UnPause(){
 		Time.timeScale = 1;
 		currentMenu.SetActive(false);
+		//hud.SetActive(true);
 	}
 }

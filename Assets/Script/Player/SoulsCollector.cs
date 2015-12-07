@@ -17,7 +17,7 @@ public class SoulsCollector : MonoBehaviour
         {
             s.disappear();
             player.souls += 1;
-            player.hp += 0.7f;
+            player.hp += 0.5f;
         }
     }
 }
