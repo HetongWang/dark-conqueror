@@ -133,7 +133,6 @@ MonoBehaviour:
   enragePrefab: {fileID: 121772, guid: d9ca749fc951d1149ae98c019e116fa1, type: 2}
   kittyWolfPrefab: {fileID: 187170, guid: 2172c701cf2896349ab688787682ba55, type: 2}
   shadowAttackPrefab: {fileID: 190522, guid: af6f07624af199d46942b02fb854a6e6, type: 2}
-  skullPrefab: {fileID: 0}
   enraged: 0
 --- !u!212 &21206382
 SpriteRenderer:
@@ -159,7 +158,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1783731295
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: f428de177c5a8214bbbda1c979a673a4, type: 3}
+  m_Sprite: {fileID: 21300016, guid: 4209a9c58e48e8d439c34baefba341e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21261496
 SpriteRenderer:

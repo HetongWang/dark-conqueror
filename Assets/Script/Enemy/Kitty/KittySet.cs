@@ -34,7 +34,7 @@ public class KittySet: CharacterSet {
 
     public KittySet()
     {
-        hp = 70;
+        hp = 100;
         souls = 20;
 
         idleTime = new FloatRange(1f, 2f);

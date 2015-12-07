@@ -48,7 +48,12 @@ public class Kitty: Enemy
 
         ai = new KittyAI(this);
         anim = GetComponent<Animator>();
-        setHPBar(setting.hpBarOffset, setting.hp);
+    }
+
+    public override void Start()
+    {
+        base.Start();
+        GameManager.Instance.activeBossHPBar(this);
     }
 
     public override void Update()

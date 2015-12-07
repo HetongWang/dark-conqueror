@@ -15,12 +15,15 @@ public class GameManager : Singleton<GameManager>
 	protected bool paused;
     public bool inConversation = false;
 
-
-    void Start()
+    void Awake()
     {
         hud = Instantiate(HUDPrefab);
         upgradeMenu = Instantiate(UpgradeMenuPrefab);
         upgradeMenu.SetActive(false);
+    }
+
+    void Start()
+    {
         cm = new ConversationManager(hud);
         cm.PCPicture = PCPicture;
         cm.KittyPicture = KittyPicture;
@@ -52,6 +55,15 @@ public class GameManager : Singleton<GameManager>
                 cm.nextDialog();
             }
         }
+    }
+
+    public void activeBossHPBar(Character boss)
+    {
+        Debug.Log(hud.transform.FindChild("BossHP"));
+        GameObject hpbar = hud.transform.Find("BossHP").gameObject;
+        hpbar.SetActive(true);
+        hpbar = hud.transform.Find("BossHP/Filled").gameObject;
+        hpbar.GetComponent<BossUIHP>().init(boss);
     }
 
     public void newConversation(List<Dialog> con)
