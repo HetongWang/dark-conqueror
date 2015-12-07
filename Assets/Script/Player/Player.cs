@@ -113,7 +113,7 @@ public class Player : Character
             if (normalAttacking)
                 nextNormalAttack = true;
             if (normalAttackPhase == 0 && !nextNormalAttack)
-                useSkill("normalAttack", setting.NormalAttack[0]);
+                useSkill("normalAttack", setting.normalAttack[0]);
         }
 
         if (Input.GetButtonDown("HeavyHit"))
@@ -174,20 +174,20 @@ public class Player : Character
 
         Vector3 position = transform.position;
         if (facingRight) { 
-            position.x += setting.NormalAttack[normalAttackPhase].range / 2;
+            position.x += setting.normalAttack[normalAttackPhase].range / 2;
         }
         else
         {
-            position.x -= setting.NormalAttack[normalAttackPhase].range / 2;
+            position.x -= setting.normalAttack[normalAttackPhase].range / 2;
         }
         GameObject go =  (GameObject)Instantiate(normalAttackPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
         NormalAttack na = go.GetComponent<NormalAttack>();
-        na.init(this, setting.NormalAttack[normalAttackPhase]);
+        na.init(this, setting.normalAttack[normalAttackPhase]);
         na.setPhase(normalAttackPhase);
         na.setLevel(normalAttackLevel);
         na.transform.parent = transform;
 
-        yield return new WaitForSeconds(setting.NormalAttack[normalAttackPhase].actDuration - 0.2f);
+        yield return new WaitForSeconds(setting.normalAttack[normalAttackPhase].actDuration - 0.2f);
         normalAttacking = false;
 
         if (!nextNormalAttack)
@@ -201,7 +201,7 @@ public class Player : Character
             normalAttackPhase += 1;
             normalAttackPhase %= 3;
             actingTime = 0;
-            useSkill("normalAttack", setting.NormalAttack[normalAttackPhase]);
+            useSkill("normalAttack", setting.normalAttack[normalAttackPhase]);
         }
         yield break;
     }

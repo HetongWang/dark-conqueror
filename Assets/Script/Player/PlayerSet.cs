@@ -7,6 +7,7 @@ public class PlayerSet : CharacterSet {
     public float staminaRecoverSpeed;
     public float magic;
     public float magicRecoverSpeed;
+    public float magicHitRecover;
 
     public float blockCost;
     public float dashSpeed = 2f;
@@ -14,7 +15,7 @@ public class PlayerSet : CharacterSet {
     public float dodgingForce = 520f;
     public float dodgingSkyForce = 200f;
     public float dodgeCost;
-    public List<SkillSetting> NormalAttack = new List<SkillSetting>();
+    public List<SkillSetting> normalAttack = new List<SkillSetting>();
     public SkillSetting overheadSwing = new SkillSetting();
     public SkillSetting dodge = new SkillSetting();
     public SkillSetting block = new SkillSetting();
@@ -37,7 +38,8 @@ public class PlayerSet : CharacterSet {
         dodgeCost = 20f;
 
         magic = 100f;
-        magicRecoverSpeed = 0.5f;
+        magicRecoverSpeed = 0.3f;
+        magicHitRecover = 3f;
         souls = 10;
 
         SkillSetting normalAttack1 = new SkillSetting();
@@ -47,7 +49,8 @@ public class PlayerSet : CharacterSet {
         normalAttack1.attackDuration = 0.1f;
         normalAttack1.freezenTime = 0.15f;
         normalAttack1.targetForce = new Vector2(50, 0);
-        NormalAttack.Add(normalAttack1);
+        normalAttack1.name = "normalAttack";
+        normalAttack.Add(normalAttack1);
 
         SkillSetting normalAttack2 = new SkillSetting();
         normalAttack2.actDuration = SkillSetting.frameToSeconds(13, 30);
@@ -56,7 +59,8 @@ public class PlayerSet : CharacterSet {
         normalAttack2.attackDuration = 0.1f;
         normalAttack2.freezenTime = 0.1f;
         normalAttack2.targetForce = new Vector2(50, 0);
-        NormalAttack.Add(normalAttack2);
+        normalAttack2.name = "normalAttack";
+        normalAttack.Add(normalAttack2);
 
         SkillSetting normalAttack3 = new SkillSetting();
         normalAttack3.actDuration = SkillSetting.frameToSeconds(20, 30);
@@ -65,10 +69,11 @@ public class PlayerSet : CharacterSet {
         normalAttack3.attackDuration = 0.1f;
         normalAttack3.freezenTime = 0.2f;
         normalAttack3.targetForce = new Vector2(150, 0);
-        NormalAttack.Add(normalAttack3);
+        normalAttack3.name = "normalAttack";
+        normalAttack.Add(normalAttack3);
 
-        normalAttackBurn.damage = 10f;
-        normalAttackBurn.duration = 3f;
+        normalAttackBurn.damage = 1.5f;
+        normalAttackBurn.duration = 2f;
         normalAttackBurn.maxOverlay = 1;
 
         block.actDuration = float.PositiveInfinity;
@@ -83,12 +88,14 @@ public class PlayerSet : CharacterSet {
         overheadSwing.range = 1.5f;
         overheadSwing.freezenTime = 2f;
         overheadSwing.targetForce = new Vector2(200, 0);
+        overheadSwing.name = "overheadSwing";
 
         dropAttack.actDuration = 0.7f;
         dropAttack.damage = 2f;
         dropAttack.range = 1f;
         dropAttack.attackDuration = 0f;
         dropAttack.freezenTime = 1f;
+        dropAttack.name = "dropAttack";
 
         eruptionFireTimes = 2;
         eruptionFire.actDuration = 0.67f;

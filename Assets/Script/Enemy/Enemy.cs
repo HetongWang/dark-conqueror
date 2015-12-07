@@ -39,6 +39,16 @@ public class Enemy : Character
         }
     }
 
+    public override void Hurt(SkillSetting setting, Character source)
+    {
+        base.Hurt(setting, source);
+        if (source.GetType().Name == "Player")
+        {
+            Player pc = (Player)source;
+            pc.magic += pc.setting.magicHitRecover;
+        }
+    }
+
     public override IEnumerator dying()
     {
         if (anim)
