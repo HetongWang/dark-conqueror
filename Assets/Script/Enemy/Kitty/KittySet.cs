@@ -39,10 +39,9 @@ public class KittySet: CharacterSet {
 
         idleTime = new FloatRange(0.5f, 2);
         idleProAfterLeap = 0.5f;
-        idleTimeAfterShadow = new FloatRange(3, 4);
 
         KittyThrust.actDuration = SkillSetting.frameToSeconds(7, 12);
-        KittyThrust.cd = 3f;
+        KittyThrust.cd = 4f;
         KittyThrust.damage = 2f;
         KittyThrust.range = 1.4f;
         KittyThrust.attackDuration = 0.4f;
@@ -69,7 +68,7 @@ public class KittySet: CharacterSet {
         LeapAngle = 45f;       
 
         slash.actDuration = SkillSetting.frameToSeconds(41, 40);
-        slash.cd = 2f;
+        slash.cd = 3f;
         slash.damage = 1.5f;
         slash.range = 1.3f;
         slash.freezenTime = 0.5f;
@@ -90,6 +89,7 @@ public class KittySet: CharacterSet {
         shadowAttackTimes = new IntRange(2, 4);
         shadowAttackFadeOutTime = 0.3f;
         shadowPosition = new Vector2(6, 4);
-        shadowAttackSpeed = 20f;
+        shadowAttackSpeed = 18f;
+        idleTimeAfterShadow = new FloatRange(5, 6);
     }
 }

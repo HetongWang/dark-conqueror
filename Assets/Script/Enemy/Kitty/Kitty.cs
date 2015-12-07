@@ -169,6 +169,9 @@ public class Kitty: Enemy
         setting.slash.cd *= setting.enrageEnhancement;
         setting.KittyThrust.damage *= setting.enrageEnhancement;
         setting.KittyThrust.targetForce *= setting.enrageEnhancement;
+        setting.slash.cd = 2f;
+        setting.KittyThrust.cd = 3f;
+        setting.idleTime = new FloatRange(0.5f, 1.5f);
     }
 
     public IEnumerator summonWolf()
