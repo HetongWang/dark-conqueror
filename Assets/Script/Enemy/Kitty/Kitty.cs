@@ -26,6 +26,7 @@ public class Kitty: Enemy
 
     public bool enraged = false;
     private bool slashing = false;
+    private bool shadowAttacking = false;
     [HideInInspector]
     public KittySet setting;
 
@@ -52,8 +53,9 @@ public class Kitty: Enemy
 
     public override void Update()
     {
+        if (shadowAttacking)
+            return;
         base.Update();
-        behavior = "shadow";
         switch (behavior)
         {
             case "idle":
@@ -272,6 +274,7 @@ public class Kitty: Enemy
         int times = 0;
         Vector3 initPosition;
 
+        shadowAttacking = true;
         antiStaggerTime = float.PositiveInfinity;
         anim.SetInteger("skill", (int)Ability.shadowFadeOut);
         body.gravityScale = 0;
@@ -315,12 +318,13 @@ public class Kitty: Enemy
             {
                 move((playerPosition - position).normalized);
                 timer += Time.deltaTime;
-                if (!attackFromSky && timer > 0.4f)
+                if (!attackFromSky && timer > 0.1f)
                     break;
                 if (attackFromSky && grounded)
                     break;
                 yield return new WaitForEndOfFrame();
             }
+            yield return new WaitForSeconds(0.3f);
 
             timer = 0;
             while (timer < setting.shadowAttackFadeOutTime)
@@ -348,6 +352,7 @@ public class Kitty: Enemy
         body.gravityScale = 0.5f;
         yield return new WaitForSeconds(setting.shadowFadeInTime);
 
+        shadowAttacking = false;
         antiStaggerTime = 0;
         actingTime = 0;
         movementFreezenTime = 0;
