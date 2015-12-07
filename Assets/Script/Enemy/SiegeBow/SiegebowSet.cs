@@ -16,7 +16,7 @@ public class SiegeBowSet : EnemySet
         SiegeBowShoot.cd = 2f;
         SiegeBowShoot.damage = 1.5f;
         SiegeBowShoot.range = 10f;
-        SiegeBowShoot.freezenTime = 0.5f;
+        SiegeBowShoot.freezenTime = 0.2f;
         shootAngle = 60f * Mathf.Deg2Rad;
     }
 }
