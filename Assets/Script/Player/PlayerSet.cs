@@ -85,6 +85,7 @@ public class PlayerSet : CharacterSet {
         overheadSwing.actDuration = SkillSetting.frameToSeconds(36, 30);
         overheadSwing.damage = 4f;
         overheadSwing.range = 1.5f;
+        overheadSwing.cd = 1.3f;
         overheadSwing.freezenTime = 1f;
         overheadSwing.targetForce = new Vector2(200, 0);
         overheadSwing.name = "overheadSwing";
