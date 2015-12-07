@@ -24,6 +24,17 @@ public class Kitty: Enemy
     public GameObject kittyWolfPrefab;
     public GameObject shadowAttackPrefab;
 
+	public AudioClip growl1;
+	public AudioClip growl2;
+	public AudioClip growl3;
+	public AudioClip growl4;
+	public AudioClip howl;
+	public AudioClip death;
+	public AudioClip roar;
+	public AudioClip laugh;
+
+	private AudioSource kittyAudio;
+
     public bool enraged = false;
     private bool slashing = false;
     private bool shadowAttacking = false;
@@ -48,6 +59,8 @@ public class Kitty: Enemy
 
         ai = new KittyAI(this);
         anim = GetComponent<Animator>();
+
+		kittyAudio = GetComponent<AudioSource>();
     }
 
     public override void Start()
@@ -68,21 +81,26 @@ public class Kitty: Enemy
                 useSkill(behavior, setting.idle);
                 break;
             case "enrage":
+				kittyAudio.clip = roar;
                 useSkill(behavior, setting.KittyEnrage, false, true);
                 break;
             case "summonWolf":
+				kittyAudio.clip = howl;
                 useSkill(behavior, setting.SummonWolf);
                 break;
             case "thrust":
+				kittyAudio.clip = growl1;
                 useSkill(behavior, setting.KittyThrust);
                 break;
             case "leap":
                 useSkill(behavior, setting.Leap);
                 break;
             case "slash":
+				kittyAudio.clip = growl2;
                 useSkill(behavior, setting.slash);
                 break;
             case "shadow":
+				kittyAudio.clip = laugh;
                 useSkill(behavior, setting.shadowAttack, true);
                 break;
         }
@@ -116,6 +134,7 @@ public class Kitty: Enemy
 
     public override IEnumerator dying()
     {
+		kittyAudio.clip = death;
         Destroy(hpBar);
         StartCoroutine(GameManager.slowMotion(0.2f, 0.2f, 3f));
         StartCoroutine(soulsExplosion());
@@ -131,6 +150,7 @@ public class Kitty: Enemy
 
     public IEnumerator thrustAttack()
     {
+
         anim.SetInteger("skill", (int)Ability.thrust);
         yield return new WaitForSeconds(setting.KittyThrust.actDuration / 3);
 
@@ -148,6 +168,7 @@ public class Kitty: Enemy
 
     public IEnumerator enrage()
     {
+		kittyAudio.clip = roar;
         enraged = true;
         if (currentSkill != null)
             cancelCurrentSkill();
@@ -186,6 +207,7 @@ public class Kitty: Enemy
 
     public IEnumerator summonWolf()
     {
+		kittyAudio.clip = howl;
         anim.SetInteger("skill", (int)Ability.summonWolf);
 
         // First wolf
@@ -248,6 +270,7 @@ public class Kitty: Enemy
 
     public IEnumerator slash()
     {
+		kittyAudio.clip = growl4;
         antiStaggerTime = setting.slash.actDuration;
         anim.SetInteger("skill", (int)Ability.slash);
         yield return new WaitForSeconds(setting.slash.actDuration * 0.15f);
