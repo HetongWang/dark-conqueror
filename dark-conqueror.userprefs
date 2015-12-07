@@ -1,15 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\GameManager\Level1\Level1TriggerGameOver.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\GameManager\GameManager.cs">
     <Files>
-      <File FileName="Assets\Script\GameManagerWithPauseEdit.cs" Line="10" Column="22" />
-      <File FileName="Assets\Script\UI\SkillsUI.cs" Line="14" Column="16" />
-      <File FileName="Assets\Script\GUI\UpgradeMenuCanvas.cs" Line="6" Column="7" />
-      <File FileName="Assets\Script\GUI\UIScript.cs" Line="18" Column="28" />
-      <File FileName="Assets\Script\GameManager\GameManager.cs" Line="16" Column="26" />
+      <File FileName="Assets\Script\BasicAttack.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\UI\SkillsUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\GUI\UpgradeMenuCanvas.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\GUI\UIScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\GameManager\GameManager.cs" Line="3" Column="34" />
       <File FileName="Assets\Script\Player\Player.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\Player\PlayerSet.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\GameManager\Level1\Level1TriggerGameOver.cs" Line="4" Column="35" />
+      <File FileName="Assets\Script\GameManager\Level1\Level1TriggerGameOver.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
