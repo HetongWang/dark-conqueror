@@ -9,7 +9,6 @@ public class Player : Character
     public float stamina;
     public float magic;
     protected bool jumped = false;
-    protected bool dashed = false;
 
     public GameObject normalAttackPrefab;
     public GameObject commonAttackPrefab;
@@ -65,12 +64,6 @@ public class Player : Character
         if (Input.GetButtonDown("Jump") && !blocked)
             jumped = true;
 
-        dash();
-        if (dashed)
-            anim.SetBool("dash", true);
-        else
-            anim.SetBool("dash", false);
-
         attack();
     }
 
@@ -80,11 +73,6 @@ public class Player : Character
 
         // Update Stamina
         bool staminaCost = false;
-        if (dashed)
-        {
-            stamina -= setting.dashCost * Time.deltaTime;
-            staminaCost = true;
-        }
         if (blocked)
         { 
             stamina -= setting.blockCost * Time.deltaTime;
@@ -137,8 +125,6 @@ public class Player : Character
         float horInput = Input.GetAxisRaw("Horizontal");
 
         // Detect if dash
-        if (dashed)
-            horInput *= setting.dashSpeed;
         if (!blocked)
             run(horInput);
 
@@ -206,32 +192,6 @@ public class Player : Character
         yield break;
     }
 
-    void dash()
-    {
-        string direction = null;
-
-        if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
-        {
-            buttonCount["right"] += 1;
-            direction = "right";
-        }
-        if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
-        {
-            buttonCount["left"] += 1;
-            direction = "left";
-        }
-
-        if (multiTapDetect(direction, 2) || multiTapDetect(direction, 2))
-            dashed = true;
-
-        if (facingRight && Input.GetButtonUp("Horizontal"))
-            dashed = false;
-        if (!facingRight && Input.GetButtonUp("Horizontal"))
-            dashed = false;
-        if (stamina <= 0)
-            dashed = false;
-    }
-
     public IEnumerator block()
     {
         blocked = true;
@@ -249,10 +209,26 @@ public class Player : Character
 
     public void isDodging(float horInput)
     {
-        if (!blocked || horInput == 0)
+        if (horInput == 0 || !grounded)
             return;
         if (stamina < setting.dashCost)
             return;
+
+        string direction = null;
+
+        if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
+        {
+            buttonCount["right"] += 1;
+            direction = "right";
+        }
+        if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
+        {
+            buttonCount["left"] += 1;
+            direction = "left";
+        }
+
+        if (multiTapDetect(direction, 2) || multiTapDetect(direction, 2))
+            useSkill("dodge", setting.dodge, true, true);
 
         if (horInput > 0)
         {
@@ -264,12 +240,12 @@ public class Player : Character
             if (facingRight)
                 Flip();
         }
-        useSkill("dodge", setting.dodge, true, true);
     }
 
     public IEnumerator dodge()
     {
         invincible = true;
+        anim.SetInteger("skill", 8);
         Vector2 force;
         if (grounded)
             force = Vector2.right * setting.dodgingForce;
@@ -281,8 +257,12 @@ public class Player : Character
         else
             body.AddForce(-force);
         stamina -= setting.dodgeCost;
-        yield return new WaitForSeconds(setting.dodge.actDuration);
 
+        yield return new WaitForSeconds(setting.dodge.actDuration);
+        while (body.velocity.x > 3f)
+            yield return new WaitForEndOfFrame();
+
+        anim.SetInteger("skill", 0);
         invincible = false;
     }
 
