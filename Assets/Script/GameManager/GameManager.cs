@@ -6,6 +6,7 @@ public class GameManager : Singleton<GameManager>
 {
     public GameObject UpgradeMenuPrefab;
     public GameObject HUDPrefab;
+    public GameObject EndMenuPrefab;
     public Sprite PCPicture;
     public Sprite KittyPicture;
     protected ConversationManager cm;
@@ -20,6 +21,7 @@ public class GameManager : Singleton<GameManager>
         hud = Instantiate(HUDPrefab);
         upgradeMenu = Instantiate(UpgradeMenuPrefab);
         upgradeMenu.SetActive(false);
+        endMenu = Instantiate(EndMenuPrefab);
     }
 
     void Start()
@@ -64,6 +66,11 @@ public class GameManager : Singleton<GameManager>
         hpbar.SetActive(true);
         hpbar = hud.transform.Find("BossHP/Filled").gameObject;
         hpbar.GetComponent<BossUIHP>().init(boss);
+    }
+
+    public void activeDeadUI()
+    {
+        endMenu.SetActive(true);
     }
 
     public void newConversation(List<Dialog> con)

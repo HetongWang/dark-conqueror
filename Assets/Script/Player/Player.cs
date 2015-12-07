@@ -166,6 +166,7 @@ public class Player : Character
     public override IEnumerator dying()
     {
         Time.timeScale = 0;
+        GameManager.Instance.activeDeadUI();
         yield break;
     }
 
