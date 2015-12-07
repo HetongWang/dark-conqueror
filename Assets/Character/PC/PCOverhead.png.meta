@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d1753c67de68a6b41a948fd774892f4c
-timeCreated: 1448254646
+timeCreated: 1449485244
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,21 @@ TextureImporter:
     21300002: overheadSwing_1
     21300004: overheadSwing_2
     21300006: overheadSwing_3
+    21300008: PCOverhead_0
+    21300010: PCOverhead_1
+    21300012: PCOverhead_2
+    21300014: PCOverhead_3
+    21300016: PCOverhead_4
+    21300018: PCOverhead_5
+    21300020: PCOverhead_6
+    21300022: PCOverhead_7
+    21300024: PCOverhead_8
+    21300026: PCOverhead_9
+    21300028: PCOverhead_10
+    21300030: PCOverhead_11
+    21300032: PCOverhead_12
+    21300034: PCOverhead_13
+    21300036: PCOverhead_14
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -31,7 +46,7 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 2048
+  maxTextureSize: 4096
   textureSettings:
     filterMode: -1
     aniso: 16
@@ -48,51 +63,141 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 70
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: overheadSwing_0
+    - name: PCOverhead_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 1136
-        width: 450
-        height: 909
+        x: 0
+        y: 3263
+        width: 1018
+        height: 833
       alignment: 9
-      pivot: {x: .781668842, y: .428766549}
+      pivot: {x: .300000012, y: .370000005}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: overheadSwing_1
+    - name: PCOverhead_1
       rect:
         serializedVersion: 2
-        x: 455
-        y: 1131
-        width: 799
-        height: 914
+        x: 1018
+        y: 3263
+        width: 1018
+        height: 833
       alignment: 9
-      pivot: {x: .288101912, y: .429433614}
+      pivot: {x: .300000012, y: .370000005}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: overheadSwing_2
+    - name: PCOverhead_2
       rect:
         serializedVersion: 2
-        x: 2
-        y: 212
-        width: 800
-        height: 916
+        x: 2036
+        y: 3263
+        width: 1018
+        height: 833
       alignment: 9
-      pivot: {x: .292402148, y: .429775}
+      pivot: {x: .300000012, y: .370000005}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: overheadSwing_3
+    - name: PCOverhead_3
       rect:
         serializedVersion: 2
-        x: 804
-        y: 466
-        width: 636
-        height: 662
+        x: 3054
+        y: 3263
+        width: 1018
+        height: 833
       alignment: 9
-      pivot: {x: .277488291, y: .590102553}
+      pivot: {x: .300000012, y: .370000005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCOverhead_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2430
+        width: 1018
+        height: 833
+      alignment: 9
+      pivot: {x: .300000012, y: .370000005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCOverhead_5
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 2430
+        width: 1018
+        height: 833
+      alignment: 9
+      pivot: {x: .300000012, y: .370000005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCOverhead_6
+      rect:
+        serializedVersion: 2
+        x: 2036
+        y: 2430
+        width: 1018
+        height: 833
+      alignment: 9
+      pivot: {x: .300000012, y: .370000005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCOverhead_7
+      rect:
+        serializedVersion: 2
+        x: 3054
+        y: 2430
+        width: 1018
+        height: 833
+      alignment: 9
+      pivot: {x: .300000012, y: .370000005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCOverhead_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1597
+        width: 1018
+        height: 833
+      alignment: 9
+      pivot: {x: .300000012, y: .370000005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCOverhead_9
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 1597
+        width: 1018
+        height: 833
+      alignment: 9
+      pivot: {x: .300000012, y: .370000005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCOverhead_10
+      rect:
+        serializedVersion: 2
+        x: 2036
+        y: 1597
+        width: 1018
+        height: 833
+      alignment: 9
+      pivot: {x: .300000012, y: .370000005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCOverhead_11
+      rect:
+        serializedVersion: 2
+        x: 3054
+        y: 1597
+        width: 1018
+        height: 833
+      alignment: 9
+      pivot: {x: .300000012, y: .370000005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PCOverhead_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 764
+        width: 1018
+        height: 833
+      alignment: 9
+      pivot: {x: .300000012, y: .370000005}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

@@ -47,7 +47,7 @@ public class KittySet: CharacterSet {
         KittyThrust.freezenTime = 0.8f;
         KittyThrust.targetForce = new Vector2(500, 0);
 
-        enrageTrigger = hp * 0.9f;
+        enrageTrigger = hp * 0.7f;
         KittyEnrage.actDuration = 1f;
         KittyEnrage.cd = 2000f;
         KittyEnrage.damage = 0f;

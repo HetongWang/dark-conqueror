@@ -82,10 +82,10 @@ public class PlayerSet : CharacterSet {
         dodge.damage = 0f;
         dodge.range = 2f;
 
-        overheadSwing.actDuration = SkillSetting.frameToSeconds(50, 30);
+        overheadSwing.actDuration = SkillSetting.frameToSeconds(36, 30);
         overheadSwing.damage = 4f;
         overheadSwing.range = 1.5f;
-        overheadSwing.freezenTime = 2f;
+        overheadSwing.freezenTime = 1f;
         overheadSwing.targetForce = new Vector2(200, 0);
         overheadSwing.name = "overheadSwing";
 
@@ -93,7 +93,7 @@ public class PlayerSet : CharacterSet {
         dropAttack.damage = 2f;
         dropAttack.range = 1f;
         dropAttack.attackDuration = 0f;
-        dropAttack.freezenTime = 1f;
+        dropAttack.freezenTime = 0.5f;
         dropAttack.name = "dropAttack";
 
         eruptionFireTimes = 2;
@@ -101,7 +101,7 @@ public class PlayerSet : CharacterSet {
         eruptionFire.damage = 2f;
         eruptionFire.range = 1f;
         eruptionFire.attackDuration = 0.55f;
-        eruptionFire.freezenTime = 0.5f;
+        eruptionFire.freezenTime = 0.6f;
         eruptionFireCost = 30f;
 
         eruptionFireBurn.damage = 2f;
