@@ -28,7 +28,7 @@ public class SkillsUI : MonoBehaviour
     }
 
 	public void UpdateNormalAttack(){
-		if (pc.souls >= normalAttack)
+		if (pc.souls >= normalAttack && pc.normalAttackLevel < 2)
 		{
 			pc.normalAttackLevel += 1;
 			pc.souls -= normalAttack;

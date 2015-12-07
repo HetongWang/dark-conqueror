@@ -40,7 +40,7 @@ public class PlayerSet : CharacterSet {
         magic = 100f;
         magicRecoverSpeed = 0.3f;
         magicHitRecover = 3f;
-        souls = 10;
+        souls = 0;
 
         SkillSetting normalAttack1 = new SkillSetting();
         normalAttack1.actDuration = SkillSetting.frameToSeconds(14, 30);
@@ -79,7 +79,6 @@ public class PlayerSet : CharacterSet {
         block.actDuration = float.PositiveInfinity;
 
         dodge.actDuration = 0.4f;
-        dodge.cd = 0.5f;
         dodge.damage = 0f;
         dodge.range = 2f;
 

@@ -229,28 +229,29 @@ public class Player : Character
 
         if (multiTapDetect(direction, 2) || multiTapDetect(direction, 2))
             useSkill("dodge", setting.dodge, true, true);
-
-        if (horInput > 0)
-        {
-            if (!facingRight)
-                Flip();
-        }
-        else if (horInput < 0)
-        {
-            if (facingRight)
-                Flip();
-        }
     }
 
     public IEnumerator dodge()
     {
         invincible = true;
         anim.SetInteger("skill", 8);
+        movementFreezenTime = 0;
         Vector2 force;
         if (grounded)
             force = Vector2.right * setting.dodgingForce;
         else
             force = Vector2.right * setting.dodgingSkyForce;
+
+        if (Input.GetAxisRaw("Horizontal") > 0)
+        {
+            if (!facingRight)
+                Flip();
+        }
+        else if (Input.GetAxisRaw("Horizontal") < 0)
+        {
+            if (facingRight)
+                Flip();
+        }
 
         if (facingRight)
             body.AddForce(force);
