@@ -53,6 +53,7 @@ public class Kitty: Enemy
     public override void Update()
     {
         base.Update();
+        behavior = "shadow";
         switch (behavior)
         {
             case "idle":

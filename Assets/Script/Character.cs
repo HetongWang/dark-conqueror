@@ -124,11 +124,14 @@ abstract public class Character : MonoBehaviour
 
     public void Flip()
     {
-        facingRight = !facingRight;
+        if (movementFreezenTime <= 0)
+        {
+            facingRight = !facingRight;
 
-        Vector3 scale = transform.localScale;
-        scale.x = scale.x * -1;
-        transform.localScale = scale;
+            Vector3 scale = transform.localScale;
+            scale.x = scale.x * -1;
+            transform.localScale = scale;
+        }
     }
 
     protected bool canActing()
