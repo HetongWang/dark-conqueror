@@ -90,6 +90,6 @@ public class KittySet: CharacterSet {
         shadowAttackFadeOutTime = 0.3f;
         shadowPosition = new Vector2(6, 4);
         shadowAttackSpeed = 18f;
-        idleTimeAfterShadow = new FloatRange(5, 6);
+        idleTimeAfterShadow = new FloatRange(4, 6);
     }
 }

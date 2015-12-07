@@ -29,7 +29,7 @@ public class PlayerSet : CharacterSet {
 
     public PlayerSet()
     {
-        hp = 200f;
+        hp = 100f;
 
         stamina = 100f;
         staminaRecoverSpeed = 10f;
