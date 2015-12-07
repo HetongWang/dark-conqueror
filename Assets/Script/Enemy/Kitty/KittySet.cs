@@ -43,7 +43,7 @@ public class KittySet: CharacterSet {
         KittyThrust.cd = 5f;
         KittyThrust.damage = 2f;
         KittyThrust.range = 1.4f;
-        KittyThrust.attackDuration = 0.4f;
+        KittyThrust.attackDuration = 0.2f;
         KittyThrust.freezenTime = 0.8f;
         KittyThrust.targetForce = new Vector2(500, 0);
 

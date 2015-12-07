@@ -250,7 +250,8 @@ public class Player : Character
         }
 
         if (multiTapDetect(direction, 2) || multiTapDetect(direction, 2))
-            useSkill("dodge", setting.dodge, true);
+            if (freezenTime <= 0)
+                useSkill("dodge", setting.dodge, true, true);
     }
 
     public IEnumerator dodge()

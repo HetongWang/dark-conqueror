@@ -132,7 +132,7 @@ public class Kitty: Enemy
     public IEnumerator thrustAttack()
     {
         anim.SetInteger("skill", (int)Ability.thrust);
-        yield return new WaitForSeconds(setting.KittyThrust.actDuration / 2);
+        yield return new WaitForSeconds(setting.KittyThrust.actDuration / 3);
 
         GameObject gameo = Instantiate(thrustAttackPrefab);
         KittyThrustAttack thrust = gameo.GetComponent<KittyThrustAttack>();
@@ -140,7 +140,7 @@ public class Kitty: Enemy
         gameo.transform.parent = transform;
         gameo.transform.localPosition = new Vector2(-3.2f, 0.25f);
         gameo.transform.localScale = new Vector3(4.7f, 3.2f, 1);
-        yield return new WaitForSeconds(setting.KittyThrust.actDuration / 2);
+        yield return new WaitForSeconds(setting.KittyThrust.actDuration / 3 * 2);
 
         anim.SetInteger("skill", 0);
         yield break;
