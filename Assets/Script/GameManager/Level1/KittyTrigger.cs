@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Level1Trigger5 : MonoBehaviour
+public class KittyTrigger : MonoBehaviour
 {
     public GameObject kittyPrefab;
     public bool triggered = false;
