@@ -12,10 +12,10 @@ public class SingleCatwolfTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         conver = new List<Dialog>();
-        conver.Add(new Dialog("PC", "'J' to normal attack. 'K' to heavy attack. 'L' use magic."));
-        conver.Add(new Dialog("PC", "Magic can be gathered from enemies when you attack him."));
-        conver.Add(new Dialog("PC", "'H' to block. double tap movenment key to dash."));
-        conver.Add(new Dialog("PC", "When you dash, you are invincible. However dash and block will cost you stamina"));
+        conver.Add(new Dialog("PC", "[ A ] [ D ] to move left or right, double tapping to dash. [ W ] or [ Spacebar ] to jump."));
+        conver.Add(new Dialog("PC", "[ J ] for basic attack. [ K ] for heavy attack. [ Jump + K ] to perform a heavy downward attack."));
+        conver.Add(new Dialog("PC", "Hold [ H ] to block. Both block and dash cost stamina."));
+        conver.Add(new Dialog("PC", "[ L ] to cast Eruption. Magic is a limited resource that you can refill by striking enemies with normal attacks."));
         conver.Add(new Dialog("PC", "When you kill an enemy, you can gather their souls to upgrade your skills. It also will recover your health"));
         GameManager.Instance.newConversation(conver);
     }

@@ -2,7 +2,7 @@
 
 public class CatWolfSet : EnemySet
 {
-    public static int amount = 0;
+    public static int amount = 2;
 
     public SkillSetting alert = new SkillSetting();
     public SkillSetting maul = new SkillSetting();
