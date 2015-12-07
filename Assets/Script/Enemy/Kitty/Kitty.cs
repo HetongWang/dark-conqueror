@@ -134,7 +134,6 @@ public class Kitty: Enemy
 
     public override IEnumerator dying()
     {
-		kittyAudio.clip = death;
         Destroy(hpBar);
         StartCoroutine(GameManager.slowMotion(0.2f, 0.2f, 3f));
         StartCoroutine(soulsExplosion());
@@ -168,7 +167,6 @@ public class Kitty: Enemy
 
     public IEnumerator enrage()
     {
-		kittyAudio.clip = roar;
         enraged = true;
         if (currentSkill != null)
             cancelCurrentSkill();
@@ -207,7 +205,6 @@ public class Kitty: Enemy
 
     public IEnumerator summonWolf()
     {
-		kittyAudio.clip = howl;
         anim.SetInteger("skill", (int)Ability.summonWolf);
 
         // First wolf
@@ -270,7 +267,6 @@ public class Kitty: Enemy
 
     public IEnumerator slash()
     {
-		kittyAudio.clip = growl4;
         antiStaggerTime = setting.slash.actDuration;
         anim.SetInteger("skill", (int)Ability.slash);
         yield return new WaitForSeconds(setting.slash.actDuration * 0.15f);

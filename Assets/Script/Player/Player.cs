@@ -20,6 +20,8 @@ public class Player : Character
 	public AudioClip swordSwing2;
 	public AudioClip swordSwing3;
 	public AudioClip swordDrop;
+	public AudioClip shieldSound;
+	public AudioClip hitSound;
 
 	public AudioSource playerAudio;
 

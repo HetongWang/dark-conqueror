@@ -97,7 +97,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106010}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0b1ddeb3e5633804d88c8d7dede306cf, type: 3}
@@ -110,7 +110,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 2
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -135,7 +135,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: .620999992
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -209,10 +209,9 @@ MonoBehaviour:
   growl3: {fileID: 8300000, guid: ae2bf00211a803b41958d6047d091e76, type: 3}
   growl4: {fileID: 8300000, guid: b4b0390f0f2ab0a4c8b350415308d4ed, type: 3}
   howl: {fileID: 8300000, guid: bc2827260dc5af240b1f944d9411071f, type: 3}
-  roar: {fileID: 8300000, guid: 4adefd12dd7044542ad69f6fe6a32e91, type: 3}
   death: {fileID: 8300000, guid: bde04d57d913d9b4ba58289dfd6fdf1a, type: 3}
+  roar: {fileID: 8300000, guid: 4adefd12dd7044542ad69f6fe6a32e91, type: 3}
   laugh: {fileID: 8300000, guid: ed14ae2c0a4a29c479a5257c65c8731d, type: 3}
-  kittyAudio: {fileID: 0}
   enraged: 0
 --- !u!212 &21206382
 SpriteRenderer:
