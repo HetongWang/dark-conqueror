@@ -15,6 +15,13 @@ public class Player : Character
     public GameObject dropAttackPrefab;
     public GameObject eruptionFirePrefab;
 
+	public AudioClip swordSwing1;
+	public AudioClip swordSwing2;
+	public AudioClip swordSwing3;
+	public AudioClip swordDrop;
+
+	public AudioSource playerAudio;
+
     protected Dictionary<string, int> buttonCount = new Dictionary<string, int>();
     protected Dictionary<string, float> buttonCooler = new Dictionary<string, float>();
     protected Dictionary<string, float> buttonCoolerTime = new Dictionary<string, float>();
@@ -41,6 +48,8 @@ public class Player : Character
         addButtonDetect("right");
         hurtFlashAmount = 0.5f;
 
+		playerAudio = GetComponent<AudioSource>();
+		
         addSkill("normalAttack", normalAttack);
         addSkill("dodge", dodge);
         addSkill("overheadSwing", overheadSwing);
@@ -98,18 +107,29 @@ public class Player : Character
     {
         if (Input.GetButtonDown("NormalAttack"))
         {
-            if (normalAttacking)
+			playerAudio.pitch = .62F;
+			playerAudio.clip = swordSwing1;
+            if (normalAttacking){
+
                 nextNormalAttack = true;
-            if (normalAttackPhase == 0 && !nextNormalAttack)
+			}
+            if (normalAttackPhase == 0 && !nextNormalAttack){
                 useSkill("normalAttack", setting.normalAttack[0]);
+			}
         }
 
         if (Input.GetButtonDown("HeavyHit"))
         {
-            if (grounded)
+
+            if (grounded){
+				playerAudio.clip = swordSwing1;
+				playerAudio.pitch = .4F;
                 useSkill("overheadSwing", setting.overheadSwing);
+			}
             else
             {
+				playerAudio.clip = swordDrop;
+				playerAudio.pitch = 1F;
                 useSkill("dropAttack", setting.dropAttack, setting.dropAttack.actDuration);
             }
         }
