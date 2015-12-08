@@ -17,7 +17,8 @@ class RotopollyAttack : EnemyCommonAttack
 
     void Update()
     {
-        setting.damage = Mathf.Abs(_owner.body.velocity.x) / owner.setting.runSpeed * owner.setting.run.damage;
+        setting.damage = owner.setting.run.damage;
+        Debug.Log(setting.damage);
         Rotopolly r = (Rotopolly)_owner;
         if (!r.couldRun)
         {

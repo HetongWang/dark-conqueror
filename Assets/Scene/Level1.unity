@@ -812,7 +812,6 @@ Transform:
   m_Children:
   - {fileID: 1820242108}
   - {fileID: 1392229658}
-  - {fileID: 1194446479}
   m_Father: {fileID: 0}
   m_RootOrder: 11
 --- !u!4 &624446190 stripped
@@ -1547,56 +1546,6 @@ SpriteRenderer:
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: e631d50f8363e0249beb96e1c731e0c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!1001 &1194446478
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 590082654}
-    m_Modifications:
-    - target: {fileID: 484672, guid: ef448d095c2451e49a926da11a5eaa8e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 52.7999992
-      objectReference: {fileID: 0}
-    - target: {fileID: 484672, guid: ef448d095c2451e49a926da11a5eaa8e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -.49000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 484672, guid: ef448d095c2451e49a926da11a5eaa8e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484672, guid: ef448d095c2451e49a926da11a5eaa8e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484672, guid: ef448d095c2451e49a926da11a5eaa8e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484672, guid: ef448d095c2451e49a926da11a5eaa8e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484672, guid: ef448d095c2451e49a926da11a5eaa8e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 484672, guid: ef448d095c2451e49a926da11a5eaa8e, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 159090, guid: ef448d095c2451e49a926da11a5eaa8e, type: 2}
-      propertyPath: m_Name
-      value: Siegebow (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: ef448d095c2451e49a926da11a5eaa8e, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1194446479 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 484672, guid: ef448d095c2451e49a926da11a5eaa8e, type: 2}
-  m_PrefabInternal: {fileID: 1194446478}
 --- !u!1 &1217808454
 GameObject:
   m_ObjectHideFlags: 0

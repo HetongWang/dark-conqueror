@@ -82,6 +82,7 @@ public class Player : Character
     public override void updateStatus()
     {
         base.updateStatus();
+        anim.SetFloat("verticalSpeed", body.velocity.y);
 
         // Update Stamina
         bool staminaCost = false;
