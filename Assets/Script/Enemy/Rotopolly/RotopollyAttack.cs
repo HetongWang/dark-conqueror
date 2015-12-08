@@ -18,7 +18,6 @@ class RotopollyAttack : EnemyCommonAttack
     void Update()
     {
         setting.damage = owner.setting.run.damage;
-        Debug.Log(setting.damage);
         Rotopolly r = (Rotopolly)_owner;
         if (!r.couldRun)
         {

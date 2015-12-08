@@ -214,6 +214,7 @@ public class Player : Character
             actingTime = 0;
             useSkill("normalAttack", setting.normalAttack[normalAttackPhase]);
         }
+        playerAudio.clip = null;
         yield break;
     }
 
@@ -264,6 +265,7 @@ public class Player : Character
         invincible = true;
         anim.SetInteger("skill", 8);
         movementFreezenTime = 0;
+        playerAudio.clip = null;
         Vector2 force;
         if (grounded)
             force = Vector2.right * setting.dodgingForce;
@@ -293,6 +295,10 @@ public class Player : Character
 
         anim.SetInteger("skill", 0);
         invincible = false;
+        normalAttackPhase = 0;
+        normalAttacking = false;
+        nextNormalAttack = false;
+        yield break;
     }
 
     public override void Hurt(SkillSetting setting, Character source)
@@ -361,6 +367,7 @@ public class Player : Character
         yield return new WaitForSeconds(setting.overheadSwing.actDuration * 0.4f);
 
         anim.SetInteger("skill", 0);
+        playerAudio.clip = null;
         yield break;
     }
 
@@ -395,6 +402,7 @@ public class Player : Character
         yield return new WaitForSeconds(setting.dropAttack.actDuration - 0.1f);
 
         anim.SetInteger("skill", 0);
+        playerAudio.clip = null;
         yield break;
     }
 
@@ -402,6 +410,7 @@ public class Player : Character
     {
         anim.speed = 1;
         body.gravityScale = 1;
+        playerAudio.clip = null;
         yield break;
     }
 

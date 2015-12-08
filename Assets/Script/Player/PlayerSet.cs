@@ -78,7 +78,7 @@ public class PlayerSet : CharacterSet {
 
         block.actDuration = float.PositiveInfinity;
 
-        dodge.actDuration = 0.4f;
+        dodge.actDuration = 0.45f;
         dodge.damage = 0f;
         dodge.range = 2f;
 
