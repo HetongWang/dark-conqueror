@@ -10,7 +10,7 @@ public class GameManager : Singleton<GameManager>
     public Sprite PCPicture;
     public Sprite KittyPicture;
     protected ConversationManager cm;
-    protected GameObject hud;
+    public GameObject hud;
 	protected GameObject upgradeMenu;
 	protected GameObject endMenu;
 	protected bool paused;
@@ -29,6 +29,13 @@ public class GameManager : Singleton<GameManager>
         cm = new ConversationManager(hud);
         cm.PCPicture = PCPicture;
         cm.KittyPicture = KittyPicture;
+    }
+
+    public void exitUpgradeMenu()
+    {
+            upgradeMenu.SetActive(false);
+            hud.SetActive(true);
+            paused = false;
     }
 
     void Update()

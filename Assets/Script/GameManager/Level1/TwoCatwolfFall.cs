@@ -15,7 +15,7 @@ public class TwoCatwolfFall : MonoBehaviour
         cameraBorder = Camera.main.transform.position.x;
         cameraBorder -= 2f;
         Vector3 position = new Vector3(cameraBorder, transform.position.y, transform.position.z);
-        position.y += 10f;
+        position.y += 3f;
         Instantiate(catwolfPrefab, position, Quaternion.Euler(new Vector3(0, 0, 0)));
 
         cameraBorder += 5f;

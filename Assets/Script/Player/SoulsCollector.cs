@@ -17,7 +17,8 @@ public class SoulsCollector : MonoBehaviour
         {
             s.disappear();
             player.souls += 1;
-            player.hp += 0.5f;
+            if (player.hp <= player.setting.hp)
+                player.hp += 0.5f;
         }
     }
 }

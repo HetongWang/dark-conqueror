@@ -45,6 +45,7 @@ public class SkillsUI : MonoBehaviour
 	}
 
 	void OnDisable(){
+        GameManager.Instance.exitUpgradeMenu();
 		Time.timeScale = 1;
 	}
 

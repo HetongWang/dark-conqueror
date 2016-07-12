@@ -201,6 +201,10 @@ public class Player : Character
         yield return new WaitForSeconds(setting.normalAttack[normalAttackPhase].actDuration - 0.2f);
         normalAttacking = false;
 
+        if (Input.GetAxisRaw("Horizontal") > 0 && !facingRight)
+            Flip();
+        if (Input.GetAxisRaw("Horizontal") < 0 && facingRight)
+            Flip();
         if (!nextNormalAttack)
         {
             anim.SetInteger("skill", 0);

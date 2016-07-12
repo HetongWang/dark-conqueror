@@ -31,7 +31,7 @@ public class KittyTrigger : MonoBehaviour
 
     protected IEnumerator delay()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForEndOfFrame();
         GameManager.Instance.newConversation(conver);
     }
 }
